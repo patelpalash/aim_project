@@ -1,6 +1,6 @@
 {
-  "catalogueVersion": 1,
-  "publishedAt": "2026-11-14T17:41:56.325Z",
+  "catalogueVersion": 2,
+  "publishedAt": "2026-11-14T18:48:52.317Z",
   "reviewer": "Umang (source review assisted by Claude)",
   "offers": [
     {
@@ -817,6 +817,102 @@
         "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-trends-und-anteile-272H207001/",
         "fetchedAt": "2026-11-14T17:39:14.995Z",
         "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "aim-271430cyc1",
+      "providerId": "aim",
+      "externalId": "271430CYC1",
+      "title": {
+        "de": "Craft Your City – Baue deine nachhaltige und smarte Traumstadt (10–14 Jahre)",
+        "en": "Craft Your City – Baue deine nachhaltige und smarte Traumstadt (10–14 Jahre)"
+      },
+      "summary": {
+        "de": "Kreatives, nachhaltiges und gemeinsames Bauen in der Sandbox-Welt von Luanti",
+        "en": "Kreatives, nachhaltiges und gemeinsames Bauen in der Sandbox-Welt von Luanti"
+      },
+      "topics": [
+        "gaming"
+      ],
+      "interests": [
+        "build-worlds"
+      ],
+      "audiences": [
+        "children",
+        "teens"
+      ],
+      "format": "course",
+      "minAge": 10,
+      "maxAge": 14,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "10–14 Jahre"
+      },
+      "startsAt": "2027-02-09T09:00:00+01:00",
+      "endsAt": "2027-02-11T15:00:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 0,
+      "venue": {
+        "name": "Bildungscampus",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://www.aim-akademie.org/kurse/kurs/Craft-Your-City-Baue-deine-nachhaltige-und-smarte-Traumstadt-1014-Jahre/271430CYC1",
+        "fetchedAt": "2026-11-14T17:38:12.152Z",
+        "verifiedAt": "2026-11-14T18:48:52.317Z"
+      }
+    },
+    {
+      "id": "aim-271420fe",
+      "providerId": "aim",
+      "externalId": "271420FE",
+      "title": {
+        "de": "Code your Chat – Entwickle deine eigene Messenger-Web-App (13–17 Jahre)",
+        "en": "Code your Chat – Entwickle deine eigene Messenger-Web-App (13–17 Jahre)"
+      },
+      "summary": {
+        "de": "Schritt für Schritt zur eigenen Messenger-App – von der Idee bis zur Web-App",
+        "en": "Schritt für Schritt zur eigenen Messenger-App – von der Idee bis zur Web-App"
+      },
+      "topics": [
+        "ai",
+        "coding"
+      ],
+      "interests": [
+        "build-apps"
+      ],
+      "audiences": [
+        "teens"
+      ],
+      "format": "course",
+      "minAge": 13,
+      "maxAge": 17,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "13–17 Jahre"
+      },
+      "startsAt": "2027-02-25T16:30:00+01:00",
+      "endsAt": "2027-06-03T18:10:00+02:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 0,
+      "venue": {
+        "name": "Bildungscampus",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://www.aim-akademie.org/kurse/kurs/Code-your-Chat-Entwickle-deine-eigene-Messenger-Web-App-1317-Jahre/271420FE",
+        "fetchedAt": "2026-11-14T17:38:17.068Z",
+        "verifiedAt": "2026-11-14T18:48:52.317Z"
       }
     }
   ]

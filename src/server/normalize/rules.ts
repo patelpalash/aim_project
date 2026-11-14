@@ -67,6 +67,8 @@ const INTEREST_RULES: { interest: Interest; re: RegExp }[] = [
   { interest: "robots", re: /robot|mikrocontroller|ESP32|sensor|calliope|arduino/i },
   { interest: "make-art", re: /\b(zeichnen|malen|musik|kunst)\b|klangdesign|bildgestaltung|digitale kunst/i },
   { interest: "solve-puzzles", re: /rätsel|knobel|problemlös|detektiv/i },
+  { interest: "build-worlds", re: /sandbox|luanti|minecraft|welten? bauen|baust du .{0,40}(stadt|welt)/i },
+  { interest: "build-apps", re: /\bweb-?app|messenger-app|\bapps? (entwickeln|bauen|programmieren)|webentwicklung/i },
   { interest: "tell-stories", re: /geschichten|eine geschichte|märchen|trickfilm|storytelling|hörspiel|charakter/i },
 ];
 
