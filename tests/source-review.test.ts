@@ -1,7 +1,7 @@
 // Task 6/7 (PALASH-007): committed reviewed baseline, accurate lastReviewedAt, reset restores the baseline.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { cpSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
@@ -21,6 +21,10 @@ function sandbox() {
   cpSync(new URL("../data/", import.meta.url), join(dir, "data"), { recursive: true });
   rmSync(join(dir, "data", "catalog", "published-offers.json"), { force: true });
   rmSync(join(dir, "data", "review-sessions"), { recursive: true, force: true });
+  // Runtime attempt markers are git-ignored but live in data/, so a failed local refresh would
+  // otherwise leak into this fixture and report a provider as "error".
+  for (const f of readdirSync(join(dir, "data", "source-runs")))
+    if (f.endsWith("-last-attempt.json")) rmSync(join(dir, "data", "source-runs", f), { force: true });
   const d = join(dir, "data");
   const files: CatalogFiles = {
     demo: pathToFileURL(join(d, "demo-offers.json")), published: pathToFileURL(join(d, "catalog", "published-offers.json")),
