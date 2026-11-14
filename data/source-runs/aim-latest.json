@@ -1,9 +1,9 @@
 {
-  "runId": "aim-20261114T160334",
+  "runId": "aim-20261114T173756",
   "providerId": "aim",
   "adapterVersion": "aim-html/1",
-  "startedAt": "2026-11-14T16:03:34.934Z",
-  "finishedAt": "2026-11-14T16:04:10.023Z",
+  "startedAt": "2026-11-14T17:37:56.858Z",
+  "finishedAt": "2026-11-14T17:38:28.388Z",
   "status": "partial",
   "message": "15 candidate(s) staged for human review (9 ready, 6 need correction). Page cap 20 reached; coverage incomplete.",
   "windowDays": 180,
@@ -315,7 +315,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Python-lernen-mit-KI-ab-16-Jahren/262420PAI",
-          "fetchedAt": "2026-11-14T16:04:01.145Z",
+          "fetchedAt": "2026-11-14T17:38:20.382Z",
           "verifiedAt": null
         }
       },
@@ -592,7 +592,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/262420SC",
-          "fetchedAt": "2026-11-14T16:04:02.953Z",
+          "fetchedAt": "2026-11-14T17:38:22.021Z",
           "verifiedAt": null
         }
       },
@@ -884,7 +884,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Programmieren-lernen-mit-Python-1216-Jahre/262420PY",
-          "fetchedAt": "2026-11-14T16:04:04.645Z",
+          "fetchedAt": "2026-11-14T17:38:23.709Z",
           "verifiedAt": null
         }
       },
@@ -1174,7 +1174,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/262420RK2",
-          "fetchedAt": "2026-11-14T16:04:06.329Z",
+          "fetchedAt": "2026-11-14T17:38:25.277Z",
           "verifiedAt": null
         }
       },
@@ -1376,7 +1376,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/KI-Orientierung-fuer-Eltern-Grundlagen-Praxis-und-Zukunftsperspektiven/262410KIE",
-          "fetchedAt": "2026-11-14T16:04:08.126Z",
+          "fetchedAt": "2026-11-14T17:38:26.827Z",
           "verifiedAt": null
         }
       },
@@ -1581,7 +1581,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Aktuelle-digitale-Spielewelten-von-Kindern-und-Jugendlichen/262430DSW",
-          "fetchedAt": "2026-11-14T16:03:46.799Z",
+          "fetchedAt": "2026-11-14T17:38:07.124Z",
           "verifiedAt": null
         }
       },
@@ -1784,7 +1784,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Einfuehrung-in-die-Programmierung-mit-Mikrocontrollern-1215-Jahre/262420PCB",
-          "fetchedAt": "2026-11-14T16:03:48.532Z",
+          "fetchedAt": "2026-11-14T17:38:08.841Z",
           "verifiedAt": null
         }
       },
@@ -1987,7 +1987,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Kinderuni-auf-Reisen-Mosbach-Wer-bezahlt-eigentlich-den-Spielplatz/26293MOS",
-          "fetchedAt": "2026-11-14T16:04:10.020Z",
+          "fetchedAt": "2026-11-14T17:38:28.385Z",
           "verifiedAt": null
         }
       },
@@ -2167,7 +2167,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Spieleentwicklung-mit-Unity-fuer-Einsteiger-1014-Jahre/271430UN",
-          "fetchedAt": "2026-11-14T16:03:50.275Z",
+          "fetchedAt": "2026-11-14T17:38:10.557Z",
           "verifiedAt": null
         }
       },
@@ -2346,7 +2346,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Craft-Your-City-Baue-deine-nachhaltige-und-smarte-Traumstadt-1014-Jahre/271430CYC1",
-          "fetchedAt": "2026-11-14T16:03:52.155Z",
+          "fetchedAt": "2026-11-14T17:38:12.152Z",
           "verifiedAt": null
         }
       },
@@ -2556,7 +2556,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-1-analoges-Programmieren-ganz-ohne-Bildschirm-710-Jahre/271420RK1",
-          "fetchedAt": "2026-11-14T16:03:54.249Z",
+          "fetchedAt": "2026-11-14T17:38:13.816Z",
           "verifiedAt": null
         }
       },
@@ -2764,7 +2764,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/271420SC",
-          "fetchedAt": "2026-11-14T16:03:55.988Z",
+          "fetchedAt": "2026-11-14T17:38:15.411Z",
           "verifiedAt": null
         }
       },
@@ -3054,7 +3054,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Code-your-Chat-Entwickle-deine-eigene-Messenger-Web-App-1317-Jahre/271420FE",
-          "fetchedAt": "2026-11-14T16:03:57.750Z",
+          "fetchedAt": "2026-11-14T17:38:17.068Z",
           "verifiedAt": null
         }
       },
@@ -3350,7 +3350,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Talking-Plants-Programmiere-deine-Pflanze-bis-sie-spricht-1216-Jahre/271420SG",
-          "fetchedAt": "2026-11-14T16:03:45.086Z",
+          "fetchedAt": "2026-11-14T17:38:05.519Z",
           "verifiedAt": null
         }
       },
@@ -3533,7 +3533,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/271420RK2",
-          "fetchedAt": "2026-11-14T16:03:59.511Z",
+          "fetchedAt": "2026-11-14T17:38:18.774Z",
           "verifiedAt": null
         }
       },

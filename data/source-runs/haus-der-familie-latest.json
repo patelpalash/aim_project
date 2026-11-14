@@ -1,11 +1,11 @@
 {
-  "runId": "haus-der-familie-20261114T160422",
+  "runId": "haus-der-familie-20261114T173851",
   "providerId": "haus-der-familie",
   "adapterVersion": "hdf-kufer-json+html/1",
-  "startedAt": "2026-11-14T16:04:22.373Z",
-  "finishedAt": "2026-11-14T16:04:43.973Z",
+  "startedAt": "2026-11-14T17:38:51.205Z",
+  "finishedAt": "2026-11-14T17:39:17.765Z",
   "status": "needs-review",
-  "message": "11 candidate(s) staged for human review (7 ready, 4 need correction). https://hdf-hn.de/kurse/ is the open course search without preset filters; not queried (it would list every course).",
+  "message": "11 candidate(s) staged for human review (8 ready, 3 need correction). https://hdf-hn.de/kurse/ is the open course search without preset filters; not queried (it would list every course).",
   "windowDays": 180,
   "pageCap": 20,
   "partialCoverage": false,
@@ -135,8 +135,8 @@
     "outOfScope": 57,
     "outsideWindow": 0,
     "extracted": 11,
-    "ready": 7,
-    "blocked": 4,
+    "ready": 8,
+    "blocked": 3,
     "failed": 0
   },
   "skipped": [
@@ -471,7 +471,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/gesunder-umgang-mit-social-media-teil-i-mechanismen-verstehen-und-risiken-erkennen-live-online-261H207010/",
-          "fetchedAt": "2026-11-14T16:04:30.146Z",
+          "fetchedAt": "2026-11-14T17:39:02.568Z",
           "verifiedAt": null
         }
       },
@@ -645,7 +645,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-von-bausteinen-zum-balkendiagramm-261H207004/",
-          "fetchedAt": "2026-11-14T16:04:31.452Z",
+          "fetchedAt": "2026-11-14T17:39:04.916Z",
           "verifiedAt": null
         }
       },
@@ -830,7 +830,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/programmieren-lernen-scratch-261H304002/",
-          "fetchedAt": "2026-11-14T16:04:32.807Z",
+          "fetchedAt": "2026-11-14T17:39:06.266Z",
           "verifiedAt": null
         }
       },
@@ -953,7 +953,7 @@
     },
     {
       "rowId": "haus-der-familie-261h207006",
-      "state": "blocked",
+      "state": "ready-for-review",
       "timing": "upcoming",
       "offer": {
         "id": "haus-der-familie-261h207006",
@@ -970,7 +970,9 @@
         "topics": [
           "coding"
         ],
-        "interests": [],
+        "interests": [
+          "tell-stories"
+        ],
         "audiences": [
           "children",
           "families"
@@ -997,16 +999,11 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/maerchenhaft-mit-scratchjunior-eine-geschichte-programmieren-das-mutige-tier-261H207006/",
-          "fetchedAt": "2026-11-14T16:04:34.616Z",
+          "fetchedAt": "2026-11-14T17:39:07.647Z",
           "verifiedAt": null
         }
       },
-      "issues": [
-        {
-          "path": "interests",
-          "message": "No discovery interest matched; reviewer must choose one"
-        }
-      ],
+      "issues": [],
       "reviewNotes": [
         "English title/summary copied from the German source text; translation pending review."
       ],
@@ -1096,10 +1093,12 @@
         },
         {
           "field": "interests",
-          "value": [],
-          "text": null,
+          "value": [
+            "tell-stories"
+          ],
+          "text": "Märchen",
           "locator": "title + description",
-          "method": "absent"
+          "method": "rule"
         },
         {
           "field": "audiences",
@@ -1169,7 +1168,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207007/",
-          "fetchedAt": "2026-11-14T16:04:35.937Z",
+          "fetchedAt": "2026-11-14T17:39:09.055Z",
           "verifiedAt": null
         }
       },
@@ -1351,7 +1350,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207016/",
-          "fetchedAt": "2026-11-14T16:04:37.244Z",
+          "fetchedAt": "2026-11-14T17:39:10.485Z",
           "verifiedAt": null
         }
       },
@@ -1533,7 +1532,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207017/",
-          "fetchedAt": "2026-11-14T16:04:38.629Z",
+          "fetchedAt": "2026-11-14T17:39:11.971Z",
           "verifiedAt": null
         }
       },
@@ -1715,7 +1714,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/spielerisch-mit-scratchjunior-eine-gruenere-saubere-welt-programmieren-261H207008/",
-          "fetchedAt": "2026-11-14T16:04:39.996Z",
+          "fetchedAt": "2026-11-14T17:39:13.441Z",
           "verifiedAt": null
         }
       },
@@ -1884,7 +1883,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/kinderferienbox-wie-funktionieren-roboter-und-wie-werden-sie-programmiert-261H305008/",
-          "fetchedAt": "2026-11-14T16:04:42.654Z",
+          "fetchedAt": "2026-11-14T17:39:16.373Z",
           "verifiedAt": null
         }
       },
@@ -2090,7 +2089,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/kinderferienbox-programmieren-lernen-scratch-261H305006/",
-          "fetchedAt": "2026-11-14T16:04:43.972Z",
+          "fetchedAt": "2026-11-14T17:39:17.764Z",
           "verifiedAt": null
         }
       },
@@ -2257,7 +2256,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-trends-und-anteile-272H207001/",
-          "fetchedAt": "2026-11-14T16:04:41.329Z",
+          "fetchedAt": "2026-11-14T17:39:14.995Z",
           "verifiedAt": null
         }
       },

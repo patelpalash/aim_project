@@ -35,6 +35,7 @@ export interface Store { dataDir: string }
 export const defaultStore = (): Store => ({ dataDir: join(/*turbopackIgnore: true*/ process.cwd(), "data") });
 const paths = (s: Store) => ({
   published: join(s.dataDir, "catalog", "published-offers.json"),
+  reviewed: join(s.dataDir, "catalog", "reviewed-offers.json"),
   sessions: join(s.dataDir, "review-sessions"),
 });
 
@@ -46,9 +47,14 @@ function writeAtomic(file: string, body: unknown) {
 }
 
 export interface PublishedCatalog { catalogueVersion: number; publishedAt: string | null; offers: Offer[] }
+/** Runtime catalogue if present, else the committed reviewed baseline, else empty. */
 export function readPublished(store: Store = defaultStore()): PublishedCatalog {
-  const file = paths(store).published;
-  return existsSync(/*turbopackIgnore: true*/ file) ? JSON.parse(readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as PublishedCatalog : { catalogueVersion: 0, publishedAt: null, offers: [] };
+  for (const file of [paths(store).published, paths(store).reviewed])
+    if (existsSync(/*turbopackIgnore: true*/ file)) {
+      const c = JSON.parse(readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as PublishedCatalog;
+      return { catalogueVersion: c.catalogueVersion, publishedAt: c.publishedAt ?? null, offers: c.offers };
+    }
+  return { catalogueVersion: 0, publishedAt: null, offers: [] };
 }
 
 /** Stored session = shared contract + server-only evidence/notes and approval memo (for idempotency). */
@@ -266,11 +272,17 @@ export function draftsFromCandidates(candidates: Candidate[]): DraftInput[] {
   }));
 }
 
-/** Repeatable demo reset: remove published reviewed records and stored sessions. */
+/**
+ * Repeatable demo reset: drop runtime publications and sessions and restore the committed reviewed
+ * baseline (real records that passed evidence review). The version still increases so stale previews fail.
+ */
 export function resetDemo(store: Store = defaultStore()): { reset: true; catalogueVersion: number } {
   const p = paths(store);
   const version = readPublished(store).catalogueVersion;
   if (existsSync(/*turbopackIgnore: true*/ p.sessions)) for (const f of readdirSync(/*turbopackIgnore: true*/ p.sessions)) if (f.endsWith(".json")) rmSync(join(/*turbopackIgnore: true*/ p.sessions, f));
-  writeAtomic(p.published, { catalogueVersion: version + 1, publishedAt: null, offers: [] });
+  const baseline = existsSync(/*turbopackIgnore: true*/ p.reviewed)
+    ? JSON.parse(readFileSync(/*turbopackIgnore: true*/ p.reviewed, "utf8")) as PublishedCatalog
+    : { catalogueVersion: 0, publishedAt: null, offers: [] };
+  writeAtomic(p.published, { ...baseline, catalogueVersion: version + 1 });
   return { reset: true, catalogueVersion: version + 1 };
 }

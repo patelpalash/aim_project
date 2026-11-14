@@ -1,9 +1,9 @@
 {
-  "runId": "experimenta-20261114T160410",
+  "runId": "experimenta-20261114T173828",
   "providerId": "experimenta",
   "adapterVersion": "experimenta-html/1",
-  "startedAt": "2026-11-14T16:04:10.027Z",
-  "finishedAt": "2026-11-14T16:04:22.369Z",
+  "startedAt": "2026-11-14T17:38:28.393Z",
+  "finishedAt": "2026-11-14T17:38:51.200Z",
   "status": "needs-review",
   "message": "1 candidate(s) staged for human review (1 ready, 0 need correction).",
   "windowDays": 180,
@@ -84,7 +84,7 @@
       "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/maker-faire/?termin=1801908000",
       "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/maker-faire/?termin=1801908000",
       "status": 200,
-      "bytes": 215410,
+      "bytes": 187994,
       "kind": "detail"
     },
     {
@@ -2738,7 +2738,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/first-lego-league-regionalwettbewerb-heilbronn/?termin=1796468400",
-          "fetchedAt": "2026-11-14T16:04:19.365Z",
+          "fetchedAt": "2026-11-14T17:38:45.147Z",
           "verifiedAt": null
         }
       },

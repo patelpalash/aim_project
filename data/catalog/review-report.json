@@ -1,0 +1,211 @@
+{
+  "reviewer": "Umang (source review assisted by Claude)",
+  "appliedAt": "2026-11-14T17:41:56.325Z",
+  "basis": {
+    "aim": "aim-20261114T173756",
+    "experimenta": "experimenta-20261114T173828",
+    "haus-der-familie": "haus-der-familie-20261114T173851",
+    "ipai": "ipai-20261114T173917"
+  },
+  "approved": [
+    {
+      "rowId": "aim-262420pcb",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "aim-271430un",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "aim-271420rk1",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "aim-271420sc",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "aim-271420sg",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "aim-271420rk2",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "experimenta-15158-1796468400",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page. Free spectator entry ('Der Eintritt ist kostenfrei'); age unknown because only grades 5–10 are published (no grade-to-age conversion).",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "haus-der-familie-261h304002",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "haus-der-familie-261h207006",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "haus-der-familie-261h207007",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "haus-der-familie-261h207016",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "haus-der-familie-261h207017",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "haus-der-familie-261h207008",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "haus-der-familie-261h305008",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "haus-der-familie-261h305006",
+      "decision": "approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page.",
+      "evidence": null,
+      "changes": null
+    },
+    {
+      "rowId": "haus-der-familie-261h207004",
+      "decision": "correct-and-approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page. Interest assigned by reviewer from the course text.",
+      "evidence": "\"…wie man Dinge sortiert, Strichlisten macht und spannende Diagramme erstellt … warum Daten so wichtig für künstliche Intelligenz (KI) sind\"",
+      "changes": {
+        "interests": [
+          "solve-puzzles"
+        ]
+      }
+    },
+    {
+      "rowId": "haus-der-familie-272h207001",
+      "decision": "correct-and-approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page. Interest assigned by reviewer from the course text.",
+      "evidence": "\"…wie man Reihenfolgen erkennt, Veränderungen beobachtet … warum solche Diagramme wichtig sind, um Muster zu erkennen – auch für künstliche Intelligenz\"",
+      "changes": {
+        "interests": [
+          "solve-puzzles"
+        ]
+      }
+    }
+  ],
+  "held": [
+    {
+      "rowId": "aim-262420sc",
+      "reason": "Series already running since 22.09.2026; page says registration is no longer possible.",
+      "evidence": null
+    },
+    {
+      "rowId": "aim-262420py",
+      "reason": "Series already running since 30.09.2026; registration closed.",
+      "evidence": null
+    },
+    {
+      "rowId": "aim-262420rk2",
+      "reason": "Series already running since 04.11.2026; registration closed.",
+      "evidence": null
+    },
+    {
+      "rowId": "aim-262420pai",
+      "reason": "Series already running; ages 'ab 16' and no fitting discovery interest.",
+      "evidence": null
+    },
+    {
+      "rowId": "aim-262410kie",
+      "reason": "Parent series already running since 12.11.2026.",
+      "evidence": null
+    },
+    {
+      "rowId": "aim-271430cyc1",
+      "reason": "No fitting discovery interest: the course builds a city inside the sandbox game Luanti; that is not 'Spiele bauen'. Needs a new interest (e.g. 'Welten bauen') via theme maintenance, then re-review.",
+      "evidence": "\"Kreatives, nachhaltiges und gemeinsames Bauen in der Sandbox-Welt von Luanti\""
+    },
+    {
+      "rowId": "aim-271420fe",
+      "reason": "No fitting discovery interest for building a messenger web app; needs a new interest (e.g. 'Apps bauen') via theme maintenance, then re-review.",
+      "evidence": "\"Schritt für Schritt zur eigenen Messenger-App – von der Idee bis zur Web-App\""
+    },
+    {
+      "rowId": "aim-262430dsw",
+      "reason": "Online course for teachers and parents; no physical city. Palash decision UMANG-001(1): online records stay blocked until an online-venue extension exists.",
+      "evidence": "\"Dieser Online-Kurs richtet sich an Lehrkräfte aller Schularten, Ganztagesbetreuende, Schulsozialarbeitende und Eltern.\""
+    },
+    {
+      "rowId": "aim-26293mos",
+      "reason": "Out of scope: a children's university lecture about taxes; the AI keyword match is incidental.",
+      "evidence": "\"Steuern begegnen uns überall…\""
+    },
+    {
+      "rowId": "haus-der-familie-261h207010",
+      "reason": "LIVE ONLINE parent talk; no physical city (UMANG-001(1)).",
+      "evidence": null
+    },
+    {
+      "rowId": "ipai-10379",
+      "reason": "General adult audience ('Alle interessierten KI-Nutzer:innen'); Palash decision UMANG-001(4): adult events do not become parent events without source evidence of parent/family relevance.",
+      "evidence": null
+    },
+    {
+      "rowId": "ipai-10602",
+      "reason": "General adult audience ('Alle interessierten KI-Nutzer:innen'); Palash decision UMANG-001(4): adult events do not become parent events without source evidence of parent/family relevance.",
+      "evidence": null
+    },
+    {
+      "rowId": "ipai-9445",
+      "reason": "General adult audience ('Alle interessierten KI-Nutzer:innen'); Palash decision UMANG-001(4): adult events do not become parent events without source evidence of parent/family relevance.",
+      "evidence": null
+    },
+    {
+      "rowId": "ipai-9449",
+      "reason": "General adult audience ('Alle interessierten KI-Nutzer:innen'); Palash decision UMANG-001(4): adult events do not become parent events without source evidence of parent/family relevance.",
+      "evidence": null
+    }
+  ]
+}

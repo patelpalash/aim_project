@@ -1,0 +1,286 @@
+{
+  "reviewer": "Umang (source review assisted by Claude)",
+  "reviewedAt": "2026-11-14",
+  "basis": {
+    "aim": "aim-20261114T173756",
+    "experimenta": "experimenta-20261114T173828",
+    "haus-der-familie": "haus-der-familie-20261114T173851",
+    "ipai": "ipai-20261114T173917"
+  },
+  "method": "Each approved row: adapter cross-checks passed, and the provider's own detail page was re-fetched and found to contain the staged date, start time, title and fee. Corrections only from quoted source text. Decisions are applied through the same review service (createSession → patchRow → approve), which records the human review time.",
+  "decisions": [
+    {
+      "rowId": "aim-262420pcb",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2026-11-27T16:30:00+01:00",
+        "priceEur": 0,
+        "availability": "full",
+        "titleDe": "Kleine Computer, große Wirkung – Einführung in die Programmierung mit Mikrocontrollern (12–15 Jahre)"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "aim-271430un",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-02-03T15:30:00+01:00",
+        "priceEur": 0,
+        "availability": "full",
+        "titleDe": "Spieleentwicklung mit Unity für Einsteiger (10–14 Jahre)"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "aim-271420rk1",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-02-17T15:00:00+01:00",
+        "priceEur": 0,
+        "availability": "full",
+        "titleDe": "Robotik zum Anfassen 1 – analoges Programmieren ganz ohne Bildschirm (7–10 Jahre)"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "aim-271420sc",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-02-23T16:30:00+01:00",
+        "priceEur": 0,
+        "availability": "full",
+        "titleDe": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "aim-271420sg",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-03-10T16:00:00+01:00",
+        "priceEur": 0,
+        "availability": "available",
+        "titleDe": "Talking Plants – Programmiere deine Pflanze, bis sie spricht (12–16 Jahre)"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "aim-271420rk2",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-04-07T15:00:00+02:00",
+        "priceEur": 0,
+        "availability": "full",
+        "titleDe": "Robotik zum Anfassen 2 – vom analogen ins symbolbasierte Programmieren (7–10 Jahre)"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "experimenta-15158-1796468400",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2026-12-05T11:00:00+01:00",
+        "priceEur": 0,
+        "availability": "unknown",
+        "titleDe": "First Lego League Challenge – Regionalwettbewerb Heilbronn"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page. Free spectator entry ('Der Eintritt ist kostenfrei'); age unknown because only grades 5–10 are published (no grade-to-age conversion)."
+    },
+    {
+      "rowId": "haus-der-familie-261h304002",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2026-11-28T12:30:00+01:00",
+        "priceEur": 30,
+        "availability": "full",
+        "titleDe": "Programmieren Lernen - Scratch – Für Kinder von 8 bis 12 Jahren ohne Begleitperson"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "haus-der-familie-261h207006",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2026-12-05T09:30:00+01:00",
+        "priceEur": 10,
+        "availability": "full",
+        "titleDe": "Märchenhaft mit ScratchJunior eine Geschichte programmieren: Das mutige Tier – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "haus-der-familie-261h207007",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-01-16T10:00:00+01:00",
+        "priceEur": 10,
+        "availability": "full",
+        "titleDe": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "haus-der-familie-261h207016",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-01-16T12:30:00+01:00",
+        "priceEur": 10,
+        "availability": "full",
+        "titleDe": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "haus-der-familie-261h207017",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-01-16T14:30:00+01:00",
+        "priceEur": 10,
+        "availability": "full",
+        "titleDe": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "haus-der-familie-261h207008",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-01-30T09:30:00+01:00",
+        "priceEur": 10,
+        "availability": "available",
+        "titleDe": "Spielerisch mit ScratchJunior eine grünere, saubere Welt programmieren – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "haus-der-familie-261h305008",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-02-11T09:00:00+01:00",
+        "priceEur": 60,
+        "availability": "available",
+        "titleDe": "KinderFerienBox: Wie funktionieren Roboter und wie werden sie programmiert? – Für Kinder von 6 bis 10 Jahren ohne Begleitperson"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "haus-der-familie-261h305006",
+      "decision": "approve",
+      "expect": {
+        "startsAt": "2027-02-13T10:00:00+01:00",
+        "priceEur": 30,
+        "availability": "full",
+        "titleDe": "KinderFerienBox: Programmieren Lernen - Scratch – Für Kinder von 8 bis 12 Jahren ohne Begleitperson"
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page."
+    },
+    {
+      "rowId": "haus-der-familie-261h207004",
+      "decision": "correct-and-approve",
+      "expect": {
+        "startsAt": "2026-11-21T10:00:00+01:00",
+        "priceEur": 10,
+        "availability": "unknown",
+        "titleDe": "Data Literacy for Kids: Von Bausteinen zum Balkendiagramm – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "changes": {
+        "interests": [
+          "solve-puzzles"
+        ]
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page. Interest assigned by reviewer from the course text.",
+      "evidence": "\"…wie man Dinge sortiert, Strichlisten macht und spannende Diagramme erstellt … warum Daten so wichtig für künstliche Intelligenz (KI) sind\""
+    },
+    {
+      "rowId": "haus-der-familie-272h207001",
+      "decision": "correct-and-approve",
+      "expect": {
+        "startsAt": "2027-02-20T10:00:00+01:00",
+        "priceEur": 10,
+        "availability": "available",
+        "titleDe": "Data Literacy for Kids: Trends und Anteile – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "changes": {
+        "interests": [
+          "solve-puzzles"
+        ]
+      },
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page. Interest assigned by reviewer from the course text.",
+      "evidence": "\"…wie man Reihenfolgen erkennt, Veränderungen beobachtet … warum solche Diagramme wichtig sind, um Muster zu erkennen – auch für künstliche Intelligenz\""
+    },
+    {
+      "rowId": "aim-262420sc",
+      "decision": "hold",
+      "reason": "Series already running since 22.09.2026; page says registration is no longer possible."
+    },
+    {
+      "rowId": "aim-262420py",
+      "decision": "hold",
+      "reason": "Series already running since 30.09.2026; registration closed."
+    },
+    {
+      "rowId": "aim-262420rk2",
+      "decision": "hold",
+      "reason": "Series already running since 04.11.2026; registration closed."
+    },
+    {
+      "rowId": "aim-262420pai",
+      "decision": "hold",
+      "reason": "Series already running; ages 'ab 16' and no fitting discovery interest."
+    },
+    {
+      "rowId": "aim-262410kie",
+      "decision": "hold",
+      "reason": "Parent series already running since 12.11.2026."
+    },
+    {
+      "rowId": "aim-271430cyc1",
+      "decision": "hold",
+      "reason": "No fitting discovery interest: the course builds a city inside the sandbox game Luanti; that is not 'Spiele bauen'. Needs a new interest (e.g. 'Welten bauen') via theme maintenance, then re-review.",
+      "evidence": "\"Kreatives, nachhaltiges und gemeinsames Bauen in der Sandbox-Welt von Luanti\""
+    },
+    {
+      "rowId": "aim-271420fe",
+      "decision": "hold",
+      "reason": "No fitting discovery interest for building a messenger web app; needs a new interest (e.g. 'Apps bauen') via theme maintenance, then re-review.",
+      "evidence": "\"Schritt für Schritt zur eigenen Messenger-App – von der Idee bis zur Web-App\""
+    },
+    {
+      "rowId": "aim-262430dsw",
+      "decision": "hold",
+      "reason": "Online course for teachers and parents; no physical city. Palash decision UMANG-001(1): online records stay blocked until an online-venue extension exists.",
+      "evidence": "\"Dieser Online-Kurs richtet sich an Lehrkräfte aller Schularten, Ganztagesbetreuende, Schulsozialarbeitende und Eltern.\""
+    },
+    {
+      "rowId": "aim-26293mos",
+      "decision": "hold",
+      "reason": "Out of scope: a children's university lecture about taxes; the AI keyword match is incidental.",
+      "evidence": "\"Steuern begegnen uns überall…\""
+    },
+    {
+      "rowId": "haus-der-familie-261h207010",
+      "decision": "hold",
+      "reason": "LIVE ONLINE parent talk; no physical city (UMANG-001(1))."
+    },
+    {
+      "rowId": "ipai-10379",
+      "decision": "hold",
+      "reason": "General adult audience ('Alle interessierten KI-Nutzer:innen'); Palash decision UMANG-001(4): adult events do not become parent events without source evidence of parent/family relevance."
+    },
+    {
+      "rowId": "ipai-10602",
+      "decision": "hold",
+      "reason": "General adult audience ('Alle interessierten KI-Nutzer:innen'); Palash decision UMANG-001(4): adult events do not become parent events without source evidence of parent/family relevance."
+    },
+    {
+      "rowId": "ipai-9445",
+      "decision": "hold",
+      "reason": "General adult audience ('Alle interessierten KI-Nutzer:innen'); Palash decision UMANG-001(4): adult events do not become parent events without source evidence of parent/family relevance."
+    },
+    {
+      "rowId": "ipai-9449",
+      "decision": "hold",
+      "reason": "General adult audience ('Alle interessierten KI-Nutzer:innen'); Palash decision UMANG-001(4): adult events do not become parent events without source evidence of parent/family relevance."
+    }
+  ]
+}
