@@ -13,6 +13,7 @@ import { WHEN_LABEL, whenPatch, type When } from "./dates";
 import { DetailSheet } from "./DetailSheet";
 import { EventCard } from "./EventCard";
 import { MapView } from "./MapView";
+import { PlaySection } from "./PlaySection";
 import { ShortlistSheet } from "./ShortlistSheet";
 import { interestMeta, InterestIcon } from "./interests";
 import { providerName } from "./format";
@@ -181,6 +182,16 @@ export function Discovery() {
             })}
           </div>
         </section>
+
+        <PlaySection taxonomy={bundle?.taxonomy ?? null} quizAnswers={state.quizAnswers}
+          completedPuzzleIds={state.completedPuzzleIds} selectedInterests={interests}
+          onAnswer={(questionId, choiceId) => dispatch({ type: "set-quiz-answer", questionId, choiceId })}
+          onPuzzleDone={id => dispatch({ type: "complete-puzzle", id })}
+          onApplyInterests={ids => {
+            withTransition(() => { for (const id of ids) if (!interests.includes(id)) dispatch({ type: "toggle-interest", id }); });
+            setAnnounce(`${ids.length === 1 ? "Interesse" : "Interessen"} übernommen`);
+            resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+          }} />
 
         <section className="wrap dz-explore" aria-labelledby="dz-results-title">
           <div className="dz-controls panel reveal">
