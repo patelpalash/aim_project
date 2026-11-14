@@ -54,7 +54,14 @@ export function validateOffer(input: unknown, taxonomy: Taxonomy = DEFAULT_TAXON
   return issues.length ? { ok: false, issues } : { ok: true, offer: input as unknown as Offer };
 }
 
-function assertFilters(filters: SearchFilters) {
+export function assertSearchFilters(filters: SearchFilters) {
+  if (filters.query !== undefined && typeof filters.query !== "string") throw new RangeError("Invalid search text");
+  for (const values of [filters.topics, filters.interests])
+    if (values !== undefined && (!Array.isArray(values) || values.some(value => typeof value !== "string" || !value.trim()))) throw new RangeError("Invalid selected IDs");
+  if (filters.audience !== undefined && !["family", "parent", "school"].includes(filters.audience)) throw new RangeError("Invalid audience filter");
+  if (filters.format !== undefined && !(FORMATS as readonly unknown[]).includes(filters.format)) throw new RangeError("Invalid format filter");
+  if (filters.providerId !== undefined && !nonempty(filters.providerId)) throw new RangeError("Invalid provider filter");
+  if (filters.stepFreeOnly !== undefined && typeof filters.stepFreeOnly !== "boolean") throw new RangeError("Invalid accessibility filter");
   if (filters.age !== undefined && (!Number.isInteger(filters.age) || filters.age < 0 || filters.age > 120))
     throw new RangeError("Invalid age filter");
   if (filters.maxPriceEur !== undefined && (!Number.isFinite(filters.maxPriceEur) || filters.maxPriceEur < 0))
@@ -69,7 +76,7 @@ function assertFilters(filters: SearchFilters) {
 
 /** Public catalogue: approved records only, with unknown values handled conservatively. */
 export function filterOffers(offers: readonly Offer[], filters: SearchFilters = {}, now = new Date()): Offer[] {
-  assertFilters(filters);
+  assertSearchFilters(filters);
   if (!Number.isFinite(now.getTime())) throw new RangeError("Invalid reference time");
   const terms = normalize(filters.query?.trim() ?? "").split(/\s+/).filter(Boolean);
   return offers.filter(offer => {
@@ -109,6 +116,26 @@ export function recommendOffers(offers: readonly Offer[], filters: SearchFilters
   }).sort((a, b) => b.score - a.score ||
     scheduleSortTime(a.offer) - scheduleSortTime(b.offer) ||
     a.offer.id.localeCompare(b.offer.id));
+}
+
+/** Friendly source-grounded explanations; numerical heuristic scores stay internal. */
+export function getRecommendationReasons(recommendation: Recommendation, taxonomy: Taxonomy = DEFAULT_TAXONOMY, locale: Locale = "de"): string[] {
+  return recommendation.reasonKeys.map(key => {
+    if (key.startsWith("topic.")) {
+      const id = key.slice(6), label = taxonomy.topics.find(topic => topic.id === id)?.label[locale] ?? id;
+      return locale === "de" ? `Thema: ${label}` : `Topic: ${label}`;
+    }
+    if (key.startsWith("interest.")) {
+      const id = key.slice(9), label = taxonomy.interests.find(interest => interest.id === id)?.label[locale] ?? id;
+      return locale === "de" ? `Dein Interesse: ${label}` : `Your interest: ${label}`;
+    }
+    const labels: Record<string, Record<Locale, string>> = {
+      "age.suitable": { de: "Passt zur gewählten Altersangabe.", en: "Fits the selected age." },
+      "budget.within": { de: "Passt zum gewählten Budget.", en: "Within the selected budget." },
+      "discovery.explore": { de: "Zum Entdecken.", en: "Something to explore." }
+    };
+    return labels[key]?.[locale] ?? (locale === "de" ? "Zum Entdecken." : "Something to explore.");
+  });
 }
 
 /** Same-device parent summary. No child profile, messages, URL tracking or booking is created. */

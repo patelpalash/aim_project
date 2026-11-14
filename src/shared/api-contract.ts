@@ -1,7 +1,7 @@
 import type { Issue, Offer, Taxonomy } from "./contracts.ts";
 import { validateOffer } from "./catalog.ts";
 import { DEFAULT_TAXONOMY } from "./taxonomy.ts";
-import { isIsoTimestamp, isRecord } from "./validation.ts";
+import { isHttpsUrl, isIsoTimestamp, isRecord, nonempty } from "./validation.ts";
 
 export interface SourceStatus {
   providerId: string;
@@ -26,6 +26,20 @@ export interface CatalogResponse {
 export interface ProviderSummary { id: string; name: string; discoveryUrl: string }
 export interface ProvidersResponse { schemaVersion: 1; providers: ProviderSummary[] }
 export interface ApiErrorResponse { error: { code: string; message: string; issues?: Issue[] } }
+
+export function validateProvidersResponse(input: unknown): { ok: true; providers: ProviderSummary[] } | { ok: false; issues: Issue[] } {
+  if (!isRecord(input) || input.schemaVersion !== 1 || !Array.isArray(input.providers))
+    return { ok: false, issues: [{ path: "$", message: "Expected providers response schema 1" }] };
+  const issues: Issue[] = [], ids = new Set<string>();
+  input.providers.forEach((provider, index) => {
+    if (!isRecord(provider) || !nonempty(provider.id) || provider.id.length > 160 || !nonempty(provider.name) || !isHttpsUrl(provider.discoveryUrl)) {
+      issues.push({ path: `providers[${index}]`, message: "Expected provider ID, name and HTTPS discovery URL" }); return;
+    }
+    if (ids.has(provider.id)) issues.push({ path: `providers[${index}].id`, message: "Duplicate provider ID" });
+    ids.add(provider.id);
+  });
+  return issues.length ? { ok: false, issues } : { ok: true, providers: input.providers as ProviderSummary[] };
+}
 
 export function validateCatalogResponse(input: unknown, taxonomy: Taxonomy = DEFAULT_TAXONOMY):
   { ok: true; catalog: CatalogResponse } | { ok: false; issues: Issue[] } {

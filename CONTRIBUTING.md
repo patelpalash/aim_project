@@ -2,7 +2,7 @@
 
 ## Start from one baseline
 
-The shared `main` baseline contains the plan, individual prompts, original challenge files and tested TypeScript starter. Ishan and Umang should use their own local clones:
+The shared `main` baseline contains the plan, individual prompts, original challenge files, Next.js shell and tested shared behavior/contracts. Read `docs/STATUS.md` and `docs/HANDOFF_PALASH.md` before implementation. Ishan and Umang should use their own local clones:
 
 ```powershell
 git clone https://github.com/patelpalash/aim_project.git

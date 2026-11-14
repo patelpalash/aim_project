@@ -8,7 +8,7 @@ The user wants an overall interactive, modern learning/event website with distin
 - **Umang:** follow `docs/prompts/UMANG_CLAUDE.md` and `docs/tasks/UMANG.md`, task IDs U1-U6. Own all four source adapters and CSV input through one normalization/review service, APIs/cache/storage.
 - **Palash + ChatGPT:** follow `docs/tasks/PALASH.md`, task IDs P1-P5. Own app setup, shared state/behavior/schema, root tooling and integration.
 
-The Next.js shell and P2 shared contracts are implemented; read `docs/STATUS.md` and `docs/HANDOFF_PALASH.md` before starting. Use the concrete payloads in `examples/`. Full visual UI, live adapters and the actual review service remain teammate work. Preserve demo labels/source evidence and coordinate shared changes through Palash.
+The Next.js shell, P2 shared contracts and P3/P4 discovery/quiz/puzzle/client modules are implemented; read `docs/STATUS.md` and `docs/HANDOFF_PALASH.md` before starting. Use the concrete payloads in `examples/`. Full visual UI, live adapters and the actual review service remain teammate work. Preserve demo labels/source evidence and coordinate shared changes through Palash.
 
 Adopt the selected bulk-upload and maintainer features, not the alternative plan wholesale. CSV template/row status/inline correction/selected publication are in scope. PDF/LLM/email/arbitrary-link/XLSX ingestion and auto-publication are deferred. Blocked rows cannot publish, no age/cost/date is invented, and the whole-website interactive experience remains central.
 

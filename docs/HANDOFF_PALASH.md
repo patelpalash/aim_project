@@ -1,6 +1,6 @@
-# Palash bootstrap and shared-contract handoff
+# Palash P1-P4 handoff
 
-P1 is published on `main` at commit `245e1b1`. This document accompanies P2's additive contracts. The product scope stays plan revision 3; new shared helpers are not proof that Ishan's UI or Umang's service exists.
+P1 is published at `245e1b1` and P2 at `784e3e9`. This handoff also covers P3/P4's discovery, quiz, puzzle and client-loading modules. The product scope stays plan revision 3; shared helpers are not proof that Ishan's UI or Umang's service exists.
 
 ## Update the local clone
 
@@ -12,12 +12,12 @@ The `@/` alias maps to `src/`. Node's direct TypeScript tests still use relative
 
 ```ts
 import type { Offer, SearchFilters, Taxonomy } from "@/shared/contracts";
-import { validateOffer, filterOffers, recommendOffers, previewImport, buildParentHandoff } from "@/shared/catalog";
+import { validateOffer, filterOffers, recommendOffers, getRecommendationReasons, previewImport, buildParentHandoff } from "@/shared/catalog";
 import { DEFAULT_TAXONOMY, validateTaxonomy, getActiveTopics, getActiveInterests } from "@/shared/taxonomy";
 import { getAgeSuitability } from "@/shared/age";
 import { getScheduleStatus, getBerlinDate, resolveBerlinLocalDateTime } from "@/shared/schedule";
 import type { CatalogResponse, SourceStatus } from "@/shared/api-contract";
-import { validateCatalogResponse } from "@/shared/api-contract";
+import { validateCatalogResponse, validateProvidersResponse } from "@/shared/api-contract";
 import type { ReviewSession, ReviewRow, ReviewPatchRequest, ReviewApprovalRequest } from "@/shared/review";
 import { validateReviewSession, validateReviewPatch, validateReviewSelection, countReviewRows } from "@/shared/review";
 ```
@@ -36,7 +36,56 @@ import { validateReviewSession, validateReviewPatch, validateReviewSelection, co
 
 ## Concrete fixtures
 
-Use `examples/catalog-response.json`, `examples/review-session.json` and `examples/taxonomy-response.json` to develop the client/service against identical payloads. They validate against the shared modules and use a fixed test clock; they are not HTTP routes or active review jobs. Both original demo datasets remain in `data/`.
+Use `examples/catalog-response.json`, `examples/review-session.json`, `examples/taxonomy-response.json` and `examples/providers-response.json` to develop the client/service against identical payloads. They validate against the shared modules and use a fixed test clock; they are not HTTP routes or active review jobs. Both original demo datasets remain in `data/`.
+
+## Ishan: discovery and catalog loading
+
+```ts
+import { useDiscovery } from "@/shared/use-discovery";
+import { loadCatalog, createDemoCatalogBundle, CatalogLoadError } from "@/shared/catalog-client";
+import { QUIZ_QUESTIONS, getQuizSuggestions } from "@/shared/quiz";
+import { PUZZLES, evaluatePatternPuzzle, evaluateSequencePuzzle } from "@/shared/puzzles";
+```
+
+Call `useDiscovery(bundle.catalog.offers)` once in a client component that stays mounted above the discovery/detail/parent views. It returns `state`, `dispatch`, `results`, `selectedOffer` and `shortlist`. Keeping that owner mounted preserves context when changing views; unmounting it intentionally ends the session. No browser storage, remote profile or module-level visitor state is used.
+
+Examples of actions for your controls:
+
+```ts
+dispatch({ type: "set-filters", patch: { query: "Roboter", age: 12, maxPriceEur: 15 } });
+dispatch({ type: "toggle-interest", id: "robots" });
+dispatch({ type: "set-sort", sort: "soonest" });
+dispatch({ type: "select-offer", id: offer.id });
+dispatch({ type: "toggle-saved", id: offer.id });
+dispatch({ type: "set-audience-mode", mode: "parent" });
+dispatch({ type: "set-quiz-answer", questionId: "project", choiceId: "robot" });
+dispatch({ type: "set-quiz-answer", questionId: "project", choiceId: null }); // skip/remove
+dispatch({ type: "complete-puzzle", id: "sequence-path" });
+dispatch({ type: "clear-filters" }); // keep selected/saved items and optional play progress
+dispatch({ type: "reset" }); // clear the whole visitor session
+```
+
+`set-audience-mode` changes presentation only. Use `set-filters` with `audience: "parent"` only for activities aimed at adults. Clear an individual constraint by explicitly patching it to `undefined`. Default discovery shows upcoming family activities; `schedule: "all"` also includes ongoing/undated records, while past records remain excluded. Full activities stay searchable but are excluded from immediate recommendations. Render `getRecommendationReasons(item, bundle.taxonomy)` instead of numeric heuristic scores. Shortlist results explicitly identify IDs whose records are no longer public/current.
+
+`loadCatalog({ signal })` reads `/api/offers`, `/api/taxonomy` and `/api/providers` in parallel, validates the payloads and provider identities, and returns one `CatalogBundle`. It sends no search, age, quiz or interest payload. Catch `CatalogLoadError` for an explicit error/retry view; handle `AbortError` when unmounting. There is no automatic demo fallback on service failure. A labeled cached snapshot is Umang's service responsibility.
+
+For visual development before those routes exist, explicitly call `createDemoCatalogBundle(demoOffers, clock, taxonomy, providers)` with the shared fixtures. The provider array is the public `providers` field from the example, not the server's raw source configuration. Use `new Date("2026-11-14T10:00:00Z")` as the optional hook/factory clock for repeatable fictional demos, and label that reference date. Production uses the current clock. Demo source/booking links stay null.
+
+## Ishan: optional quiz and puzzle behavior
+
+`QUIZ_QUESTIONS` contains three editable/skippable preference questions. `getQuizSuggestions(state.quizAnswers, bundle.taxonomy)` deterministically suggests up to three enabled interests. `matchedChoices` is an internal count, not aptitude or confidence. Quiz answers never silently update filters: show suggestions and let the visitor choose via the normal interest controls.
+
+`PUZZLES` supplies two small pattern variants and one sequence definition for your interfaces. `evaluatePatternPuzzle("pattern-alternating", "circle")` returns `correct`; a wrong/empty choice returns useful feedback. `evaluateSequencePuzzle("sequence-path", ["forward", "forward", "right", "forward"])` reaches the goal and returns a step trace for animation. Boundary/obstacle/incomplete outcomes are explicit. Only fixed movement commands are interpreted; no user code executes. Use the returned suggested interests after any attempt, with an explicit visitor choice. Completion never gates activities or changes their eligibility. Keep retry/skip and keyboard/touch alternatives in your UI.
+
+## Umang: service integration
+
+The three public reads must return the shapes in the catalog/taxonomy/providers examples. Provider summaries expose only `id`, `name` and `discoveryUrl`; keep raw source configuration/evidence server-side. A catalog record must reference a provider returned by the provider endpoint. Pass the current validated taxonomy when validating catalog and review records. Clients require consistent configuration/catalog snapshots; do not publish references to configuration that is not yet readable.
+
+Use the same `ReviewSession` shape for CSV and scraping. Validate the fixture with its reference clock when testing approval guards; its fixed expiry does not identify a live session. Review changes remain server-stored and revision checked. The pure guards are reusable preconditions, not a storage or authorization implementation. P5 must still inspect actual row correction, stale/repeated approval, selected publication and failure recovery in your service.
+
+## Verification scope
+
+`npm run check` passes 62 tests, including original fixtures, new contracts, state/recommendation behavior, quiz/puzzle outcomes, a real React hook render, and the catalog loader against a local HTTP fixture server. `npm run build` passes. The HTTP test server is test infrastructure, not the production API or a real scraper. Final application and PDF acceptance checks remain in `DEMO_CHECKLIST.md`.
 
 ## Boundaries still owned by teammates
 

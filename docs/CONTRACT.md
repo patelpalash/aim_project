@@ -1,6 +1,6 @@
 # Shared contract v1
 
-**Implemented:** shared types/pure functions, P2 taxonomy/schedule/age extensions, catalog/review validators and concrete examples. **Planned:** every HTTP endpoint and storage operation below. See [HANDOFF_PALASH.md](HANDOFF_PALASH.md) and [STATUS.md](STATUS.md). This is not a claim that a backend service exists.
+**Implemented:** shared types/pure functions, taxonomy/schedule/age extensions, catalog/review validators, discovery state/hook, quiz/puzzle evaluators, public catalog client and concrete examples. **Planned:** every HTTP endpoint and storage operation below. See [HANDOFF_PALASH.md](HANDOFF_PALASH.md) and [STATUS.md](STATUS.md). This is not a claim that a backend service exists.
 
 Palash owns this contract. Ishan and Umang should propose a small example before changing it. Do not create parallel `Event`, `Course` and `Activity` models with incompatible fields.
 
@@ -29,7 +29,7 @@ The authoritative type is [contracts.ts](../src/shared/contracts.ts), and [demo-
 | --- | --- |
 | `id` | Stable ID for one occurrence. Do not regenerate it on every retrieval. |
 | `providerId` | Must refer to an enabled configured provider. Server checks this. |
-| `externalId` | Provider's course identity. Occurrence identity also includes start time. Preserve a known occurrence ID when the provider reschedules that same occurrence. |
+| `externalId` | Provider's course identity. Prefer a stable source occurrence key when available. Dates can help identify an initial occurrence, but must not become a mutable primary identity: preserve a known occurrence ID when it is rescheduled. |
 | `title`, `summary` | German and English strings. Render as text, not HTML. Mark team translations as translations when using real sources. |
 | `topics` | Configured IDs; defaults are `ai`, `coding`, `gaming`. Validate against the current taxonomy, not a hardcoded UI list. |
 | `interests` | Configured discovery IDs; the five original defaults remain unchanged. |
@@ -61,7 +61,7 @@ Palash implemented these compatible boundaries; both consumers should use them:
 - **Age evidence:** optional `ageEvidence` with range/minimum-only/maximum-only/all-ages/unknown semantics; numeric bounds must agree.
 - **Review contracts:** `ReviewSession`, row states, editable unvalidated draft, optional prior offer, structural patch guard and pure selection preconditions in `src/shared/review.ts`. Service authorization/normalization/editing/atomic publication remain Umang's work.
 - **Source run evidence:** `SourceStatus`/`CatalogResponse` types in `api-contract.ts`; raw retrieval/field evidence stays server-side. Wire failure is `error`, and source review status is `review-needed`; these differ from row `needs-review`.
-- **Client discovery state:** P3/P4 follows next. Visitor preferences and puzzle state remain client memory, not remote profiles.
+- **Client discovery state:** `discovery.ts` and `use-discovery.ts` implement P3; `quiz.ts`/`puzzles.ts` implement P4 behavior. Visitor preferences and puzzle state remain client memory. `catalog-client.ts` loads/validates the three public reads; it does not implement those routes.
 
 P2 tests cover these shared helpers and examples. They do not establish that HTTP routes, configuration UI, source adapters or atomic storage exist.
 
@@ -147,10 +147,10 @@ Use 400 for malformed input, 404 for unavailable/expired imports or a disabled d
 
 ## How Ishan can start immediately
 
-Load the fixture as `Offer[]` behind a temporary catalog loader. Add one fetch wrapper, so changing from fixture to API does not require rewriting each component. Keep filters in React state. Call `recommendOffers` or `filterOffers` with the same state and render `reasonKeys` through a small dictionary. Keep the numerical heuristic score out of the interface.
+Use `createDemoCatalogBundle` for explicitly labeled fixture mode and `loadCatalog` for real API reads. `useDiscovery` owns client-memory filters/selection/shortlist/optional-play state. Keep its component mounted across view switches. Render `getRecommendationReasons` rather than numerical heuristic scores. Exact imports/action examples and error behavior are in `HANDOFF_PALASH.md`.
 
 Test fixture IDs intentionally cover a full event, unknown age/date/price, parent-only data and a school-only offering. Full demo data should not be flattened into eight apparently bookable family events.
 
 ## Adding another institution later
 
-Add a provider configuration, select a supported adapter/input format, map its records to the common contract and review them. A new website structure may need a new adapter. The existing `providerId` type already permits additional IDs; the planned taxonomy extension must make theme additions similarly configurable. Demonstrate a source/theme maintenance action without rewriting results components, as required by the PDF. Permission for the initial four sources is user-confirmed; a later unrelated institution has its own source context.
+Add a provider configuration, select a supported adapter/input format, map its records to the common contract and review them. A new website structure may need a new adapter. Provider IDs and taxonomy IDs already permit configured additions; the nontechnical controls and backing service still need implementation. Demonstrate a source/theme maintenance action without rewriting results components, as required by the PDF. Permission for the initial four sources is user-confirmed; a later unrelated institution has its own source context.
