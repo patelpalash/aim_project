@@ -45,6 +45,12 @@ Checked commit `35050b5` — `origin/main` `a7b4f83` plus Ishan's reported `c072
 
 Evidence screenshots are in the shared project files under `ishan-design/screens/` (`v5-*` for the frontend acceptance, `v6-*` for this integration rehearsal).
 
+## Site languages (German and English)
+
+Added after the rehearsal, on `codex/ishan-design` at `71f18df`. The whole interface exists in German and English, switched with a visible DE/EN control in the header of `/` and `/organizer`. German is the source language and the fallback, so a missing English string shows the German text rather than a key. Offer titles and summaries, taxonomy labels, quiz questions and puzzle messages were already bilingual in the shared contracts and are now read in the chosen language; the recommender's reasons and the parent handoff take the locale instead of a hardcoded `"de"`; dates, times, ages, prices and timestamps format per locale and stay in Europe/Berlin. The choice is kept in that browser only (`localStorage`), defaults to German, and picks English only for an English browser; it also sets `<html lang>`.
+
+Verified in the running app with 56 headless-Chromium assertions (German browser → German site, English browser → English site, every visitor and organizer surface in both, runtime switching keeping the shortlist, interests and filters, the choice surviving a reload, 360px in English with no horizontal overflow including at 200% text). Deliberately unchanged: source-run messages from the backend stay German (ISH-REQ-3 requires that) and are shown as secondary detail under a translated status line; the CSV template header stays fixed. Open: no translator has reviewed the English copy, and the desk's title field still edits the German title only.
+
 ## Decisions before the demo (history)
 
 - **UMANG-003:** keep the eight labeled examples for this prototype. No backend removal or mode/schema change is requested. The public copy now describes mixed, example-only, reviewed-only and empty catalogs accurately; per-card demo labels and null demo booking/source URLs stay intact.

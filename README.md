@@ -28,6 +28,10 @@ Agents begin with [AGENTS.md](AGENTS.md). Claude also has [CLAUDE.md](CLAUDE.md)
 
 Selected additions from the supplied plan: downloadable CSV template, row-level preview, inline corrections, selected valid bulk publication, simple source/theme controls and source-error recovery. Keep one ingestion core. The CSV/review services and UI are integrated; remaining controls and acceptance gaps are listed in `docs/STATUS.md`. PDF/LLM/email/arbitrary-link ingestion, XLSX parsing, automatic publication and heat maps are deferred.
 
+## Languages
+
+The interface is available in German and English. A DE/EN switch sits in the header of both `/` and `/organizer`; the choice is stored in that browser only and also sets `<html lang>`. German is the source language, so anything without an English translation appears in German rather than as a placeholder. Interface copy lives in `src/components/strings.ts`; record content (offer titles, summaries, taxonomy labels, quiz and puzzle text) is bilingual in the shared contracts and read with `pick()` from `src/shared/i18n.ts`. Status messages produced by a source run stay German by design and are shown as extra detail under a translated status line.
+
 ## Implemented versus planned
 
 Implemented and integrated: Ishan's discovery/detail/map/shortlist/parent/quiz/puzzle frontend, audience/topic controls and organizer maintenance forms; Umang's four adapters, reviewed baseline, public APIs, CSV/review/publication/refresh/configuration services; Palash's shared contracts/state and integration fixes. Final integration and demo rehearsal (temporarily run by Umang while Palash's session was unavailable) passed **`npm ci`, `npm run check` (123/123 tests) and `npm run build`** on Node.js 24.22.3 in a clean worktree, plus browser and API rehearsals; see [STATUS.md](docs/STATUS.md). Ishan's final frontend acceptance (`c072a22`: phone-width and 200 %-text layout fixes) is integrated and re-checked on the merge. Read current catalog counts from `GET /api/offers` (at the final rehearsal: 27 offers = 19 reviewed real + 8 labelled fictional examples).

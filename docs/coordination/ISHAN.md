@@ -6,6 +6,22 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted.
+- Last updated (UTC): 2026-11-14 20:30.
+- Current task/slice: site-wide German/English translation with a visible language switch.
+- State: branch merged with `origin/main` at `334c5e2`; code SHA **`71f18df`**. `npm run check` (123/123) and `npm run build` pass on Node 24.22.3.
+- Based on `main` commit: `334c5e2`.
+
+### Translation slice (DE/EN)
+
+- Paths: new `src/shared/i18n.ts` (`pick()`, locale list), `src/components/i18n.tsx` (locale context, `LanguageSwitch`) and `src/components/strings.ts` (one table, ~250 keys, both languages); every atlas and organizer component, `src/components/atlas/{format,dates,catalog-data,interests}`, `src/app/layout.tsx`, `src/app/organizer/page.tsx`, plus the `.dz-lang` rules in `discovery.css`.
+- How it works: German is the source language and the fallback — a key without an English string renders its German text, never a key. Record content (offer titles and summaries, taxonomy labels, quiz questions, puzzle text and messages) was already bilingual in the shared contracts, so it is read with `pick(value, locale)`; `getRecommendationReasons` and `buildParentHandoff` now get the chosen locale instead of a hardcoded `"de"`. Date, time, age, price and timestamp formatting take a locale (`en-GB` for English, Europe/Berlin in both). The choice lives in `localStorage` for this browser only, defaults to German and to English only for an English browser, and sets `<html lang>`.
+- Verified in the running app (56 headless-Chromium assertions, server on 127.0.0.1:3100): a German browser gets the German site, an English browser the English one; every heading, filter, chip, sort option, source panel, detail sheet, shortlist (both tabs), quiz and puzzle label and the whole organizer (both tabs, forms and validation messages) read in the chosen language with no German left over in English; switching at runtime keeps the shortlist, interests and filters; the choice survives a reload; 360px in English has no horizontal overflow, also at 200% text, and the DE/EN buttons stay inside the viewport at >=24x24px.
+- Not translated on purpose: source-run messages produced by the backend (`SourceStatus.message`) stay German and are shown as secondary detail under a translated status line, because ISH-REQ-3 requires German server messages; the CSV template header stays fixed; organizer API contract-violation diagnostics carry both languages in one string.
+- Open: no translator has reviewed the English copy, and the editor field "Title (German)" still writes `title.de` only, so an English title cannot be entered in the desk yet.
+
+## Earlier report
+
+- Protocol adoption: adopted.
 - Last updated (UTC): 2026-11-14 19:55.
 - Current task/slice: final frontend acceptance and rehearsal fixes on the integrated baseline.
 - State: `origin/main` at `5511647` fast-forwarded my branch — my follow-up through `7aa6ae5` is already integrated, and Palash's mixed-catalog wording, `reset-play`, full-session reset, source-refresh polling and review staging are all present and were exercised, not replaced. Acceptance code SHA: **`c072a22`**. `npm ci`, `npm run check` (123/123) and `npm run build` pass on Node 24.22.3.
