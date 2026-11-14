@@ -7,7 +7,7 @@
     "haus-der-familie": "haus-der-familie-20261114T173851",
     "ipai": "ipai-20261114T173917"
   },
-  "method": "Each approved row: adapter cross-checks passed, and the provider's own detail page was re-fetched and found to contain the staged date, start time, title and fee. Corrections only from quoted source text. Decisions are applied through the same review service (createSession → patchRow → approve), which records the human review time.",
+  "method": "Each approved row: adapter cross-checks passed, and the provider's own detail page was re-fetched and found to contain the staged date, start time, title and fee. Corrections only from quoted source text. Decisions are applied through the same review service (createSession → patchRow → approve), which records the human review time. Re-review 2026-11-14: two held aim courses approved after taxonomy v3 added fitting interests.",
   "decisions": [
     {
       "rowId": "aim-262420pcb",
@@ -235,15 +235,37 @@
     },
     {
       "rowId": "aim-271430cyc1",
-      "decision": "hold",
-      "reason": "No fitting discovery interest: the course builds a city inside the sandbox game Luanti; that is not 'Spiele bauen'. Needs a new interest (e.g. 'Welten bauen') via theme maintenance, then re-review.",
-      "evidence": "\"Kreatives, nachhaltiges und gemeinsames Bauen in der Sandbox-Welt von Luanti\""
+      "decision": "correct-and-approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page. Re-reviewed after Palash added the interest via the configuration API (taxonomy v3); interest assigned from the course text.",
+      "evidence": "\"…planst und baust du gemeinsam mit anderen eine nachhaltige und smarte Stadt in der Sandbox-Welt von Luanti (ähnlich wie Minecraft)\"",
+      "expect": {
+        "startsAt": "2027-02-09T09:00:00+01:00",
+        "priceEur": 0,
+        "availability": "full",
+        "titleDe": "Craft Your City – Baue deine nachhaltige und smarte Traumstadt (10–14 Jahre)"
+      },
+      "changes": {
+        "interests": [
+          "build-worlds"
+        ]
+      }
     },
     {
       "rowId": "aim-271420fe",
-      "decision": "hold",
-      "reason": "No fitting discovery interest for building a messenger web app; needs a new interest (e.g. 'Apps bauen') via theme maintenance, then re-review.",
-      "evidence": "\"Schritt für Schritt zur eigenen Messenger-App – von der Idee bis zur Web-App\""
+      "decision": "correct-and-approve",
+      "reason": "Source page re-fetched 2026-11-14: date, start time, title and fee confirmed against the course's own page. Re-reviewed after Palash added the interest via the configuration API (taxonomy v3); interest assigned from the course text.",
+      "evidence": "\"…tauchst du in die Welt der Webentwicklung ein und baust deine eigene Messenger Web-App … KI-Verständnis: Du findest heraus, wie du KI sinnvoll nutzt\"",
+      "expect": {
+        "startsAt": "2027-02-25T16:30:00+01:00",
+        "priceEur": 0,
+        "availability": "full",
+        "titleDe": "Code your Chat – Entwickle deine eigene Messenger-Web-App (13–17 Jahre)"
+      },
+      "changes": {
+        "interests": [
+          "build-apps"
+        ]
+      }
     },
     {
       "rowId": "aim-262430dsw",

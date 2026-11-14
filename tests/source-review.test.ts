@@ -14,7 +14,7 @@ import type { Offer } from "../src/shared/contracts.ts";
 const repo = (p: string) => JSON.parse(readFileSync(new URL(`../data/${p}`, import.meta.url), "utf8"));
 const baseline = repo("catalog/reviewed-offers.json") as { offers: Offer[] };
 const decisions = repo("catalog/review-decisions.json") as { decisions: { rowId: string; decision: string; evidence?: string }[] };
-const now = new Date("2026-11-14T18:00:00Z");
+const now = new Date("2026-11-14T23:00:00Z"); // later than every baseline review time
 
 function sandbox() {
   const dir = mkdtempSync(join(tmpdir(), "atlas-srcreview-"));
@@ -31,7 +31,7 @@ function sandbox() {
 }
 
 test("committed baseline holds only approved, human-reviewed real records that match their decisions", () => {
-  assert.equal(baseline.offers.length, 17);
+  assert.equal(baseline.offers.length, 19);
   const approved = new Set(decisions.decisions.filter(x => x.decision !== "hold").map(x => x.rowId));
   for (const o of baseline.offers) {
     assert.equal(validateOffer(o, DEFAULT_TAXONOMY).ok, true, o.id);
@@ -52,7 +52,7 @@ test("public API serves the reviewed baseline; lastReviewedAt comes from approva
   const { files } = sandbox();
   const body = await getOffers(undefined, now, files).json() as { mode: string; offers: Offer[]; sourceStatuses: { providerId: string; lastReviewedAt: string | null; message: string }[] };
   assert.equal(body.mode, "demo", "demo fixtures are still present");
-  assert.equal(body.offers.filter(o => o.source.kind === "verified").length, 17);
+  assert.equal(body.offers.filter(o => o.source.kind === "verified").length, 19);
   const latest = (p: string) => baseline.offers.filter(o => o.providerId === p).map(o => o.source.verifiedAt!).sort().at(-1);
   for (const p of ["aim", "experimenta", "haus-der-familie"])
     assert.equal(body.sourceStatuses.find(s => s.providerId === p)?.lastReviewedAt, latest(p));
@@ -84,5 +84,25 @@ test("reset restores the reviewed baseline instead of emptying the catalogue", (
   assert.equal(readPublished(store).offers.length, 0);
   const r = resetDemo(store);
   assert.equal(r.catalogueVersion, 6);
-  assert.equal(readPublished(store).offers.length, 17);
+  assert.equal(readPublished(store).offers.length, 19);
+});
+
+test("re-review after taxonomy v3: two held aim courses approved with evidence; earlier review times untouched", () => {
+  const byId = new Map(baseline.offers.map(o => [o.id, o]));
+  assert.deepEqual(byId.get("aim-271430cyc1")?.interests, ["build-worlds"]);
+  assert.deepEqual(byId.get("aim-271420fe")?.interests, ["build-apps"]);
+  const d = new Map(decisions.decisions.map(x => [x.rowId, x]));
+  assert.match(d.get("aim-271430cyc1")?.evidence ?? "", /Sandbox-Welt von Luanti/);
+  assert.match(d.get("aim-271420fe")?.evidence ?? "", /Messenger Web-App/);
+  const first = byId.get("aim-271420sg")!.source.verifiedAt!;
+  assert.ok(byId.get("aim-271430cyc1")!.source.verifiedAt! > first, "new approval has its own, later review time");
+  const times = new Set(baseline.offers.filter(o => !["aim-271430cyc1", "aim-271420fe"].includes(o.id)).map(o => o.source.verifiedAt));
+  assert.equal(times.size, 1, "the 17 earlier records keep their single original review time");
+});
+
+test("future runs tag the new interests from source wording", async () => {
+  const { matchInterests } = await import("../src/server/normalize/rules.ts");
+  assert.ok(matchInterests("eine smarte Stadt in der Sandbox-Welt von Luanti").some(h => h.value === "build-worlds"));
+  assert.ok(matchInterests("baust deine eigene Messenger Web-App").some(h => h.value === "build-apps"));
+  assert.ok(!matchInterests("Programmieren lernen mit Python").some(h => h.value === "build-apps"));
 });
