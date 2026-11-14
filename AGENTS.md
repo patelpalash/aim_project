@@ -28,12 +28,16 @@ Original challenge files are under `reference/`. Their suggested work packages a
 
 Ishan owns UI pages/layout, components, styles and artwork. Umang owns `src/server/`, `src/app/api/`, `data/` and service/scraper tests. Palash owns `src/shared/`, root package/lockfile/config and final integration. Coordinate shared schema changes, including configurable themes and schedule precision, instead of creating incompatible models.
 
+## Parallel collaboration
+
+Follow [docs/COLLABORATION.md](docs/COLLABORATION.md): work simultaneously in separate clones/worktrees, use each owner's remote-branch coordination file for dependency requests and acknowledgements, and promptly push checked working slices to your own branch. Continue independent assigned work while waiting; Palash integrates the shared baseline. Read remote updates at the documented checkpoints. These rules do not create a direct Claude/Codex connection or wake paused sessions. Initial coordination templates are not task-completion evidence.
+
 ## Implementation rules
 
 - Preserve the PDF's overview/search, four institutions, AI/coding/gaming focus, low maintenance, scalability, accessibility and child privacy. Puzzles are optional routes, never gates to activities.
 - Existing offers are fictional demo fixtures. Preserve their demo labels and null source/booking URLs. Real scraped records must carry actual source evidence and review status.
 - All four sources are required scope. One working adapter is an early milestone, not completion. Distinguish genuine empty results from failed/incomplete extraction.
-- Reuse shared functions. Coordinate necessary changes to the current fixed taxonomy/date semantics before implementing configurable themes or date-only schedules.
+- Reuse the implemented configurable taxonomy, date-only/age evidence and discovery/review functions. Pass the current validated configuration and coordinate further schema changes instead of hardcoding parallel models.
 - CSV and scraping share one normalization/review/publication service. Revalidate inline edits; publish only selected valid reviewed rows; blocked rows never publish. Use stable source/occurrence identity rather than hashes of mutable titles/dates.
 - Keep unknown facts unknown. An explicit minimum age is not an invented bounded range. PDF/LLM ingestion, email forwarding, arbitrary URL import, XLSX parsing and automatic publication are deferred.
 - Keep visitor preferences in memory, offer reset and avoid child accounts, personal profiles, addresses or external AI requests.

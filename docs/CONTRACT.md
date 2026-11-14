@@ -1,10 +1,10 @@
 # Shared contract v1
 
-**Implemented:** types and pure functions in `src/shared/`. **Planned:** every HTTP endpoint and storage operation described below. These notes freeze the handoff between the three work areas; they are not a claim that a server already exists.
+**Implemented:** shared types/pure functions, taxonomy/schedule/age extensions, catalog/review validators, discovery state/hook, quiz/puzzle evaluators, public catalog client and concrete examples. **Planned:** every HTTP endpoint and storage operation below. See [HANDOFF_PALASH.md](HANDOFF_PALASH.md) and [STATUS.md](STATUS.md). This is not a claim that a backend service exists.
 
 Palash owns this contract. Ishan and Umang should propose a small example before changing it. Do not create parallel `Event`, `Course` and `Activity` models with incompatible fields.
 
-Consolidated plan revision 3 retains whole-website interaction/live scraping and adds CSV template, inline draft correction and selected valid bulk publication. Follow [REQUIREMENTS.md](REQUIREMENTS.md), [TEAM_TASKS.md](TEAM_TASKS.md), [EXPERIENCE.md](EXPERIENCE.md), [SCRAPING_PLAN.md](SCRAPING_PLAN.md) and [IMPORT_WORKFLOW.md](IMPORT_WORKFLOW.md). Permission for the four named public course/event sources is user-confirmed. The existing library remains contract v1; the extensions/routes below are specifications, not implemented services.
+Consolidated plan revision 3 retains whole-website interaction/live scraping and adds CSV template, inline draft correction and selected valid bulk publication. Follow [REQUIREMENTS.md](REQUIREMENTS.md), [TEAM_TASKS.md](TEAM_TASKS.md), [EXPERIENCE.md](EXPERIENCE.md), [SCRAPING_PLAN.md](SCRAPING_PLAN.md) and [IMPORT_WORKFLOW.md](IMPORT_WORKFLOW.md). Permission is user-confirmed. P2's compatible fields keep public `schemaVersion: 1`; actual shared module types are authoritative for wire names.
 
 ## Files and imports
 
@@ -19,7 +19,7 @@ import {
 } from "@/shared/catalog";
 ```
 
-These are proposed app alias imports once Palash adds the Next.js shell. The starter's own tests use relative `.ts` imports so they can run directly with Node 24. There is no configured `@/` alias in the starter yet.
+The `@/` alias is implemented and maps to `src/`. Direct Node tests use relative `.ts` imports. Additional P2 imports and concrete examples are documented in `HANDOFF_PALASH.md`.
 
 ## Offer semantics
 
@@ -29,14 +29,14 @@ The authoritative type is [contracts.ts](../src/shared/contracts.ts), and [demo-
 | --- | --- |
 | `id` | Stable ID for one occurrence. Do not regenerate it on every retrieval. |
 | `providerId` | Must refer to an enabled configured provider. Server checks this. |
-| `externalId` | Provider's course identity. Occurrence identity also includes start time. Preserve a known occurrence ID when the provider reschedules that same occurrence. |
+| `externalId` | Provider's course identity. Prefer a stable source occurrence key when available. Dates can help identify an initial occurrence, but must not become a mutable primary identity: preserve a known occurrence ID when it is rescheduled. |
 | `title`, `summary` | German and English strings. Render as text, not HTML. Mark team translations as translations when using real sources. |
-| `topics` | One or more of `ai`, `coding`, `gaming`. |
-| `interests` | One or more of `build-games`, `robots`, `make-art`, `solve-puzzles`, `tell-stories`. These are discovery tags. |
+| `topics` | Configured IDs; defaults are `ai`, `coding`, `gaming`. Validate against the current taxonomy, not a hardcoded UI list. |
+| `interests` | Configured discovery IDs; the five original defaults remain unchanged. |
 | `audiences` | `children`, `teens`, `families`, `parents`, `school-groups`. Do not assume school-group bookings are individually accessible. |
 | `format` | `workshop`, `course`, `event`, `drop-in`. |
-| `minAge`, `maxAge` | Published bound or null. A specific age constraint requires both known bounds in this conservative starter. |
-| `startsAt`, `endsAt` | ISO timestamps including offset, or null. Use Europe/Berlin for display; retain absolute instants. Date-only source text requires review rather than an invented time. |
+| `minAge`, `maxAge`, `ageEvidence` | Published bounds or null. Explicit range/minimum-only/maximum-only/all-ages/unknown evidence controls suitability; incomplete legacy bounds remain unknown. |
+| `startsAt`, `endsAt`, `schedulePrecision`, `startDate`, `endDate` | Keep timed instants or explicit local date-only precision; date-only timestamps remain null. Use Europe/Berlin and the shared schedule helpers. |
 | `priceEur` | Actual published price, zero for explicitly free, null for unknown. |
 | `venue.access` | `step-free`, `not-step-free`, `unknown`. Do not infer access from the provider name. |
 | `availability` | Published `available`, `full`, `cancelled` or `unknown`. Retrieval alone does not establish bookability. |
@@ -52,17 +52,18 @@ Child/teen presentation is client state, separate from source audience categorie
 
 ## Planned endpoints
 
-### Required shared extensions before implementation
+### P2 shared extensions now available
 
-Palash coordinates these with both consumers, preserving existing fixtures/calls where practical:
+Palash implemented these compatible boundaries; both consumers should use them:
 
-- **Configurable themes:** the current fixed `Topic` union and validator do not yet allow a nontechnical maintainer to add themes. Introduce shared validated taxonomy configuration and read/edit controls; existing `ai`, `coding`, `gaming` IDs remain stable. Adding a label in one UI component is not the PDF expansion demonstration.
-- **Schedule precision:** add explicit date-only versus date-time/unknown semantics, including a source local date when time is not supplied. Preserve null timestamps rather than inventing midnight. Add matching/sorting behavior for upcoming date-only records in Europe/Berlin.
-- **Age evidence:** preserve published range, explicit minimum-only, all-ages or unknown semantics. The current conservative filter requires both numeric bounds; do not invent an upper age to make source data pass it.
-- **Client discovery state:** audience presentation, selected interest IDs, practical filters, selected/saved offer IDs, quiz choices and puzzle progress stay in memory. Quiz/puzzle evaluators return outcomes and suggested interests, not psychological/ability profiles.
-- **Source run evidence:** raw retrieval/field evidence and parse errors remain in the server layer, separate from selected public `Offer` fields.
+- **Configurable themes:** `data/taxonomy.json`, `validateTaxonomy`, active-definition helpers and runtime-configurable offer validation. Nontechnical edit/read controls are still teammate work.
+- **Schedule precision:** optional `schedulePrecision`, `startDate` and `endDate`, Berlin date filtering/status and explicit DST resolution. Unknown times are never manufactured.
+- **Age evidence:** optional `ageEvidence` with range/minimum-only/maximum-only/all-ages/unknown semantics; numeric bounds must agree.
+- **Review contracts:** `ReviewSession`, row states, editable unvalidated draft, optional prior offer, structural patch guard and pure selection preconditions in `src/shared/review.ts`. Service authorization/normalization/editing/atomic publication remain Umang's work.
+- **Source run evidence:** `SourceStatus`/`CatalogResponse` types in `api-contract.ts`; raw retrieval/field evidence stays server-side. Wire failure is `error`, and source review status is `review-needed`; these differ from row `needs-review`.
+- **Client discovery state:** `discovery.ts` and `use-discovery.ts` implement P3; `quiz.ts`/`puzzles.ts` implement P4 behavior. Visitor preferences and puzzle state remain client memory. `catalog-client.ts` loads/validates the three public reads; it does not implement those routes.
 
-Do not silently assume these cases already work because the existing tests pass. Add meaningful checks when the extensions are actually implemented.
+P2 tests cover these shared helpers and examples. They do not establish that HTTP routes, configuration UI, source adapters or atomic storage exist.
 
 ### Public reads and local maintenance
 
@@ -146,10 +147,10 @@ Use 400 for malformed input, 404 for unavailable/expired imports or a disabled d
 
 ## How Ishan can start immediately
 
-Load the fixture as `Offer[]` behind a temporary catalog loader. Add one fetch wrapper, so changing from fixture to API does not require rewriting each component. Keep filters in React state. Call `recommendOffers` or `filterOffers` with the same state and render `reasonKeys` through a small dictionary. Keep the numerical heuristic score out of the interface.
+Use `createDemoCatalogBundle` for explicitly labeled fixture mode and `loadCatalog` for real API reads. `useDiscovery` owns client-memory filters/selection/shortlist/optional-play state. Keep its component mounted across view switches. Render `getRecommendationReasons` rather than numerical heuristic scores. Exact imports/action examples and error behavior are in `HANDOFF_PALASH.md`.
 
 Test fixture IDs intentionally cover a full event, unknown age/date/price, parent-only data and a school-only offering. Full demo data should not be flattened into eight apparently bookable family events.
 
 ## Adding another institution later
 
-Add a provider configuration, select a supported adapter/input format, map its records to the common contract and review them. A new website structure may need a new adapter. The existing `providerId` type already permits additional IDs; the planned taxonomy extension must make theme additions similarly configurable. Demonstrate a source/theme maintenance action without rewriting results components, as required by the PDF. Permission for the initial four sources is user-confirmed; a later unrelated institution has its own source context.
+Add a provider configuration, select a supported adapter/input format, map its records to the common contract and review them. A new website structure may need a new adapter. Provider IDs and taxonomy IDs already permit configured additions; the nontechnical controls and backing service still need implementation. Demonstrate a source/theme maintenance action without rewriting results components, as required by the PDF. Permission for the initial four sources is user-confirmed; a later unrelated institution has its own source context.

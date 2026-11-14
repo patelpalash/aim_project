@@ -8,6 +8,8 @@ The user's central direction is an **overall interactive website with a distinct
 
 **Own all visual design and frontend code:** UI pages/layout, components, styles, artwork, puzzle interfaces, animation, responsive behavior and organizer-screen appearance. Choose the final palette, typography, illustration language and motion implementation. Palash owns setup/shared behavior/root dependencies/integration; Umang owns server routes, four adapters, data and review storage. Do not fork the shared schema or build a second backend.
 
+First incorporate the latest `origin/main` using `CONTRIBUTING.md`, preserving local work. Read `docs/STATUS.md` and `docs/HANDOFF_PALASH.md`: the Next.js shell, alias, discovery React hook, quiz/puzzle evaluators, match explanations and catalog loader already exist. Use their actual exports/action shapes and the catalog/taxonomy/providers/review fixtures in `examples/`; do not rebuild shared state or scaffold another application. You own the complete visual implementation and its interaction/accessibility checks.
+
 Build this connected journey:
 
 1. Inviting interest scene with labeled touch/keyboard choices, clear explore/search entry and immediate meaningful selection feedback.

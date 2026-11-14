@@ -1,0 +1,95 @@
+{
+  "importId": "demo-contract-session",
+  "revision": 1,
+  "catalogueVersion": 0,
+  "providerId": "ipai",
+  "mode": "demo",
+  "expiresAt": "2026-11-14T10:30:00.000Z",
+  "rows": [
+    {
+      "rowId": "row-1",
+      "state": "ready-new",
+      "candidate": {
+        "id": "demo-ipai-date-only",
+        "providerId": "ipai",
+        "externalId": "demo-date-only-course",
+        "title": {
+          "de": "Demo: Kann ein Roboter raten?",
+          "en": "Demo: Can a robot guess?"
+        },
+        "summary": {
+          "de": "Stelle Fragen zu Robotern und löse gemeinsam ein Muster-Rätsel.",
+          "en": "Ask questions about robots and solve a pattern puzzle together."
+        },
+        "topics": [
+          "ai",
+          "coding"
+        ],
+        "interests": [
+          "robots",
+          "solve-puzzles"
+        ],
+        "audiences": [
+          "children",
+          "teens"
+        ],
+        "format": "workshop",
+        "minAge": 10,
+        "maxAge": null,
+        "startsAt": null,
+        "endsAt": null,
+        "timeZone": "Europe/Berlin",
+        "priceEur": null,
+        "venue": {
+          "name": "Demo-Ort IPAI",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "demo",
+          "url": null,
+          "fetchedAt": null,
+          "verifiedAt": null
+        },
+        "schedulePrecision": "date-only",
+        "startDate": "2026-11-28",
+        "endDate": null,
+        "ageEvidence": {
+          "kind": "minimum-only",
+          "text": "ab 10 Jahren (fictional example)"
+        }
+      },
+      "issues": [],
+      "changedFields": []
+    },
+    {
+      "rowId": "row-2",
+      "state": "blocked",
+      "candidate": null,
+      "draft": {
+        "externalId": "demo-missing-title",
+        "title": {
+          "de": "",
+          "en": ""
+        },
+        "priceEur": 0
+      },
+      "issues": [
+        {
+          "path": "title.de",
+          "message": "Titel fehlt."
+        }
+      ],
+      "changedFields": []
+    }
+  ],
+  "counts": {
+    "ready-new": 1,
+    "ready-update": 0,
+    "needs-review": 0,
+    "blocked": 1,
+    "unchanged": 0
+  }
+}
