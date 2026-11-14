@@ -25,6 +25,24 @@ const TONE: Record<SourceStatus["status"], string> = {
 };
 const CACHE_LABEL: Record<string, string> = { fresh: "frisch geladen", cached: "aus dem Zwischenspeicher", stale: "veraltet" };
 
+/** German sentence from the structured counts; the server's own message stays as secondary detail. */
+function describe(s: SourceStatus): string {
+  const found = s.extractedCount === 1 ? "1 Angebot gefunden" : `${s.extractedCount} Angebote gefunden`;
+  const rejected = s.rejectedCount
+    ? `, ${s.rejectedCount === 1 ? "1 Eintrag wird noch korrigiert" : `${s.rejectedCount} Einträge werden noch korrigiert`}`
+    : "";
+  switch (s.status) {
+    case "error": return "Der letzte Abruf ist fehlgeschlagen. Angebote dieser Quelle können fehlen.";
+    case "empty": return "Beim letzten Abruf gab es nichts Passendes.";
+    case "not-run": return "Diese Quelle wurde noch nicht abgerufen.";
+    case "running": return "Die Quelle wird gerade abgerufen.";
+    case "demo-only": return "Hier stehen bisher nur erfundene Beispiele.";
+    case "partial": return `${found}${rejected}. Es fehlen noch Angebote dieser Quelle.`;
+    case "review-needed": return `${found}${rejected}. Sie werden noch geprüft und sind deshalb noch nicht alle sichtbar.`;
+    default: return `${found}${rejected}.`;
+  }
+}
+
 export function SourceStatusPanel({ statuses, cache, providers }: {
   statuses: readonly SourceStatus[];
   cache: CatalogResponse["cache"] | null;
@@ -50,9 +68,9 @@ export function SourceStatusPanel({ statuses, cache, providers }: {
               <span className="src__name">{providerName(s.providerId, providers)}</span>
               <span className="status-line" data-tone={TONE[s.status] || undefined}>{LABEL[s.status]}</span>
               <span className="src__detail">
-                {s.message}
-                {s.partialCoverage ? " Es fehlen noch Angebote dieser Quelle." : ""}
+                {describe(s)}
                 {s.lastSuccessfulImportAt ? ` Letzter Import: ${formatStamp(s.lastSuccessfulImportAt)}.` : ""}
+                {s.message ? <span className="src__raw">{s.message}</span> : null}
               </span>
             </li>
           ))}
