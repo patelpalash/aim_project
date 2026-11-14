@@ -1,66 +1,55 @@
-# Interest Atlas design direction and motion system (I1)
+# Interest Atlas design direction and motion system (I1, revision 2)
 
-Owner: Ishan + Claude. Branch `codex/ishan-design`. Living reference: run the app and open `/design`.
+Owner: Ishan + Claude. Branch `codex/ishan-design`.
 
-Ishan picked every option visually on 14 November 2026. Audience note from Ishan: **design for 7 and older**, not toddlers. Children, teens and parents use the same data. Teens and parents get calmer emphasis.
+**Revision 2 (14 November 2026).** Ishan reviewed the first "maker workshop" sticker style and found it too childish. He asked for a more realistic look with animation and motion across the whole website. The audience is 7 and older, including teens and parents. Revision 2 replaces the sticker style everywhere.
 
-## Picks
+## Direction: Night atlas
+
+A deep night-sky ground with a living star map. Each interest is a luminous gradient with its own icon and label. Surfaces are glass panels and solid cards with real depth (soft shadows, 3D tilt, moving light) instead of flat outlines.
 
 | Area | Choice | Where it lives |
 | --- | --- | --- |
-| World | Maker workshop: graph-paper bench, chunky outlined stickers, hard offset shadows | `src/styles/base.css` (paper grid, `.sticker`, `.btn`) |
-| Palette | Bold primaries: ink, blue, yellow, red, plus green and violet so each of the five interests has its own color | `src/styles/tokens.css` |
-| Type | Fredoka (display) + Atkinson Hyperlegible (reading), loaded with `next/font/google` | `src/app/layout.tsx` |
-| Motion | Bouncy spring with a slight overshoot | `src/styles/motion.css` |
-| Interest choice | Sticker board: tap or keyboard-toggle stickers (`aria-pressed`), each with color, icon and text | `.interest`, `InterestIcon` |
-| Event card | Sticker card: colored band, provider and Demo/Verified tag, date, age, price, unknowns shown dashed | `src/components/atlas/EventCard.tsx` |
-| Event detail | Side sheet from the right, bottom sheet on phones; Esc and Back close it; focus returns to the card | `.sheet`, `DetailSheet` in the style guide |
-| First puzzle | Robot path: order arrow commands, run, each step highlights; up/down buttons instead of dragging | Layout preview in `/design`; logic waits for Palash's evaluator (P4) |
-| Guide | Paper bird. Decorative only; its hints are always real text | `src/components/atlas/PaperBird.tsx` |
-| Parent view | Side-by-side comparison table of saved events. No sticker shadows; practical facts first | Preview in `/design` |
-| Organizer desk | Neutral tool: dense table, same fonts, status tags. Blocked rows stay visible and unpublished | Preview in `/design` |
+| Palette | Night ground, light ink, one accent, five interest gradients, four status colors | `src/styles/tokens.css` |
+| Type | Bricolage Grotesque (display) + Inter (reading), via `next/font/google` | `src/app/layout.tsx` |
+| Primitives | Buttons, chips, tags, status pills, glass panel | `src/styles/base.css` |
+| Interest choice | Five glass tiles (`aria-pressed`) with gradient icon, label, hint and live offer count | `Discovery.tsx`, `discovery.css` |
+| Event card | Gradient band, date, title, match reason, facts; unknowns dashed; Demo/Verified tag | `EventCard.tsx`, `atlas.css` |
+| Event detail | Side sheet on laptop, bottom sheet on phone; Esc/Back close; focus returns to the card | `DetailSheet.tsx` |
+| Parent view (I3) | Same tokens, calmer: fact tables and side-by-side comparison, no ambient motion | planned |
+| Organizer desk (I5) | Same tokens as a dense tool: tables, status pills, no decoration | planned |
+| First puzzle (I4) | Robot path (Ishan's pick), restyled to this direction | planned |
+
+## Motion map
+
+All classes and timings are in `src/styles/motion.css`; helpers are in `src/components/atlas/motion.ts`.
+
+| Where | What moves | Reduced motion |
+| --- | --- | --- |
+| Hero | Star-map canvas drifts, links stars and leans toward the pointer; aurora glows drift; headline rises word by word; search and provider list follow | One still frame, no drift |
+| Interest tile | Lifts on hover, icon turns; on select the tile lights up, a check spins in, a glow pulses, and that interest's hub star lights up in the hero | State change only |
+| Results | Cards glide to their new positions when filters change (View Transitions API), new cards rise in, the count ticks to the new number | Instant change, count jumps |
+| Event card | 3D tilt follows the mouse with a moving light and colored glow | None |
+| Detail | The card itself grows into the side sheet and shrinks back on close; sheet content cascades in | Short fade |
+| Shortlist | Heart pops, a light flies to the header counter, the counter bumps; a live region announces it | Icon/text change and announcement |
+| Scroll | Sections ease in as they enter the viewport; header condenses to glass after scrolling | Everything visible immediately |
+| Loading | Shimmering skeleton cards and an honest status pill | Static skeleton |
+
+No scroll hijacking, flashing or sound. Decorative motion never blocks input. The canvas pauses off-screen and in hidden tabs. Browsers without View Transitions fall back to CSS entrance animations.
 
 ## Rules
 
-- Color never carries meaning alone. Every interest has color, icon and label. Every status has text.
-- Unknown age, price, date or places render as dashed "unbekannt" tags, never as a guess.
-- Demo fixtures always show a Demo tag and never a working registration button.
-- Touch targets are at least 44 CSS px. Sizes are in rem, so larger browser text scales the layout.
-- One light "paper" theme on purpose. All text pairs were chosen for at least 4.5:1 contrast (checked: `--ink-soft` 7.0:1 and `--ink-faint` ≥4.5:1 on paper, white on `--blue-strong` 5.8:1, status text on its tint ≥4.5:1). Bright fills (`--red`, `--blue`) carry ink text or sit behind white label boxes, never white text.
+- Color never carries meaning alone: interests have icon and label, statuses have text.
+- Unknown age, price, date or places show as dashed "unbekannt" tags. Demo fixtures always carry a Demo tag and no registration.
+- Touch targets are at least 44 px. Sizes are in rem so larger browser text scales the layout.
+- One dark theme on purpose. Checked contrast on the ground color: ink 16:1, soft ink 10:1, faint ink 6:1; white on the primary button at least 4.9:1.
 
-## Motion table
+## I2 discovery and explorer
 
-Targets come from `docs/EXPERIENCE.md`. Class names are in `src/styles/motion.css`.
+`/` is the discovery home (`src/components/atlas/Discovery.tsx`): interest tiles, direct search, time shortcuts, filters for age, provider, cost, format and step-free access, and a reset. Results use the shared `filterOffers` over one catalog. There are loading, error-with-retry, empty-with-recovery and demo status states.
 
-| Trigger | Class | Timing | Reduced motion |
-| --- | --- | --- | --- |
-| Pick an interest | `m-stick` (+ `m-press` on all sticker controls) | 180 ms spring | State change only |
-| Results change | `m-enter` with `--i` stagger | 260 ms, 40 ms apart | 120 ms fade |
-| Open/close event | `m-sheet` + `m-scrim` | 320 ms soft spring | 120 ms fade |
-| Save to shortlist | `m-pop`, `m-fly`, counter `m-bump` | 220 ms + 480 ms flight | Icon/text change + live-region announcement; flight hidden |
-| Wrong puzzle answer | `m-wobble` | 300 ms | Explanation text |
-| Quiz/puzzle step | `m-step` | 220 ms | 120 ms fade, focus moves |
-| Success | `m-burst` (sticker confetti, local) | 520 ms | Status text only |
-| View switch child/teen/parent | `m-view` | 260 ms fade | Immediate |
-| Robot step | `m-step-glow` | 420 ms | Highlight color only |
-
-No scroll hijacking, no flashing, no autoplay sound. The paper bird's idle bob stops under reduced motion. The spring uses CSS `linear()` easing with a cubic-bezier fallback, so it needs no animation library.
-
-## Layout plan
-
-- **Phone (≈390 px):** one column. Interest stickers wrap in rows. Cards are full width. The event detail is a bottom sheet up to 88% of the viewport height. The parent comparison and desk tables scroll sideways inside their own box.
-- **Laptop (≈1366 px):** the sticker board sits above a card grid with 3–4 columns. The detail opens as a 480 px side sheet, and the list stays visible behind a scrim. Content max width is 1180 px.
-
-## Integration notes
-
-- No new root dependencies. Fonts come from `next/font/google`, which Next already ships. `next build` fetches them at build time.
-- `src/app/layout.tsx` now imports the styles and fonts. Palash's bootstrap page at `/` is unchanged until I2 replaces it.
-- The style guide reads `data/demo-offers.json` directly for previews only. I2 will switch to the agreed shared loader.
-
-## I2 discovery and explorer (first slice)
-
-`/` is now the discovery home (`src/components/atlas/Discovery.tsx`). It has a sticker board for interests, direct search, Today/Weekend/30-day shortcuts, filters for age, provider, cost, format and step-free access, and a reset. Results use the shared `filterOffers` over one catalog. Cards open the detail side sheet, and the heart saves to an in-memory shortlist. There are loading, error-with-retry, empty-with-recovery and demo/cached status states.
-
-- **Loader:** `src/components/atlas/catalog.ts` tries `GET /api/offers` (contract shape) and falls back to `data/demo-offers.json` when the route is missing. Nothing about preferences or search text is sent. Until Umang's route exists, the browser logs one expected 404.
+- **Loader:** `src/components/atlas/catalog.ts` tries `GET /api/offers` (contract shape) and falls back to `data/demo-offers.json` when the route is missing. No preferences or search text are sent. Until Umang's route exists, the browser logs one expected 404.
 - **Shared state:** filters and the shortlist live in component state. Swap them for Palash's P3 state when it lands.
 - **Honest filters:** when age, cost or step-free is set, records with unknown values are hidden (shared behavior), and the page says so.
+- **No new root dependencies.** Motion uses CSS, the View Transitions API, the Web Animations API and one canvas.
+- The `/design` style-guide page from revision 1 was removed with the sticker style.

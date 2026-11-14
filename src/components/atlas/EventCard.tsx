@@ -1,3 +1,6 @@
+"use client";
+
+import type { CSSProperties, PointerEvent } from "react";
 import type { Interest, Offer } from "@/shared/contracts";
 import { INTEREST_META, InterestIcon } from "./interests";
 import { formatAge, formatPrice, formatWhen, providerLabel } from "./format";
@@ -6,40 +9,62 @@ export interface EventCardProps {
   offer: Offer;
   saved?: boolean;
   onOpen?: (offer: Offer) => void;
-  onToggleSave?: (offer: Offer) => void;
+  onToggleSave?: (offer: Offer, from: HTMLElement) => void;
   index?: number;
   /** Interests the visitor picked that this event matches (shown as the reason it appears). */
   matches?: Interest[];
+  /** view-transition-name so the card can glide on reflow and grow into the detail sheet. */
+  vtName?: string;
 }
 
-/** Sticker card for one event. The whole title is the open button; save is a separate control. */
-export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 0, matches = [] }: EventCardProps) {
-  const lead = offer.interests[0];
+function tilt(e: PointerEvent<HTMLElement>) {
+  if (e.pointerType !== "mouse") return;
+  const el = e.currentTarget, r = el.getBoundingClientRect();
+  const x = (e.clientX - r.left) / r.width, y = (e.clientY - r.top) / r.height;
+  el.style.setProperty("--rx", `${(0.5 - y) * 9}deg`);
+  el.style.setProperty("--ry", `${(x - 0.5) * 11}deg`);
+  el.style.setProperty("--mx", `${x * 100}%`);
+  el.style.setProperty("--my", `${y * 100}%`);
+}
+function untilt(e: PointerEvent<HTMLElement>) {
+  e.currentTarget.style.setProperty("--rx", "0deg");
+  e.currentTarget.style.setProperty("--ry", "0deg");
+}
+
+/** One event. The title is the open button (covers the card); save is a separate control. */
+export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 0, matches = [], vtName }: EventCardProps) {
+  const lead = matches[0] ?? offer.interests[0];
   const meta = lead ? INTEREST_META[lead] : null;
+  const style = { "--i": index, "--a": meta?.a ?? "var(--accent-a)", "--b": meta?.b ?? "var(--accent-b)", viewTransitionName: vtName } as CSSProperties;
   return (
-    <article className="event-card m-enter" style={{ ["--i" as string]: index, ["--c" as string]: meta?.color ?? "var(--blue)" }}>
-      <div className="event-card__band">
-        {lead ? <span className="event-card__icon"><InterestIcon interest={lead} size={26} /></span> : null}
-        <span className="event-card__provider">{providerLabel(offer.providerId)}</span>
-        {offer.source.kind === "demo" ? <span className="tag tag--demo">Demo</span> : <span className="tag tag--verified">Geprüft</span>}
-      </div>
-      <div className="event-card__body">
-        <h3 className="event-card__title">
-          <button type="button" className="event-card__open" onClick={() => onOpen?.(offer)}>{offer.title.de}</button>
-        </h3>
-        <p className="event-card__when">{formatWhen(offer)}</p>
-        {matches.length ? <p className="event-card__match">Passt zu: {matches.map(m => INTEREST_META[m].label).join(", ")}</p> : null}
-        <div className="event-card__facts">
-          <span className={offer.minAge === null && offer.maxAge === null ? "tag tag--unknown" : "tag"}>{formatAge(offer)}</span>
-          <span className={offer.priceEur === null ? "tag tag--unknown" : "tag"}>{formatPrice(offer)}</span>
-          {offer.availability === "full" ? <span className="tag tag--full">Ausgebucht</span> : null}
-          {offer.availability === "unknown" ? <span className="tag tag--unknown">Plätze unbekannt</span> : null}
+    <article className="event-card m-enter" style={style} onPointerMove={tilt} onPointerLeave={untilt}>
+      <div className="event-card__inner">
+        <div className="event-card__band">
+          {lead ? <span className="event-card__icon"><InterestIcon interest={lead} size={30} /></span> : null}
+          <span className="event-card__provider">{providerLabel(offer.providerId)}</span>
+          {offer.source.kind === "demo" ? <span className="tag tag--demo">Demo</span> : <span className="tag tag--verified">Geprüft</span>}
         </div>
+        <div className="event-card__body">
+          <p className="event-card__when">{formatWhen(offer)}</p>
+          <h3 className="event-card__title">
+            <button type="button" className="event-card__open" onClick={() => onOpen?.(offer)}>{offer.title.de}</button>
+          </h3>
+          {matches.length ? <p className="event-card__match">Passt zu: {matches.map(m => INTEREST_META[m].label).join(", ")}</p> : null}
+          <div className="event-card__facts">
+            <span className={offer.minAge === null && offer.maxAge === null ? "tag tag--unknown" : "tag"}>{formatAge(offer)}</span>
+            <span className={offer.priceEur === null ? "tag tag--unknown" : "tag"}>{formatPrice(offer)}</span>
+            {offer.availability === "full" ? <span className="tag tag--full">Ausgebucht</span> : null}
+            {offer.availability === "unknown" ? <span className="tag tag--unknown">Plätze unbekannt</span> : null}
+          </div>
+        </div>
+        <span className="event-card__glare" aria-hidden="true" />
       </div>
       {onToggleSave ? (
-        <button type="button" className={`event-card__save${saved ? " is-saved m-pop" : ""}`} key={saved ? "s" : "u"}
-          aria-pressed={saved} onClick={() => onToggleSave(offer)}>
-          <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.3-9.2C1.3 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.9 3.5 4.5 7.3C19.5 16.4 12 21 12 21z" fill={saved ? "#ff5a4e" : "#fff"} stroke="#1b2230" strokeWidth="2" /></svg>
+        <button type="button" className={`event-card__save${saved ? " is-saved" : ""}`} aria-pressed={saved}
+          onClick={e => onToggleSave(offer, e.currentTarget)}>
+          <svg key={saved ? "s" : "u"} className={saved ? "m-pop" : undefined} width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 21s-7.5-4.6-9.3-9.2C1.3 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.9 3.5 4.5 7.3C19.5 16.4 12 21 12 21z" fill={saved ? "#ff6b8a" : "none"} stroke={saved ? "#ff6b8a" : "currentColor"} strokeWidth="2" />
+          </svg>
           <span className="visually-hidden">{saved ? `${offer.title.de} von der Merkliste entfernen` : `${offer.title.de} merken`}</span>
         </button>
       ) : null}
