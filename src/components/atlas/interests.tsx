@@ -1,13 +1,24 @@
 import type { Interest } from "@/shared/contracts";
 
 /** Presentation metadata for the five shared interests. Labels are German-first. */
-export const INTEREST_META: Record<Interest, { label: string; hint: string; a: string; b: string; rgb: [number, number, number] }> = {
+export interface InterestMeta { label: string; hint: string; a: string; b: string; rgb: [number, number, number] }
+const INTEREST_META: Record<string, InterestMeta> = {
   "build-games": { label: "Spiele entwickeln", hint: "Game Design & Coding", a: "var(--i-build-games-a)", b: "var(--i-build-games-b)", rgb: [255, 122, 92] },
   robots: { label: "Robotik & KI", hint: "Maschinen, die mitdenken", a: "var(--i-robots-a)", b: "var(--i-robots-b)", rgb: [77, 160, 255] },
   "make-art": { label: "Digitale Kunst", hint: "Bilder, Design, KI-Kunst", a: "var(--i-make-art-a)", b: "var(--i-make-art-b)", rgb: [246, 140, 150] },
   "solve-puzzles": { label: "Logik & Rätsel", hint: "Knobeln und Code knacken", a: "var(--i-solve-puzzles-a)", b: "var(--i-solve-puzzles-b)", rgb: [80, 215, 140] },
   "tell-stories": { label: "Storytelling", hint: "Geschichten digital erzählen", a: "var(--i-tell-stories-a)", b: "var(--i-tell-stories-b)", rgb: [180, 140, 250] }
 };
+
+/**
+ * Look of an interest. Names come from the configured taxonomy (pass `label`); a newly configured
+ * interest without artwork gets a neutral look, so themes can be added without touching components.
+ */
+export function interestMeta(id: Interest, label?: string): InterestMeta {
+  const known = INTEREST_META[id];
+  if (known) return label ? { ...known, label } : known;
+  return { label: label ?? id, hint: "", a: "var(--accent-a)", b: "var(--accent-b)", rgb: [142, 166, 255] };
+}
 
 const s = { fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" } as const;
 
@@ -25,5 +36,7 @@ export function InterestIcon({ interest, size = 28 }: { interest: Interest; size
       return <svg {...common}><path d="M6 8h6a3 3 0 1 1 6 0h6v6a3 3 0 1 0 0 6v6h-6a3 3 0 1 0-6 0H6v-6a3 3 0 1 1 0-6z" {...s} /></svg>;
     case "tell-stories":
       return <svg {...common}><path d="M4 8c4-2 8-2 12 1 4-3 8-3 12-1v17c-4-2-8-2-12 1-4-3-8-3-12-1zM16 9v17" {...s} /></svg>;
+    default:
+      return <svg {...common}><path d="m16 4 3.4 7.4 8 .9-6 5.5 1.7 8L16 21.7l-7.1 4.1 1.7-8-6-5.5 8-.9z" {...s} /></svg>;
   }
 }

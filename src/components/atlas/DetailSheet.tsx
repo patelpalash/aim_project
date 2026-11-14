@@ -2,15 +2,12 @@
 
 import { useEffect, useRef } from "react";
 import type { Offer } from "@/shared/contracts";
-import { INTEREST_META, InterestIcon } from "./interests";
-import { formatAge, formatPrice, formatWhen, providerLabel } from "./format";
-
-const AVAIL: Record<Offer["availability"], string> = { available: "Plätze frei", full: "Ausgebucht", cancelled: "Abgesagt", unknown: "Unbekannt" };
-const ACCESS: Record<Offer["venue"]["access"], string> = { "step-free": "Stufenlos", "not-step-free": "Nicht stufenlos", unknown: "Unbekannt" };
+import { interestMeta, InterestIcon } from "./interests";
+import { ACCESS_LABEL, AVAILABILITY_LABEL, formatAge, formatPrice, formatStamp, formatWhen } from "./format";
 
 /** Event details as a side sheet (bottom sheet on phones). Focus moves in, Esc/Back close, focus returns. */
-export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName }: {
-  offer: Offer; saved: boolean; onSave: () => void; onClose: () => void; onShowAdult?: () => void;
+export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName, provider }: {
+  offer: Offer; provider: string; saved: boolean; onSave: () => void; onClose: () => void; onShowAdult?: () => void;
   /** When set, the browser morphs the card into this sheet; the CSS slide-in fallback is skipped. */
   vtName?: string;
 }) {
@@ -30,7 +27,7 @@ export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName
     <>
       <div className="sheet-scrim m-scrim" onClick={onClose} aria-hidden="true" />
       <div className={vtName ? "sheet" : "sheet m-sheet"} role="dialog" aria-modal="true" aria-labelledby="sheet-title"
-        style={{ ["--a" as string]: lead ? INTEREST_META[lead].a : "var(--accent-a)", ["--b" as string]: lead ? INTEREST_META[lead].b : "var(--accent-b)", viewTransitionName: vtName }}>
+        style={{ ["--a" as string]: lead ? interestMeta(lead).a : "var(--accent-a)", ["--b" as string]: lead ? interestMeta(lead).b : "var(--accent-b)", viewTransitionName: vtName }}>
         <div className="sheet__head">
           <button ref={closeRef} type="button" className="btn icon-btn" onClick={onClose} aria-label="Zurück zur Liste">←</button>
           {demo ? <span className="tag tag--demo">Demo-Angebot</span> : <span className="tag tag--verified">Geprüfte Quelle</span>}
@@ -44,13 +41,14 @@ export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName
             <dt>Wann</dt><dd>{formatWhen(offer)}</dd>
             <dt>Alter</dt><dd>{formatAge(offer)}</dd>
             <dt>Kosten</dt><dd>{formatPrice(offer)}</dd>
-            <dt>Plätze</dt><dd>{AVAIL[offer.availability]}</dd>
+            <dt>Plätze</dt><dd>{AVAILABILITY_LABEL[offer.availability]}</dd>
             <dt>Ort</dt><dd>{offer.venue.name}, {offer.venue.city}</dd>
-            <dt>Zugang</dt><dd>{ACCESS[offer.venue.access]}</dd>
-            <dt>Anbieter</dt><dd>{providerLabel(offer.providerId)}</dd>
+            <dt>Zugang</dt><dd>{ACCESS_LABEL[offer.venue.access]}</dd>
+            <dt>Anbieter</dt><dd>{provider}</dd>
             <dt>Quelle</dt>
             <dd>{demo ? "Erfundenes Beispiel, keine echte Veranstaltung" : offer.source.url
               ? <a href={offer.source.url} target="_blank" rel="noreferrer">Seite beim Anbieter</a> : "Keine Quellseite"}</dd>
+            {!demo && offer.source.verifiedAt ? <><dt>Geprüft</dt><dd>{formatStamp(offer.source.verifiedAt)}</dd></> : null}
           </dl>
         </div>
         <div className="sheet__foot">

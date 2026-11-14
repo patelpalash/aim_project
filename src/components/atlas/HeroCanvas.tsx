@@ -2,11 +2,10 @@
 
 import { useEffect, useRef } from "react";
 import type { Interest } from "@/shared/contracts";
-import { INTERESTS } from "@/shared/contracts";
-import { INTEREST_META } from "./interests";
+import { interestMeta } from "./interests";
 
 /** Where each interest's hub star sits, as a fraction of the canvas (kept clear of the headline on wide screens). */
-const HUBS: Record<Interest, [number, number]> = {
+const HUBS: Record<string, [number, number]> = {
   "build-games": [0.62, 0.3], robots: [0.8, 0.52], "make-art": [0.93, 0.22], "solve-puzzles": [0.68, 0.74], "tell-stories": [0.9, 0.8]
 };
 
@@ -69,10 +68,10 @@ export function HeroCanvas({ selected }: { selected: Interest[] }) {
         ctx.beginPath(); ctx.arc(s.x + ox, s.y + oy, s.r, 0, 6.283); ctx.fill();
       }
       // Interest hubs
-      for (const id of INTERESTS) {
+      for (const id of Object.keys(HUBS)) {
         const on = sel.current.includes(id) ? 1 : 0;
         glow[id] = still ? on : (glow[id] ?? 0) + (on - (glow[id] ?? 0)) * 0.08;
-        const g = glow[id]!, [fx, fy] = HUBS[id], [r, gg, b] = INTEREST_META[id].rgb;
+        const g = glow[id]!, [fx, fy] = HUBS[id]!, [r, gg, b] = interestMeta(id).rgb;
         const hx = fx * w + ox * 1.8 + (still ? 0 : Math.sin(t * 0.6 + fx * 9) * 6), hy = fy * h + oy * 1.8 + (still ? 0 : Math.cos(t * 0.5 + fy * 7) * 6);
         if (g > 0.02) for (const s of stars) {
           const d = Math.hypot(s.x + ox - hx, s.y + oy - hy), reach = 210;

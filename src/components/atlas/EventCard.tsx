@@ -2,8 +2,8 @@
 
 import type { CSSProperties, PointerEvent } from "react";
 import type { Interest, Offer } from "@/shared/contracts";
-import { INTEREST_META, InterestIcon } from "./interests";
-import { formatAge, formatPrice, formatWhen, providerLabel } from "./format";
+import { interestMeta, InterestIcon } from "./interests";
+import { ageKnown, formatAge, formatPrice, formatWhen } from "./format";
 
 export interface EventCardProps {
   offer: Offer;
@@ -11,8 +11,12 @@ export interface EventCardProps {
   onOpen?: (offer: Offer) => void;
   onToggleSave?: (offer: Offer, from: HTMLElement) => void;
   index?: number;
-  /** Interests the visitor picked that this event matches (shown as the reason it appears). */
+  /** Display name of the provider (from the providers endpoint). */
+  provider: string;
+  /** Selected interests this event matches; the first one colors the card. */
   matches?: Interest[];
+  /** Readable reasons from the shared recommender (never a score). */
+  reasons?: string[];
   /** view-transition-name so the card can glide on reflow and grow into the detail sheet. */
   vtName?: string;
 }
@@ -32,16 +36,16 @@ function untilt(e: PointerEvent<HTMLElement>) {
 }
 
 /** One event. The title is the open button (covers the card); save is a separate control. */
-export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 0, matches = [], vtName }: EventCardProps) {
+export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 0, matches = [], reasons = [], provider, vtName }: EventCardProps) {
   const lead = matches[0] ?? offer.interests[0];
-  const meta = lead ? INTEREST_META[lead] : null;
+  const meta = lead ? interestMeta(lead) : null;
   const style = { "--i": index, "--a": meta?.a ?? "var(--accent-a)", "--b": meta?.b ?? "var(--accent-b)", viewTransitionName: vtName } as CSSProperties;
   return (
     <article className="event-card m-enter" style={style} onPointerMove={tilt} onPointerLeave={untilt}>
       <div className="event-card__inner">
         <div className="event-card__band">
           {lead ? <span className="event-card__icon"><InterestIcon interest={lead} size={30} /></span> : null}
-          <span className="event-card__provider">{providerLabel(offer.providerId)}</span>
+          <span className="event-card__provider">{provider}</span>
           {offer.source.kind === "demo" ? <span className="tag tag--demo">Demo</span> : <span className="tag tag--verified">Geprüft</span>}
         </div>
         <div className="event-card__body">
@@ -49,9 +53,9 @@ export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 
           <h3 className="event-card__title">
             <button type="button" className="event-card__open" onClick={() => onOpen?.(offer)}>{offer.title.de}</button>
           </h3>
-          {matches.length ? <p className="event-card__match">Passt zu: {matches.map(m => INTEREST_META[m].label).join(", ")}</p> : null}
+          {reasons.length ? <p className="event-card__match">{reasons.join(" · ")}</p> : null}
           <div className="event-card__facts">
-            <span className={offer.minAge === null && offer.maxAge === null ? "tag tag--unknown" : "tag"}>{formatAge(offer)}</span>
+            <span className={ageKnown(offer) ? "tag" : "tag tag--unknown"}>{formatAge(offer)}</span>
             <span className={offer.priceEur === null ? "tag tag--unknown" : "tag"}>{formatPrice(offer)}</span>
             {offer.availability === "full" ? <span className="tag tag--full">Ausgebucht</span> : null}
             {offer.availability === "unknown" ? <span className="tag tag--unknown">Plätze unbekannt</span> : null}
