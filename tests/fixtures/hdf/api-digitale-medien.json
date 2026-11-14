@@ -1,0 +1,950 @@
+[
+ {
+  "knr": "261H207012",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Digitale Medien kreativ erleben - Gemeinsam entdecken, gestalten und produzieren",
+  "hauptuntertitel": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+  "inhalt": "Bei der Vielzahl an Angeboten digitaler Medien den Überblick zu behalten, stellt für viele Familien eine Überforderung dar und ist im hektischen Alltag oft nicht leistbar. Mit welcher App können Kinder kreativ werden? Wie funktioniert eine Hörbox & was kann man alles mit Hörstiften tun? Wie erstelle ich mein eigenes Bilderbuch oder einen Film?  \nDieser Workshop soll Eltern und Kindern ermöglichen die kreative Seite verschiedener digitaler Medien zu entdecken. Nach dem Motto: „Weniger Konsumieren, sondern Produzieren“ möchten wir im Workshop gemeinsam aktiv werden und mit viel Fantasie und Kreativität selbst Neues gestalten.  \nEs sind keinerlei Vorkenntnisse erforderlich – jeder ist herzlich willkommen, der Spaß am Experimentieren und Entdecken hat.",
+  "web_info": "Bei der Vielzahl an Angeboten digitaler Medien den Überblick zu behalten, stellt für viele Familien eine Überforderung dar und ist im hektischen Alltag oft nicht leistbar. Mit welcher App können Kinder kreativ werden? Wie funktioniert eine Hörbox & was kann man alles mit Hörstiften tun? Wie erstelle ich mein eigenes Bilderbuch oder einen Film?  \nDieser Workshop soll Eltern und Kindern ermöglichen die kreative Seite verschiedener digitaler Medien zu entdecken. Nach dem Motto: „Weniger Konsumieren, sondern Produzieren“ möchten wir im Workshop gemeinsam aktiv werden und mit viel Fantasie und Kreativität selbst Neues gestalten.  \nEs sind keinerlei Vorkenntnisse erforderlich – jeder ist herzlich willkommen, der Spaß am Experimentieren und Entdecken hat.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-14",
+  "endedat": "2026-11-14",
+  "beginnuhr": "10:00",
+  "endeuhr": "11:30",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortid": "156",
+  "fachb": "2",
+  "gebnorm": "5.00",
+  "tnanmeldungen": "9",
+  "tnmax": "14",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H207012",
+    "tag": "2026-11-14",
+    "zeitvon": "10:00:00",
+    "zeitbis": "11:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H207012",
+    "betragnorm": "5.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-11-14"
+   }
+  ],
+  "keywords": [
+   "Workshop",
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien",
+   "kreativ",
+   "entdecken",
+   "gestalten",
+   "produzieren"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H207010",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Gesunder Umgang mit Social Media (Teil I): Mechanismen verstehen und Risiken erkennen - LIVE ONLINE",
+  "hauptuntertitel": "Ein Vortrag für Eltern",
+  "inhalt": "Soziale Medien sind fester Bestandteil der Lebenswelt Jugendlicher. Im ersten Teil des Webinars wird aufgezeigt, warum Plattformen so fesselnd wirken und mit welchen Mechanismen – wie Likes, Endlosschleifen, Push-Benachrichtigungen, FOMO oder Antwortdruck – Jugendliche möglichst lange online gehalten werden. Zudem wird thematisiert, wie Beauty-Filter, KI und inszenierte Influencer-Welten das Selbstbild beeinflussen und unrealistische Erwartungen erzeugen. Die Teilnehmenden reflektieren ihren eigenen Medienkonsum, erkennen mögliche Risiken für mentale und körperliche Gesundheit und entwickeln ein erstes Bewusstsein für einen achtsamen Umgang mit Social Media. \n\nGefördert durch das Ministerium für Ernährung, Ländlicher Raum und Verbraucherschutz Baden-Württemberg im Rahmen des Projekts „Verbraucherbildung für Familien und Erwachsene in Baden-Württemberg“.",
+  "web_info": "Soziale Medien sind fester Bestandteil der Lebenswelt Jugendlicher. Im ersten Teil des Webinars wird aufgezeigt, warum Plattformen so fesselnd wirken und mit welchen Mechanismen – wie Likes, Endlosschleifen, Push-Benachrichtigungen, FOMO oder Antwortdruck – Jugendliche möglichst lange online gehalten werden. Zudem wird thematisiert, wie Beauty-Filter, KI und inszenierte Influencer-Welten das Selbstbild beeinflussen und unrealistische Erwartungen erzeugen. Die Teilnehmenden reflektieren ihren eigenen Medienkonsum, erkennen mögliche Risiken für mentale und körperliche Gesundheit und entwickeln ein erstes Bewusstsein für einen achtsamen Umgang mit Social Media. \n\nGefördert durch das Ministerium für Ernährung, Ländlicher Raum und Verbraucherschutz Baden-Württemberg im Rahmen des Projekts „Verbraucherbildung für Familien und Erwachsene in Baden-Württemberg“.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-17",
+  "endedat": "2026-11-17",
+  "beginnuhr": "18:00",
+  "endeuhr": "19:30",
+  "dauer": "1 x",
+  "kurstyp": "Normalkurs",
+  "online_kurstyp": "Online-Kurs",
+  "ort": "online",
+  "ortplz": "",
+  "ortname": "",
+  "ortraumname": "online",
+  "ortid": "105",
+  "fachb": "2",
+  "gebnorm": "0.00",
+  "tnanmeldungen": "6",
+  "tnmax": "50",
+  "tnmin": "10",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H207010",
+    "tag": "2026-11-17",
+    "zeitvon": "18:00:00",
+    "zeitbis": "19:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H207010",
+    "betragnorm": "0.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien",
+   "Social Media"
+  ],
+  "kategorien": {
+   "13": "Eltern"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "144": "Vorträge Elternbildung",
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H207004",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Data Literacy for Kids: Von Bausteinen zum Balkendiagramm",
+  "hauptuntertitel": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+  "inhalt": "Willkommen in der Welt der Daten! Hier wird gesammelt, gezählt und gezeichnet – mit bunten Bausteinen, Lieblingsfarben und kleinen Spielen. Gemeinsam mit ihren Eltern entdecken Kinder, wie man Dinge sortiert, Strichlisten macht und spannende Diagramme erstellt. \nDamon, das neugierige Datenmonster, begleitet uns dabei und stellt Fragen wie: „Von welcher Farbe habe ich die meisten Legosteine?“ oder „Wie viele rote Dinge finden wir gemeinsam?“. Mit seiner Hilfe verwandeln wir unsere Entdeckungen in bunte Datenbilder und lernen ganz nebenbei, warum Daten so wichtig für künstliche Intelligenz (KI) sind – denn ohne Daten kann KI nichts lernen oder verstehen. Ganz ohne Computer, dafür mit viel Kreativität und Bewegung. Die Kinder brauchen keine Vorkenntnisse – Neugier, Spaß am Mitmachen und Lust aufs Entdecken reichen völlig aus.",
+  "web_info": "Willkommen in der Welt der Daten! Hier wird gesammelt, gezählt und gezeichnet – mit bunten Bausteinen, Lieblingsfarben und kleinen Spielen. Gemeinsam mit ihren Eltern entdecken Kinder, wie man Dinge sortiert, Strichlisten macht und spannende Diagramme erstellt. \nDamon, das neugierige Datenmonster, begleitet uns dabei und stellt Fragen wie: „Von welcher Farbe habe ich die meisten Legosteine?“ oder „Wie viele rote Dinge finden wir gemeinsam?“. Mit seiner Hilfe verwandeln wir unsere Entdeckungen in bunte Datenbilder und lernen ganz nebenbei, warum Daten so wichtig für künstliche Intelligenz (KI) sind – denn ohne Daten kann KI nichts lernen oder verstehen. Ganz ohne Computer, dafür mit viel Kreativität und Bewegung. Die Kinder brauchen keine Vorkenntnisse – Neugier, Spaß am Mitmachen und Lust aufs Entdecken reichen völlig aus.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-21",
+  "endedat": "2026-11-22",
+  "beginnuhr": "10:00",
+  "endeuhr": "12:00",
+  "dauer": "2 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "2",
+  "gebnorm": "10.00",
+  "tnanmeldungen": "10",
+  "tnmax": "12",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "2",
+  "termine": [
+   {
+    "kurs_knr": "261H207004",
+    "tag": "2026-11-21",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H207004",
+    "tag": "2026-11-22",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H207004",
+    "betragnorm": "10.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-11-21"
+   }
+  ],
+  "keywords": [
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien",
+   "Data Literacy",
+   "Datenkompetenz",
+   "Diagramme"
+  ],
+  "kategorien": {
+   "13": "Eltern",
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H207011",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Gesunder Umgang mit Social Media (Teil II): Medienbalance finden – Strategien für einen bewussten Umgang entwickeln - LIVE ONLINE",
+  "hauptuntertitel": "Ein Vortrag für Eltern",
+  "inhalt": "Im zweiten Teil stehen konkrete Lösungsansätze für eine gesunde Mediennutzung im Mittelpunkt. Gemeinsam werden Strategien erarbeitet, um Bildschirmzeiten zu reduzieren, Inhalte kritisch zu hinterfragen und eine bessere Balance zwischen Online- und Offline-Aktivitäten zu schaffen. Themen wie der „Traumjob Influencer“, digitale Vorbilder, Familienregeln und der Einfluss von Social Media auf Lernen, Konzentration und Wohlbefinden werden praxisnah behandelt. Ziel ist es, Jugendliche zu stärken, damit sie Social Media bewusst nutzen und wieder mehr Raum für Schule, Freundschaften und persönliche Interessen gewinnen. \n\nGefördert durch das Ministerium für Ernährung, Ländlicher Raum und Verbraucherschutz Baden-Württemberg im Rahmen des Projekts „Verbraucherbildung für Familien und Erwachsene in Baden-Württemberg“.",
+  "web_info": "Im zweiten Teil stehen konkrete Lösungsansätze für eine gesunde Mediennutzung im Mittelpunkt. Gemeinsam werden Strategien erarbeitet, um Bildschirmzeiten zu reduzieren, Inhalte kritisch zu hinterfragen und eine bessere Balance zwischen Online- und Offline-Aktivitäten zu schaffen. Themen wie der „Traumjob Influencer“, digitale Vorbilder, Familienregeln und der Einfluss von Social Media auf Lernen, Konzentration und Wohlbefinden werden praxisnah behandelt. Ziel ist es, Jugendliche zu stärken, damit sie Social Media bewusst nutzen und wieder mehr Raum für Schule, Freundschaften und persönliche Interessen gewinnen. \n\nGefördert durch das Ministerium für Ernährung, Ländlicher Raum und Verbraucherschutz Baden-Württemberg im Rahmen des Projekts „Verbraucherbildung für Familien und Erwachsene in Baden-Württemberg“.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-24",
+  "endedat": "2026-11-24",
+  "beginnuhr": "18:00",
+  "endeuhr": "19:30",
+  "dauer": "1 x",
+  "kurstyp": "Normalkurs",
+  "online_kurstyp": "Online-Kurs",
+  "ort": "online",
+  "ortplz": "",
+  "ortname": "",
+  "ortraumname": "online",
+  "ortid": "105",
+  "fachb": "2",
+  "gebnorm": "0.00",
+  "tnanmeldungen": "2",
+  "tnmax": "50",
+  "tnmin": "10",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H207011",
+    "tag": "2026-11-24",
+    "zeitvon": "18:00:00",
+    "zeitbis": "19:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H207011",
+    "betragnorm": "0.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien",
+   "Social Media"
+  ],
+  "kategorien": {
+   "13": "Eltern"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "144": "Vorträge Elternbildung",
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H304002",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Programmieren Lernen - Scratch",
+  "hauptuntertitel": "Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+  "inhalt": "In diesem Workshop erlernen die Kinder die visuelle Programmiersprache Scratch, speziell für Kinder konzipiert. Ganz ohne Vorkenntnisse können die Kinder durch das Zusammenfügen von Code-Blöcken eigene Programme erstellen. In Zweiergruppen entdecken sie die Grundlagen des Programmierens und gestalten ihre eigenen Charaktere, die sie zum Leben erwecken - sie lassen sie laufen, hüpfen und spannende Aufgaben meistern. Scratch fördert kreatives Denken und Problemlösungsfähigkeiten, da die Kinder lernen, logische Abläufe zu erstellen und ihre Ideen in digitale Projekte umzusetzen.",
+  "web_info": "In diesem Workshop erlernen die Kinder die visuelle Programmiersprache Scratch, speziell für Kinder konzipiert. Ganz ohne Vorkenntnisse können die Kinder durch das Zusammenfügen von Code-Blöcken eigene Programme erstellen. In Zweiergruppen entdecken sie die Grundlagen des Programmierens und gestalten ihre eigenen Charaktere, die sie zum Leben erwecken - sie lassen sie laufen, hüpfen und spannende Aufgaben meistern. Scratch fördert kreatives Denken und Problemlösungsfähigkeiten, da die Kinder lernen, logische Abläufe zu erstellen und ihre Ideen in digitale Projekte umzusetzen.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-28",
+  "endedat": "2026-11-28",
+  "beginnuhr": "12:30",
+  "endeuhr": "15:30",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortid": "159",
+  "fachb": "3",
+  "gebnorm": "30.00",
+  "tnanmeldungen": "8",
+  "tnmax": "8",
+  "tnmin": "6",
+  "material": "Schreibzeug, Ordner, Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H304002",
+    "tag": "2026-11-28",
+    "zeitvon": "12:30:00",
+    "zeitbis": "15:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H304002",
+    "betragnorm": "30.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-11-28"
+   }
+  ],
+  "keywords": [
+   "Digitale Medien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "individuell"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H207005",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "\"Baby oder Smartphone im Blick?\" Feinfühligkeit im Umgang mit digitalen Medien - LIVE ONLINE",
+  "hauptuntertitel": "Ein Vortrag für Eltern",
+  "inhalt": "Digitale Medien – besonders das Smartphone – nehmen in unserer Lebenswelt einen immer größeren Raum ein. Dadurch stehen schon Bezugspersonen von Babys und Kleinkindern vor der großen Herausforderung, digitale Medien mit Bedacht in den Alltag zu integrieren. Das betrifft einerseits die eigene Mediennutzung der Bezugspersonen und andererseits die Nutzung durch die Kleinsten selbst. Dieser Vortrag nimmt beides in den Blick. Wissenschaftlich fundiert und doch alltagsnah wird erklärt, wie der häufige Blick aufs Smartphone und das regelmäßige Versinken in der digitalen Welt die elterliche Feinfühligkeit und den Bindungsaufbau beeinflussen können. Zudem geht es um die Frage, wie und wann Kleinkinder Medien nutzen und unter welchen Umständen digitale Geräte die Entwicklung der Emotionsregulation beeinträchtigen können. Eltern und alle Bezugspersonen, die mit Kindern unter drei Jahren interagieren werden bei der Entwicklung eines achtsamen Umgangs mit digitalen Medien unterstützt.\n\nFinanziert durch das Ministerium für Soziales, Gesundheit und Integration aus Landesmitteln, die der Landtag von Baden-Württemberg beschlossen hat.",
+  "web_info": "Digitale Medien – besonders das Smartphone – nehmen in unserer Lebenswelt einen immer größeren Raum ein. Dadurch stehen schon Bezugspersonen von Babys und Kleinkindern vor der großen Herausforderung, digitale Medien mit Bedacht in den Alltag zu integrieren. Das betrifft einerseits die eigene Mediennutzung der Bezugspersonen und andererseits die Nutzung durch die Kleinsten selbst. Dieser Vortrag nimmt beides in den Blick. Wissenschaftlich fundiert und doch alltagsnah wird erklärt, wie der häufige Blick aufs Smartphone und das regelmäßige Versinken in der digitalen Welt die elterliche Feinfühligkeit und den Bindungsaufbau beeinflussen können. Zudem geht es um die Frage, wie und wann Kleinkinder Medien nutzen und unter welchen Umständen digitale Geräte die Entwicklung der Emotionsregulation beeinträchtigen können. Eltern und alle Bezugspersonen, die mit Kindern unter drei Jahren interagieren werden bei der Entwicklung eines achtsamen Umgangs mit digitalen Medien unterstützt.\n\nFinanziert durch das Ministerium für Soziales, Gesundheit und Integration aus Landesmitteln, die der Landtag von Baden-Württemberg beschlossen hat.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-01",
+  "endedat": "2026-12-01",
+  "beginnuhr": "19:00",
+  "endeuhr": "20:30",
+  "dauer": "1 x",
+  "kurstyp": "Normalkurs",
+  "online_kurstyp": "Online-Kurs",
+  "ort": "online",
+  "ortplz": "",
+  "ortname": "",
+  "ortraumname": "online",
+  "ortid": "105",
+  "fachb": "2",
+  "gebnorm": "0.00",
+  "tnanmeldungen": "8",
+  "tnmax": "50",
+  "tnmin": "10",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H207005",
+    "tag": "2026-12-01",
+    "zeitvon": "19:00:00",
+    "zeitbis": "20:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H207005",
+    "betragnorm": "0.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-12-01"
+   }
+  ],
+  "keywords": [
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien"
+  ],
+  "kategorien": {
+   "13": "Eltern"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "144": "Vorträge Elternbildung",
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H207006",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Märchenhaft mit ScratchJunior eine Geschichte programmieren: Das mutige Tier",
+  "hauptuntertitel": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+  "inhalt": "In diesem Workshop machen wir es uns zuerst gemütlich und lauschen einem spannenden Märchen – voller Tiere, Abenteuer und einer kleinen Portion Mut. Anschließend verwandeln wir die Geschichte gemeinsam mit ScratchJunior, einer kindgerechten Programmiersprache, in einen eigenen bunten Trickfilm.\nMit fröhlich-farbigen Programmierblöcken gestalten die Kinder eigene Szenen, lassen Figuren sprechen, hüpfen oder schleichen und denken sich neue Ideen zur Geschichte aus. So entdecken sie spielerisch, wie Programmieren funktioniert und erleben, wie aus einem Märchen ein lebendiges kleines Abenteuer entsteht. Die Eltern begleiten ihre Kinder aktiv und unterstützen den Bildungsprozess.",
+  "web_info": "In diesem Workshop machen wir es uns zuerst gemütlich und lauschen einem spannenden Märchen – voller Tiere, Abenteuer und einer kleinen Portion Mut. Anschließend verwandeln wir die Geschichte gemeinsam mit ScratchJunior, einer kindgerechten Programmiersprache, in einen eigenen bunten Trickfilm.\nMit fröhlich-farbigen Programmierblöcken gestalten die Kinder eigene Szenen, lassen Figuren sprechen, hüpfen oder schleichen und denken sich neue Ideen zur Geschichte aus. So entdecken sie spielerisch, wie Programmieren funktioniert und erleben, wie aus einem Märchen ein lebendiges kleines Abenteuer entsteht. Die Eltern begleiten ihre Kinder aktiv und unterstützen den Bildungsprozess.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-05",
+  "endedat": "2026-12-05",
+  "beginnuhr": "09:30",
+  "endeuhr": "11:30",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 3",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 3",
+  "ortid": "158",
+  "fachb": "2",
+  "gebnorm": "10.00",
+  "tnanmeldungen": "16",
+  "tnmax": "16",
+  "tnmin": "8",
+  "material": "Tablet (sofern vorhanden)",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H207006",
+    "tag": "2026-12-05",
+    "zeitvon": "09:30:00",
+    "zeitbis": "11:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H207006",
+    "betragnorm": "10.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-12-05"
+   }
+  ],
+  "keywords": [
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien",
+   "ScratchJunior",
+   "App"
+  ],
+  "kategorien": {
+   "13": "Eltern",
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H207007",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2",
+  "hauptuntertitel": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+  "inhalt": "In diesem Kurs tauchen Kinder gemeinsam mit ihren Eltern noch tiefer in die Welt der Robotik und des Programmierens ein. Mit LEGO® Education bauen sie kleine Roboter und lernen anschließend, diese mithilfe von Symbolen auf dem Tablet zu programmieren.\nAn Bodenstationen lösen die Kinder spannende Aufgaben, testen ihre Ideen und erleben direkt, wie der Roboter auf ihre Programmierung reagiert. Dabei wird schnell klar: Programmieren bedeutet vor allem ausprobieren, nachdenken, verbessern – und auch aus Fehlern lernen.\nDie Kinder entwickeln spielerisch algorithmisches und logisches Denken und lernen Abläufe Schritt für Schritt zu planen, zu testen und zu verbessern. Gleichzeitig stärken sie ihre digitale Kompetenz und erleben das Tablet nicht nur als Unterhaltungsmedium, sondern als kreatives Werkzeug, mit dem sie eigene Ideen umsetzen können.\nBesonders wertvoll ist dabei die gemeinsame Zeit: Eltern und Kinder tüfteln als Team, freuen sich über gelungene Lösungen und entdecken mit viel Spaß, wie aus Ideen funktionierende Programme entstehen.\nDie Teilnahme an dem Vorgängerkurs \"Roboter - Verstehen, Programmieren, Entdecken - Stufe 1\" wird empfohlen, da dort wichtige Grundlagen vermittelt werden, stellt jedoch keine Voraussetzung dar.\nDer Kurs wird von der Bildungsinitiative ROKI – Robotic4Kids durchgeführt.",
+  "web_info": "In diesem Kurs tauchen Kinder gemeinsam mit ihren Eltern noch tiefer in die Welt der Robotik und des Programmierens ein. Mit LEGO® Education bauen sie kleine Roboter und lernen anschließend, diese mithilfe von Symbolen auf dem Tablet zu programmieren.\nAn Bodenstationen lösen die Kinder spannende Aufgaben, testen ihre Ideen und erleben direkt, wie der Roboter auf ihre Programmierung reagiert. Dabei wird schnell klar: Programmieren bedeutet vor allem ausprobieren, nachdenken, verbessern – und auch aus Fehlern lernen.\nDie Kinder entwickeln spielerisch algorithmisches und logisches Denken und lernen Abläufe Schritt für Schritt zu planen, zu testen und zu verbessern. Gleichzeitig stärken sie ihre digitale Kompetenz und erleben das Tablet nicht nur als Unterhaltungsmedium, sondern als kreatives Werkzeug, mit dem sie eigene Ideen umsetzen können.\nBesonders wertvoll ist dabei die gemeinsame Zeit: Eltern und Kinder tüfteln als Team, freuen sich über gelungene Lösungen und entdecken mit viel Spaß, wie aus Ideen funktionierende Programme entstehen.\nDie Teilnahme an dem Vorgängerkurs \"Roboter - Verstehen, Programmieren, Entdecken - Stufe 1\" wird empfohlen, da dort wichtige Grundlagen vermittelt werden, stellt jedoch keine Voraussetzung dar.\nDer Kurs wird von der Bildungsinitiative ROKI – Robotic4Kids durchgeführt.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-16",
+  "endedat": "2027-01-23",
+  "beginnuhr": "10:00",
+  "endeuhr": "11:30",
+  "dauer": "2 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "2",
+  "gebnorm": "10.00",
+  "tnanmeldungen": "16",
+  "tnmax": "16",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H207007",
+    "tag": "2027-01-16",
+    "zeitvon": "10:00:00",
+    "zeitbis": "11:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H207007",
+    "tag": "2027-01-23",
+    "zeitvon": "10:00:00",
+    "zeitbis": "11:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H207007",
+    "betragnorm": "10.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-01-16"
+   }
+  ],
+  "keywords": [
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien",
+   "Programmieren",
+   "Roboter",
+   "Robotics"
+  ],
+  "kategorien": {
+   "13": "Eltern",
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H207016",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2",
+  "hauptuntertitel": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+  "inhalt": "In diesem Kurs tauchen Kinder gemeinsam mit ihren Eltern noch tiefer in die Welt der Robotik und des Programmierens ein. Mit LEGO® Education bauen sie kleine Roboter und lernen anschließend, diese mithilfe von Symbolen auf dem Tablet zu programmieren.\nAn Bodenstationen lösen die Kinder spannende Aufgaben, testen ihre Ideen und erleben direkt, wie der Roboter auf ihre Programmierung reagiert. Dabei wird schnell klar: Programmieren bedeutet vor allem ausprobieren, nachdenken, verbessern – und auch aus Fehlern lernen.\nDie Kinder entwickeln spielerisch algorithmisches und logisches Denken und lernen Abläufe Schritt für Schritt zu planen, zu testen und zu verbessern. Gleichzeitig stärken sie ihre digitale Kompetenz und erleben das Tablet nicht nur als Unterhaltungsmedium, sondern als kreatives Werkzeug, mit dem sie eigene Ideen umsetzen können.\nBesonders wertvoll ist dabei die gemeinsame Zeit: Eltern und Kinder tüfteln als Team, freuen sich über gelungene Lösungen und entdecken mit viel Spaß, wie aus Ideen funktionierende Programme entstehen.\nDie Teilnahme an dem Vorgängerkurs \"Roboter - Verstehen, Programmieren, Entdecken - Stufe 1\" wird empfohlen, da dort wichtige Grundlagen vermittelt werden, stellt jedoch keine Voraussetzung dar.\nDer Kurs wird von der Bildungsinitiative ROKI – Robotic4Kids durchgeführt.",
+  "web_info": "In diesem Kurs tauchen Kinder gemeinsam mit ihren Eltern noch tiefer in die Welt der Robotik und des Programmierens ein. Mit LEGO® Education bauen sie kleine Roboter und lernen anschließend, diese mithilfe von Symbolen auf dem Tablet zu programmieren.\nAn Bodenstationen lösen die Kinder spannende Aufgaben, testen ihre Ideen und erleben direkt, wie der Roboter auf ihre Programmierung reagiert. Dabei wird schnell klar: Programmieren bedeutet vor allem ausprobieren, nachdenken, verbessern – und auch aus Fehlern lernen.\nDie Kinder entwickeln spielerisch algorithmisches und logisches Denken und lernen Abläufe Schritt für Schritt zu planen, zu testen und zu verbessern. Gleichzeitig stärken sie ihre digitale Kompetenz und erleben das Tablet nicht nur als Unterhaltungsmedium, sondern als kreatives Werkzeug, mit dem sie eigene Ideen umsetzen können.\nBesonders wertvoll ist dabei die gemeinsame Zeit: Eltern und Kinder tüfteln als Team, freuen sich über gelungene Lösungen und entdecken mit viel Spaß, wie aus Ideen funktionierende Programme entstehen.\nDie Teilnahme an dem Vorgängerkurs \"Roboter - Verstehen, Programmieren, Entdecken - Stufe 1\" wird empfohlen, da dort wichtige Grundlagen vermittelt werden, stellt jedoch keine Voraussetzung dar.\nDer Kurs wird von der Bildungsinitiative ROKI – Robotic4Kids durchgeführt.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-16",
+  "endedat": "2027-01-23",
+  "beginnuhr": "12:30",
+  "endeuhr": "14:00",
+  "dauer": "2 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "2",
+  "gebnorm": "10.00",
+  "tnanmeldungen": "16",
+  "tnmax": "16",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H207016",
+    "tag": "2027-01-16",
+    "zeitvon": "12:30:00",
+    "zeitbis": "14:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H207016",
+    "tag": "2027-01-23",
+    "zeitvon": "12:30:00",
+    "zeitbis": "14:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H207016",
+    "betragnorm": "10.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-01-16"
+   }
+  ],
+  "keywords": [
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien",
+   "Programmieren",
+   "Roboter",
+   "Robotics"
+  ],
+  "kategorien": {
+   "13": "Eltern",
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H207017",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2",
+  "hauptuntertitel": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+  "inhalt": "In diesem Kurs tauchen Kinder gemeinsam mit ihren Eltern noch tiefer in die Welt der Robotik und des Programmierens ein. Mit LEGO® Education bauen sie kleine Roboter und lernen anschließend, diese mithilfe von Symbolen auf dem Tablet zu programmieren.\nAn Bodenstationen lösen die Kinder spannende Aufgaben, testen ihre Ideen und erleben direkt, wie der Roboter auf ihre Programmierung reagiert. Dabei wird schnell klar: Programmieren bedeutet vor allem ausprobieren, nachdenken, verbessern – und auch aus Fehlern lernen.\nDie Kinder entwickeln spielerisch algorithmisches und logisches Denken und lernen Abläufe Schritt für Schritt zu planen, zu testen und zu verbessern. Gleichzeitig stärken sie ihre digitale Kompetenz und erleben das Tablet nicht nur als Unterhaltungsmedium, sondern als kreatives Werkzeug, mit dem sie eigene Ideen umsetzen können.\nBesonders wertvoll ist dabei die gemeinsame Zeit: Eltern und Kinder tüfteln als Team, freuen sich über gelungene Lösungen und entdecken mit viel Spaß, wie aus Ideen funktionierende Programme entstehen.\nDie Teilnahme an dem Vorgängerkurs \"Roboter - Verstehen, Programmieren, Entdecken - Stufe 1\" wird empfohlen, da dort wichtige Grundlagen vermittelt werden, stellt jedoch keine Voraussetzung dar.\nDer Kurs wird von der Bildungsinitiative ROKI – Robotic4Kids durchgeführt.",
+  "web_info": "In diesem Kurs tauchen Kinder gemeinsam mit ihren Eltern noch tiefer in die Welt der Robotik und des Programmierens ein. Mit LEGO® Education bauen sie kleine Roboter und lernen anschließend, diese mithilfe von Symbolen auf dem Tablet zu programmieren.\nAn Bodenstationen lösen die Kinder spannende Aufgaben, testen ihre Ideen und erleben direkt, wie der Roboter auf ihre Programmierung reagiert. Dabei wird schnell klar: Programmieren bedeutet vor allem ausprobieren, nachdenken, verbessern – und auch aus Fehlern lernen.\nDie Kinder entwickeln spielerisch algorithmisches und logisches Denken und lernen Abläufe Schritt für Schritt zu planen, zu testen und zu verbessern. Gleichzeitig stärken sie ihre digitale Kompetenz und erleben das Tablet nicht nur als Unterhaltungsmedium, sondern als kreatives Werkzeug, mit dem sie eigene Ideen umsetzen können.\nBesonders wertvoll ist dabei die gemeinsame Zeit: Eltern und Kinder tüfteln als Team, freuen sich über gelungene Lösungen und entdecken mit viel Spaß, wie aus Ideen funktionierende Programme entstehen.\nDie Teilnahme an dem Vorgängerkurs \"Roboter - Verstehen, Programmieren, Entdecken - Stufe 1\" wird empfohlen, da dort wichtige Grundlagen vermittelt werden, stellt jedoch keine Voraussetzung dar.\nDer Kurs wird von der Bildungsinitiative ROKI – Robotic4Kids durchgeführt.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-16",
+  "endedat": "2027-01-23",
+  "beginnuhr": "14:30",
+  "endeuhr": "16:00",
+  "dauer": "2 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "2",
+  "gebnorm": "10.00",
+  "tnanmeldungen": "16",
+  "tnmax": "16",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H207017",
+    "tag": "2027-01-16",
+    "zeitvon": "14:30:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H207017",
+    "tag": "2027-01-23",
+    "zeitvon": "14:30:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H207017",
+    "betragnorm": "10.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-01-16"
+   }
+  ],
+  "keywords": [
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien",
+   "Programmieren",
+   "Roboter",
+   "Robotics"
+  ],
+  "kategorien": {
+   "13": "Eltern",
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H207008",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Spielerisch mit ScratchJunior eine grünere, saubere Welt programmieren",
+  "hauptuntertitel": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+  "inhalt": "In diesem fröhlichen Mitmach-Workshop entdecken wir gemeinsam, wie spannend Programmieren sein kann. Programmieren ist eine eigene Sprache – und mit ScratchJunior können schon die Jüngsten sie spielerisch lernen. Ganz ohne Vorkenntnisse gestalten die kleinen Programmierer eigene interaktive Geschichten, lustige Animationen und spaßige Spiele. \nGemeinsam tauchen wir in eine nachhaltige Welt ein, in der wir bunte Blumen und Obstbäume pflanzen, summende Bienen und flatternde Schmetterling retten und Müll einsammeln. Dabei lernen die Kinder die ersten Grundlagen der Programmierung kennen, während sie gleichzeitig für Umweltschutz sensibilisiert werden. \nDer Fokus liegt auf dem gemeinsamen Lernen, Experimentieren und Entdecken. Eltern begleiten ihre Kinder aktiv und unterstützen den Bildungsprozess.",
+  "web_info": "In diesem fröhlichen Mitmach-Workshop entdecken wir gemeinsam, wie spannend Programmieren sein kann. Programmieren ist eine eigene Sprache – und mit ScratchJunior können schon die Jüngsten sie spielerisch lernen. Ganz ohne Vorkenntnisse gestalten die kleinen Programmierer eigene interaktive Geschichten, lustige Animationen und spaßige Spiele. \nGemeinsam tauchen wir in eine nachhaltige Welt ein, in der wir bunte Blumen und Obstbäume pflanzen, summende Bienen und flatternde Schmetterling retten und Müll einsammeln. Dabei lernen die Kinder die ersten Grundlagen der Programmierung kennen, während sie gleichzeitig für Umweltschutz sensibilisiert werden. \nDer Fokus liegt auf dem gemeinsamen Lernen, Experimentieren und Entdecken. Eltern begleiten ihre Kinder aktiv und unterstützen den Bildungsprozess.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-30",
+  "endedat": "2027-01-30",
+  "beginnuhr": "09:30",
+  "endeuhr": "11:30",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5",
+  "ortid": "160",
+  "fachb": "2",
+  "gebnorm": "10.00",
+  "tnanmeldungen": "7",
+  "tnmax": "16",
+  "tnmin": "8",
+  "material": "Tablet (sofern vorhanden)",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H207008",
+    "tag": "2027-01-30",
+    "zeitvon": "09:30:00",
+    "zeitbis": "11:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H207008",
+    "betragnorm": "10.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-01-30"
+   }
+  ],
+  "keywords": [
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien",
+   "App",
+   "Programmieren",
+   "Programmiersprache",
+   "ScratchJR",
+   "Nachhaltigkeit",
+   "nachhaltig",
+   "grün",
+   "EGC",
+   "European Green Capital",
+   ".now",
+   "Grüne Hauptstadt Europas",
+   "Zukunft",
+   "Umweltbewusst",
+   "Umweltbewusstsein"
+  ],
+  "kategorien": {
+   "13": "Eltern",
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "184": "Digitale Familienwerkstatt",
+   "728914": "Nachhaltigkeit"
+  }
+ },
+ {
+  "knr": "272H207001",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Data Literacy for Kids: Trends und Anteile",
+  "hauptuntertitel": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+  "inhalt": "Willkommen im nächsten Datenabenteuer! In diesem Workshop entdecken Kinder spielerisch, wie man Veränderungen sichtbar macht und Anteile versteht – mit einfachen Alltagsbeobachtungen, kleinen Experimenten und gemeinsamen Aktivitäten. Gemeinsam mit ihren Eltern lernen sie, wie man Reihenfolgen erkennt, Veränderungen beobachtet und daraus Liniendiagramme und Kreisdiagramme gestaltet. Damon, das neugierige Datenmonster, ist wieder dabei und fragt: „Wie verändert sich etwas über die Zeit?“ oder „Welcher Teil ist der Größte?“. Mit seiner Hilfe verwandeln wir unsere Beobachtungen in bunte Datenbilder und erfahren ganz nebenbei, warum solche Diagramme wichtig sind, um Muster zu erkennen – auch für künstliche Intelligenz. Ganz ohne Computer, dafür mit viel Kreativität, Bewegung und Spaß. Vorkenntnisse sind nicht nötig – Neugier und Lust aufs Ausprobieren reichen völlig aus. \nDer Kurs eignet sich sowohl für neue Datenabenteurer als auch für alle, die Damon bereits aus dem ersten Workshop kennen.",
+  "web_info": "Willkommen im nächsten Datenabenteuer! In diesem Workshop entdecken Kinder spielerisch, wie man Veränderungen sichtbar macht und Anteile versteht – mit einfachen Alltagsbeobachtungen, kleinen Experimenten und gemeinsamen Aktivitäten. Gemeinsam mit ihren Eltern lernen sie, wie man Reihenfolgen erkennt, Veränderungen beobachtet und daraus Liniendiagramme und Kreisdiagramme gestaltet. Damon, das neugierige Datenmonster, ist wieder dabei und fragt: „Wie verändert sich etwas über die Zeit?“ oder „Welcher Teil ist der Größte?“. Mit seiner Hilfe verwandeln wir unsere Beobachtungen in bunte Datenbilder und erfahren ganz nebenbei, warum solche Diagramme wichtig sind, um Muster zu erkennen – auch für künstliche Intelligenz. Ganz ohne Computer, dafür mit viel Kreativität, Bewegung und Spaß. Vorkenntnisse sind nicht nötig – Neugier und Lust aufs Ausprobieren reichen völlig aus. \nDer Kurs eignet sich sowohl für neue Datenabenteurer als auch für alle, die Damon bereits aus dem ersten Workshop kennen.",
+  "internetaktiv": "W",
+  "semester": "F27",
+  "beginndat": "2027-02-20",
+  "endedat": "2027-02-21",
+  "beginnuhr": "10:00",
+  "endeuhr": "12:00",
+  "dauer": "2 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortid": "159",
+  "fachb": "2",
+  "gebnorm": "10.00",
+  "tnanmeldungen": "2",
+  "tnmax": "12",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:26",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "272H207001",
+    "tag": "2027-02-20",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "272H207001",
+    "tag": "2027-02-21",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "272H207001",
+    "betragnorm": "10.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-20"
+   }
+  ],
+  "keywords": [
+   "Digital",
+   "Familie",
+   "Medien",
+   "Mediennutzung",
+   "Medienkompetenz",
+   "Digitale Welt",
+   "Digitale Kompetenzen",
+   "Digitale Medien",
+   "Data Literacy",
+   "Datenkompetenz",
+   "Diagramme"
+  ],
+  "kategorien": {
+   "13": "Eltern",
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "184": "Digitale Familienwerkstatt"
+  }
+ }
+]

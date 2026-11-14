@@ -1,0 +1,2398 @@
+{
+  "runId": "haus-der-familie-20261114T160422",
+  "providerId": "haus-der-familie",
+  "adapterVersion": "hdf-kufer-json+html/1",
+  "startedAt": "2026-11-14T16:04:22.373Z",
+  "finishedAt": "2026-11-14T16:04:43.973Z",
+  "status": "needs-review",
+  "message": "11 candidate(s) staged for human review (7 ready, 4 need correction). https://hdf-hn.de/kurse/ is the open course search without preset filters; not queried (it would list every course).",
+  "windowDays": 180,
+  "pageCap": 20,
+  "partialCoverage": false,
+  "pages": [
+    {
+      "url": "https://hdf-hn.de/angebote/digitale-familienwerkstatt/",
+      "finalUrl": "https://hdf-hn.de/angebote/digitale-familienwerkstatt/",
+      "status": 200,
+      "bytes": 96421,
+      "kind": "listing"
+    },
+    {
+      "url": "https://hdf-hn.de/kufer-api.php?keyword=digitale+medien&keyword_relation=or&kategorie_id=0&page=1&limit=120&endpoint=%2Fkurse%2F",
+      "finalUrl": "https://hdf-hn.de/kufer-api.php?keyword=digitale+medien&keyword_relation=or&kategorie_id=0&page=1&limit=120&endpoint=%2Fkurse%2F",
+      "status": 200,
+      "bytes": 45235,
+      "kind": "listing"
+    },
+    {
+      "url": "https://hdf-hn.de/kurse/",
+      "finalUrl": "https://hdf-hn.de/kurse/",
+      "status": 200,
+      "bytes": 96238,
+      "kind": "listing"
+    },
+    {
+      "url": "https://hdf-hn.de/kinder-jugendliche/",
+      "finalUrl": "https://hdf-hn.de/kinder-jugendliche/",
+      "status": 200,
+      "bytes": 102258,
+      "kind": "listing"
+    },
+    {
+      "url": "https://hdf-hn.de/kufer-api.php?endpoint=kurse&fachb=3&limit=48&page=1",
+      "finalUrl": "https://hdf-hn.de/kufer-api.php?endpoint=kurse&fachb=3&limit=48&page=1",
+      "status": 200,
+      "bytes": 166587,
+      "kind": "listing"
+    },
+    {
+      "url": "https://hdf-hn.de/kufer-api.php?endpoint=kurse&fachb=3&limit=48&page=2",
+      "finalUrl": "https://hdf-hn.de/kufer-api.php?endpoint=kurse&fachb=3&limit=48&page=2",
+      "status": 200,
+      "bytes": 32327,
+      "kind": "listing"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/gesunder-umgang-mit-social-media-teil-i-mechanismen-verstehen-und-risiken-erkennen-live-online-261H207010/",
+      "finalUrl": "https://hdf-hn.de/kurs/gesunder-umgang-mit-social-media-teil-i-mechanismen-verstehen-und-risiken-erkennen-live-online-261H207010/",
+      "status": 200,
+      "bytes": 99046,
+      "kind": "detail"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-von-bausteinen-zum-balkendiagramm-261H207004/",
+      "finalUrl": "https://hdf-hn.de/kurs/data-literacy-for-kids-von-bausteinen-zum-balkendiagramm-261H207004/",
+      "status": 200,
+      "bytes": 99945,
+      "kind": "detail"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/programmieren-lernen-scratch-261H304002/",
+      "finalUrl": "https://hdf-hn.de/kurs/programmieren-lernen-scratch-261H304002/",
+      "status": 200,
+      "bytes": 98572,
+      "kind": "detail"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/maerchenhaft-mit-scratchjunior-eine-geschichte-programmieren-das-mutige-tier-261H207006/",
+      "finalUrl": "https://hdf-hn.de/kurs/maerchenhaft-mit-scratchjunior-eine-geschichte-programmieren-das-mutige-tier-261H207006/",
+      "status": 200,
+      "bytes": 99321,
+      "kind": "detail"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207007/",
+      "finalUrl": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207007/",
+      "status": 200,
+      "bytes": 100419,
+      "kind": "detail"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207016/",
+      "finalUrl": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207016/",
+      "status": 200,
+      "bytes": 100419,
+      "kind": "detail"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207017/",
+      "finalUrl": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207017/",
+      "status": 200,
+      "bytes": 100419,
+      "kind": "detail"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/spielerisch-mit-scratchjunior-eine-gruenere-saubere-welt-programmieren-261H207008/",
+      "finalUrl": "https://hdf-hn.de/kurs/spielerisch-mit-scratchjunior-eine-gruenere-saubere-welt-programmieren-261H207008/",
+      "status": 200,
+      "bytes": 100707,
+      "kind": "detail"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-trends-und-anteile-272H207001/",
+      "finalUrl": "https://hdf-hn.de/kurs/data-literacy-for-kids-trends-und-anteile-272H207001/",
+      "status": 200,
+      "bytes": 99896,
+      "kind": "detail"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/kinderferienbox-wie-funktionieren-roboter-und-wie-werden-sie-programmiert-261H305008/",
+      "finalUrl": "https://hdf-hn.de/kurs/kinderferienbox-wie-funktionieren-roboter-und-wie-werden-sie-programmiert-261H305008/",
+      "status": 200,
+      "bytes": 101337,
+      "kind": "detail"
+    },
+    {
+      "url": "https://hdf-hn.de/kurs/kinderferienbox-programmieren-lernen-scratch-261H305006/",
+      "finalUrl": "https://hdf-hn.de/kurs/kinderferienbox-programmieren-lernen-scratch-261H305006/",
+      "status": 200,
+      "bytes": 98841,
+      "kind": "detail"
+    }
+  ],
+  "counts": {
+    "listed": 68,
+    "outOfScope": 57,
+    "outsideWindow": 0,
+    "extracted": 11,
+    "ready": 7,
+    "blocked": 4,
+    "failed": 0
+  },
+  "skipped": [
+    {
+      "externalId": "261H207012",
+      "title": "Digitale Medien kreativ erleben - Gemeinsam entdecken, gestalten und produzieren – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H207011",
+      "title": "Gesunder Umgang mit Social Media (Teil II): Medienbalance finden – Strategien für einen bewussten Umgang entwickeln - LIVE ONLINE – Ein Vortrag für Eltern",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H207005",
+      "title": "\"Baby oder Smartphone im Blick?\" Feinfühligkeit im Umgang mit digitalen Medien - LIVE ONLINE – Ein Vortrag für Eltern",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H303010",
+      "title": "Flughafen Stuttgart - Entdeckertour – Für Kinder ab 5 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H302014",
+      "title": "Hoch hinaus - Kletterkurs – Für Kinder ab 6 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H301010",
+      "title": "Plätzchenzauber – Adventsbacken – Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H303006",
+      "title": "Waldentdecker: Schnitzen im Wald – Kreativ mit Holz arbeiten – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H301009",
+      "title": "Weihnachten im Hexenwald – Puppenspiel und Basteln für Kinder von 3 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H304003",
+      "title": "Knigge für Kids – Für Kinder von 7 bis 12 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H302019",
+      "title": "Gesundheitshelden – Entdecken, Bewegen, Wohlfühlen – Für Kinder von 6 bis 8 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H302020",
+      "title": "Gesundheitshelden – Entdecken, Bewegen, Wohlfühlen – Für Kinder von 9 bis 12 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H301005",
+      "title": "Fröhliche Weihnacht überall – Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H301015",
+      "title": "Fröhliche Weihnacht überall – Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H303013",
+      "title": "Entdeckertour bei der Feuerwehr – Für Kinder ab 4 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H302009",
+      "title": "Kobra, Katze, Hund - Kinderyoga – Für Kinder von 4 bis 5 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H302012",
+      "title": "Kobra, Katze, Hund - Kinderyoga – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H301006",
+      "title": "Fröhliche Weihnacht überall – Basteln und Spielen für Kinder von 3 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H303011",
+      "title": "Winter- und Weihnachtsmärchen aus dem Koffer – Für Kinder ab 4 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H301012",
+      "title": "Weihnachtszauber - Kunstwerke aus Kaltporzellan – Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H302003",
+      "title": "Resilienz & Selbstbehauptungstraining - Bärenstark durchs Leben – Für Kinder von 5 bis 6 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H301004",
+      "title": "Kleine Künstlerwerkstatt - mit Pinsel, Papier und Fantasie – Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H302006",
+      "title": "Little Dancer - Tanzen für Kinder – Für Kinder von 4 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H303007",
+      "title": "Waldentdecker: Orientierung und „Geocaching“ – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H303009",
+      "title": "Zwei Monster - Theaterstück mit Führung – Für Kinder von 4 bis 8 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H302017",
+      "title": "Gesundheitshelden – Entdecken, Bewegen, Wohlfühlen – Für Kinder von 6 bis 8 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H302018",
+      "title": "Gesundheitshelden – Entdecken, Bewegen, Wohlfühlen – Für Kinder von 9 bis 12 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H301013",
+      "title": "Magische Kunst im Dunkeln - Malen im Schwarzlicht – Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H303012",
+      "title": "Flughafen Stuttgart - Entdeckertour – Für Kinder ab 5 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H303003",
+      "title": "Der aktuelle Sternenhimmel – Besuch bei der Sternwarte Heilbronn – Für Kinder ab 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H301001",
+      "title": "Bastelwerkstatt - Uhr in Leinwand – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H301011",
+      "title": "Seifenblasenzauber - Malen mit Seifenblasen – Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305050",
+      "title": "Mit Spaß in die Faschingsferien! - Es war einmal... Abenteuer Märchenwelt – Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305051",
+      "title": "Mit Spaß in die Faschingsferien! - Froschkönig & Bremer Stadtmusikanten – Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305001",
+      "title": "KinderFerienBox: Ponyfreuden - Ponypflege und Ausritt – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305018",
+      "title": "KinderFerienBox: Kreativwerkstatt  - Bunte Papierkunst auf Leinwand – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305052",
+      "title": "Mit Spaß in die Faschingsferien! - Hänsel und Gretel & Tischlein deck dich – Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305003",
+      "title": "KinderFerienBox: Selbstbehauptung und Selbstverteidigung – Workshop für Kinder von 6,5 bis 8 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305016",
+      "title": "KinderFerienBox: Forscherwerkstatt Klima –  junge Forschende auf Klimamission – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305004",
+      "title": "KinderFerienBox: Selbstbehauptung und Selbstverteidigung – Workshop für Kinder von 9 bis 12 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305017",
+      "title": "KinderFerienBox: 1-2-3 Zauberei – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305053",
+      "title": "Mit Spaß in die Faschingsferien! - Dornröschen & Schneewittchen – Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305002",
+      "title": "KinderFerienBox: Ponyfreuden - Ponypflege und Ausritt – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305009",
+      "title": "KinderFerienBox: Abenteuer Klettern - Indoor-Klettererlebnis – Für Kinder ab 8 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305019",
+      "title": "KinderFerienBox: Kreativwerkstatt - bunte Fensterbilder – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305015",
+      "title": "KinderFerienBox: Besuch einer ASB Rettungswache – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305014",
+      "title": "KinderFerienBox: Blaulicht-Helden: Feuerwehr, Polizei, Rettungsdienst und THW – Mitmach-Ausstellung im Museum Neckarsulm für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305054",
+      "title": "Mit Spaß in die Faschingsferien! - Aladin & Pinocchio – Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305007",
+      "title": "KinderFerienBox: Alpakas hautnah erleben – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305013",
+      "title": "KinderFerienBox: Besuch bei der Feuerwehr – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305020",
+      "title": "KinderFerienBox: Kreativwerkstatt - Windlichter mit Makramee – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305055",
+      "title": "Mit Spaß in die Faschingsferien! - Rapunzel & Märchenkino – Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305010",
+      "title": "KinderFerienBox: Feuer, Spuren, Unterschlupf – auf Entdeckung im Wald – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305011",
+      "title": "KinderFerienBox: Feuer, Spuren, Unterschlupf – auf Entdeckung im Wald – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305012",
+      "title": "KinderFerienBox: Wasser Oho! Staunen, Experimentieren und Spaß rund ums Wasser – Museumsworkshop für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "261H305005",
+      "title": "KinderFerienBox: Forscherwerkstatt - Spannende Experimente aus der Physik und Chemie – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "272H302001",
+      "title": "Little Dancer - Tanzen für Kinder – Für Kinder von 4 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "272H302002",
+      "title": "Little Dancer - Tanzen für Kinder – Für Kinder von 4 bis 6 Jahren mit Begleitperson",
+      "reason": "No explicit AI/coding/gaming wording"
+    }
+  ],
+  "candidates": [
+    {
+      "rowId": "haus-der-familie-261h207010",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-261h207010",
+        "providerId": "haus-der-familie",
+        "externalId": "261H207010",
+        "title": {
+          "de": "Gesunder Umgang mit Social Media (Teil I): Mechanismen verstehen und Risiken erkennen - LIVE ONLINE – Ein Vortrag für Eltern",
+          "en": "Gesunder Umgang mit Social Media (Teil I): Mechanismen verstehen und Risiken erkennen - LIVE ONLINE – Ein Vortrag für Eltern"
+        },
+        "summary": {
+          "de": "Ein Vortrag für Eltern",
+          "en": "Ein Vortrag für Eltern"
+        },
+        "topics": [
+          "ai"
+        ],
+        "interests": [],
+        "audiences": [
+          "parents"
+        ],
+        "format": "event",
+        "minAge": null,
+        "maxAge": null,
+        "ageEvidence": {
+          "kind": "unknown"
+        },
+        "startsAt": "2026-11-17T18:00:00+01:00",
+        "endsAt": "2026-11-17T19:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Online",
+          "city": "",
+          "access": "unknown"
+        },
+        "availability": "available",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/gesunder-umgang-mit-social-media-teil-i-mechanismen-verstehen-und-risiken-erkennen-live-online-261H207010/",
+          "fetchedAt": "2026-11-14T16:04:30.146Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        },
+        {
+          "path": "venue.city",
+          "message": "Venue city not published on the record"
+        }
+      ],
+      "reviewNotes": [
+        "Online event (LIVE ONLINE); there is no physical venue or city to show.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "261H207010",
+          "text": "Kursnummer 261H207010",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Gesunder Umgang mit Social Media (Teil I): Mechanismen verstehen und Risiken erkennen - LIVE ONLINE",
+          "text": "Gesunder Umgang mit Social Media (Teil I): Mechanismen verstehen und Risiken erkennen - LIVE ONLINE — Ein Vortrag für Eltern",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-11-17",
+              "startTime": "18:00",
+              "endTime": "19:30",
+              "place": "online"
+            }
+          ],
+          "text": "Di., 17. November 2026, 18:00 - 19:30 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Online",
+            "city": null
+          },
+          "text": "online",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "absent"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "6",
+            "max": "50",
+            "apiStatus": "1"
+          },
+          "text": "Plätze frei",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": null,
+            "max": null,
+            "kind": "unknown"
+          },
+          "text": null,
+          "locator": "participation text",
+          "method": "absent"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "0,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "available",
+          "text": "Plätze frei",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai"
+          ],
+          "text": "KI",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "parents"
+          ],
+          "text": "Eltern",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-11-17",
+          "startTime": "18:00",
+          "endTime": "19:30",
+          "place": "online"
+        }
+      ]
+    },
+    {
+      "rowId": "haus-der-familie-261h207004",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-261h207004",
+        "providerId": "haus-der-familie",
+        "externalId": "261H207004",
+        "title": {
+          "de": "Data Literacy for Kids: Von Bausteinen zum Balkendiagramm – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Data Literacy for Kids: Von Bausteinen zum Balkendiagramm – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "summary": {
+          "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "topics": [
+          "ai"
+        ],
+        "interests": [],
+        "audiences": [
+          "children",
+          "families"
+        ],
+        "format": "course",
+        "minAge": 4,
+        "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
+        "startsAt": "2026-11-21T10:00:00+01:00",
+        "endsAt": "2026-11-22T12:00:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 10,
+        "venue": {
+          "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-von-bausteinen-zum-balkendiagramm-261H207004/",
+          "fetchedAt": "2026-11-14T16:04:31.452Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        }
+      ],
+      "reviewNotes": [
+        "Series of 2 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "261H207004",
+          "text": "Kursnummer 261H207004",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Data Literacy for Kids: Von Bausteinen zum Balkendiagramm",
+          "text": "Data Literacy for Kids: Von Bausteinen zum Balkendiagramm — Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-11-21",
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            },
+            {
+              "date": "2026-11-22",
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            }
+          ],
+          "text": "10:00 – 12:00 Uhr So. 22.11.2026 10:00 – 12:00 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+            "city": "Heilbronn"
+          },
+          "text": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "explicit"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "10",
+            "max": "12",
+            "apiStatus": "2"
+          },
+          "text": "Wenige Plätze",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 4,
+            "max": 7,
+            "kind": "range"
+          },
+          "text": "4 bis 7 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 10,
+          "text": "10,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": "Wenige Plätze",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai"
+          ],
+          "text": "künstliche Intelligenz",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "families"
+          ],
+          "text": "Familien, Kinder (mit Begleitperson)",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-11-21",
+          "startTime": "10:00",
+          "endTime": "12:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        },
+        {
+          "date": "2026-11-22",
+          "startTime": "10:00",
+          "endTime": "12:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        }
+      ]
+    },
+    {
+      "rowId": "haus-der-familie-261h304002",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-261h304002",
+        "providerId": "haus-der-familie",
+        "externalId": "261H304002",
+        "title": {
+          "de": "Programmieren Lernen - Scratch – Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+          "en": "Programmieren Lernen - Scratch – Für Kinder von 8 bis 12 Jahren ohne Begleitperson"
+        },
+        "summary": {
+          "de": "Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+          "en": "Für Kinder von 8 bis 12 Jahren ohne Begleitperson"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "solve-puzzles",
+          "tell-stories"
+        ],
+        "audiences": [
+          "children"
+        ],
+        "format": "workshop",
+        "minAge": 8,
+        "maxAge": 12,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "von 8 bis 12 Jahren"
+        },
+        "startsAt": "2026-11-28T12:30:00+01:00",
+        "endsAt": "2026-11-28T15:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 30,
+        "venue": {
+          "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/programmieren-lernen-scratch-261H304002/",
+          "fetchedAt": "2026-11-14T16:04:32.807Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "261H304002",
+          "text": "Kursnummer 261H304002",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Programmieren Lernen - Scratch",
+          "text": "Programmieren Lernen - Scratch — Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-11-28",
+              "startTime": "12:30",
+              "endTime": "15:30",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4"
+            }
+          ],
+          "text": "Sa., 28. November 2026, 12:30 - 15:30 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+            "city": "Heilbronn"
+          },
+          "text": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "explicit"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "8",
+            "max": "8",
+            "apiStatus": "3"
+          },
+          "text": "Ausgebucht",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 8,
+            "max": 12,
+            "kind": "range"
+          },
+          "text": "von 8 bis 12 Jahren",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 30,
+          "text": "30,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "Ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "solve-puzzles",
+            "tell-stories"
+          ],
+          "text": "Problemlös | Charakter",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children"
+          ],
+          "text": "Kinder",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-11-28",
+          "startTime": "12:30",
+          "endTime": "15:30",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4"
+        }
+      ]
+    },
+    {
+      "rowId": "haus-der-familie-261h207006",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-261h207006",
+        "providerId": "haus-der-familie",
+        "externalId": "261H207006",
+        "title": {
+          "de": "Märchenhaft mit ScratchJunior eine Geschichte programmieren: Das mutige Tier – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Märchenhaft mit ScratchJunior eine Geschichte programmieren: Das mutige Tier – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "summary": {
+          "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [],
+        "audiences": [
+          "children",
+          "families"
+        ],
+        "format": "workshop",
+        "minAge": 4,
+        "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
+        "startsAt": "2026-12-05T09:30:00+01:00",
+        "endsAt": "2026-12-05T11:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 10,
+        "venue": {
+          "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 3",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/maerchenhaft-mit-scratchjunior-eine-geschichte-programmieren-das-mutige-tier-261H207006/",
+          "fetchedAt": "2026-11-14T16:04:34.616Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        }
+      ],
+      "reviewNotes": [
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "261H207006",
+          "text": "Kursnummer 261H207006",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Märchenhaft mit ScratchJunior eine Geschichte programmieren: Das mutige Tier",
+          "text": "Märchenhaft mit ScratchJunior eine Geschichte programmieren: Das mutige Tier — Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-12-05",
+              "startTime": "09:30",
+              "endTime": "11:30",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 3"
+            }
+          ],
+          "text": "Sa., 5. Dezember 2026, 09:30 - 11:30 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 3",
+            "city": "Heilbronn"
+          },
+          "text": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 3",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "explicit"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "16",
+            "max": "16",
+            "apiStatus": "3"
+          },
+          "text": "Ausgebucht",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 4,
+            "max": 7,
+            "kind": "range"
+          },
+          "text": "4 bis 7 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 10,
+          "text": "10,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "Ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Scratch",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "families"
+          ],
+          "text": "Familien, Kinder (mit Begleitperson)",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-12-05",
+          "startTime": "09:30",
+          "endTime": "11:30",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 3"
+        }
+      ]
+    },
+    {
+      "rowId": "haus-der-familie-261h207007",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-261h207007",
+        "providerId": "haus-der-familie",
+        "externalId": "261H207007",
+        "title": {
+          "de": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "summary": {
+          "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "robots"
+        ],
+        "audiences": [
+          "children",
+          "families"
+        ],
+        "format": "course",
+        "minAge": 4,
+        "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
+        "startsAt": "2027-01-16T10:00:00+01:00",
+        "endsAt": "2027-01-23T11:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 10,
+        "venue": {
+          "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207007/",
+          "fetchedAt": "2026-11-14T16:04:35.937Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 2 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "261H207007",
+          "text": "Kursnummer 261H207007",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2",
+          "text": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 — Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-01-16",
+              "startTime": "10:00",
+              "endTime": "11:30",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            },
+            {
+              "date": "2027-01-23",
+              "startTime": "10:00",
+              "endTime": "11:30",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            }
+          ],
+          "text": "10:00 – 11:30 Uhr Sa. 23.01.2027 10:00 – 11:30 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+            "city": "Heilbronn"
+          },
+          "text": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "explicit"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "16",
+            "max": "16",
+            "apiStatus": "3"
+          },
+          "text": "Ausgebucht",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 4,
+            "max": 7,
+            "kind": "range"
+          },
+          "text": "4 bis 7 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 10,
+          "text": "10,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "Ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "robots"
+          ],
+          "text": "Robot",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "families"
+          ],
+          "text": "Familien, Kinder (mit Begleitperson)",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-01-16",
+          "startTime": "10:00",
+          "endTime": "11:30",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        },
+        {
+          "date": "2027-01-23",
+          "startTime": "10:00",
+          "endTime": "11:30",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        }
+      ]
+    },
+    {
+      "rowId": "haus-der-familie-261h207016",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-261h207016",
+        "providerId": "haus-der-familie",
+        "externalId": "261H207016",
+        "title": {
+          "de": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "summary": {
+          "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "robots"
+        ],
+        "audiences": [
+          "children",
+          "families"
+        ],
+        "format": "course",
+        "minAge": 4,
+        "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
+        "startsAt": "2027-01-16T12:30:00+01:00",
+        "endsAt": "2027-01-23T14:00:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 10,
+        "venue": {
+          "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207016/",
+          "fetchedAt": "2026-11-14T16:04:37.244Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 2 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "261H207016",
+          "text": "Kursnummer 261H207016",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2",
+          "text": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 — Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-01-16",
+              "startTime": "12:30",
+              "endTime": "14:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            },
+            {
+              "date": "2027-01-23",
+              "startTime": "12:30",
+              "endTime": "14:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            }
+          ],
+          "text": "12:30 – 14:00 Uhr Sa. 23.01.2027 12:30 – 14:00 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+            "city": "Heilbronn"
+          },
+          "text": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "explicit"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "16",
+            "max": "16",
+            "apiStatus": "3"
+          },
+          "text": "Ausgebucht",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 4,
+            "max": 7,
+            "kind": "range"
+          },
+          "text": "4 bis 7 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 10,
+          "text": "10,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "Ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "robots"
+          ],
+          "text": "Robot",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "families"
+          ],
+          "text": "Familien, Kinder (mit Begleitperson)",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-01-16",
+          "startTime": "12:30",
+          "endTime": "14:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        },
+        {
+          "date": "2027-01-23",
+          "startTime": "12:30",
+          "endTime": "14:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        }
+      ]
+    },
+    {
+      "rowId": "haus-der-familie-261h207017",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-261h207017",
+        "providerId": "haus-der-familie",
+        "externalId": "261H207017",
+        "title": {
+          "de": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "summary": {
+          "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "robots"
+        ],
+        "audiences": [
+          "children",
+          "families"
+        ],
+        "format": "course",
+        "minAge": 4,
+        "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
+        "startsAt": "2027-01-16T14:30:00+01:00",
+        "endsAt": "2027-01-23T16:00:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 10,
+        "venue": {
+          "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207017/",
+          "fetchedAt": "2026-11-14T16:04:38.629Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 2 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "261H207017",
+          "text": "Kursnummer 261H207017",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2",
+          "text": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 — Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-01-16",
+              "startTime": "14:30",
+              "endTime": "16:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            },
+            {
+              "date": "2027-01-23",
+              "startTime": "14:30",
+              "endTime": "16:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            }
+          ],
+          "text": "14:30 – 16:00 Uhr Sa. 23.01.2027 14:30 – 16:00 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+            "city": "Heilbronn"
+          },
+          "text": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "explicit"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "16",
+            "max": "16",
+            "apiStatus": "3"
+          },
+          "text": "Ausgebucht",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 4,
+            "max": 7,
+            "kind": "range"
+          },
+          "text": "4 bis 7 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 10,
+          "text": "10,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "Ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "robots"
+          ],
+          "text": "Robot",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "families"
+          ],
+          "text": "Familien, Kinder (mit Begleitperson)",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-01-16",
+          "startTime": "14:30",
+          "endTime": "16:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        },
+        {
+          "date": "2027-01-23",
+          "startTime": "14:30",
+          "endTime": "16:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        }
+      ]
+    },
+    {
+      "rowId": "haus-der-familie-261h207008",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-261h207008",
+        "providerId": "haus-der-familie",
+        "externalId": "261H207008",
+        "title": {
+          "de": "Spielerisch mit ScratchJunior eine grünere, saubere Welt programmieren – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Spielerisch mit ScratchJunior eine grünere, saubere Welt programmieren – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "summary": {
+          "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "tell-stories"
+        ],
+        "audiences": [
+          "children",
+          "families"
+        ],
+        "format": "workshop",
+        "minAge": 4,
+        "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
+        "startsAt": "2027-01-30T09:30:00+01:00",
+        "endsAt": "2027-01-30T11:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 10,
+        "venue": {
+          "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "available",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/spielerisch-mit-scratchjunior-eine-gruenere-saubere-welt-programmieren-261H207008/",
+          "fetchedAt": "2026-11-14T16:04:39.996Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "261H207008",
+          "text": "Kursnummer 261H207008",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Spielerisch mit ScratchJunior eine grünere, saubere Welt programmieren",
+          "text": "Spielerisch mit ScratchJunior eine grünere, saubere Welt programmieren — Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-01-30",
+              "startTime": "09:30",
+              "endTime": "11:30",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5"
+            }
+          ],
+          "text": "Sa., 30. Januar 2027, 09:30 - 11:30 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5",
+            "city": "Heilbronn"
+          },
+          "text": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "explicit"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "7",
+            "max": "16",
+            "apiStatus": "1"
+          },
+          "text": "Plätze frei",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 4,
+            "max": 7,
+            "kind": "range"
+          },
+          "text": "4 bis 7 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 10,
+          "text": "10,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "available",
+          "text": "Plätze frei",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Scratch",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "tell-stories"
+          ],
+          "text": "Geschichten",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "families"
+          ],
+          "text": "Familien, Kinder (mit Begleitperson)",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-01-30",
+          "startTime": "09:30",
+          "endTime": "11:30",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5"
+        }
+      ]
+    },
+    {
+      "rowId": "haus-der-familie-261h305008",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-261h305008",
+        "providerId": "haus-der-familie",
+        "externalId": "261H305008",
+        "title": {
+          "de": "KinderFerienBox: Wie funktionieren Roboter und wie werden sie programmiert? – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+          "en": "KinderFerienBox: Wie funktionieren Roboter und wie werden sie programmiert? – Für Kinder von 6 bis 10 Jahren ohne Begleitperson"
+        },
+        "summary": {
+          "de": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+          "en": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "robots",
+          "solve-puzzles"
+        ],
+        "audiences": [
+          "children"
+        ],
+        "format": "course",
+        "minAge": 6,
+        "maxAge": 10,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "von 6 bis 10 Jahren"
+        },
+        "startsAt": "2027-02-11T09:00:00+01:00",
+        "endsAt": "2027-02-12T12:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 60,
+        "venue": {
+          "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "available",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/kinderferienbox-wie-funktionieren-roboter-und-wie-werden-sie-programmiert-261H305008/",
+          "fetchedAt": "2026-11-14T16:04:42.654Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 4 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "261H305008",
+          "text": "Kursnummer 261H305008",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "KinderFerienBox: Wie funktionieren Roboter und wie werden sie programmiert?",
+          "text": "KinderFerienBox: Wie funktionieren Roboter und wie werden sie programmiert? — Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-02-11",
+              "startTime": "09:00",
+              "endTime": "10:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            },
+            {
+              "date": "2027-02-11",
+              "startTime": "10:00",
+              "endTime": "12:30",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            },
+            {
+              "date": "2027-02-12",
+              "startTime": "09:00",
+              "endTime": "10:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            },
+            {
+              "date": "2027-02-12",
+              "startTime": "10:00",
+              "endTime": "12:30",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+            }
+          ],
+          "text": "09:00 – 10:00 Uhr Do. 11.02.2027 10:00 – 12:30 Uhr Fr. 12.02.2027 09:00 – 10:00 Uhr Fr. 12.02.2027 10:00 – 12:30 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+            "city": "Heilbronn"
+          },
+          "text": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "explicit"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "8",
+            "max": "12",
+            "apiStatus": "1"
+          },
+          "text": "Plätze frei",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 6,
+            "max": 10,
+            "kind": "range"
+          },
+          "text": "von 6 bis 10 Jahren",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 60,
+          "text": "60,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "available",
+          "text": "Plätze frei",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "robots",
+            "solve-puzzles"
+          ],
+          "text": "Robot | Problemlös",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children"
+          ],
+          "text": "Kinder",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-02-11",
+          "startTime": "09:00",
+          "endTime": "10:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        },
+        {
+          "date": "2027-02-11",
+          "startTime": "10:00",
+          "endTime": "12:30",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        },
+        {
+          "date": "2027-02-12",
+          "startTime": "09:00",
+          "endTime": "10:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        },
+        {
+          "date": "2027-02-12",
+          "startTime": "10:00",
+          "endTime": "12:30",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8"
+        }
+      ]
+    },
+    {
+      "rowId": "haus-der-familie-261h305006",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-261h305006",
+        "providerId": "haus-der-familie",
+        "externalId": "261H305006",
+        "title": {
+          "de": "KinderFerienBox: Programmieren Lernen - Scratch – Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+          "en": "KinderFerienBox: Programmieren Lernen - Scratch – Für Kinder von 8 bis 12 Jahren ohne Begleitperson"
+        },
+        "summary": {
+          "de": "Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+          "en": "Für Kinder von 8 bis 12 Jahren ohne Begleitperson"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "solve-puzzles",
+          "tell-stories"
+        ],
+        "audiences": [
+          "children"
+        ],
+        "format": "workshop",
+        "minAge": 8,
+        "maxAge": 12,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "von 8 bis 12 Jahren"
+        },
+        "startsAt": "2027-02-13T10:00:00+01:00",
+        "endsAt": "2027-02-13T13:00:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 30,
+        "venue": {
+          "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/kinderferienbox-programmieren-lernen-scratch-261H305006/",
+          "fetchedAt": "2026-11-14T16:04:43.972Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "261H305006",
+          "text": "Kursnummer 261H305006",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "KinderFerienBox: Programmieren Lernen - Scratch",
+          "text": "KinderFerienBox: Programmieren Lernen - Scratch — Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-02-13",
+              "startTime": "10:00",
+              "endTime": "13:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1"
+            }
+          ],
+          "text": "Sa., 13. Februar 2027, 10:00 - 13:00 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+            "city": "Heilbronn"
+          },
+          "text": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "explicit"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "8",
+            "max": "8",
+            "apiStatus": "3"
+          },
+          "text": "Ausgebucht",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 8,
+            "max": 12,
+            "kind": "range"
+          },
+          "text": "von 8 bis 12 Jahren",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 30,
+          "text": "30,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "Ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "solve-puzzles",
+            "tell-stories"
+          ],
+          "text": "Problemlös | Charakter",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children"
+          ],
+          "text": "Kinder",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-02-13",
+          "startTime": "10:00",
+          "endTime": "13:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1"
+        }
+      ]
+    },
+    {
+      "rowId": "haus-der-familie-272h207001",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "haus-der-familie-272h207001",
+        "providerId": "haus-der-familie",
+        "externalId": "272H207001",
+        "title": {
+          "de": "Data Literacy for Kids: Trends und Anteile – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Data Literacy for Kids: Trends und Anteile – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "summary": {
+          "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+        },
+        "topics": [
+          "ai"
+        ],
+        "interests": [],
+        "audiences": [
+          "children",
+          "families"
+        ],
+        "format": "course",
+        "minAge": 4,
+        "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
+        "startsAt": "2027-02-20T10:00:00+01:00",
+        "endsAt": "2027-02-21T12:00:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 10,
+        "venue": {
+          "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "available",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-trends-und-anteile-272H207001/",
+          "fetchedAt": "2026-11-14T16:04:41.329Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        }
+      ],
+      "reviewNotes": [
+        "Series of 2 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "272H207001",
+          "text": "Kursnummer 272H207001",
+          "locator": "detail › Kursdaten › Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Data Literacy for Kids: Trends und Anteile",
+          "text": "Data Literacy for Kids: Trends und Anteile — Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+          "locator": "detail h1.kurs__title + h2.kurs__subtitle",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-02-20",
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4"
+            },
+            {
+              "date": "2027-02-21",
+              "startTime": "10:00",
+              "endTime": "12:00",
+              "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4"
+            }
+          ],
+          "text": "10:00 – 12:00 Uhr So. 21.02.2027 10:00 – 12:00 Uhr",
+          "locator": "kufer-api termine[] cross-checked with detail › Kursdaten › Termin",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+            "city": "Heilbronn"
+          },
+          "text": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+          "locator": "detail › Kursdaten › Ort; city: kufer-api ortname",
+          "method": "explicit"
+        },
+        {
+          "field": "capacity",
+          "value": {
+            "registered": "2",
+            "max": "12",
+            "apiStatus": "1"
+          },
+          "text": "Plätze frei",
+          "locator": "detail › Kursdaten › Status (kufer-api tnanmeldungen/tnmax for cross-check)",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 4,
+            "max": 7,
+            "kind": "range"
+          },
+          "text": "4 bis 7 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 10,
+          "text": "10,00 €",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "available",
+          "text": "Plätze frei",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai"
+          ],
+          "text": "künstliche Intelligenz",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "families"
+          ],
+          "text": "Familien, Kinder (mit Begleitperson)",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-02-20",
+          "startTime": "10:00",
+          "endTime": "12:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4"
+        },
+        {
+          "date": "2027-02-21",
+          "startTime": "10:00",
+          "endTime": "12:00",
+          "place": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3 @@
+# Each refresh writes <provider>-last-attempt.json; only reviewed snapshots (<provider>-latest.json) are committed.
+*-last-attempt.json
+*.tmp

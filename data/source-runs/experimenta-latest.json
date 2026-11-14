@@ -1,0 +1,2863 @@
+{
+  "runId": "experimenta-20261114T160410",
+  "providerId": "experimenta",
+  "adapterVersion": "experimenta-html/1",
+  "startedAt": "2026-11-14T16:04:10.027Z",
+  "finishedAt": "2026-11-14T16:04:22.369Z",
+  "status": "needs-review",
+  "message": "1 candidate(s) staged for human review (1 ready, 0 need correction).",
+  "windowDays": 180,
+  "pageCap": 20,
+  "partialCoverage": false,
+  "pages": [
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungen/",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungen/",
+      "status": 200,
+      "bytes": 1615452,
+      "kind": "listing"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/berufspraxistag/?termin=1794650400",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/berufspraxistag/?termin=1794650400",
+      "status": 200,
+      "bytes": 213416,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/robert-mayer-lecture-warum-essen-wir-was-wir-essen/?termin=1794943800",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/robert-mayer-lecture-warum-essen-wir-was-wir-essen/?termin=1794943800",
+      "status": 200,
+      "bytes": 188671,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/plaetzchen-party/?termin=1795615200",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/plaetzchen-party/?termin=1795615200",
+      "status": 200,
+      "bytes": 194315,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/familienworkshop-plaetzchen-fuer-die-ganze-familie/?termin=1795860000",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/familienworkshop-plaetzchen-fuer-die-ganze-familie/?termin=1795860000",
+      "status": 200,
+      "bytes": 187302,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/kleidertausch-im-forum/?termin=1795863600",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/kleidertausch-im-forum/?termin=1795863600",
+      "status": 200,
+      "bytes": 187275,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/skynight/?termin=1796320800",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/skynight/?termin=1796320800",
+      "status": 200,
+      "bytes": 200887,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/first-lego-league-explore-ausstellung/?termin=1796468400",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/first-lego-league-explore-ausstellung/?termin=1796468400",
+      "status": 200,
+      "bytes": 189163,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/first-lego-league-regionalwettbewerb-heilbronn/?termin=1796468400",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/first-lego-league-regionalwettbewerb-heilbronn/?termin=1796468400",
+      "status": 200,
+      "bytes": 189326,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/stille-stunde/?termin=1800021600",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/stille-stunde/?termin=1800021600",
+      "status": 200,
+      "bytes": 193466,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/maker-faire/?termin=1801908000",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/maker-faire/?termin=1801908000",
+      "status": 200,
+      "bytes": 215410,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/solarmobilbauwettbewerb/?termin=1808568000",
+      "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/solarmobilbauwettbewerb/?termin=1808568000",
+      "status": 200,
+      "bytes": 188633,
+      "kind": "detail"
+    }
+  ],
+  "counts": {
+    "listed": 518,
+    "outOfScope": 514,
+    "outsideWindow": 2,
+    "extracted": 2,
+    "ready": 1,
+    "blocked": 0,
+    "failed": 0
+  },
+  "skipped": [
+    {
+      "externalId": "76282-1794652200",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1794655800",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1794659400",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1794663000",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1794666600",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1794670200",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1794673800",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1794738600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1794742200",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1794745800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1794749400",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1794753000",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1794756600",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1794760200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1794907800",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1795257000",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1795260600",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1795264200",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1795267800",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1795271400",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1795275000",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1795278600",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1795343400",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1795347000",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1795350600",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1795354200",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1795357800",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1795361400",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1795365000",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78555-1795701600",
+      "title": "Fortbildung „ESP32-Programmierung in Python“",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "77360-1795721400",
+      "title": "SinnenRauschen",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1795791600",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "29607-1795791600",
+      "title": "Fortbildung: Von Wellen und Teilchen: Optik, Atom- und Quantenphysik",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "12009-1795791600",
+      "title": "Fortbildung: Molekularbiologie",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "75562-1795795200",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1795861800",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1795865400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1795869000",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1795872600",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1795876200",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1795879800",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "77360-1795894200",
+      "title": "SinnenRauschen",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1795948200",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1795951800",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1795955400",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1795959000",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1795962600",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1795966200",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "77360-1795980600",
+      "title": "SinnenRauschen",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1796203800",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75581-1796324400",
+      "title": "Imagine Dragons: Dimensional Voyager",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78078-1796329800",
+      "title": "Space and Time",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1796396400",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1796400000",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1796466600",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "34812-1796470200",
+      "title": "Das Geheimnis der Jahreszeiten – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1796473800",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1796477400",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1796481000",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1796484600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1796488200",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1796553000",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1796556600",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1796560200",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1796563800",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1796567400",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1796571000",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1796574600",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1796574600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1796895000",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74374-1796929200",
+      "title": "Queen – Heaven – Das Original!",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75581-1796934600",
+      "title": "Imagine Dragons: Dimensional Voyager",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1797001200",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1797004800",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1797071400",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1797075000",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1797078600",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1797082200",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1797085800",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1797089400",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1797093000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1797157800",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1797161400",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1797165000",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1797168600",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1797172200",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1797175800",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1797179400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1797606000",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1797609600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1797676200",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1797679800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1797683400",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1797687000",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1797690600",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1797694200",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1797697800",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1797762600",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1797766200",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1797769800",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1797773400",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1797777000",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1797780600",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1797784200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1797847200",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1797850800",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1797858000",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1797861600",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1797865200",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1797868800",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1797933600",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1797937200",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1797940800",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1797944400",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1797948000",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1797951600",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1797955200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1798020000",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1798023600",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1798023600",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1798027200",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1798030800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1798034400",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1798038000",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1798041600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1798281000",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1798284600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1798288200",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1798291800",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1798295400",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1798299000",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1798302600",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1798367400",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1798371000",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1798374600",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1798378200",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1798381800",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1798385400",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1798389000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1798452000",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1798455600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1798459200",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1798462800",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1798462800",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1798466400",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1798470000",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1798473600",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1798538400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1798542000",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1798545600",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1798549200",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1798552800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1798556400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1798560000",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1798624800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1798628400",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "42497-1798632000",
+      "title": "VAST – Eine kosmische Reise – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1798635600",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1798639200",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1798642800",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1798646400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1798885800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1798889400",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1798893000",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1798896600",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1798896600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1798900200",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1798903800",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1798907400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1798972200",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1798975800",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1798979400",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1798983000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1798986600",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1798990200",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1798993800",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1799056800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1799064000",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1799067600",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1799071200",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1799074800",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1799078400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1799143200",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1799146800",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1799150400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1799154000",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1799157600",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1799161200",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1799164800",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1799231400",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1799235000",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78200-1799238600",
+      "title": "Der Stern von Bethlehem",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1799242200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1799245800",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1799249400",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1799253000",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1799316000",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1799319600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1799323200",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1799326800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1799330400",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1799334000",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1799337600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74374-1799348400",
+      "title": "Queen – Heaven – Das Original!",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78078-1799353800",
+      "title": "Space and Time",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1799402400",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1799406000",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1799409600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1799413200",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1799416800",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1799420400",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1799424000",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1799490600",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1799494200",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1799497800",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1799501400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1799505000",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1799508600",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1799512200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1799577000",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1799580600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1799584200",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1799591400",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1799595000",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1799598600",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1799832600",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1800095400",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1800099000",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1800102600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1800106200",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1800109800",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1800113400",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1800117000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1800181800",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1800185400",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1800189000",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1800192600",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1800192600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1800199800",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1800203400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1800351000",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75581-1800558000",
+      "title": "Imagine Dragons: Dimensional Voyager",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74374-1800563400",
+      "title": "Queen – Heaven – Das Original!",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1800630000",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1800700200",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1800703800",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1800707400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1800714600",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1800718200",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1800721800",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1800786600",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1800790200",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1800793800",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1800801000",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1800804600",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1800808200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1801234800",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1801305000",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1801308600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1801312200",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1801319400",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1801323000",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "77360-1801337400",
+      "title": "SinnenRauschen",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1801391400",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1801395000",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1801398600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1801402200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1801405800",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1801409400",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "77360-1801423800",
+      "title": "SinnenRauschen",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74374-1801767600",
+      "title": "Queen – Heaven – Das Original!",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75581-1801773000",
+      "title": "Imagine Dragons: Dimensional Voyager",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1801839600",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1801843200",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1801909800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1801913400",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1801917000",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1801920600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1801927800",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1801931400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1801996200",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1801999800",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1802003400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1802010600",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1802014200",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1802017800",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1802084400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1802088000",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1802091600",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1802095200",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1802098800",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1802102400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1802167200",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1802170800",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1802174400",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1802178000",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1802181600",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1802185200",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1802188800",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1802253600",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1802257200",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1802260800",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1802264400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1802268000",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1802271600",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1802275200",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1802340000",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1802343600",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1802347200",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1802350800",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1802354400",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1802361600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1802426400",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1802430000",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1802433600",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1802437200",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1802440800",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1802444400",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1802448000",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1802514600",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1802518200",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1802521800",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1802525400",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1802529000",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1802532600",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1802536200",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1802601000",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1802604600",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1802608200",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1802611800",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1802615400",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1802619000",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1802622600",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "29607-1802876400",
+      "title": "Fortbildung: Von Wellen und Teilchen: Optik, Atom- und Quantenphysik",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "12009-1802876400",
+      "title": "Fortbildung: Molekularbiologie",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "78078-1802977200",
+      "title": "Space and Time",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75581-1802982600",
+      "title": "Imagine Dragons: Dimensional Voyager",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1803049200",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1803052800",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1803119400",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "18032-1803123000",
+      "title": "Das Rätsel der Polarnacht – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1803126600",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1803130200",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1803133800",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1803137400",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1803141000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1803205800",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1803209400",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1803213000",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1803216600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1803220200",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1803223800",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1803227400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1803654000",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1803657600",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1803724200",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1803727800",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1803731400",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1803735000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1803738600",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1803742200",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1803745800",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1803810600",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1803814200",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1803817800",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1803821400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1803825000",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1803828600",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1803832200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75581-1804186800",
+      "title": "Imagine Dragons: Dimensional Voyager",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74374-1804192200",
+      "title": "Queen – Heaven – Das Original!",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1804258800",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1804262400",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1804329000",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1804332600",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1804336200",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1804339800",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1804347000",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1804350600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1804415400",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1804419000",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1804422600",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1804426200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1804429800",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1804433400",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1804437000",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1804933800",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1804937400",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1804941000",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1804944600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1804948200",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1804951800",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1804955400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1805020200",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1805023800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1805027400",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1805031000",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1805034600",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1805038200",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1805041800",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1805362200",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74374-1805396400",
+      "title": "Queen – Heaven – Das Original!",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78078-1805401800",
+      "title": "Space and Time",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1805468400",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1805472000",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1805538600",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1805545800",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1805549400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1805553000",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1805556600",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1805560200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1805625000",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1805628600",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1805632200",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1805635800",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1805639400",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1805643000",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1805646600",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "29607-1805814000",
+      "title": "Fortbildung: Von Wellen und Teilchen: Optik, Atom- und Quantenphysik",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "12009-1805814000",
+      "title": "Fortbildung: Molekularbiologie",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "76282-1805882400",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1805886000",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1805889600",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1805893200",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1805896800",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1805900400",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1805968800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1805972400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1805976000",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1805979600",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1805986800",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1806057000",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1806060600",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1806067800",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1806071400",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1806075000",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1806078600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1806143400",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3887-1806150600",
+      "title": "Die Legende des Zauberriffs – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1806154200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1806157800",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1806161400",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1806165000",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1806233400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1806237000",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1806240600",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1806244200",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69189-1806247800",
+      "title": "Abenteuerreise durchs Sonnensystem – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1806251400",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1806316200",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "78593-1806319800",
+      "title": "Dinosaurier: Eine Geschichte des Überlebens",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1806327000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1806330600",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1806334200",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1806337800",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "32658-1806404400",
+      "title": "Der kleine Major Tom",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1806408000",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "79224-1806411600",
+      "title": "Die Reise zum Mars – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "38661-1806415200",
+      "title": "Capcom Go! – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "76282-1806487200",
+      "title": "Auge in Auge mit Afrikas Tieren",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1806490800",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1806498000",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3855-1806501600",
+      "title": "Wir sind Sterne – 3D",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "75562-1806505200",
+      "title": "Signale aus dem Universum",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1806759000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1807003800",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1807450200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1807968600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1808055000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1808573400",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1809178200",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1809336600",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1809610200",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1809621000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1809869400",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "29607-1810134000",
+      "title": "Fortbildung: Von Wellen und Teilchen: Optik, Atom- und Quantenphysik",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "12009-1810134000",
+      "title": "Fortbildung: Molekularbiologie",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "3895-1810387800",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1810560600",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1810560600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1810571400",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1810819800",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1811079000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1811424600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "73956-1811435400",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1811597400",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1812288600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1812807000",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1812965400",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "29607-1813244400",
+      "title": "Fortbildung: Von Wellen und Teilchen: Optik, Atom- und Quantenphysik",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "12009-1813244400",
+      "title": "Fortbildung: Molekularbiologie",
+      "reason": "Teacher training (Fortbildung)"
+    },
+    {
+      "externalId": "3895-1814016600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "74891-1815471000",
+      "title": "Meine Freundin Roxy",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "36832-1819195200",
+      "title": "Expedition Reef",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69655-1821189600",
+      "title": "Stille Stunde",
+      "reason": "After the 180-day window"
+    },
+    {
+      "externalId": "73956-1825075800",
+      "title": "SpektakulAIR – Live",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "3895-1825086600",
+      "title": "Blitzgescheit – LIVE",
+      "reason": "Planetarium/dome show"
+    },
+    {
+      "externalId": "69655-1827842400",
+      "title": "Stille Stunde",
+      "reason": "After the 180-day window"
+    },
+    {
+      "externalId": "76302",
+      "title": "Berufspraxistag 2026",
+      "reason": "All sessions have ended"
+    },
+    {
+      "externalId": "78699-1794943800",
+      "title": "Robert Mayer Lecture: Warum essen wir, was wir essen?",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "77493-1795615200",
+      "title": "Plätzchen-Party",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "77493-1796220000",
+      "title": "Plätzchen-Party",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "77491-1795860000",
+      "title": "Familienworkshop Plätzchen für die ganze Familie",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "30774-1795863600",
+      "title": "Kleidertauschparty",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "74080-1796320800",
+      "title": "SkyNight",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "74080-1796925600",
+      "title": "SkyNight",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "74080-1799348400",
+      "title": "SkyNight",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "74080-1800558000",
+      "title": "SkyNight",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "74080-1801767600",
+      "title": "SkyNight",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "74080-1802977200",
+      "title": "SkyNight",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "74080-1804190400",
+      "title": "SkyNight",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "74080-1805400000",
+      "title": "SkyNight",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "38214-1796468400",
+      "title": "First Lego League Explore – Ausstellung",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "69655-1800021600",
+      "title": "Stille Stunde",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "69655-1807884000",
+      "title": "Stille Stunde",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "28151-1801908000",
+      "title": "Maker Faire ® Heilbronn 2027",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "75251-1808568000",
+      "title": "Solarmobilbauwettbewerb",
+      "reason": "No explicit AI/coding/gaming wording"
+    }
+  ],
+  "candidates": [
+    {
+      "rowId": "experimenta-15158-1796468400",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "experimenta-15158-1796468400",
+        "providerId": "experimenta",
+        "externalId": "15158",
+        "title": {
+          "de": "First Lego League Challenge – Regionalwettbewerb Heilbronn",
+          "en": "First Lego League Challenge – Regionalwettbewerb Heilbronn"
+        },
+        "summary": {
+          "de": "Faszinierende Naturphänomene, neue Entdeckungen und innovative Forschungsmethoden: Unter dem Motto „BIOGLOW“ nimmt die First Lego League (FLL) Challenge in dieser Saison mit auf eine Reise durch die vielfältigen Ökosysteme unserer Erde.",
+          "en": "Faszinierende Naturphänomene, neue Entdeckungen und innovative Forschungsmethoden: Unter dem Motto „BIOGLOW“ nimmt die First Lego League (FLL) Challenge in dieser Saison mit auf eine Reise durch die vielfältigen Ökosysteme unserer Erde."
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "robots"
+        ],
+        "audiences": [
+          "teens"
+        ],
+        "format": "event",
+        "minAge": null,
+        "maxAge": null,
+        "ageEvidence": {
+          "kind": "unknown"
+        },
+        "startsAt": "2026-12-05T11:00:00+01:00",
+        "endsAt": "2026-12-05T17:00:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "experimenta – experimenta Gebäude e2 (Hagenbucher Speicher), 5. OG, Kubus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/first-lego-league-regionalwettbewerb-heilbronn/?termin=1796468400",
+          "fetchedAt": "2026-11-14T16:04:19.365Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "15158 / termin 1796468400",
+          "text": "https://www.experimenta.science/besuchen/veranstaltungskalender/first-lego-league-regionalwettbewerb-heilbronn/?termin=1796468400",
+          "locator": "listing card data-event + link ?termin=",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-12-05",
+              "startTime": "11:00",
+              "endTime": "17:00",
+              "place": "experimenta Gebäude e2 (Hagenbucher Speicher), 5. OG, Kubus"
+            }
+          ],
+          "text": "termin=1796468400 (2026-12-05 11:00 Europe/Berlin); card: \"Dezember 11:00 bis 17:00 Uhr\"",
+          "locator": "listing card link + .start-monat-uhrzeit",
+          "method": "explicit"
+        },
+        {
+          "field": "categories",
+          "value": [
+            "5. - 10. Klasse",
+            "Jugendforschungszentrum",
+            "Jugendliche",
+            "Wettbewerbe"
+          ],
+          "text": "5. - 10. Klasse, Jugendforschungszentrum, Jugendliche, Wettbewerbe",
+          "locator": "detail .post-kategorien (listing data-groups)",
+          "method": "explicit"
+        },
+        {
+          "field": "costText",
+          "value": "Besucherinnen und Besucher sind herzlich eingeladen, von 11:00 bis 17:00 Uhr bei den Robot Games zuzuschauen. Der Eintritt ist kostenfrei.",
+          "text": "Besucherinnen und Besucher sind herzlich eingeladen, von 11:00 bis 17:00 Uhr bei den Robot Games zuzuschauen. Der Eintritt ist kostenfrei.",
+          "locator": "detail content sentence",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "experimenta Gebäude e2 (Hagenbucher Speicher), 5. OG, Kubus",
+            "city": "Heilbronn"
+          },
+          "text": "experimenta Gebäude e2 (Hagenbucher Speicher), 5. OG, Kubus",
+          "locator": "detail content 'Veranstaltungsort'; city: schema.org Event location.address.addressLocality",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": null,
+            "max": null,
+            "kind": "unknown"
+          },
+          "text": null,
+          "locator": "participation text",
+          "method": "absent"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "Besucherinnen und Besucher sind herzlich eingeladen, von 11:00 bis 17:00 Uhr bei den Robot Games zuzuschauen. Der Eintritt ist kostenfrei.",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": null,
+          "locator": "course status",
+          "method": "absent"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "robots"
+          ],
+          "text": "Robot",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "teens"
+          ],
+          "text": "5. - 10. Klasse, Jugendforschungszentrum, Jugendliche, Wettbewerbe",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-12-05",
+          "startTime": "11:00",
+          "endTime": "17:00",
+          "place": "experimenta Gebäude e2 (Hagenbucher Speicher), 5. OG, Kubus"
+        }
+      ]
+    }
+  ]
+}

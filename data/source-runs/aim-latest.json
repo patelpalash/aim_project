@@ -1,0 +1,3695 @@
+{
+  "runId": "aim-20261114T160334",
+  "providerId": "aim",
+  "adapterVersion": "aim-html/1",
+  "startedAt": "2026-11-14T16:03:34.934Z",
+  "finishedAt": "2026-11-14T16:04:10.023Z",
+  "status": "partial",
+  "message": "15 candidate(s) staged for human review (9 ready, 6 need correction). Page cap 20 reached; coverage incomplete.",
+  "windowDays": 180,
+  "pageCap": 20,
+  "partialCoverage": true,
+  "pages": [
+    {
+      "url": "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_sonderrubrik=1277",
+      "finalUrl": "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_sonderrubrik=1277",
+      "status": 200,
+      "bytes": 274769,
+      "kind": "listing"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_kursbereich=1278&kfs_sonderrubrik=1277",
+      "finalUrl": "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_kursbereich=1278&kfs_sonderrubrik=1277",
+      "status": 200,
+      "bytes": 171538,
+      "kind": "listing"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_sonderrubrik=1264",
+      "finalUrl": "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_sonderrubrik=1264",
+      "status": 200,
+      "bytes": 136638,
+      "kind": "listing"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/KI-Detektive-KI-generierte-Bilder-Videos-und-Stimmen-erkennen-10-15-Jahre/262410KIDT",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/KI-Detektive-KI-generierte-Bilder-Videos-und-Stimmen-erkennen-10-15-Jahre/262410KIDT",
+      "status": 200,
+      "bytes": 135067,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Im-Sog-der-Likes-Wie-Influencer-jugendliche-Lebenswelten-praegen/271470IN",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Im-Sog-der-Likes-Wie-Influencer-jugendliche-Lebenswelten-praegen/271470IN",
+      "status": 200,
+      "bytes": 131597,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Talking-Plants-Programmiere-deine-Pflanze-bis-sie-spricht-1216-Jahre/271420SG",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Talking-Plants-Programmiere-deine-Pflanze-bis-sie-spricht-1216-Jahre/271420SG",
+      "status": 200,
+      "bytes": 133125,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Aktuelle-digitale-Spielewelten-von-Kindern-und-Jugendlichen/262430DSW",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Aktuelle-digitale-Spielewelten-von-Kindern-und-Jugendlichen/262430DSW",
+      "status": 200,
+      "bytes": 134303,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Einfuehrung-in-die-Programmierung-mit-Mikrocontrollern-1215-Jahre/262420PCB",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Einfuehrung-in-die-Programmierung-mit-Mikrocontrollern-1215-Jahre/262420PCB",
+      "status": 200,
+      "bytes": 135722,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Spieleentwicklung-mit-Unity-fuer-Einsteiger-1014-Jahre/271430UN",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Spieleentwicklung-mit-Unity-fuer-Einsteiger-1014-Jahre/271430UN",
+      "status": 200,
+      "bytes": 135809,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Craft-Your-City-Baue-deine-nachhaltige-und-smarte-Traumstadt-1014-Jahre/271430CYC1",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Craft-Your-City-Baue-deine-nachhaltige-und-smarte-Traumstadt-1014-Jahre/271430CYC1",
+      "status": 200,
+      "bytes": 136280,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-1-analoges-Programmieren-ganz-ohne-Bildschirm-710-Jahre/271420RK1",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-1-analoges-Programmieren-ganz-ohne-Bildschirm-710-Jahre/271420RK1",
+      "status": 200,
+      "bytes": 134590,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/271420SC",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/271420SC",
+      "status": 200,
+      "bytes": 137824,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Code-your-Chat-Entwickle-deine-eigene-Messenger-Web-App-1317-Jahre/271420FE",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Code-your-Chat-Entwickle-deine-eigene-Messenger-Web-App-1317-Jahre/271420FE",
+      "status": 200,
+      "bytes": 139866,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/271420RK2",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/271420RK2",
+      "status": 200,
+      "bytes": 133884,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Python-lernen-mit-KI-ab-16-Jahren/262420PAI",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Python-lernen-mit-KI-ab-16-Jahren/262420PAI",
+      "status": 200,
+      "bytes": 130512,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/262420SC",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/262420SC",
+      "status": 200,
+      "bytes": 136823,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Programmieren-lernen-mit-Python-1216-Jahre/262420PY",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Programmieren-lernen-mit-Python-1216-Jahre/262420PY",
+      "status": 200,
+      "bytes": 138124,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/262420RK2",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/262420RK2",
+      "status": 200,
+      "bytes": 134227,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/KI-Orientierung-fuer-Eltern-Grundlagen-Praxis-und-Zukunftsperspektiven/262410KIE",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/KI-Orientierung-fuer-Eltern-Grundlagen-Praxis-und-Zukunftsperspektiven/262410KIE",
+      "status": 200,
+      "bytes": 130158,
+      "kind": "detail"
+    },
+    {
+      "url": "https://www.aim-akademie.org/kurse/kurs/Kinderuni-auf-Reisen-Mosbach-Wer-bezahlt-eigentlich-den-Spielplatz/26293MOS",
+      "finalUrl": "https://www.aim-akademie.org/kurse/kurs/Kinderuni-auf-Reisen-Mosbach-Wer-bezahlt-eigentlich-den-Spielplatz/26293MOS",
+      "status": 200,
+      "bytes": 128078,
+      "kind": "detail"
+    }
+  ],
+  "counts": {
+    "listed": 40,
+    "outOfScope": 18,
+    "outsideWindow": 2,
+    "extracted": 17,
+    "ready": 9,
+    "blocked": 6,
+    "failed": 0
+  },
+  "skipped": [
+    {
+      "externalId": "262410KIDT",
+      "title": "Werde zum KI-Detektiv: KI-generierte Bilder, Videos und Stimmen erkennen (ab 10 Jahren)",
+      "reason": "All sessions have ended"
+    },
+    {
+      "externalId": "262410DKI",
+      "title": "Deepfakes & soziale Medien: Wie KI den Alltag von Kindern und Jugendlichen prägt",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Ganztagesbetreuende, Schulsozialarbeitende)"
+    },
+    {
+      "externalId": "271410ZGR",
+      "title": "Zukunftswerkstatt: Generative KI trifft Grundschulalltag",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271408RTG",
+      "title": "Round Table Grundschule - Digitale Bildungsoffensive",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271408LER",
+      "title": "Das iPad im Unterricht - Digitale Werkzeuge für einen kreativen und wirksamen Unterricht",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271410DD",
+      "title": "KI als Entlastung in der Schulverwaltung – Datenschutz- und Dokumentationspflichten clever meistern",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271410HBL",
+      "title": "Sicher durch den KI-Dschungel: Digitale Tools gezielt im Unterricht einsetzen",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271410KK",
+      "title": "KI kreativ – eigene Musik- und Klangdesigns für Schule und Unterricht entwickeln",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271430GBL",
+      "title": "Games im Unterricht – Impulse für den Einstieg in Game-based Learning",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271410PM",
+      "title": "Mathe mal anders – Problemlösen als Schlüsselkompetenz",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271410KIP",
+      "title": "Parasoziale Beziehungen und KI – Wenn Werkzeuge zu sozialen Interaktionspartnern werden",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare, Schulsozialarbeitende)"
+    },
+    {
+      "externalId": "271430ZGBL",
+      "title": "Zukunftswerkstatt: Game-based Learning im Unterricht umsetzen – Lernsettings mit Games gestalten",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271470IN",
+      "title": "Im Sog der Likes? Wie Influencer jugendliche Lebenswelten prägen",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "262410KID",
+      "title": "KI im DaZ/DaF Unterricht: Chancen für Vielfalt und Bildungsgerechtigkeit",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271410FK",
+      "title": "Feedback-Tools im Unterricht: gestern analog, heute digital – und morgen mit KI",
+      "reason": "Staff/teacher training (Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271420SDD",
+      "title": "Future Skills: Mit Python & Datenbanken die Welt von morgen gestalten (ab 14 Jahre)",
+      "reason": "Starts 2027-05-24, after the 180-day window"
+    },
+    {
+      "externalId": "271410KR",
+      "title": "KI-Recht in der Schule – Künstliche Intelligenz verantwortungsvoll und rechtssicher im Unterricht einsetzen",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "262410KR",
+      "title": "KI-Recht in der Schule – Künstliche Intelligenz verantwortungsvoll und rechtssicher im Unterricht einsetzen",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271410ZKT",
+      "title": "Zukunftswerkstatt: Die smarte Kita – Planung und Organisation vereinfachen mit KI",
+      "reason": "Staff/teacher training (Leitungskraft und Stellvertretung in Krippe und Kita, pädagogische Fachkraft Krippe und Kita, Zusatzkraft in Krippe und Kita, Kindertagespflegeperson)"
+    },
+    {
+      "externalId": "271410KIKT",
+      "title": "KI in der Kita? Chancen, Fragen und erste Erfahrungen",
+      "reason": "Staff/teacher training (Leitungskraft und Stellvertretung in Krippe und Kita, pädagogische Fachkraft Krippe und Kita, Zusatzkraft in Krippe und Kita, Kindertagespflegeperson)"
+    },
+    {
+      "externalId": "271470SIT",
+      "title": "IT erleben statt nur verstehen - Ein Besuch im IT Education Center der Schwarz Digits (ab 13 Jahre)",
+      "reason": "Starts 2027-05-25, after the 180-day window"
+    }
+  ],
+  "candidates": [
+    {
+      "rowId": "aim-262420pai",
+      "state": "blocked",
+      "timing": "ongoing",
+      "offer": {
+        "id": "aim-262420pai",
+        "providerId": "aim",
+        "externalId": "262420PAI",
+        "title": {
+          "de": "Python lernen mit KI (ab 16 Jahren)",
+          "en": "Python lernen mit KI (ab 16 Jahren)"
+        },
+        "summary": {
+          "de": "Dein smarter Start in Python: mit erfahrenem Dozenten und persönlichem KI-Tutor",
+          "en": "Dein smarter Start in Python: mit erfahrenem Dozenten und persönlichem KI-Tutor"
+        },
+        "topics": [
+          "ai",
+          "coding"
+        ],
+        "interests": [],
+        "audiences": [
+          "teens",
+          "parents"
+        ],
+        "format": "course",
+        "minAge": 16,
+        "maxAge": null,
+        "ageEvidence": {
+          "kind": "minimum-only",
+          "text": "ab 16 Jahren"
+        },
+        "startsAt": "2026-09-21T16:30:00+02:00",
+        "endsAt": "2026-11-16T18:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Python-lernen-mit-KI-ab-16-Jahren/262420PAI",
+          "fetchedAt": "2026-11-14T16:04:01.145Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        }
+      ],
+      "reviewNotes": [
+        "Series of 8 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "262420PAI",
+          "text": "Kursnummer: 262420PAI",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Python lernen mit KI (ab 16 Jahren)",
+          "text": "Python lernen mit KI (ab 16 Jahren)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Der Kurs richtet sich an Jugendliche ab 16 Jahren und Erwachsene ohne Vorkenntnisse. Alles, was du brauchst, ist Neugier, den Rest stellen wir dir zur Verfügung.",
+          "text": "Der Kurs richtet sich an Jugendliche ab 16 Jahren und Erwachsene ohne Vorkenntnisse. Alles, was du brauchst, ist Neugier, den Rest stellen wir dir zur Verfügung.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-09-21",
+              "startTime": "16:30",
+              "endTime": "18:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-09-28",
+              "startTime": "16:30",
+              "endTime": "18:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-10-05",
+              "startTime": "16:30",
+              "endTime": "18:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-10-12",
+              "startTime": "16:30",
+              "endTime": "18:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-10-19",
+              "startTime": "16:30",
+              "endTime": "18:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-02",
+              "startTime": "16:30",
+              "endTime": "18:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-09",
+              "startTime": "16:30",
+              "endTime": "18:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-16",
+              "startTime": "16:30",
+              "endTime": "18:30",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "21.09.2026 | 16:30 - 18:30 Uhr | Bildungscampus ; 28.09.2026 | 16:30 - 18:30 Uhr | Bildungscampus ; 05.10.2026 | 16:30 - 18:30 Uhr | Bildungscampus ; 12.10.2026 | 16:30 - 18:30 Uhr | Bildungscampus ; 19.10.2026 | 16:30 - 18:30 Uhr | Bildungscampus ; 02.11.2026 | 16:30 - 18:30 Uhr | Bildungscampus ; 09.11.2026 | 16:30 - 18:30 Uhr | Bildungscampus ; 16.11.2026 | 16:30 - 18:30 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "Anmeldung nicht mehr möglich",
+          "text": "Anmeldung nicht mehr möglich",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in",
+            "Auszubildende",
+            "Studierende",
+            "Eltern",
+            "Interessierte"
+          ],
+          "text": "Schüler/in, Auszubildende, Studierende, Eltern, Interessierte",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 16,
+            "max": null,
+            "kind": "minimum"
+          },
+          "text": "ab 16 Jahren",
+          "locator": "title",
+          "method": "explicit",
+          "note": "Published minimum only; no maximum invented."
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": "Anmeldung nicht mehr möglich",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai",
+            "coding"
+          ],
+          "text": "KI | Python",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "teens",
+            "parents"
+          ],
+          "text": "Schüler/in, Auszubildende, Studierende, Eltern, Interessierte",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-09-21",
+          "startTime": "16:30",
+          "endTime": "18:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-09-28",
+          "startTime": "16:30",
+          "endTime": "18:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-10-05",
+          "startTime": "16:30",
+          "endTime": "18:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-10-12",
+          "startTime": "16:30",
+          "endTime": "18:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-10-19",
+          "startTime": "16:30",
+          "endTime": "18:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-02",
+          "startTime": "16:30",
+          "endTime": "18:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-09",
+          "startTime": "16:30",
+          "endTime": "18:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-16",
+          "startTime": "16:30",
+          "endTime": "18:30",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-262420sc",
+      "state": "ready-for-review",
+      "timing": "ongoing",
+      "offer": {
+        "id": "aim-262420sc",
+        "providerId": "aim",
+        "externalId": "262420SC",
+        "title": {
+          "de": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)",
+          "en": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)"
+        },
+        "summary": {
+          "de": "Starte deine eigene Weltraummission und lerne, wie Programmieren geht!",
+          "en": "Starte deine eigene Weltraummission und lerne, wie Programmieren geht!"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "build-games",
+          "solve-puzzles",
+          "tell-stories"
+        ],
+        "audiences": [
+          "children"
+        ],
+        "format": "course",
+        "minAge": 8,
+        "maxAge": 11,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "8–11 Jahre"
+        },
+        "startsAt": "2026-09-22T16:30:00+02:00",
+        "endsAt": "2026-12-01T18:10:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/262420SC",
+          "fetchedAt": "2026-11-14T16:04:02.953Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 10 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "262420SC",
+          "text": "Kursnummer: 262420SC",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)",
+          "text": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Der Kurs richtet sich an Kinder im Alter von 8 bis 11 Jahren, die bereits erste Erfahrungen im Umgang mit Maus und Tastatur gesammelt haben.",
+          "text": "Der Kurs richtet sich an Kinder im Alter von 8 bis 11 Jahren, die bereits erste Erfahrungen im Umgang mit Maus und Tastatur gesammelt haben.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-09-22",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-09-29",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-10-06",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-10-13",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-10-20",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-03",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-10",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-17",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-24",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-12-01",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "22.09.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 29.09.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 06.10.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 13.10.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 20.10.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 03.11.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 10.11.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 17.11.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 24.11.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 01.12.2026 | 16:30 - 18:10 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "Anmeldung nicht mehr möglich",
+          "text": "Anmeldung nicht mehr möglich",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 8,
+            "max": 11,
+            "kind": "range"
+          },
+          "text": "8–11 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": "Anmeldung nicht mehr möglich",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "build-games",
+            "solve-puzzles",
+            "tell-stories"
+          ],
+          "text": "eigene Spiel | Problemlös | Geschichten",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-09-22",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-09-29",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-10-06",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-10-13",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-10-20",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-03",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-10",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-17",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-24",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-12-01",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-262420py",
+      "state": "ready-for-review",
+      "timing": "ongoing",
+      "offer": {
+        "id": "aim-262420py",
+        "providerId": "aim",
+        "externalId": "262420PY",
+        "title": {
+          "de": "Programmieren lernen mit Python (12–16 Jahre)",
+          "en": "Programmieren lernen mit Python (12–16 Jahre)"
+        },
+        "summary": {
+          "de": "Tauche ein in die faszinierende Welt des Programmierens!",
+          "en": "Tauche ein in die faszinierende Welt des Programmierens!"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "solve-puzzles"
+        ],
+        "audiences": [
+          "children",
+          "teens"
+        ],
+        "format": "course",
+        "minAge": 12,
+        "maxAge": 16,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "12–16 Jahre"
+        },
+        "startsAt": "2026-09-30T16:30:00+02:00",
+        "endsAt": "2026-12-16T18:10:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Programmieren-lernen-mit-Python-1216-Jahre/262420PY",
+          "fetchedAt": "2026-11-14T16:04:04.645Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 10 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "262420PY",
+          "text": "Kursnummer: 262420PY",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Programmieren lernen mit Python (12–16 Jahre)",
+          "text": "Programmieren lernen mit Python (12–16 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Dieser Kurs richtet sich an Jugendliche von 12 bis 16 Jahren, die neugierig auf Technik und Programmierung sind und ihre eigenen Ideen in die Tat umsetzen wollen.",
+          "text": "Dieser Kurs richtet sich an Jugendliche von 12 bis 16 Jahren, die neugierig auf Technik und Programmierung sind und ihre eigenen Ideen in die Tat umsetzen wollen.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-09-30",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-10-14",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-10-21",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-04",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-11",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-18",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-25",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-12-02",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-12-09",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-12-16",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "30.09.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 14.10.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 21.10.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 04.11.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 11.11.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 18.11.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 25.11.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 02.12.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 09.12.2026 | 16:30 - 18:10 Uhr | Bildungscampus ; 16.12.2026 | 16:30 - 18:10 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "Anmeldung nicht mehr möglich",
+          "text": "Anmeldung nicht mehr möglich",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 12,
+            "max": 16,
+            "kind": "range"
+          },
+          "text": "12–16 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": "Anmeldung nicht mehr möglich",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "solve-puzzles"
+          ],
+          "text": "Problemlös",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "teens"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-09-30",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-10-14",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-10-21",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-04",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-11",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-18",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-25",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-12-02",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-12-09",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-12-16",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-262420rk2",
+      "state": "ready-for-review",
+      "timing": "ongoing",
+      "offer": {
+        "id": "aim-262420rk2",
+        "providerId": "aim",
+        "externalId": "262420RK2",
+        "title": {
+          "de": "Robotik zum Anfassen 2– vom analogen ins symbolbasierte Programmieren (7–10 Jahre)",
+          "en": "Robotik zum Anfassen 2– vom analogen ins symbolbasierte Programmieren (7–10 Jahre)"
+        },
+        "summary": {
+          "de": "Programmier-Abenteuer zum Anfassen: Mit LEGO® Education kleine Roboter programmieren.",
+          "en": "Programmier-Abenteuer zum Anfassen: Mit LEGO® Education kleine Roboter programmieren."
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "robots"
+        ],
+        "audiences": [
+          "children"
+        ],
+        "format": "course",
+        "minAge": 7,
+        "maxAge": 10,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "7–10 Jahre"
+        },
+        "startsAt": "2026-11-04T15:00:00+01:00",
+        "endsAt": "2026-11-18T16:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/262420RK2",
+          "fetchedAt": "2026-11-14T16:04:06.329Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 3 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "262420RK2",
+          "text": "Kursnummer: 262420RK2",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Robotik zum Anfassen 2– vom analogen ins symbolbasierte Programmieren (7–10 Jahre)",
+          "text": "Robotik zum Anfassen 2– vom analogen ins symbolbasierte Programmieren (7–10 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Diese Veranstaltung richtet sich an Schüler/-innen der Klassen 2–4, die ihre ersten Erfahrungen mit Robotik und Programmierung vertiefen möchten. Die Teilnahme am Kurs „Robotik zum Anfassen – analoges Programmieren ganz ohne Bildschirm“ ist hilfreich, aber keine Voraussetzung.",
+          "text": "Diese Veranstaltung richtet sich an Schüler/-innen der Klassen 2–4, die ihre ersten Erfahrungen mit Robotik und Programmierung vertiefen möchten. Die Teilnahme am Kurs „Robotik zum Anfassen – analoges Programmieren ganz ohne Bildschirm“ ist hilfreich, aber keine Voraussetzung.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-11-04",
+              "startTime": "15:00",
+              "endTime": "16:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-11",
+              "startTime": "15:00",
+              "endTime": "16:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-18",
+              "startTime": "15:00",
+              "endTime": "16:30",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "04.11.2026 | 15:00 - 16:30 Uhr | Bildungscampus ; 11.11.2026 | 15:00 - 16:30 Uhr | Bildungscampus ; 18.11.2026 | 15:00 - 16:30 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "Anmeldung nicht mehr möglich",
+          "text": "Anmeldung nicht mehr möglich",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 7,
+            "max": 10,
+            "kind": "range"
+          },
+          "text": "7–10 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": "Anmeldung nicht mehr möglich",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "robots"
+          ],
+          "text": "Robot",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-11-04",
+          "startTime": "15:00",
+          "endTime": "16:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-11",
+          "startTime": "15:00",
+          "endTime": "16:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-18",
+          "startTime": "15:00",
+          "endTime": "16:30",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-262410kie",
+      "state": "blocked",
+      "timing": "ongoing",
+      "offer": {
+        "id": "aim-262410kie",
+        "providerId": "aim",
+        "externalId": "262410KIE",
+        "title": {
+          "de": "KI-Orientierung für Eltern: Grundlagen, Praxis und Zukunftsperspektiven",
+          "en": "KI-Orientierung für Eltern: Grundlagen, Praxis und Zukunftsperspektiven"
+        },
+        "summary": {
+          "de": "Künstliche Intelligenz verstehen, einordnen und Kinder kompetent begleiten.",
+          "en": "Künstliche Intelligenz verstehen, einordnen und Kinder kompetent begleiten."
+        },
+        "topics": [
+          "ai"
+        ],
+        "interests": [],
+        "audiences": [
+          "parents"
+        ],
+        "format": "course",
+        "minAge": null,
+        "maxAge": null,
+        "ageEvidence": {
+          "kind": "unknown"
+        },
+        "startsAt": "2026-11-12T18:00:00+01:00",
+        "endsAt": "2026-11-26T20:00:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/KI-Orientierung-fuer-Eltern-Grundlagen-Praxis-und-Zukunftsperspektiven/262410KIE",
+          "fetchedAt": "2026-11-14T16:04:08.126Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        }
+      ],
+      "reviewNotes": [
+        "Series of 3 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "262410KIE",
+          "text": "Kursnummer: 262410KIE",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "KI-Orientierung für Eltern: Grundlagen, Praxis und Zukunftsperspektiven",
+          "text": "KI-Orientierung für Eltern: Grundlagen, Praxis und Zukunftsperspektiven",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Diese Veranstaltung richtet sich an Eltern ohne Vorkenntnisse im Bereich Künstliche Intelligenz. Sie bietet einen verständlichen Überblick, damit Sie Ihre Kinder im schulischen und alltäglichen Umgang mit KI reflektiert begleiten können.",
+          "text": "Diese Veranstaltung richtet sich an Eltern ohne Vorkenntnisse im Bereich Künstliche Intelligenz. Sie bietet einen verständlichen Überblick, damit Sie Ihre Kinder im schulischen und alltäglichen Umgang mit KI reflektiert begleiten können.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-11-12",
+              "startTime": "18:00",
+              "endTime": "20:00",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-19",
+              "startTime": "18:00",
+              "endTime": "20:00",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-11-26",
+              "startTime": "18:00",
+              "endTime": "20:00",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "12.11.2026 | 18:00 - 20:00 Uhr | Bildungscampus ; 19.11.2026 | 18:00 - 20:00 Uhr | Bildungscampus ; 26.11.2026 | 18:00 - 20:00 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "Anmeldung nicht mehr möglich",
+          "text": "Anmeldung nicht mehr möglich",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Eltern"
+          ],
+          "text": "Eltern",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": null,
+            "max": null,
+            "kind": "unknown"
+          },
+          "text": null,
+          "locator": "participation text",
+          "method": "absent"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": "Anmeldung nicht mehr möglich",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai"
+          ],
+          "text": "KI",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "parents"
+          ],
+          "text": "Eltern",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-11-12",
+          "startTime": "18:00",
+          "endTime": "20:00",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-19",
+          "startTime": "18:00",
+          "endTime": "20:00",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-11-26",
+          "startTime": "18:00",
+          "endTime": "20:00",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-262430dsw",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "aim-262430dsw",
+        "providerId": "aim",
+        "externalId": "262430DSW",
+        "title": {
+          "de": "Was spielst du da eigentlich? Aktuelle digitale Spielewelten von Kindern und Jugendlichen",
+          "en": "Was spielst du da eigentlich? Aktuelle digitale Spielewelten von Kindern und Jugendlichen"
+        },
+        "summary": {
+          "de": "Digitale Spiele verstehen und Kinder kompetent begleiten",
+          "en": "Digitale Spiele verstehen und Kinder kompetent begleiten"
+        },
+        "topics": [
+          "gaming"
+        ],
+        "interests": [],
+        "audiences": [
+          "parents"
+        ],
+        "format": "course",
+        "minAge": null,
+        "maxAge": null,
+        "ageEvidence": {
+          "kind": "unknown"
+        },
+        "startsAt": "2026-11-16T17:00:00+01:00",
+        "endsAt": "2026-11-23T19:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Online",
+          "city": "",
+          "access": "unknown"
+        },
+        "availability": "available",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Aktuelle-digitale-Spielewelten-von-Kindern-und-Jugendlichen/262430DSW",
+          "fetchedAt": "2026-11-14T16:03:46.799Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        },
+        {
+          "path": "venue.city",
+          "message": "Venue city not published on the record"
+        }
+      ],
+      "reviewNotes": [
+        "Series of 2 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "262430DSW",
+          "text": "Kursnummer: 262430DSW",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Was spielst du da eigentlich? Aktuelle digitale Spielewelten von Kindern und Jugendlichen",
+          "text": "Was spielst du da eigentlich? Aktuelle digitale Spielewelten von Kindern und Jugendlichen",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Dieser Online-Kurs richtet sich an Lehrkräfte aller Schularten, Ganztagesbetreuende, Schulsozialarbeitende und Eltern. Zur Teilnahme benötigen Sie einen Internetzugang sowie ein Endgerät.",
+          "text": "Dieser Online-Kurs richtet sich an Lehrkräfte aller Schularten, Ganztagesbetreuende, Schulsozialarbeitende und Eltern. Zur Teilnahme benötigen Sie einen Internetzugang sowie ein Endgerät.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-11-16",
+              "startTime": "17:00",
+              "endTime": "19:30",
+              "place": "Online"
+            },
+            {
+              "date": "2026-11-23",
+              "startTime": "17:00",
+              "endTime": "19:30",
+              "place": "Online"
+            }
+          ],
+          "text": "16.11.2026 | 17:00 - 19:30 Uhr | Online ; 23.11.2026 | 17:00 - 19:30 Uhr | Online",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "nur noch wenige Restplätze verfügbar",
+          "text": "nur noch wenige Restplätze verfügbar",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Online",
+            "city": null
+          },
+          "text": "Online",
+          "locator": "table#coursesDateTable Ort; city: description › Adresse",
+          "method": "absent"
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Eltern",
+            "Lehrkraft",
+            "Ganztagesbetreuende",
+            "Schulsozialarbeitende"
+          ],
+          "text": "Eltern, Lehrkraft, Ganztagesbetreuende, Schulsozialarbeitende",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": null,
+            "max": null,
+            "kind": "unknown"
+          },
+          "text": null,
+          "locator": "participation text",
+          "method": "absent"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "available",
+          "text": "nur noch wenige Restplätze verfügbar",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "gaming"
+          ],
+          "text": "Minecraft",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "parents"
+          ],
+          "text": "Eltern, Lehrkraft, Ganztagesbetreuende, Schulsozialarbeitende",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-11-16",
+          "startTime": "17:00",
+          "endTime": "19:30",
+          "place": "Online"
+        },
+        {
+          "date": "2026-11-23",
+          "startTime": "17:00",
+          "endTime": "19:30",
+          "place": "Online"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-262420pcb",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "aim-262420pcb",
+        "providerId": "aim",
+        "externalId": "262420PCB",
+        "title": {
+          "de": "Kleine Computer, große Wirkung – Einführung in die Programmierung mit Mikrocontrollern (12–15 Jahre)",
+          "en": "Kleine Computer, große Wirkung – Einführung in die Programmierung mit Mikrocontrollern (12–15 Jahre)"
+        },
+        "summary": {
+          "de": "Wie bringt man ein kleines Licht zum Blinken? Wie merkt ein Computer, dass du einen Knopf gedrückt hast? Und wie kann ein kleines Messgerät dabei helfen, unser Wasser zu untersuchen?",
+          "en": "Wie bringt man ein kleines Licht zum Blinken? Wie merkt ein Computer, dass du einen Knopf gedrückt hast? Und wie kann ein kleines Messgerät dabei helfen, unser Wasser zu untersuchen?"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "robots"
+        ],
+        "audiences": [
+          "children",
+          "teens"
+        ],
+        "format": "course",
+        "minAge": 12,
+        "maxAge": 15,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "12–15 Jahre"
+        },
+        "startsAt": "2026-11-27T16:30:00+01:00",
+        "endsAt": "2026-12-11T18:00:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Einfuehrung-in-die-Programmierung-mit-Mikrocontrollern-1215-Jahre/262420PCB",
+          "fetchedAt": "2026-11-14T16:03:48.532Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 3 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "262420PCB",
+          "text": "Kursnummer: 262420PCB",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Kleine Computer, große Wirkung – Einführung in die Programmierung mit Mikrocontrollern (12–15 Jahre)",
+          "text": "Kleine Computer, große Wirkung – Einführung in die Programmierung mit Mikrocontrollern (12–15 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Der Kurs richtet sich an Schüler/-innen zwischen 12 und 15 Jahren. Du brauchst keine Vorkenntnisse in Programmierung oder Elektronik. Es reicht, wenn du einen PC grundsätzlich bedienen kannst und neugierig auf Technik, Ausprobieren und Tüfteln bist.",
+          "text": "Der Kurs richtet sich an Schüler/-innen zwischen 12 und 15 Jahren. Du brauchst keine Vorkenntnisse in Programmierung oder Elektronik. Es reicht, wenn du einen PC grundsätzlich bedienen kannst und neugierig auf Technik, Ausprobieren und Tüfteln bist.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-11-27",
+              "startTime": "16:30",
+              "endTime": "18:00",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-12-04",
+              "startTime": "16:30",
+              "endTime": "18:00",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2026-12-11",
+              "startTime": "16:30",
+              "endTime": "18:00",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "27.11.2026 | 16:30 - 18:00 Uhr | Bildungscampus ; 04.12.2026 | 16:30 - 18:00 Uhr | Bildungscampus ; 11.12.2026 | 16:30 - 18:00 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "ausgebucht",
+          "text": "ausgebucht",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 12,
+            "max": 15,
+            "kind": "range"
+          },
+          "text": "12–15 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "robots"
+          ],
+          "text": "Mikrocontroller",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "teens"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-11-27",
+          "startTime": "16:30",
+          "endTime": "18:00",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-12-04",
+          "startTime": "16:30",
+          "endTime": "18:00",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2026-12-11",
+          "startTime": "16:30",
+          "endTime": "18:00",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-26293mos",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "aim-26293mos",
+        "providerId": "aim",
+        "externalId": "26293MOS",
+        "title": {
+          "de": "Kinderuni auf Reisen Mosbach: Wer bezahlt eigentlich den Spielplatz: Was sind Steuern?",
+          "en": "Kinderuni auf Reisen Mosbach: Wer bezahlt eigentlich den Spielplatz: Was sind Steuern?"
+        },
+        "summary": {
+          "de": "Steuern begegnen uns überall: beim Einkaufen, auf dem Gehaltszettel der Eltern oder wenn neue Straßen, Schulen oder Spielplätze gebaut werden.",
+          "en": "Steuern begegnen uns überall: beim Einkaufen, auf dem Gehaltszettel der Eltern oder wenn neue Straßen, Schulen oder Spielplätze gebaut werden."
+        },
+        "topics": [
+          "ai"
+        ],
+        "interests": [
+          "solve-puzzles"
+        ],
+        "audiences": [],
+        "format": "workshop",
+        "minAge": null,
+        "maxAge": null,
+        "ageEvidence": {
+          "kind": "unknown"
+        },
+        "startsAt": "2026-12-09T15:00:00+01:00",
+        "endsAt": "2026-12-09T16:00:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Mosbach, DHBW",
+          "city": "",
+          "access": "unknown"
+        },
+        "availability": "available",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Kinderuni-auf-Reisen-Mosbach-Wer-bezahlt-eigentlich-den-Spielplatz/26293MOS",
+          "fetchedAt": "2026-11-14T16:04:10.020Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "audiences",
+          "message": "No published child/teen/family/parent audience"
+        },
+        {
+          "path": "venue.city",
+          "message": "Venue city not published on the record"
+        }
+      ],
+      "reviewNotes": [
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "26293MOS",
+          "text": "Kursnummer: 26293MOS",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Kinderuni auf Reisen Mosbach: Wer bezahlt eigentlich den Spielplatz: Was sind Steuern?",
+          "text": "Kinderuni auf Reisen Mosbach: Wer bezahlt eigentlich den Spielplatz: Was sind Steuern?",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-12-09",
+              "startTime": "15:00",
+              "endTime": "16:00",
+              "place": "Mosbach, DHBW"
+            }
+          ],
+          "text": "09.12.2026 | 15:00 - 16:00 Uhr | Mosbach, DHBW",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "frei",
+          "text": "frei",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Mosbach, DHBW",
+            "city": null
+          },
+          "text": "Mosbach, DHBW",
+          "locator": "table#coursesDateTable Ort; city: description › Adresse",
+          "method": "absent"
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": null,
+            "max": null,
+            "kind": "unknown"
+          },
+          "text": null,
+          "locator": "participation text",
+          "method": "absent"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "available",
+          "text": "frei",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai"
+          ],
+          "text": "Künstlicher Intelligenz",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "solve-puzzles"
+          ],
+          "text": "Rätsel",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "absent"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-12-09",
+          "startTime": "15:00",
+          "endTime": "16:00",
+          "place": "Mosbach, DHBW"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-271430un",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "aim-271430un",
+        "providerId": "aim",
+        "externalId": "271430UN",
+        "title": {
+          "de": "Spieleentwicklung mit Unity für Einsteiger (10–14 Jahre)",
+          "en": "Spieleentwicklung mit Unity für Einsteiger (10–14 Jahre)"
+        },
+        "summary": {
+          "de": "Entwickle dein eigenes Videospiel mit der Spiele-Engine aus Games wie Among Us oder Pokémon Go",
+          "en": "Entwickle dein eigenes Videospiel mit der Spiele-Engine aus Games wie Among Us oder Pokémon Go"
+        },
+        "topics": [
+          "gaming"
+        ],
+        "interests": [
+          "build-games"
+        ],
+        "audiences": [
+          "children",
+          "teens"
+        ],
+        "format": "workshop",
+        "minAge": 10,
+        "maxAge": 14,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "10–14 Jahre"
+        },
+        "startsAt": "2027-02-03T15:30:00+01:00",
+        "endsAt": "2027-02-03T19:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Hochschule Heilbronn, TechCampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Spieleentwicklung-mit-Unity-fuer-Einsteiger-1014-Jahre/271430UN",
+          "fetchedAt": "2026-11-14T16:03:50.275Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "271430UN",
+          "text": "Kursnummer: 271430UN",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Spieleentwicklung mit Unity für Einsteiger (10–14 Jahre)",
+          "text": "Spieleentwicklung mit Unity für Einsteiger (10–14 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Dieser Workshop richtet sich an Kinder und Jugendliche zwischen 10 und 14 Jahren, die Lust haben, hinter die Kulissen von Videospielen zu schauen und sowohl Neugier als auch sichere Maus- und Tastaturkenntnisse mitbringen.",
+          "text": "Dieser Workshop richtet sich an Kinder und Jugendliche zwischen 10 und 14 Jahren, die Lust haben, hinter die Kulissen von Videospielen zu schauen und sowohl Neugier als auch sichere Maus- und Tastaturkenntnisse mitbringen.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-02-03",
+              "startTime": "15:30",
+              "endTime": "19:30",
+              "place": "Hochschule Heilbronn, TechCampus"
+            }
+          ],
+          "text": "03.02.2027 | 15:30 - 19:30 Uhr | Hochschule Heilbronn, TechCampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "ausgebucht",
+          "text": "ausgebucht",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Hochschule Heilbronn, TechCampus",
+            "city": "Heilbronn"
+          },
+          "text": "Hochschule Heilbronn – TechCampus | Max-Planck-Straße 39, 74081 Heilbronn | Treffpunkt: Haupteingang",
+          "locator": "table#coursesDateTable Ort; city: description › Adresse",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 10,
+            "max": 14,
+            "kind": "range"
+          },
+          "text": "10–14 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "gaming"
+          ],
+          "text": "Spieleentwicklung",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "build-games"
+          ],
+          "text": "Spieleentwicklung",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "teens"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-02-03",
+          "startTime": "15:30",
+          "endTime": "19:30",
+          "place": "Hochschule Heilbronn, TechCampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-271430cyc1",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "aim-271430cyc1",
+        "providerId": "aim",
+        "externalId": "271430CYC1",
+        "title": {
+          "de": "Craft Your City – Baue deine nachhaltige und smarte Traumstadt (10–14 Jahre)",
+          "en": "Craft Your City – Baue deine nachhaltige und smarte Traumstadt (10–14 Jahre)"
+        },
+        "summary": {
+          "de": "Kreatives, nachhaltiges und gemeinsames Bauen in der Sandbox-Welt von Luanti",
+          "en": "Kreatives, nachhaltiges und gemeinsames Bauen in der Sandbox-Welt von Luanti"
+        },
+        "topics": [
+          "gaming"
+        ],
+        "interests": [],
+        "audiences": [
+          "children",
+          "teens"
+        ],
+        "format": "course",
+        "minAge": 10,
+        "maxAge": 14,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "10–14 Jahre"
+        },
+        "startsAt": "2027-02-09T09:00:00+01:00",
+        "endsAt": "2027-02-11T15:00:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Craft-Your-City-Baue-deine-nachhaltige-und-smarte-Traumstadt-1014-Jahre/271430CYC1",
+          "fetchedAt": "2026-11-14T16:03:52.155Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        }
+      ],
+      "reviewNotes": [
+        "Series of 3 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "271430CYC1",
+          "text": "Kursnummer: 271430CYC1",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Craft Your City – Baue deine nachhaltige und smarte Traumstadt (10–14 Jahre)",
+          "text": "Craft Your City – Baue deine nachhaltige und smarte Traumstadt (10–14 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Dieser Workshop richtet sich an Kinder und Jugendliche zwischen 10 und 14 Jahren, die die Welt von morgen gestalten möchten.",
+          "text": "Dieser Workshop richtet sich an Kinder und Jugendliche zwischen 10 und 14 Jahren, die die Welt von morgen gestalten möchten.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-02-09",
+              "startTime": "09:00",
+              "endTime": "15:00",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-02-10",
+              "startTime": "09:00",
+              "endTime": "15:00",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-02-11",
+              "startTime": "09:00",
+              "endTime": "15:00",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "09.02.2027 | 09:00 - 15:00 Uhr | Bildungscampus ; 10.02.2027 | 09:00 - 15:00 Uhr | Bildungscampus ; 11.02.2027 | 09:00 - 15:00 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "ausgebucht",
+          "text": "ausgebucht",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 10,
+            "max": 14,
+            "kind": "range"
+          },
+          "text": "10–14 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "gaming"
+          ],
+          "text": "Minecraft",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "teens"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-02-09",
+          "startTime": "09:00",
+          "endTime": "15:00",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-02-10",
+          "startTime": "09:00",
+          "endTime": "15:00",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-02-11",
+          "startTime": "09:00",
+          "endTime": "15:00",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-271420rk1",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "aim-271420rk1",
+        "providerId": "aim",
+        "externalId": "271420RK1",
+        "title": {
+          "de": "Robotik zum Anfassen 1 – analoges Programmieren ganz ohne Bildschirm (7–10 Jahre)",
+          "en": "Robotik zum Anfassen 1 – analoges Programmieren ganz ohne Bildschirm (7–10 Jahre)"
+        },
+        "summary": {
+          "de": "Programmier-Abenteuer zum Anfassen: Mit kleinen Robotern spielerisch die Grundlagen entdecken",
+          "en": "Programmier-Abenteuer zum Anfassen: Mit kleinen Robotern spielerisch die Grundlagen entdecken"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "robots",
+          "solve-puzzles"
+        ],
+        "audiences": [
+          "children"
+        ],
+        "format": "course",
+        "minAge": 7,
+        "maxAge": 10,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "7–10 Jahre"
+        },
+        "startsAt": "2027-02-17T15:00:00+01:00",
+        "endsAt": "2027-03-03T16:30:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-1-analoges-Programmieren-ganz-ohne-Bildschirm-710-Jahre/271420RK1",
+          "fetchedAt": "2026-11-14T16:03:54.249Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 3 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "271420RK1",
+          "text": "Kursnummer: 271420RK1",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Robotik zum Anfassen 1 – analoges Programmieren ganz ohne Bildschirm (7–10 Jahre)",
+          "text": "Robotik zum Anfassen 1 – analoges Programmieren ganz ohne Bildschirm (7–10 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Diese Veranstaltung richtet sich an Schüler/-innen von Klasse 2-4, die neugierig auf Robotik sind und in einem kreativen Umfeld lernen möchten.",
+          "text": "Diese Veranstaltung richtet sich an Schüler/-innen von Klasse 2-4, die neugierig auf Robotik sind und in einem kreativen Umfeld lernen möchten.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-02-17",
+              "startTime": "15:00",
+              "endTime": "16:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-02-24",
+              "startTime": "15:00",
+              "endTime": "16:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-03-03",
+              "startTime": "15:00",
+              "endTime": "16:30",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "17.02.2027 | 15:00 - 16:30 Uhr | Bildungscampus ; 24.02.2027 | 15:00 - 16:30 Uhr | Bildungscampus ; 03.03.2027 | 15:00 - 16:30 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "ausgebucht",
+          "text": "ausgebucht",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 7,
+            "max": 10,
+            "kind": "range"
+          },
+          "text": "7–10 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "robots",
+            "solve-puzzles"
+          ],
+          "text": "Robot | Problemlös",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-02-17",
+          "startTime": "15:00",
+          "endTime": "16:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-02-24",
+          "startTime": "15:00",
+          "endTime": "16:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-03-03",
+          "startTime": "15:00",
+          "endTime": "16:30",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-271420sc",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "aim-271420sc",
+        "providerId": "aim",
+        "externalId": "271420SC",
+        "title": {
+          "de": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)",
+          "en": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)"
+        },
+        "summary": {
+          "de": "Starte deine eigene Weltraummission und lerne, wie Programmieren geht!",
+          "en": "Starte deine eigene Weltraummission und lerne, wie Programmieren geht!"
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "build-games",
+          "solve-puzzles",
+          "tell-stories"
+        ],
+        "audiences": [
+          "children"
+        ],
+        "format": "course",
+        "minAge": 8,
+        "maxAge": 11,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "8–11 Jahre"
+        },
+        "startsAt": "2027-02-23T16:30:00+01:00",
+        "endsAt": "2027-05-04T18:10:00+02:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/271420SC",
+          "fetchedAt": "2026-11-14T16:03:55.988Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 10 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "271420SC",
+          "text": "Kursnummer: 271420SC",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)",
+          "text": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Der Kurs richtet sich an Kinder im Alter von 8 bis 11 Jahren, die bereits erste Erfahrungen im Umgang mit Maus und Tastatur gesammelt haben.",
+          "text": "Der Kurs richtet sich an Kinder im Alter von 8 bis 11 Jahren, die bereits erste Erfahrungen im Umgang mit Maus und Tastatur gesammelt haben.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-02-23",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-03-02",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-03-09",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-03-16",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-03-23",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-04-06",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-04-13",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-04-20",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-04-27",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-05-04",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "23.02.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 02.03.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 09.03.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 16.03.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 23.03.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 06.04.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 13.04.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 20.04.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 27.04.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 04.05.2027 | 16:30 - 18:10 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "ausgebucht",
+          "text": "ausgebucht",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 8,
+            "max": 11,
+            "kind": "range"
+          },
+          "text": "8–11 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "build-games",
+            "solve-puzzles",
+            "tell-stories"
+          ],
+          "text": "eigene Spiel | Problemlös | Geschichten",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-02-23",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-03-02",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-03-09",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-03-16",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-03-23",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-04-06",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-04-13",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-04-20",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-04-27",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-05-04",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-271420fe",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "aim-271420fe",
+        "providerId": "aim",
+        "externalId": "271420FE",
+        "title": {
+          "de": "Code your Chat – Entwickle deine eigene Messenger-Web-App (13–17 Jahre)",
+          "en": "Code your Chat – Entwickle deine eigene Messenger-Web-App (13–17 Jahre)"
+        },
+        "summary": {
+          "de": "Schritt für Schritt zur eigenen Messenger-App – von der Idee bis zur Web-App",
+          "en": "Schritt für Schritt zur eigenen Messenger-App – von der Idee bis zur Web-App"
+        },
+        "topics": [
+          "ai",
+          "coding"
+        ],
+        "interests": [],
+        "audiences": [
+          "teens"
+        ],
+        "format": "course",
+        "minAge": 13,
+        "maxAge": 17,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "13–17 Jahre"
+        },
+        "startsAt": "2027-02-25T16:30:00+01:00",
+        "endsAt": "2027-06-03T18:10:00+02:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Code-your-Chat-Entwickle-deine-eigene-Messenger-Web-App-1317-Jahre/271420FE",
+          "fetchedAt": "2026-11-14T16:03:57.750Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        }
+      ],
+      "reviewNotes": [
+        "Series of 10 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "271420FE",
+          "text": "Kursnummer: 271420FE",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Code your Chat – Entwickle deine eigene Messenger-Web-App (13–17 Jahre)",
+          "text": "Code your Chat – Entwickle deine eigene Messenger-Web-App (13–17 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Der Kurs richtet sich an Jugendliche von 13 bis 17 Jahren, die ohne Vorkenntnisse in die Webentwicklung einsteigen und eigene digitale Ideen umsetzen wollen. Einen Laptop musst du nicht mitbringen, die aim stellt Geräte bereit. Wir empfehlen dir, vorher unseren Kurs „Programmieren lernen mit Python\" zu besuchen. Das macht dir den Einstieg noch leichter, ist aber keine Voraussetzung.",
+          "text": "Der Kurs richtet sich an Jugendliche von 13 bis 17 Jahren, die ohne Vorkenntnisse in die Webentwicklung einsteigen und eigene digitale Ideen umsetzen wollen. Einen Laptop musst du nicht mitbringen, die aim stellt Geräte bereit. Wir empfehlen dir, vorher unseren Kurs „Programmieren lernen mit Python\" zu besuchen. Das macht dir den Einstieg noch leichter, ist aber keine Voraussetzung.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-02-25",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-03-04",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-03-11",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-03-18",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-04-08",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-04-15",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-04-22",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-04-29",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-05-13",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-06-03",
+              "startTime": "16:30",
+              "endTime": "18:10",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "25.02.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 04.03.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 11.03.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 18.03.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 08.04.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 15.04.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 22.04.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 29.04.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 13.05.2027 | 16:30 - 18:10 Uhr | Bildungscampus ; 03.06.2027 | 16:30 - 18:10 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "ausgebucht",
+          "text": "ausgebucht",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 13,
+            "max": 17,
+            "kind": "range"
+          },
+          "text": "13–17 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai",
+            "coding"
+          ],
+          "text": "KI | Code",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "teens"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-02-25",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-03-04",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-03-11",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-03-18",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-04-08",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-04-15",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-04-22",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-04-29",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-05-13",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-06-03",
+          "startTime": "16:30",
+          "endTime": "18:10",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-271420sg",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "aim-271420sg",
+        "providerId": "aim",
+        "externalId": "271420SG",
+        "title": {
+          "de": "Talking Plants – Programmiere deine Pflanze, bis sie spricht (12–16 Jahre)",
+          "en": "Talking Plants – Programmiere deine Pflanze, bis sie spricht (12–16 Jahre)"
+        },
+        "summary": {
+          "de": "Was wäre, wenn deine Pflanze plötzlich Nachrichten schicken könnte?",
+          "en": "Was wäre, wenn deine Pflanze plötzlich Nachrichten schicken könnte?"
+        },
+        "topics": [
+          "ai",
+          "coding"
+        ],
+        "interests": [
+          "robots",
+          "tell-stories"
+        ],
+        "audiences": [
+          "children",
+          "teens"
+        ],
+        "format": "workshop",
+        "minAge": 12,
+        "maxAge": 16,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "12–16 Jahre"
+        },
+        "startsAt": "2027-03-10T16:00:00+01:00",
+        "endsAt": "2027-03-10T19:15:00+01:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "available",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Talking-Plants-Programmiere-deine-Pflanze-bis-sie-spricht-1216-Jahre/271420SG",
+          "fetchedAt": "2026-11-14T16:03:45.086Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "271420SG",
+          "text": "Kursnummer: 271420SG",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Talking Plants – Programmiere deine Pflanze, bis sie spricht (12–16 Jahre)",
+          "text": "Talking Plants – Programmiere deine Pflanze, bis sie spricht (12–16 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Der Workshop richtet sich an Schüler ab der Sekundarstufe I im Alter von 12 bis 16 Jahren, die Interesse an Technologie, Coding und digitaler Kreativität haben. Vorkenntnisse brauchst du nicht.Geleitet wird der Workshop von der 42 Heilbronn Coding School.",
+          "text": "Der Workshop richtet sich an Schüler ab der Sekundarstufe I im Alter von 12 bis 16 Jahren, die Interesse an Technologie, Coding und digitaler Kreativität haben. Vorkenntnisse brauchst du nicht.Geleitet wird der Workshop von der 42 Heilbronn Coding School.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-03-10",
+              "startTime": "16:00",
+              "endTime": "19:15",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "10.03.2027 | 16:00 - 19:15 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "frei",
+          "text": "frei",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 12,
+            "max": 16,
+            "kind": "range"
+          },
+          "text": "12–16 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "available",
+          "text": "frei",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai",
+            "coding"
+          ],
+          "text": "KI | Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "robots",
+            "tell-stories"
+          ],
+          "text": "sensor | Charakter",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children",
+            "teens"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-03-10",
+          "startTime": "16:00",
+          "endTime": "19:15",
+          "place": "Bildungscampus"
+        }
+      ]
+    },
+    {
+      "rowId": "aim-271420rk2",
+      "state": "ready-for-review",
+      "timing": "upcoming",
+      "offer": {
+        "id": "aim-271420rk2",
+        "providerId": "aim",
+        "externalId": "271420RK2",
+        "title": {
+          "de": "Robotik zum Anfassen 2 – vom analogen ins symbolbasierte Programmieren (7–10 Jahre)",
+          "en": "Robotik zum Anfassen 2 – vom analogen ins symbolbasierte Programmieren (7–10 Jahre)"
+        },
+        "summary": {
+          "de": "Programmier-Abenteuer zum Anfassen: Mit LEGO® Education kleine Roboter programmieren.",
+          "en": "Programmier-Abenteuer zum Anfassen: Mit LEGO® Education kleine Roboter programmieren."
+        },
+        "topics": [
+          "coding"
+        ],
+        "interests": [
+          "robots"
+        ],
+        "audiences": [
+          "children"
+        ],
+        "format": "course",
+        "minAge": 7,
+        "maxAge": 10,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "7–10 Jahre"
+        },
+        "startsAt": "2027-04-07T15:00:00+02:00",
+        "endsAt": "2027-04-21T16:30:00+02:00",
+        "schedulePrecision": "date-time",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "Bildungscampus",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "full",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/271420RK2",
+          "fetchedAt": "2026-11-14T16:03:59.511Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [],
+      "reviewNotes": [
+        "Series of 3 sessions; startsAt is the first session, endsAt the end of the last.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "271420RK2",
+          "text": "Kursnummer: 271420RK2",
+          "locator": "div.course_detail#course-<KNR> + URL",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "Robotik zum Anfassen 2 – vom analogen ins symbolbasierte Programmieren (7–10 Jahre)",
+          "text": "Robotik zum Anfassen 2 – vom analogen ins symbolbasierte Programmieren (7–10 Jahre)",
+          "locator": "div.course_detail h1",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Diese Veranstaltung richtet sich an Schüler/-innen der Klassen 2–4, die ihre ersten Erfahrungen mit Robotik und Programmierung vertiefen möchten. Die Teilnahme am Kurs „Robotik zum Anfassen – analoges Programmieren ganz ohne Bildschirm“ ist hilfreich, aber keine Voraussetzung.",
+          "text": "Diese Veranstaltung richtet sich an Schüler/-innen der Klassen 2–4, die ihre ersten Erfahrungen mit Robotik und Programmierung vertiefen möchten. Die Teilnahme am Kurs „Robotik zum Anfassen – analoges Programmieren ganz ohne Bildschirm“ ist hilfreich, aber keine Voraussetzung.",
+          "locator": "description › Teilnehmen",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2027-04-07",
+              "startTime": "15:00",
+              "endTime": "16:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-04-14",
+              "startTime": "15:00",
+              "endTime": "16:30",
+              "place": "Bildungscampus"
+            },
+            {
+              "date": "2027-04-21",
+              "startTime": "15:00",
+              "endTime": "16:30",
+              "place": "Bildungscampus"
+            }
+          ],
+          "text": "07.04.2027 | 15:00 - 16:30 Uhr | Bildungscampus ; 14.04.2027 | 15:00 - 16:30 Uhr | Bildungscampus ; 21.04.2027 | 15:00 - 16:30 Uhr | Bildungscampus",
+          "locator": "table#coursesDateTable (Termine)",
+          "method": "explicit"
+        },
+        {
+          "field": "statusText",
+          "value": "ausgebucht",
+          "text": "ausgebucht",
+          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Bildungscampus",
+            "city": "Heilbronn"
+          },
+          "text": "Bildungscampus",
+          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
+          "method": "derived",
+          "note": "City taken from a published street address for the same venue name; confirm in review."
+        },
+        {
+          "field": "audienceLabels",
+          "value": [
+            "Schüler/in"
+          ],
+          "text": "Schüler/in",
+          "locator": "listing card badges",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": 7,
+            "max": 10,
+            "kind": "range"
+          },
+          "text": "7–10 Jahre",
+          "locator": "title",
+          "method": "explicit"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "keine",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "full",
+          "text": "ausgebucht",
+          "locator": "course status",
+          "method": "explicit"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "coding"
+          ],
+          "text": "Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [
+            "robots"
+          ],
+          "text": "Robot",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "audiences",
+          "value": [
+            "children"
+          ],
+          "text": "Schüler/in",
+          "locator": "provider audience labels + published age",
+          "method": "rule"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2027-04-07",
+          "startTime": "15:00",
+          "endTime": "16:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-04-14",
+          "startTime": "15:00",
+          "endTime": "16:30",
+          "place": "Bildungscampus"
+        },
+        {
+          "date": "2027-04-21",
+          "startTime": "15:00",
+          "endTime": "16:30",
+          "place": "Bildungscampus"
+        }
+      ]
+    }
+  ]
+}
