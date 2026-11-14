@@ -3,7 +3,8 @@
  * Used by every scraping adapter; the CSV intake (U3) will map rows into the same SourceRecord shape.
  */
 import { validateOffer } from "../../shared/catalog.ts";
-import type { Format, Issue, Offer } from "../../shared/contracts.ts";
+import type { Format, Issue, Offer, SchedulePrecision, Taxonomy } from "../../shared/contracts.ts";
+import { DEFAULT_TAXONOMY } from "../../shared/taxonomy.ts";
 import { berlinDate, berlinLocalToIso } from "../scraping/berlin-time.ts";
 import type { Candidate, FieldEvidence, SourceRecord, SourceSession, Timing } from "../scraping/types.ts";
 import { deriveAudiences, isProfessionalOnly, matchInterests, matchTopics, parseAge, parseAvailability, parsePrice } from "./rules.ts";
@@ -48,7 +49,7 @@ export function timingOf(sessions: SourceSession[], now: Date): Timing {
   return started(sessions[0]) ? "ongoing" : "upcoming";
 }
 
-export function normalizeRecord(record: SourceRecord, now: Date = new Date()): Candidate {
+export function normalizeRecord(record: SourceRecord, now: Date = new Date(), taxonomy: Taxonomy = DEFAULT_TAXONOMY): Candidate {
   const evidence: FieldEvidence[] = [...record.evidence];
   const notes: string[] = [...(record.adapterNotes ?? [])];
   const blocking: Issue[] = [...(record.extractionIssues ?? [])];
@@ -87,7 +88,11 @@ export function normalizeRecord(record: SourceRecord, now: Date = new Date()): C
     text: record.audienceLabels.join(", ") || null, locator: "provider audience labels + published age",
     method: audiences.length ? "rule" : "absent" });
 
-  const { startsAt, endsAt, allTimed } = sessionBounds(record.sessions);
+  const bounds = sessionBounds(record.sessions);
+  const allTimed = bounds.allTimed;
+  const precision: SchedulePrecision = !record.sessions.length ? "unknown" : allTimed && bounds.startsAt ? "date-time" : "date-only";
+  const startsAt = precision === "date-time" ? bounds.startsAt : null;
+  const endsAt = precision === "date-time" ? bounds.endsAt : null;
   const timing = timingOf(record.sessions, now);
   if (!record.sessions.length) blocking.push({ path: "startsAt", message: "No published session date" });
   else if (!allTimed) notes.push("Some sessions have no published time; times were not invented.");
@@ -106,20 +111,26 @@ export function normalizeRecord(record: SourceRecord, now: Date = new Date()): C
   if (!record.venueCity) blocking.push({ path: "venue.city", message: "Venue city not published on the record" });
 
   const summary = summarize(record.lead, record.description);
+  const enabledTopics = new Set(taxonomy.topics.filter(t => t.enabled).map(t => t.id));
+  const enabledInterests = new Set(taxonomy.interests.filter(i => i.enabled).map(i => i.id));
   const offer: Offer = {
     id,
     providerId: record.providerId,
     externalId: record.externalId,
     title: { de: record.title, en: record.title },
     summary: { de: summary, en: summary },
-    topics: topics.map(t => t.value),
-    interests: interests.map(t => t.value),
+    topics: topics.map(t => t.value).filter(id => enabledTopics.has(id)),
+    interests: interests.map(t => t.value).filter(id => enabledInterests.has(id)),
     audiences: [...new Set(audiences.map(a => a.value))],
     format,
     minAge: age.minAge,
     maxAge: age.maxAge,
+    ageEvidence: age.kind === "unknown" ? { kind: "unknown" } :
+      { kind: age.kind === "minimum" ? "minimum-only" : "range", text: (age.matched ?? "").slice(0, 500) },
     startsAt,
     endsAt,
+    schedulePrecision: precision,
+    ...(precision === "date-only" ? { startDate: record.sessions[0].date, endDate: record.sessions[record.sessions.length - 1].date } : {}),
     timeZone: "Europe/Berlin",
     priceEur: price.value,
     venue: { name: record.venueName ?? "", city: record.venueCity ?? "", access: "unknown" },
@@ -128,7 +139,7 @@ export function normalizeRecord(record: SourceRecord, now: Date = new Date()): C
     source: { kind: "verified", url: record.detailUrl, fetchedAt: record.fetchedAt, verifiedAt: null },
   };
 
-  const validation = validateOffer(offer);
+  const validation = validateOffer(offer, taxonomy);
   const issues = [...blocking];
   if (!validation.ok)
     for (const issue of validation.issues)

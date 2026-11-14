@@ -1,9 +1,9 @@
 {
-  "runId": "haus-der-familie-20261114T151306",
+  "runId": "haus-der-familie-20261114T160422",
   "providerId": "haus-der-familie",
   "adapterVersion": "hdf-kufer-json+html/1",
-  "startedAt": "2026-11-14T15:13:06.041Z",
-  "finishedAt": "2026-11-14T15:13:28.711Z",
+  "startedAt": "2026-11-14T16:04:22.373Z",
+  "finishedAt": "2026-11-14T16:04:43.973Z",
   "status": "needs-review",
   "message": "11 candidate(s) staged for human review (7 ready, 4 need correction). https://hdf-hn.de/kurse/ is the open course search without preset filters; not queried (it would list every course).",
   "windowDays": 180,
@@ -453,8 +453,12 @@
         "format": "event",
         "minAge": null,
         "maxAge": null,
+        "ageEvidence": {
+          "kind": "unknown"
+        },
         "startsAt": "2026-11-17T18:00:00+01:00",
         "endsAt": "2026-11-17T19:30:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 0,
         "venue": {
@@ -467,7 +471,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/gesunder-umgang-mit-social-media-teil-i-mechanismen-verstehen-und-risiken-erkennen-live-online-261H207010/",
-          "fetchedAt": "2026-11-14T15:13:13.746Z",
+          "fetchedAt": "2026-11-14T16:04:30.146Z",
           "verifiedAt": null
         }
       },
@@ -622,8 +626,13 @@
         "format": "course",
         "minAge": 4,
         "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
         "startsAt": "2026-11-21T10:00:00+01:00",
         "endsAt": "2026-11-22T12:00:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 10,
         "venue": {
@@ -636,7 +645,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-von-bausteinen-zum-balkendiagramm-261H207004/",
-          "fetchedAt": "2026-11-14T15:13:15.050Z",
+          "fetchedAt": "2026-11-14T16:04:31.452Z",
           "verifiedAt": null
         }
       },
@@ -802,8 +811,13 @@
         "format": "workshop",
         "minAge": 8,
         "maxAge": 12,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "von 8 bis 12 Jahren"
+        },
         "startsAt": "2026-11-28T12:30:00+01:00",
         "endsAt": "2026-11-28T15:30:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 30,
         "venue": {
@@ -816,7 +830,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/programmieren-lernen-scratch-261H304002/",
-          "fetchedAt": "2026-11-14T15:13:17.473Z",
+          "fetchedAt": "2026-11-14T16:04:32.807Z",
           "verifiedAt": null
         }
       },
@@ -964,8 +978,13 @@
         "format": "workshop",
         "minAge": 4,
         "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
         "startsAt": "2026-12-05T09:30:00+01:00",
         "endsAt": "2026-12-05T11:30:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 10,
         "venue": {
@@ -978,7 +997,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/maerchenhaft-mit-scratchjunior-eine-geschichte-programmieren-das-mutige-tier-261H207006/",
-          "fetchedAt": "2026-11-14T15:13:18.806Z",
+          "fetchedAt": "2026-11-14T16:04:34.616Z",
           "verifiedAt": null
         }
       },
@@ -1131,8 +1150,13 @@
         "format": "course",
         "minAge": 4,
         "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
         "startsAt": "2027-01-16T10:00:00+01:00",
         "endsAt": "2027-01-23T11:30:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 10,
         "venue": {
@@ -1145,7 +1169,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207007/",
-          "fetchedAt": "2026-11-14T15:13:20.242Z",
+          "fetchedAt": "2026-11-14T16:04:35.937Z",
           "verifiedAt": null
         }
       },
@@ -1308,8 +1332,13 @@
         "format": "course",
         "minAge": 4,
         "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
         "startsAt": "2027-01-16T12:30:00+01:00",
         "endsAt": "2027-01-23T14:00:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 10,
         "venue": {
@@ -1322,7 +1351,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207016/",
-          "fetchedAt": "2026-11-14T15:13:21.909Z",
+          "fetchedAt": "2026-11-14T16:04:37.244Z",
           "verifiedAt": null
         }
       },
@@ -1485,8 +1514,13 @@
         "format": "course",
         "minAge": 4,
         "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
         "startsAt": "2027-01-16T14:30:00+01:00",
         "endsAt": "2027-01-23T16:00:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 10,
         "venue": {
@@ -1499,7 +1533,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207017/",
-          "fetchedAt": "2026-11-14T15:13:23.232Z",
+          "fetchedAt": "2026-11-14T16:04:38.629Z",
           "verifiedAt": null
         }
       },
@@ -1662,8 +1696,13 @@
         "format": "workshop",
         "minAge": 4,
         "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
         "startsAt": "2027-01-30T09:30:00+01:00",
         "endsAt": "2027-01-30T11:30:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 10,
         "venue": {
@@ -1676,7 +1715,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/spielerisch-mit-scratchjunior-eine-gruenere-saubere-welt-programmieren-261H207008/",
-          "fetchedAt": "2026-11-14T15:13:24.711Z",
+          "fetchedAt": "2026-11-14T16:04:39.996Z",
           "verifiedAt": null
         }
       },
@@ -1826,8 +1865,13 @@
         "format": "course",
         "minAge": 6,
         "maxAge": 10,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "von 6 bis 10 Jahren"
+        },
         "startsAt": "2027-02-11T09:00:00+01:00",
         "endsAt": "2027-02-12T12:30:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 60,
         "venue": {
@@ -1840,7 +1884,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/kinderferienbox-wie-funktionieren-roboter-und-wie-werden-sie-programmiert-261H305008/",
-          "fetchedAt": "2026-11-14T15:13:27.339Z",
+          "fetchedAt": "2026-11-14T16:04:42.654Z",
           "verifiedAt": null
         }
       },
@@ -2027,8 +2071,13 @@
         "format": "workshop",
         "minAge": 8,
         "maxAge": 12,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "von 8 bis 12 Jahren"
+        },
         "startsAt": "2027-02-13T10:00:00+01:00",
         "endsAt": "2027-02-13T13:00:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 30,
         "venue": {
@@ -2041,7 +2090,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/kinderferienbox-programmieren-lernen-scratch-261H305006/",
-          "fetchedAt": "2026-11-14T15:13:28.710Z",
+          "fetchedAt": "2026-11-14T16:04:43.972Z",
           "verifiedAt": null
         }
       },
@@ -2189,8 +2238,13 @@
         "format": "course",
         "minAge": 4,
         "maxAge": 7,
+        "ageEvidence": {
+          "kind": "range",
+          "text": "4 bis 7 Jahre"
+        },
         "startsAt": "2027-02-20T10:00:00+01:00",
         "endsAt": "2027-02-21T12:00:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 10,
         "venue": {
@@ -2203,7 +2257,7 @@
         "source": {
           "kind": "verified",
           "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-trends-und-anteile-272H207001/",
-          "fetchedAt": "2026-11-14T15:13:25.998Z",
+          "fetchedAt": "2026-11-14T16:04:41.329Z",
           "verifiedAt": null
         }
       },

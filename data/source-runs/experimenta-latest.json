@@ -1,9 +1,9 @@
 {
-  "runId": "experimenta-20261114T151355",
+  "runId": "experimenta-20261114T160410",
   "providerId": "experimenta",
   "adapterVersion": "experimenta-html/1",
-  "startedAt": "2026-11-14T15:13:55.836Z",
-  "finishedAt": "2026-11-14T15:14:07.084Z",
+  "startedAt": "2026-11-14T16:04:10.027Z",
+  "finishedAt": "2026-11-14T16:04:22.369Z",
   "status": "needs-review",
   "message": "1 candidate(s) staged for human review (1 ready, 0 need correction).",
   "windowDays": 180,
@@ -21,7 +21,7 @@
       "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/berufspraxistag/?termin=1794650400",
       "finalUrl": "https://www.experimenta.science/besuchen/veranstaltungskalender/berufspraxistag/?termin=1794650400",
       "status": 200,
-      "bytes": 240836,
+      "bytes": 213416,
       "kind": "detail"
     },
     {
@@ -2720,8 +2720,12 @@
         "format": "event",
         "minAge": null,
         "maxAge": null,
+        "ageEvidence": {
+          "kind": "unknown"
+        },
         "startsAt": "2026-12-05T11:00:00+01:00",
         "endsAt": "2026-12-05T17:00:00+01:00",
+        "schedulePrecision": "date-time",
         "timeZone": "Europe/Berlin",
         "priceEur": 0,
         "venue": {
@@ -2734,7 +2738,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/first-lego-league-regionalwettbewerb-heilbronn/?termin=1796468400",
-          "fetchedAt": "2026-11-14T15:14:04.086Z",
+          "fetchedAt": "2026-11-14T16:04:19.365Z",
           "verifiedAt": null
         }
       },

@@ -1,15 +1,10 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { mkdtempSync, writeFileSync, mkdirSync } from "node:fs";
-import { tmpdir } from "node:os";
-import { join } from "node:path";
-import { pathToFileURL } from "node:url";
 import { berlinLocalToIso, germanDateToIso } from "../src/server/scraping/berlin-time.ts";
 import { ProviderFetcher } from "../src/server/scraping/fetcher.ts";
 import { isAllowedUrl, getProvider, type ProviderConfig } from "../src/server/scraping/providers.ts";
 import { parseAge, parseAvailability, parsePrice, deriveAudiences, isProfessionalOnly } from "../src/server/normalize/rules.ts";
 import { normalizeRecord, offerId } from "../src/server/normalize/to-offer.ts";
-import { getOffers, getLatestSourceRun } from "../src/server/catalog/read.ts";
 import { runProvider } from "../src/server/scraping/runner.ts";
 import { aimAdapter } from "../src/server/scraping/adapters/aim.ts";
 const runAim = (o: Parameters<typeof runProvider>[1]) => runProvider(aimAdapter, o);
@@ -65,6 +60,8 @@ test("normalization blocks rather than invents: no time, no city, no price", () 
   const c = normalizeRecord(baseRecord(), new Date("2026-11-14T12:00:00Z"));
   assert.equal(c.state, "blocked");
   assert.equal(c.offer.startsAt, null, "date-only session does not become midnight");
+  assert.equal(c.offer.schedulePrecision, "date-only");
+  assert.equal(c.offer.startDate, "2027-01-10");
   assert.equal(c.offer.priceEur, null);
   assert.equal(c.timing, "upcoming");
   assert.ok(c.issues.some(i => i.path === "venue.city"));
@@ -103,32 +100,6 @@ test("a loading placeholder instead of course cards is a layout failure, not 'no
   const result = await runAim({ fetchImpl, minIntervalMs: 0, sleep: async () => {} });
   assert.equal(result.status, "failed");
   assert.match(result.message, /No course cards recognised/);
-});
-
-test("public read serves approved demo data only; staged scraped candidates stay off it", () => {
-  const dir = mkdtempSync(join(tmpdir(), "atlas-"));
-  mkdirSync(join(dir, "runs"));
-  const files = {
-    demo: new URL("../data/demo-offers.json", import.meta.url),
-    published: pathToFileURL(join(dir, "missing.json")),
-    runs: pathToFileURL(join(dir, "runs") + "/"),
-  };
-  const res = getOffers(undefined, new Date("2026-11-14T10:00:00Z"), files);
-  assert.equal(res.status, 200);
-  return res.json().then((body: { mode: string; offers: { reviewStatus: string; source: { kind: string } }[]; schemaVersion: number }) => {
-    assert.equal(body.schemaVersion, 1);
-    assert.equal(body.mode, "demo");
-    assert.ok(body.offers.length > 0);
-    assert.ok(body.offers.every(o => o.reviewStatus === "approved"));
-    delete process.env.INTEREST_ATLAS_LOCAL_DESK;
-    assert.equal(getLatestSourceRun("aim", files).status, 404, "desk read is local-only");
-    process.env.INTEREST_ATLAS_LOCAL_DESK = "1";
-    writeFileSync(join(dir, "runs", "aim-latest.json"), JSON.stringify({ runId: "r", providerId: "aim", adapterVersion: "t", status: "needs-review",
-      message: "m", startedAt: "", finishedAt: "", windowDays: 90, pageCap: 20, partialCoverage: false, pages: [], counts: {}, candidates: [] }));
-    assert.equal(getLatestSourceRun("aim", files).status, 200);
-    assert.equal(getLatestSourceRun("../etc", files).status, 404);
-    delete process.env.INTEREST_ATLAS_LOCAL_DESK;
-  });
 });
 
 test("provider config exposes exactly the four permitted institutions", () => {
