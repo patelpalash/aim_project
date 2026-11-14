@@ -101,15 +101,28 @@ export function Discovery() {
   const mode = state.audienceMode;
   const adult = mode === "parent";
   const copy = MODE_COPY[mode];
-  const tiles = useMemo(() => getActiveInterests(bundle?.taxonomy), [bundle]);
-  const topicDefs = useMemo(() => getActiveTopics(bundle?.taxonomy), [bundle]);
-  const perTopic = useMemo(() => Object.fromEntries(topicDefs.map(t => {
-    try { return [t.id, filterOffers(offers, { topics: [t.id] }).length]; } catch { return [t.id, 0]; }
-  })) as Record<string, number>, [offers, topicDefs]);
+  /**
+   * Themes and interests come from the loaded configuration only. Falling back to the bundled
+   * seed taxonomy while loading briefly showed tiles that the organizer may have disabled or
+   * renamed, so nothing is offered until the real configuration is in.
+   */
+  const tiles = useMemo(() => (bundle ? getActiveInterests(bundle.taxonomy) : []), [bundle]);
+  const topicDefs = useMemo(() => (bundle ? getActiveTopics(bundle.taxonomy) : []), [bundle]);
   const providers = bundle?.providers ?? [];
+  /**
+   * Counts on the tiles and topic chips are counted inside the time window that is actually in
+   * effect, so the number matches what the list shows after clicking. Counting against no filters
+   * at all made them promise more offers than the page then displayed.
+   */
+  const timeWindow = useMemo(() => ({
+    schedule: state.filters.schedule, dateFrom: state.filters.dateFrom, dateTo: state.filters.dateTo
+  }), [state.filters.schedule, state.filters.dateFrom, state.filters.dateTo]);
+  const perTopic = useMemo(() => Object.fromEntries(topicDefs.map(t => {
+    try { return [t.id, filterOffers(offers, { ...timeWindow, topics: [t.id] }).length]; } catch { return [t.id, 0]; }
+  })) as Record<string, number>, [offers, topicDefs, timeWindow]);
   const perInterest = useMemo(() => Object.fromEntries(tiles.map(t => {
-    try { return [t.id, filterOffers(offers, { interests: [t.id] }).length]; } catch { return [t.id, 0]; }
-  })) as Record<string, number>, [offers, tiles]);
+    try { return [t.id, filterOffers(offers, { ...timeWindow, interests: [t.id] }).length]; } catch { return [t.id, 0]; }
+  })) as Record<string, number>, [offers, tiles, timeWindow]);
   const reasonsFor = useMemo(() => {
     const map = new Map<string, string[]>();
     if (!bundle) return map;
@@ -218,9 +231,11 @@ export function Discovery() {
           <div className="dz-board__head reveal">
             <h2 id="dz-topics-title">{adult ? "Themenbereiche" : "Worum geht es?"}</h2>
             <p className="muted">
-              {topics.length
-                ? `${topics.length} von ${topicDefs.length} Themen gewählt.`
-                : "Die drei Themenbereiche der Angebote. Mehrfachauswahl möglich."}
+              {catalog.phase !== "ready"
+                ? "Themen werden geladen…"
+                : topics.length
+                  ? `${topics.length} von ${topicDefs.length} Themen gewählt.`
+                  : "Die Themenbereiche der Angebote. Mehrfachauswahl möglich."}
             </p>
           </div>
           <div className="dz-topic-row reveal" role="group" aria-labelledby="dz-topics-title">
@@ -241,7 +256,7 @@ export function Discovery() {
         <section className="wrap dz-board" aria-labelledby="dz-board-title">
           <div className="dz-board__head reveal">
             <h2 id="dz-board-title">{adult ? "Interessen des Kindes" : "Was interessiert dich?"}</h2>
-            <p className="muted">{interests.length ? `${interests.length} gewählt.` : copy.board}</p>
+            <p className="muted">{catalog.phase !== "ready" ? "Interessen werden geladen…" : interests.length ? `${interests.length} gewählt.` : copy.board}</p>
           </div>
           <div className="dz-tiles" role="group" aria-labelledby="dz-board-title">
             {tiles.map((t, n) => {
