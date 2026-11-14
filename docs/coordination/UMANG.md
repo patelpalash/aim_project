@@ -6,10 +6,10 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted 2026-11-14. Owner reports are read from their remote branches: PALASH.md from `origin/codex/palash-integration`, ISHAN.md from `origin/codex/ishan-design` (present since this checkpoint, tip `a1826f2`).
-- Last updated (UTC): 2026-11-14T17:20Z. Checkpoint: `origin/main` = `6629eca` (already merged here); `origin/codex/ishan-design` = `a1826f2` (I5 organizer desk).
-- Current task/slice: U5 maintenance routes are done (`8a75c3b`). Ishan's desk was checked end-to-end against this backend; U6 rehearsal support is next.
-- State: U1–U5 backend implemented and pushed. Four live adapters, the public read API, CSV/review/publication, source refresh, desk summary and theme/source maintenance are in place.
-- Based on `main` commit: `6629eca` (merged; earlier merges of `0b09fa8` and `2ccc5c8`).
+- Last updated (UTC): 2026-11-14T18:05Z. Checkpoint: `origin/main` = `2cb8143`, merged here at the start of this slice; `origin/codex/ishan-design` = `3e9337b`.
+- Current task/slice: PALASH-007 and the source-data review are done (`7fa9631`). Remaining U6 work: re-apply the review after the next source refresh, and support final acceptance.
+- State: U1–U6 backend done. The public catalogue now contains **17 evidence-reviewed real events** (aim 6, experimenta 1, Haus der Familie 10) plus the 8 demo fixtures. `lastReviewedAt` reflects actual approvals.
+- Based on `main` commit: `2cb8143` (merged).
 - Publishing: **resolved.** A normal `git push -u origin codex/umang-data` succeeded at 2026-11-14T16:47Z. `git ls-remote --heads origin codex/umang-data` = `de1635d1ca8227288ed2bac989da88a2e29e8c8d`, equal to the local tip; code commits `97e3e43` (PALASH-002) and `4016c3d` (PALASH-003) are ancestors of the remote tip. All commits listed below are now on GitHub.
 - Next independent task: U6 support. Answer integration questions, re-run sources before rehearsal, and fix whatever Palash's integration finds.
 
@@ -23,6 +23,27 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
   Acceptance: a written decision in PALASH.md. Continuing with U3/U4 meanwhile.
 
 ## Replies to teammates
+
+- **PALASH-007 -> Palash: ready.** Code commit `7fa9631d7a695b5ab7756c096a6c128aabbd9e82` on `codex/umang-data`.
+  - `sourceStatuses[].lastReviewedAt` is the latest `source.verifiedAt` of that provider's approved real records. That value is set by `approve()` at the moment of human approval; runs and staging never set it. It is `null` where nothing was approved (currently IPAI).
+  - The status message states published / not-yet-published (awaiting or held) / blocked counts. It does not claim that every staged update was reviewed.
+  - Checks:
+    - `tests/source-review.test.ts`: staging alone leaves the value unchanged, a new approval moves it to that approval time, and IPAI stays null.
+    - `npm run check` 116/116; `npm run build` clean.
+    - Live `next start`: `/api/offers` returns 25 offers (17 real); `lastReviewedAt` is set for aim, experimenta and Haus der Familie, and null for IPAI.
+- **Source-data review (task 7) -> Palash: ready**, same commit.
+  - Every staged row of the fresh 2026-11-14 runs has a decision with reason and quoted evidence in `data/catalog/review-decisions.json`: 15 approved, 2 corrected and approved, 14 held.
+  - Each approved record's provider page was re-fetched and found to contain its own date, start time, title and fee (17/17).
+  - Corrections, from quoted source text only: the two Haus der Familie "Data Literacy for Kids" workshops get interest `solve-puzzles`. The story rule now recognises "eine Geschichte", "Märchen" and "Trickfilm", so ScratchJunior "Märchenhaft…" gets `tell-stories`.
+  - Held:
+    - three aim series already running with registration closed
+    - aim "Craft Your City" and "Code your Chat": no fitting discovery interest
+    - aim "Digitale Spielewelten" and the Haus der Familie LIVE ONLINE talk: online, per UMANG-001(1)
+    - all four IPAI events: general adult audience, per UMANG-001(4)
+    - one out-of-scope tax lecture
+  - Applied with `node src/server/review/apply-review.ts` through the same review service; a row whose source facts changed is held, never approved. The result is in `data/catalog/reviewed-offers.json`.
+  - The public read and `/api/admin/reset` use or restore this committed baseline. The runtime catalogue stays git-ignored.
+  - Browser check of `/`: "Talking Plants", "Programmieren Lernen - Scratch", "First Lego League", "Spieleentwicklung mit Unity" and "Data Literacy" render; interest tiles count the real events.
 
 - **ISH-REQ-1 -> Ishan: ready.** `/api/offers`, `/api/taxonomy` and `/api/providers` are on `codex/umang-data` (code `97e3e43`, current tip `8a75c3b`), validated with the shared validators.
   - Checked against your branch: in a local merge of `codex/umang-data` (`8a75c3b`) with `codex/ishan-design` (`a1826f2`), with no conflicts, `/` loads the bundle from the real API through `loadCatalog`.
@@ -102,6 +123,12 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
   - Acceptance: the desk can refresh a source and see its status, review a source run, add or disable a theme, and add a CSV-only source, all without editing files. This is the PDF maintenance demonstration.
   - Continuing meanwhile: U6 rehearsal checks.
 
+- **UMANG-003 -> Ishan, Palash decides (public status line, before final demo):** the public catalogue now mixes 17 reviewed real events with the 8 demo fixtures, so `mode` correctly stays `demo`. The status line on `/` still says "Demo-Daten: erfundene Beispiele, keine echten Termine", which is now false.
+  - Option A (Ishan): word the mixed state honestly, e.g. "Geprüfte Termine und markierte Demo-Beispiele", and keep the per-card demo label.
+  - Option B (Palash decision, Umang implements): drop the demo fixtures from the public catalogue now that real data exists, so `mode` becomes `reviewed`. The demo CSV flow still works through the desk.
+  - Acceptance: no visitor-facing text claims there are no real events while real ones are shown.
+- **UMANG-004 -> Palash/organizer (taxonomy):** two real aim courses are held only because no discovery interest fits: "Craft Your City" (building in the sandbox game Luanti) and "Code your Chat" (building a web app). If you want them, add an interest such as `build-worlds` / `build-apps` with `POST /api/admin/topics`, then I re-review and approve them.
+
 ## Ready slices
 
 All on `origin/codex/umang-data` (verified 2026-11-14T16:47Z).
@@ -110,6 +137,7 @@ All on `origin/codex/umang-data` (verified 2026-11-14T16:47Z).
 | --- | --- | --- | --- | --- |
 | aim adapter, normalization core, first real record | U1 | `eb5db20` | `src/server/scraping/{types,html,berlin-time,providers,fetcher,runner,cli}.ts`, `src/server/scraping/adapters/aim.ts`, `src/server/normalize/*`, `tests/aim-adapter.test.ts` | live aim run; 34/34 tests at that commit |
 | experimenta, Haus der Familie, IPAI adapters; shared runner | U2 | `832d3f6` | `src/server/scraping/adapters/{experimenta,hdf,ipai,index}.ts`, `tests/source-adapters.test.ts`, `tests/fixtures/**` | live four-source run; 46/46 tests at that commit; records spot-checked against source pages |
+| Reviewed real records + lastReviewedAt | U6, PALASH-007 | `7fa9631` | `data/catalog/{reviewed-offers,review-decisions,review-report}.json`, `src/server/review/apply-review.ts`, `src/server/catalog/read.ts`, `src/server/review/service.ts`, `tests/source-review.test.ts` | 17/17 source pages re-verified; 116/116 tests; clean build; browser check of `/` |
 | Desk summary, theme/source maintenance, desk-compatible edits | U5 | `8a75c3b` | `src/server/config/maintenance.ts`, `src/server/review/{http,service}.ts`, `src/app/api/admin/{summary,topics,providers}`, `data/demo-gap-requests.json`, `tests/maintenance.test.ts` | 106/106 tests; integrated build with Ishan's branch; headless desk flow |
 | CSV intake, review sessions, selected publication, refresh, reset | U3/U4/U5, PALASH-003 | `4016c3d` | `src/server/review/*`, `src/app/api/admin/**`, `data/demo-upload.csv`, `tests/review-service.test.ts` | live `next start` walk-through; 102/102 tests; clean build |
 | Public read API on the shared contract | U1/U5, PALASH-002 | `97e3e43` | `src/server/catalog/read.ts`, `src/app/api/{offers,taxonomy,providers}/route.ts`, `tests/catalog-api.test.ts` | as listed under PALASH-002 |
