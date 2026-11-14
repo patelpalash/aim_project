@@ -1,23 +1,29 @@
 import type { Interest } from "@/shared/contracts";
+import { STRINGS } from "../strings.ts";
+import type { Translate } from "../i18n";
 
-/** Presentation metadata for the five shared interests. Labels are German-first. */
+/** Look of the five shared interests. Names and hints are translated, not stored here. */
 export interface InterestMeta { label: string; hint: string; a: string; b: string; rgb: [number, number, number] }
-const INTEREST_META: Record<string, InterestMeta> = {
-  "build-games": { label: "Spiele entwickeln", hint: "Game Design & Coding", a: "var(--i-build-games-a)", b: "var(--i-build-games-b)", rgb: [255, 122, 92] },
-  robots: { label: "Robotik & KI", hint: "Maschinen, die mitdenken", a: "var(--i-robots-a)", b: "var(--i-robots-b)", rgb: [77, 160, 255] },
-  "make-art": { label: "Digitale Kunst", hint: "Bilder, Design, KI-Kunst", a: "var(--i-make-art-a)", b: "var(--i-make-art-b)", rgb: [246, 140, 150] },
-  "solve-puzzles": { label: "Logik & Rätsel", hint: "Knobeln und Code knacken", a: "var(--i-solve-puzzles-a)", b: "var(--i-solve-puzzles-b)", rgb: [80, 215, 140] },
-  "tell-stories": { label: "Storytelling", hint: "Geschichten digital erzählen", a: "var(--i-tell-stories-a)", b: "var(--i-tell-stories-b)", rgb: [180, 140, 250] }
+const INTEREST_LOOK: Record<string, Pick<InterestMeta, "a" | "b" | "rgb">> = {
+  "build-games": { a: "var(--i-build-games-a)", b: "var(--i-build-games-b)", rgb: [255, 122, 92] },
+  robots: { a: "var(--i-robots-a)", b: "var(--i-robots-b)", rgb: [77, 160, 255] },
+  "make-art": { a: "var(--i-make-art-a)", b: "var(--i-make-art-b)", rgb: [246, 140, 150] },
+  "solve-puzzles": { a: "var(--i-solve-puzzles-a)", b: "var(--i-solve-puzzles-b)", rgb: [80, 215, 140] },
+  "tell-stories": { a: "var(--i-tell-stories-a)", b: "var(--i-tell-stories-b)", rgb: [180, 140, 250] }
 };
+const NEUTRAL = { a: "var(--accent-a)", b: "var(--accent-b)", rgb: [142, 166, 255] as [number, number, number] };
 
-/**
- * Look of an interest. Names come from the configured taxonomy (pass `label`); a newly configured
- * interest without artwork gets a neutral look, so themes can be added without touching components.
- */
-export function interestMeta(id: Interest, label?: string): InterestMeta {
-  const known = INTEREST_META[id];
-  if (known) return label ? { ...known, label } : known;
-  return { label: label ?? id, hint: "", a: "var(--accent-a)", b: "var(--accent-b)", rgb: [142, 166, 255] };
+/** A configured interest without artwork keeps a neutral look and no hint, so themes stay addable. */
+export function interestMeta(id: Interest, label?: string, t?: Translate): InterestMeta {
+  const look = INTEREST_LOOK[id] ?? NEUTRAL;
+  const labelKey = `interest.${id}.label`;
+  const hintKey = `interest.${id}.hint`;
+  const known = labelKey in STRINGS;
+  return {
+    ...look,
+    label: label ?? (known && t ? t(labelKey as never) : known ? STRINGS[labelKey as keyof typeof STRINGS].de : id),
+    hint: hintKey in STRINGS ? (t ? t(hintKey as never) : STRINGS[hintKey as keyof typeof STRINGS].de) : ""
+  };
 }
 
 const s = { fill: "none", stroke: "currentColor", strokeWidth: 2, strokeLinecap: "round", strokeLinejoin: "round" } as const;

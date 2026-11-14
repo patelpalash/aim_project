@@ -3,9 +3,11 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import type { Interest, Taxonomy } from "@/shared/contracts";
+import { pick } from "@/shared/i18n";
 import { QUIZ_QUESTIONS, getQuizSuggestions } from "@/shared/quiz";
 import { PUZZLES, evaluateSequencePuzzle, type PuzzleResult, type SequenceCommand, type SequencePuzzle } from "@/shared/puzzles";
 import { interestMeta, InterestIcon } from "./interests";
+import { useLocale } from "../i18n";
 import "./play.css";
 
 /**
@@ -25,6 +27,7 @@ export interface PlaySectionProps {
 }
 
 export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selectedInterests, onAnswer, onPuzzleDone, onResetPlay, onApplyInterests }: PlaySectionProps) {
+  const { locale, t } = useLocale();
   const [open, setOpen] = useState<"quiz" | "puzzle" | null>(null);
   /** Bumping this remounts quiz and puzzle, so a reset really clears the board and the step. */
   const [round, setRound] = useState(0);
@@ -41,13 +44,13 @@ export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selecte
   return (
     <section className="wrap play" aria-labelledby="play-title">
       <div className="dz-board__head reveal">
-        <h2 id="play-title">Lust auf ein kurzes Spiel?</h2>
-        <p className="muted">Zwei Minuten, freiwillig. Du kannst jederzeit einfach weiterstöbern.</p>
+        <h2 id="play-title">{t("play.title")}</h2>
+        <p className="muted">{t("play.lede")}</p>
         {started ? (
-          <button type="button" className="btn play__reset" onClick={resetPlay}>Quiz &amp; Rätsel zurücksetzen</button>
+          <button type="button" className="btn play__reset" onClick={resetPlay}>{t("play.reset")}</button>
         ) : null}
       </div>
-      <p className="visually-hidden" role="status" aria-live="polite">{round ? "Quiz und Rätsel zurückgesetzt. Deine gemerkten Angebote und Filter bleiben." : ""}</p>
+      <p className="visually-hidden" role="status" aria-live="polite">{round ? t("play.resetSaid") : ""}</p>
       <div className="play__grid">
         <article className={`panel play-card reveal${open === "quiz" ? " is-open" : ""}`} style={{ "--d": 0 } as CSSProperties}>
           <header className="play-card__head">
@@ -55,11 +58,11 @@ export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selecte
               <svg width="26" height="26" viewBox="0 0 32 32" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round"><path d="M12 12a4 4 0 1 1 6 3.4c-1.4.8-2 1.6-2 3.1" /><circle cx="16" cy="23.5" r="0.5" fill="currentColor" /><circle cx="16" cy="16" r="13" /></svg>
             </span>
             <div>
-              <h3>Drei Fragen zu dir</h3>
-              <p className="muted">Wir schlagen dir passende Interessen vor. Keine Pflicht, kein Konto.</p>
+              <h3>{t("play.quizTitle")}</h3>
+              <p className="muted">{t("play.quizLede")}</p>
             </div>
             <button type="button" className="btn" aria-expanded={open === "quiz"} onClick={() => setOpen(o => (o === "quiz" ? null : "quiz"))}>
-              {open === "quiz" ? "Schließen" : Object.keys(quizAnswers).length ? "Weitermachen" : "Starten"}
+              {open === "quiz" ? t("play.close") : Object.keys(quizAnswers).length ? t("play.continue") : t("play.start")}
             </button>
           </header>
           {open === "quiz" ? <Quiz key={`quiz-${round}`} taxonomy={taxonomy} answers={quizAnswers} onAnswer={onAnswer} onApply={onApplyInterests} /> : null}
@@ -71,11 +74,11 @@ export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selecte
               <InterestIcon interest="robots" size={26} />
             </span>
             <div>
-              <h3>{puzzle?.title.de ?? "Repariere den Weg"}</h3>
-              <p className="muted">Steuere den Roboter mit Befehlen ins Ziel.{solved ? " Schon gelöst — gern nochmal!" : ""}</p>
+              <h3>{puzzle ? pick(puzzle.title, locale) : t("play.puzzleFallback")}</h3>
+              <p className="muted">{t("play.puzzleLede")}{solved ? t("play.puzzleSolved") : ""}</p>
             </div>
             <button type="button" className="btn" aria-expanded={open === "puzzle"} onClick={() => setOpen(o => (o === "puzzle" ? null : "puzzle"))}>
-              {open === "puzzle" ? "Schließen" : "Spielen"}
+              {open === "puzzle" ? t("play.close") : t("play.puzzlePlay")}
             </button>
           </header>
           {open === "puzzle" && puzzle ? (
@@ -88,7 +91,7 @@ export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selecte
   );
 }
 
-const CMD_LABEL: Record<SequenceCommand, string> = { forward: "Vor", left: "Links drehen", right: "Rechts drehen" };
+const COMMANDS: readonly SequenceCommand[] = ["forward", "left", "right"];
 const CMD_GLYPH: Record<SequenceCommand, string> = { forward: "↑", left: "⟲", right: "⟳" };
 const ROT: Record<string, number> = { north: 0, east: 90, south: 180, west: 270 };
 
@@ -98,6 +101,7 @@ function Quiz({ taxonomy, answers, onAnswer, onApply }: {
   onAnswer: (questionId: string, choiceId: string | null) => void;
   onApply: (ids: Interest[]) => void;
 }) {
+  const { locale, t } = useLocale();
   const firstOpen = QUIZ_QUESTIONS.findIndex(q => !(q.id in answers));
   const [step, setStep] = useState(firstOpen === -1 ? QUIZ_QUESTIONS.length : firstOpen);
   const done = step >= QUIZ_QUESTIONS.length;
@@ -111,15 +115,15 @@ function Quiz({ taxonomy, answers, onAnswer, onApply }: {
         <p style={{ "--n": 0 } as CSSProperties}>
           {suggestions?.answeredCount
             ? suggestions.interests.length
-              ? "Das passt zu dir:"
-              : "Dazu haben wir gerade keine Vorschläge, stöbere einfach frei."
-            : "Alles übersprungen — stöbere einfach frei."}
+              ? t("quiz.fits")
+              : t("quiz.noneFit")
+            : t("quiz.allSkipped")}
         </p>
         {suggestions?.interests.length ? (
           <>
             <div className="row" style={{ "--n": 1 } as CSSProperties}>
               {suggestions.interests.map(s => {
-                const meta = interestMeta(s.id, s.label.de);
+                const meta = interestMeta(s.id, pick(s.label, locale), t);
                 return (
                   <span key={s.id} className="quiz__chip" style={{ "--a": meta.a, "--b": meta.b } as CSSProperties}>
                     <InterestIcon interest={s.id} size={18} />{meta.label}
@@ -128,15 +132,15 @@ function Quiz({ taxonomy, answers, onAnswer, onApply }: {
               })}
             </div>
             <div className="row" style={{ "--n": 2 } as CSSProperties}>
-              <button type="button" className="btn btn--primary" onClick={() => onApply(suggestions.interestIds)}>Vorschläge übernehmen</button>
-              <button type="button" className="btn" onClick={() => setStep(QUIZ_QUESTIONS.length - 1)}>Antworten ändern</button>
-              <button type="button" className="btn" onClick={restart}>Nochmal von vorn</button>
+              <button type="button" className="btn btn--primary" onClick={() => onApply(suggestions.interestIds)}>{t("quiz.apply")}</button>
+              <button type="button" className="btn" onClick={() => setStep(QUIZ_QUESTIONS.length - 1)}>{t("quiz.change")}</button>
+              <button type="button" className="btn" onClick={restart}>{t("quiz.restart")}</button>
             </div>
           </>
         ) : (
           <div className="row" style={{ "--n": 1 } as CSSProperties}>
-            <button type="button" className="btn" onClick={() => setStep(QUIZ_QUESTIONS.length - 1)}>Antworten ändern</button>
-            <button type="button" className="btn" onClick={restart}>Nochmal von vorn</button>
+            <button type="button" className="btn" onClick={() => setStep(QUIZ_QUESTIONS.length - 1)}>{t("quiz.change")}</button>
+            <button type="button" className="btn" onClick={restart}>{t("quiz.restart")}</button>
           </div>
         )}
       </div>
@@ -146,26 +150,26 @@ function Quiz({ taxonomy, answers, onAnswer, onApply }: {
   const answered = q.id in answers;
   return (
     <div className="quiz" key={q.id}>
-      <p className="quiz__progress">Frage {step + 1} von {QUIZ_QUESTIONS.length}{answered ? " · schon beantwortet, du kannst sie ändern" : ""}</p>
-      <h4 className="quiz__q m-up" style={{ "--d": 0 } as CSSProperties}>{q.label.de}</h4>
+      <p className="quiz__progress">{t("quiz.progress", { step: step + 1, total: QUIZ_QUESTIONS.length })}{answered ? t("quiz.answered") : ""}</p>
+      <h4 className="quiz__q m-up" style={{ "--d": 0 } as CSSProperties}>{pick(q.label, locale)}</h4>
       <div className="quiz__choices">
         {q.choices.map((c, n) => (
           <button key={c.id} type="button" className="quiz__choice m-up" style={{ "--d": n + 1 } as CSSProperties}
             aria-pressed={answers[q.id] === c.id}
             onClick={() => { onAnswer(q.id, c.id); setStep(s => s + 1); }}>
-            {c.label.de}
+            {pick(c.label, locale)}
           </button>
         ))}
       </div>
       <div className="row quiz__nav">
-        <button type="button" className="btn" disabled={step === 0} onClick={() => setStep(s => Math.max(0, s - 1))}>Zurück</button>
+        <button type="button" className="btn" disabled={step === 0} onClick={() => setStep(s => Math.max(0, s - 1))}>{t("quiz.back")}</button>
         {answered ? (
           <>
-            <button type="button" className="btn" onClick={() => onAnswer(q.id, null)}>Antwort löschen</button>
-            <button type="button" className="btn" onClick={() => setStep(s => s + 1)}>Weiter</button>
+            <button type="button" className="btn" onClick={() => onAnswer(q.id, null)}>{t("quiz.clear")}</button>
+            <button type="button" className="btn" onClick={() => setStep(s => s + 1)}>{t("quiz.next")}</button>
           </>
         ) : (
-          <button type="button" className="dz-link quiz__skip" onClick={() => setStep(s => s + 1)}>Überspringen</button>
+          <button type="button" className="dz-link quiz__skip" onClick={() => setStep(s => s + 1)}>{t("quiz.skip")}</button>
         )}
       </div>
     </div>
@@ -178,6 +182,7 @@ function PathPuzzle({ puzzle, selectedInterests, onDone, onApply }: {
   onDone: (id: string) => void;
   onApply: (ids: Interest[]) => void;
 }) {
+  const { locale, t } = useLocale();
   const [commands, setCommands] = useState<(SequenceCommand | null)[]>([...puzzle.initialCommands]);
   const [result, setResult] = useState<PuzzleResult | null>(null);
   const [bot, setBot] = useState({ ...puzzle.start, step: 0 });
@@ -215,11 +220,11 @@ function PathPuzzle({ puzzle, selectedInterests, onDone, onApply }: {
 
   return (
     <div className="pz" key={shake ? `s${shake}` : "pz"}>
-      <p className="muted">{puzzle.instructions.de}</p>
+      <p className="muted">{pick(puzzle.instructions, locale)}</p>
       <div className="pz__board-wrap">
         <div className={`pz__board${result?.status === "try-again" ? " m-wobble" : ""}`}
           style={{ "--w": puzzle.width, "--h": puzzle.height } as CSSProperties} role="img"
-          aria-label={`Spielfeld ${puzzle.width} mal ${puzzle.height}. Start links oben, Ziel bei Spalte ${puzzle.goal.x + 1}, Zeile ${puzzle.goal.y + 1}.`}>
+          aria-label={t("pz.board", { w: puzzle.width, h: puzzle.height, gx: puzzle.goal.x + 1, gy: puzzle.goal.y + 1 })}>
           {Array.from({ length: puzzle.width * puzzle.height }, (_, n) => {
             const cx = n % puzzle.width, cy = Math.floor(n / puzzle.width);
             const blocked = puzzle.blocked.some(c => c.x === cx && c.y === cy);
@@ -233,36 +238,36 @@ function PathPuzzle({ puzzle, selectedInterests, onDone, onApply }: {
           </span>
         </div>
       </div>
-      <div className="pz__slots" aria-label="Deine Befehle">
+      <div className="pz__slots" aria-label={t("pz.commands")}>
         {commands.map((c, i) => (
           <button key={i} type="button" className={`pz__slot${c ? "" : " is-empty"}${editable[i] ? "" : " is-fixed"}${bot.step === i + 1 && running ? " is-now" : ""}`}
             disabled={!editable[i] || running} onClick={() => clearSlot(i)}
-            aria-label={`Schritt ${i + 1}: ${c ? CMD_LABEL[c] : "leer"}${editable[i] && c ? ", zum Entfernen klicken" : ""}`}>
+            aria-label={`${t("pz.slot", { n: i + 1, cmd: c ? t(`cmd.${c}`) : t("pz.slotEmpty") })}${editable[i] && c ? t("pz.slotRemove") : ""}`}>
             {c ? CMD_GLYPH[c] : "?"}
           </button>
         ))}
       </div>
       <div className="row">
-        {(Object.keys(CMD_LABEL) as SequenceCommand[]).map(cmd => (
+        {COMMANDS.map(cmd => (
           <button key={cmd} type="button" className="chip" disabled={running || !commands.some((c, n) => c === null && editable[n])} onClick={() => fillNext(cmd)}>
-            {CMD_GLYPH[cmd]} {CMD_LABEL[cmd]}
+            {CMD_GLYPH[cmd]} {t(`cmd.${cmd}`)}
           </button>
         ))}
       </div>
       <div className="row">
-        <button type="button" className="btn btn--primary" onClick={run} disabled={running}>{running ? "Läuft…" : "Ausprobieren"}</button>
-        <button type="button" className="btn" onClick={reset} disabled={running}>Zurücksetzen</button>
+        <button type="button" className="btn btn--primary" onClick={run} disabled={running}>{t(running ? "pz.running" : "pz.run")}</button>
+        <button type="button" className="btn" onClick={reset} disabled={running}>{t("pz.reset")}</button>
       </div>
       {result ? (
         <div className={`pz__msg status-line${result.status === "correct" ? "" : ""}`} data-tone={result.status === "correct" ? "ok" : result.status === "try-again" ? "warn" : "bad"} role="status">
-          {result.message.de}
+          {pick(result.message, locale)}
         </div>
       ) : null}
       {result?.status === "correct" && newInterests.length ? (
         <div className="row m-up" style={{ "--d": 0 } as CSSProperties}>
-          <span className="muted">Das passt dazu:</span>
+          <span className="muted">{t("pz.fits")}</span>
           <button type="button" className="btn" onClick={() => onApply(newInterests)}>
-            {newInterests.map(i => interestMeta(i).label).join(" + ")} ansehen
+            {t("pz.view", { list: newInterests.map(i => interestMeta(i, undefined, t).label).join(" + ") })}
           </button>
         </div>
       ) : null}

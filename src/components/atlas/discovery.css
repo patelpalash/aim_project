@@ -154,11 +154,15 @@
 /* Presentation switch (child/teen/adult) in the header. */
 .dz-mode { margin-left: auto; }
 .dz-top__in .dz-shortlist { margin-left: var(--space-3); }
+/* Language switch (DE/EN). Two short buttons, so it fits beside the presentation switch. */
+.dz-lang { margin-left: var(--space-2); flex: 0 0 auto; }
+.dz-lang button { min-width: 44px; font-weight: 700; letter-spacing: 0.04em; }
 @media (max-width: 560px) {
   /* The header is a single flex row on wide screens; on phones it has to wrap, or the
      presentation switch runs past the right edge and cannot be reached at all. */
   .dz-top__in { flex-wrap: wrap; row-gap: var(--space-2); padding-block: var(--space-2); }
-  .dz-mode { order: 3; margin-left: 0; width: 100%; }
+  .dz-mode { order: 3; margin-left: 0; flex: 1 1 auto; }
+  .dz-lang { order: 4; margin-left: 0; }
   .dz-top__in .dz-shortlist { margin-left: auto; }
 }
 

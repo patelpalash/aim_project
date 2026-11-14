@@ -2,8 +2,10 @@
 
 import type { CSSProperties, PointerEvent } from "react";
 import type { Interest, Offer } from "@/shared/contracts";
+import { pick } from "@/shared/i18n";
 import { interestMeta, InterestIcon } from "./interests";
 import { ageKnown, formatAge, formatPrice, formatWhen } from "./format";
+import { useLocale } from "../i18n";
 
 export interface EventCardProps {
   offer: Offer;
@@ -39,6 +41,8 @@ function untilt(e: PointerEvent<HTMLElement>) {
 
 /** One event. The title is the open button (covers the card); save is a separate control. */
 export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 0, matches = [], reasons = [], provider, vtName, adult = false }: EventCardProps) {
+  const { locale, t } = useLocale();
+  const title = pick(offer.title, locale);
   const lead = matches[0] ?? offer.interests[0];
   const meta = lead ? interestMeta(lead) : null;
   const style = { "--i": index, "--a": meta?.a ?? "var(--accent-a)", "--b": meta?.b ?? "var(--accent-b)", viewTransitionName: vtName } as CSSProperties;
@@ -48,24 +52,24 @@ export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 
         <div className="event-card__band">
           {lead ? <span className="event-card__icon"><InterestIcon interest={lead} size={30} /></span> : null}
           <span className="event-card__provider">{provider}</span>
-          {offer.source.kind === "demo" ? <span className="tag tag--demo">Demo</span> : <span className="tag tag--verified">Geprüft</span>}
+          {offer.source.kind === "demo" ? <span className="tag tag--demo">{t("tag.demo")}</span> : <span className="tag tag--verified">{t("tag.verified")}</span>}
         </div>
         <div className="event-card__body">
-          <p className="event-card__when">{formatWhen(offer)}</p>
+          <p className="event-card__when">{formatWhen(offer, locale)}</p>
           <h3 className="event-card__title">
-            <button type="button" className="event-card__open" onClick={() => onOpen?.(offer)}>{offer.title.de}</button>
+            <button type="button" className="event-card__open" onClick={() => onOpen?.(offer)}>{title}</button>
           </h3>
           {reasons.length ? <p className="event-card__match">{reasons.join(" · ")}</p> : null}
           <div className="event-card__facts">
-            <span className={ageKnown(offer) ? "tag" : "tag tag--unknown"}>{formatAge(offer)}</span>
-            <span className={offer.priceEur === null ? "tag tag--unknown" : "tag"}>{formatPrice(offer)}</span>
-            {offer.availability === "full" ? <span className="tag tag--full">Ausgebucht</span> : null}
-            {offer.availability === "unknown" ? <span className="tag tag--unknown">Plätze unbekannt</span> : null}
+            <span className={ageKnown(offer) ? "tag" : "tag tag--unknown"}>{formatAge(offer, locale)}</span>
+            <span className={offer.priceEur === null ? "tag tag--unknown" : "tag"}>{formatPrice(offer, locale)}</span>
+            {offer.availability === "full" ? <span className="tag tag--full">{t("tag.full")}</span> : null}
+            {offer.availability === "unknown" ? <span className="tag tag--unknown">{t("tag.placesUnknown")}</span> : null}
           </div>
           {adult ? (
             <p className="event-card__venue">
               {offer.venue.name}, {offer.venue.city}
-              {offer.venue.access === "step-free" ? " · stufenlos" : offer.venue.access === "unknown" ? " · Zugang unbekannt" : ""}
+              {offer.venue.access === "step-free" ? t("card.stepFree") : offer.venue.access === "unknown" ? t("card.accessUnknown") : ""}
             </p>
           ) : null}
         </div>
@@ -77,7 +81,7 @@ export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 
           <svg key={saved ? "s" : "u"} className={saved ? "m-pop" : undefined} width="22" height="22" viewBox="0 0 24 24" aria-hidden="true">
             <path d="M12 21s-7.5-4.6-9.3-9.2C1.3 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.9 3.5 4.5 7.3C19.5 16.4 12 21 12 21z" fill={saved ? "#ff6b8a" : "none"} stroke={saved ? "#ff6b8a" : "currentColor"} strokeWidth="2" />
           </svg>
-          <span className="visually-hidden">{saved ? `${offer.title.de} von der Merkliste entfernen` : `${offer.title.de} merken`}</span>
+          <span className="visually-hidden">{t(saved ? "card.unsave" : "card.save", { title })}</span>
         </button>
       ) : null}
     </article>
