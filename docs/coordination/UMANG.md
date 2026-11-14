@@ -5,13 +5,26 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 
 ## Current report
 
-- Protocol adoption: adopted 2026-11-14. Owner reports are read from their remote branches: PALASH.md from `origin/codex/palash-integration`, ISHAN.md from `origin/codex/ishan-design` (present since this checkpoint, tip `a1826f2`).
-- Last updated (UTC): 2026-11-14T19:55Z. Checkpoint: `origin/main` = `7fef39b` (merged here as `a6d9bd8`); `origin/codex/ishan-design` = `7aa6ae5` (already in `main`); `origin/codex/palash-integration` = `7fef39b`.
-- Current task/slice: **temporary final integration and demo readiness** (Palash's Codex session hit its usage limit). Final rehearsal done; README/STATUS/DEMO_CHECKLIST updated (`f271d5d`); PR into `main` next.
-- State: U1–U6 backend done. The public catalogue has **19 evidence-reviewed real events** (aim 8, experimenta 1, Haus der Familie 10) plus the 8 labelled demo examples; the homepage shows "19 geprüfte Angebote · 8 Demo-Beispiele (erfunden)".
-- Based on `main` commit: `7fef39b` (merged as `a6d9bd8`).
-- Publishing: **resolved.** A normal `git push -u origin codex/umang-data` succeeded at 2026-11-14T16:47Z. `git ls-remote --heads origin codex/umang-data` = `de1635d1ca8227288ed2bac989da88a2e29e8c8d`, equal to the local tip; code commits `97e3e43` (PALASH-002) and `4016c3d` (PALASH-003) are ancestors of the remote tip. All commits listed below are now on GitHub.
-- Next independent task: U6 support. Answer integration questions, re-run sources before rehearsal, and fix whatever Palash's integration finds.
+- Protocol adoption: adopted 2026-11-14. Owner reports are read from their remote branches: PALASH.md from `origin/codex/palash-integration`, ISHAN.md from `origin/codex/ishan-design`.
+- Last updated (UTC): 2026-11-14T20:35Z. Checkpoint: `origin/main` = `a7b4f83`; `origin/codex/ishan-design` = `616483f` (code `c072a22`), both merged here.
+- Current task/slice: **temporary final integration and demo readiness** (Palash's Codex session hit its usage limit). Ishan's final frontend acceptance is integrated and re-checked; PR into `main` opened from this branch.
+- State: U1–U6 backend done. The public catalogue has **19 evidence-reviewed real events** (aim 8, experimenta 1, Haus der Familie 10) plus the 8 labelled demo examples, read from `GET /api/offers` at this rehearsal; the homepage shows "19 geprüfte Angebote · 8 Demo-Beispiele (erfunden)".
+- Based on `main` commit: `a7b4f83`. Code SHA for this slice: **`5467b62`**.
+- Next independent task: U6 support and demo rehearsal. Palash resumes `main` integration when available.
+
+## Second integration round: Ishan's final frontend acceptance (code `5467b62`)
+
+- **Merged:** `origin/codex/ishan-design` `616483f` (his reported code `c072a22`) into `codex/umang-data` as `35050b5`, no conflicts. His change touched three CSS files and his own report only; no shared or server code moved. Preserved and re-exercised, not replaced: mixed-catalog wording from record provenance, per-card Demo/Geprüft labels, source-refresh polling, source-to-review staging, topic/source maintenance controls, shared `reset-play`, the separate full-session reset, and the existing quiz, puzzle, audience and shortlist behaviour.
+- **Checks actually run on the merge** (Node.js 24.22.3): `npm run check` **123/123** and `npm run build` clean. 34 API checks and a connected browser run of both journeys. Details in `docs/STATUS.md` under "Follow-up rehearsal".
+  - Both re-reviewed courses still published: `aim-271430cyc1` Craft Your City (`build-worlds`) and `aim-271420fe` Code your Chat (`build-apps`), review time `2026-11-14T18:48:52.317Z`, each with its provider URL.
+  - German source statuses accurate: aim `partial` with the page cap stated, experimenta `reviewed`, Haus der Familie and IPAI `review-needed`, IPAI `lastReviewedAt` still `null` with all four general-adult events held and explained.
+  - A live IPAI refresh **failed** (`Overview https://ipai-foundation.ai/#events: fetch failed`) and the catalogue stayed at 27 with status `error` and a German explanation; an arbitrary provider/URL was refused (400); a desk refresh published nothing (27 → 27).
+  - CSV: template headers; `data/demo-upload.csv` 18 ready / 2 blocked with readable issues; a genuinely stale edit **and** a stale approval both returned 409 `STALE_REVISION` and published nothing; the correction moved the session to revision 2 / 19 ready; publishing the selection reported 19 published / 1 blocked, the catalogue went 27 → 46, every earlier record was kept, the blocked row stayed out, and the published rows are labelled demo with null source URLs; repeat approval added no duplicates; re-import reported 18 unchanged.
+  - `POST /api/admin/reset` restored 27 = 19 + 8 twice in a row with taxonomy v3 and 7 interests intact; a cross-site write returned 403.
+  - Newly verified for the checklist: slow loading (2.5 s delay on every `/api/**` shows the busy skeleton), empty results, an HTTP 500 on `/api/offers` showing "Nicht geladen" with **zero cards** so fixtures are never silently substituted, and the whole visitor journey completing with **every non-local request blocked**.
+- **One defect found and fixed in my own area** (`5467b62`): a failed local refresh writes the git-ignored `data/source-runs/<provider>-last-attempt.json`, but the source-status test sandbox copied all of `data/` and stripped only `published-offers.json` and `review-sessions`. The marker leaked into the fixture and reported experimenta as `error`, so `npm run check` failed 122/123 on any machine where a refresh had failed. The sandbox now strips the attempt markers; verified by failing a live IPAI refresh and re-running the suite (123/123 with the marker present).
+- **Checklist items closed by this round:** R12 (200 % text and larger-text zoom, via Ishan's acceptance), the quiz skip/back/edit and puzzle retry paths including the related-events link (clicked: it turned on 3 interests and moved the result count 24 → 20), and slow loading plus empty results. Still open: measured colour contrast, a screen-reader pass, a usability session with an actual nontechnical organizer, a run with the network physically disabled, the experimenta occurrence-ID reschedule case, and hosted deployment.
+- **Request to Ishan:** none open. His phone, keyboard and reduced-motion evidence at `c072a22` is integrated as reported; if he wants the remaining accessibility items closed, measured contrast and a screen-reader pass are the two left.
 
 ## Temporary integration handoff (Umang for Palash)
 
@@ -32,7 +45,8 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
   - **Phone, reduced motion, keyboard:** 390 px (iPhone 13 profile) with no horizontal scroll on both routes, tap open and save work. Reduced motion has no movement. Keyboard reaches the skip link first, and 25 tab stops per route show visible focus. No external hosts are requested.
 - **Not verified:** contrast measurement, 200 % zoom, screen reader, slow network and empty results in the browser, a nontechnical-user session, and hosted deployment.
 - **Rehearsal side effects** (fresh experimenta/IPAI snapshots and a test theme) stayed in the scratch worktree and were not committed. The committed snapshots remain the ones the review ledger was made against.
-- **PR:** `codex/umang-data` → `main` after this report is published. Link and merge commit follow below once done.
+- **PR merged:** https://github.com/patelpalash/aim_project/pull/2, merged as `a7b4f83d1a5606dda7669861a1c6496233034b3c` (regular merge, pinned to head `e6261d7`; `main` had not moved from `7fef39b`).
+- **Post-merge check:** a fresh GitHub clone of `main` `a7b4f83` passed `npm ci`, `npm run check` 123/123 and `npm run build`. With `INTEREST_ATLAS_LOCAL_DESK=1 npm run start`, `/api/offers` returned 27 offers (19 reviewed real, 8 examples) and `/`, `/organizer`, `/api/taxonomy`, `/api/providers` and `/api/admin/summary` returned 200. The working tree stayed clean.
 
 ## Requests to teammates
 
