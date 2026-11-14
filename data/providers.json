@@ -6,7 +6,7 @@
     "allowedHosts": ["www.aim-akademie.org", "aim-akademie.org"],
     "importMode": "scrape-and-review",
     "scraping": {
-      "implementationStatus": "u1-adapter-staging-only",
+      "implementationStatus": "adapter-staging-only",
       "permissionStatus": "user-confirmed",
       "permissionScope": "public-course-and-event-pages",
       "strategy": "scoped-html",
@@ -28,10 +28,10 @@
     "allowedHosts": ["www.experimenta.science", "experimenta.science", "buchung.experimenta.science"],
     "importMode": "scrape-and-review",
     "scraping": {
-      "implementationStatus": "planned",
+      "implementationStatus": "adapter-staging-only",
       "permissionStatus": "user-confirmed",
       "permissionScope": "public-course-and-event-pages",
-      "strategy": "inspect-public-dynamic-flow",
+      "strategy": "listing-cards-plus-detail-jsonld",
       "seedUrls": [
         "https://www.experimenta.science/lernen/",
         "https://www.experimenta.science/besuchen/veranstaltungen/",
@@ -50,10 +50,10 @@
     "allowedHosts": ["hdf-hn.de", "www.hdf-hn.de"],
     "importMode": "scrape-and-review",
     "scraping": {
-      "implementationStatus": "planned",
+      "implementationStatus": "adapter-staging-only",
       "permissionStatus": "user-confirmed",
       "permissionScope": "public-course-and-event-pages",
-      "strategy": "inspect-public-dynamic-flow",
+      "strategy": "observed-public-json-plus-detail-html",
       "seedUrls": [
         "https://hdf-hn.de/angebote/digitale-familienwerkstatt/",
         "https://hdf-hn.de/kurse/",
@@ -72,7 +72,7 @@
     "allowedHosts": ["ipai-foundation.ai", "www.ipai-foundation.ai"],
     "importMode": "scrape-and-review",
     "scraping": {
-      "implementationStatus": "planned",
+      "implementationStatus": "adapter-staging-only",
       "permissionStatus": "user-confirmed",
       "permissionScope": "public-course-and-event-pages",
       "strategy": "scoped-html",

@@ -56,3 +56,28 @@ export function attr(tag: string, name: string): string | null {
   const m = new RegExp(`\\b${name}="([^"]*)"`, "i").exec(tag);
   return m ? decodeEntities(m[1]) : null;
 }
+
+/** City from a German postal address in the text ("..., 74076 Heilbronn"); null when none is printed. */
+export function cityFromAddress(text: string | null | undefined): string | null {
+  if (!text) return null;
+  return /\b\d{5}\s+([A-ZÄÖÜ][\wäöüß-]+(?:\s(?:am|an der|im)\s[\wäöüß-]+)?)/.exec(text)?.[1] ?? null;
+}
+
+/** All JSON-LD objects on a page (flattening @graph); malformed blocks are ignored. */
+export function jsonLd(html: string): Record<string, unknown>[] {
+  const out: Record<string, unknown>[] = [];
+  for (const m of html.matchAll(/<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g)) {
+    try {
+      const parsed = JSON.parse(m[1]) as unknown;
+      const items = Array.isArray(parsed) ? parsed : [parsed];
+      for (const item of items) {
+        if (item && typeof item === "object") {
+          const graph = (item as { "@graph"?: unknown })["@graph"];
+          if (Array.isArray(graph)) out.push(...graph.filter(g => g && typeof g === "object") as Record<string, unknown>[]);
+          else out.push(item as Record<string, unknown>);
+        }
+      }
+    } catch { /* ignore malformed block */ }
+  }
+  return out;
+}

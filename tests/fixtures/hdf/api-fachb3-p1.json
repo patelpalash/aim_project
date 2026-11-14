@@ -1,0 +1,3966 @@
+[
+ {
+  "knr": "261H303010",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Flughafen Stuttgart - Entdeckertour",
+  "hauptuntertitel": "Für Kinder ab 5 Jahren mit Begleitperson",
+  "inhalt": "Vom Einchecken bis zum Abflug lernen die Kinder den Ablauf am Flughafen Stuttgart kennen. Was passiert mit den Koffern, wenn sie auf dem Gepäckband verschwinden? Was gibt es auf dem Rollfeld zu tun? Nach einem kurzen Film über den Flughafen stehen folgende Dinge auf dem Programm: Vorfeldrundfahrt, Flugzeugabfertigung mit Informationen zu Starts und Landungen, Besichtigung der Flughafenfeuerwehr sowie ein Einblick in die Gepäcksortierung. Die Kinder bekommen Einblicke in die Technik und erfahren, dass die Sicherheit stark von klaren Regeln abhängt, dass ohne ein strukturiertes und verantwortungsbewusstes Handeln am Flughafen keine Flüge stattfinden können.\nBitte spätestens 15 Minuten vor Beginn der Flughafenführung am Treffpunkt SkyLand in Terminal 3 auf der Galerieebene (Ebene 4, beim Reisemarkt) sein.",
+  "web_info": "Vom Einchecken bis zum Abflug lernen die Kinder den Ablauf am Flughafen Stuttgart kennen. Was passiert mit den Koffern, wenn sie auf dem Gepäckband verschwinden? Was gibt es auf dem Rollfeld zu tun? Nach einem kurzen Film über den Flughafen stehen folgende Dinge auf dem Programm: Vorfeldrundfahrt, Flugzeugabfertigung mit Informationen zu Starts und Landungen, Besichtigung der Flughafenfeuerwehr sowie ein Einblick in die Gepäcksortierung. Die Kinder bekommen Einblicke in die Technik und erfahren, dass die Sicherheit stark von klaren Regeln abhängt, dass ohne ein strukturiertes und verantwortungsbewusstes Handeln am Flughafen keine Flüge stattfinden können.\nBitte spätestens 15 Minuten vor Beginn der Flughafenführung am Treffpunkt SkyLand in Terminal 3 auf der Galerieebene (Ebene 4, beim Reisemarkt) sein.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-14",
+  "endedat": "2026-11-14",
+  "beginnuhr": "14:00",
+  "endeuhr": "16:00",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Stuttgart Flughafen, SKYLAND in Terminal 3, Galerie",
+  "ortplz": "70629",
+  "ortname": "Stuttgart",
+  "ortraumname": "Stuttgart Flughafen, SKYLAND in Terminal 3, Galerie",
+  "ortid": "34",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "21",
+  "tnmax": "25",
+  "tnmin": "24",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "2",
+  "termine": [
+   {
+    "kurs_knr": "261H303010",
+    "tag": "2026-11-14",
+    "zeitvon": "14:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H303010",
+    "betragnorm": "20.00",
+    "text": "",
+    "zahlplan": "€",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H303010",
+    "betragnorm": "20.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Kinder",
+   "Flughafen",
+   "Führung",
+   "fliegen",
+   "Flugzeug",
+   "Flughafenführung",
+   "Stuttgart",
+   "Stuttgart Airport",
+   "Eltern-Kind"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": []
+ },
+ {
+  "knr": "261H302014",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Hoch hinaus - Kletterkurs",
+  "hauptuntertitel": "Für Kinder ab 6 Jahren ohne Begleitperson",
+  "inhalt": "Unter Anleitung eines Trainers erleben die Kinder in einem Schnupperkurs die Faszination des Kletterns. Betreut, angeleitet und vor allem gut gesichert, klettern die Kinder bis auf 18 Meter Höhe und können ausprobieren, ob sie den Klettersport regelmäßiger ausüben möchten. Insgesamt trägt das Klettern dazu bei, dass Kinder ihre körperlichen und geistigen Fähigkeiten weiterentwickeln, ihre sozialen Kompetenzen ausbauen und ihre Selbstwahrnehmung stärken.",
+  "web_info": "Unter Anleitung eines Trainers erleben die Kinder in einem Schnupperkurs die Faszination des Kletterns. Betreut, angeleitet und vor allem gut gesichert, klettern die Kinder bis auf 18 Meter Höhe und können ausprobieren, ob sie den Klettersport regelmäßiger ausüben möchten. Insgesamt trägt das Klettern dazu bei, dass Kinder ihre körperlichen und geistigen Fähigkeiten weiterentwickeln, ihre sozialen Kompetenzen ausbauen und ihre Selbstwahrnehmung stärken.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-20",
+  "endedat": "2026-11-20",
+  "beginnuhr": "16:30",
+  "endeuhr": "18:30",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Die Kletterarena, Lichtenbergerstraße 17",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Die Kletterarena, Lichtenbergerstraße 17",
+  "ortid": "22",
+  "fachb": "3",
+  "gebnorm": "25.00",
+  "tnanmeldungen": "12",
+  "tnmax": "12",
+  "tnmin": "10",
+  "material": "Sportkleidung, Hallenturnschuhe, Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H302014",
+    "tag": "2026-11-20",
+    "zeitvon": "16:30:00",
+    "zeitbis": "18:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H302014",
+    "betragnorm": "25.00",
+    "text": "€ inkl. Eintritt u. Leihgebühren f. Ausrüstung",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-11-20"
+   }
+  ],
+  "keywords": [
+   "Bewegung",
+   "Motorik",
+   "Klettern",
+   "Aktion",
+   "Kletterkurs"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "204": "Bewegung"
+  }
+ },
+ {
+  "knr": "261H301010",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Plätzchenzauber – Adventsbacken",
+  "hauptuntertitel": "Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+  "inhalt": "In diesem vorweihnachtlichen, stimmungsvollen Kreativangebot backen die Kinder Weihnachtsplätzchen. Wir starten mit einer kurzen Weihnachtsgeschichte, im Anschluss können die Kinder unter Anleitung kreativ sein, Plätzchen formen, gestalten und nach dem Backen individuell dekorieren – der Fantasie und Kreativität sind keine Grenzen gesetzt. Gleichzeitig erfahren die kleinen Bäckerinnen und Bäcker, welche Zutaten für einen Teig benötigt werden und wie man ihn herstellt. Natürlich werden die Plätzchen zum Abschluss probiert und jedes Kind kann selbst gebackenen Plätzchen mit nach Hause nehmen.",
+  "web_info": "In diesem vorweihnachtlichen, stimmungsvollen Kreativangebot backen die Kinder Weihnachtsplätzchen. Wir starten mit einer kurzen Weihnachtsgeschichte, im Anschluss können die Kinder unter Anleitung kreativ sein, Plätzchen formen, gestalten und nach dem Backen individuell dekorieren – der Fantasie und Kreativität sind keine Grenzen gesetzt. Gleichzeitig erfahren die kleinen Bäckerinnen und Bäcker, welche Zutaten für einen Teig benötigt werden und wie man ihn herstellt. Natürlich werden die Plätzchen zum Abschluss probiert und jedes Kind kann selbst gebackenen Plätzchen mit nach Hause nehmen.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-21",
+  "endedat": "2026-11-21",
+  "beginnuhr": "10:00",
+  "endeuhr": "13:00",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 7",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 7",
+  "ortid": "162",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "15",
+  "tnmax": "15",
+  "tnmin": "12",
+  "material": "Kleidung, die schmutzig werden darf, Snack und Getränk, Behältnis für Plätzchen",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H301010",
+    "tag": "2026-11-21",
+    "zeitvon": "10:00:00",
+    "zeitbis": "13:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H301010",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "inkl. Materialkosten",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H301010",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "kreativ",
+   "Weihnachten",
+   "backen",
+   "Plätzchen",
+   "Backkurs",
+   "Weihnachtsplätzchen",
+   "Weihnachtsbäckerei"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "197": "Kreativität"
+  }
+ },
+ {
+  "knr": "261H303006",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Waldentdecker: Schnitzen im Wald – Kreativ mit Holz arbeiten",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Unter fachkundiger Anleitung eines Naturpädagogen lernen die Kinder den sicheren und verantwortungsvollen Umgang mit dem Schnitzmesser kennen. Schritt für Schritt werden, unter Berücksichtigung der Sicherheitsregeln, grundlegende Schnitztechniken geübt. Anschließend können sie ihrer Kreativität freien Lauf lassen und aus Naturmaterialien eigene kleine Werkstücke gestalten. Je nach Alter und Erfahrung entstehen beispielsweise geschnitzte Figuren, Stäbe oder andere individuelle Kunstwerke. Dieses naturpädagogische Angebot verbindet kreatives Arbeiten mit praktischen Erfahrungen in der Natur und schafft Raum für Ruhe, Entschleunigung und die Freude am eigenen Schaffen.",
+  "web_info": "Unter fachkundiger Anleitung eines Naturpädagogen lernen die Kinder den sicheren und verantwortungsvollen Umgang mit dem Schnitzmesser kennen. Schritt für Schritt werden, unter Berücksichtigung der Sicherheitsregeln, grundlegende Schnitztechniken geübt. Anschließend können sie ihrer Kreativität freien Lauf lassen und aus Naturmaterialien eigene kleine Werkstücke gestalten. Je nach Alter und Erfahrung entstehen beispielsweise geschnitzte Figuren, Stäbe oder andere individuelle Kunstwerke. Dieses naturpädagogische Angebot verbindet kreatives Arbeiten mit praktischen Erfahrungen in der Natur und schafft Raum für Ruhe, Entschleunigung und die Freude am eigenen Schaffen.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-21",
+  "endedat": "2026-11-21",
+  "beginnuhr": "10:00",
+  "endeuhr": "12:30",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Waldheide, Wanderparkplatz Jägerhaus",
+  "ortplz": "74074",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Waldheide, Wanderparkplatz Jägerhaus",
+  "ortid": "168",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "14",
+  "tnmax": "14",
+  "tnmin": "12",
+  "material": "dem Wetter angepasste Kleidung, Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H303006",
+    "tag": "2026-11-21",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H303006",
+    "betragnorm": "20.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-11-21"
+   }
+  ],
+  "keywords": [
+   "Kreativität",
+   "Natur",
+   "Wald",
+   "Waldpädagogik",
+   "Walderlebnis",
+   "Naturpädagogik",
+   "Achtsamkeit",
+   "Nachhaltigkeit",
+   "nachhaltig",
+   "grün",
+   "EGC",
+   "European Green Capital",
+   ".now",
+   "Grüne Hauptstadt Europas",
+   "Zukunft",
+   "Umweltbewusst",
+   "Umweltbewusstsein",
+   "Schnitzen",
+   "Holz"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "728720": "Natur"
+  }
+ },
+ {
+  "knr": "261H301009",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Weihnachten im Hexenwald",
+  "hauptuntertitel": "Puppenspiel und Basteln für Kinder von 3 bis 6 Jahren mit Begleitperson",
+  "inhalt": "Seit die Oma der Knusperhexe versucht hat, Hänsel und Gretel zu braten, ist im Hexenwald nichts mehr wie früher. Niemand wagt sich mehr in die Nähe des Waldes, und die Bewohner des Märchenwaldes machen lieber einen großen Bogen um die Hexenfamilie. Auch das Kind des bösen Wolfs ist einsam. Als sie feststellen, dass nicht einmal der Weihnachtsmann den Weg in ihren Wald findet, überlegen sie, wie sie das Weihnachtsfest übernehmen können. Wird ihr Plan gelingen? Und was bedeutet das für die anderen Märchenbewohner? Nach dem Stück gibt es für die Kinder die Möglichkeit eigene Fingerpuppen zu basteln, damit wir in gemütlicher Runde ein bekanntes Märchen nachspielen können. Hier können die Kinder ihre Kreativität entfalten und das Spielen fördert das soziale Miteinander.",
+  "web_info": "Seit die Oma der Knusperhexe versucht hat, Hänsel und Gretel zu braten, ist im Hexenwald nichts mehr wie früher. Niemand wagt sich mehr in die Nähe des Waldes, und die Bewohner des Märchenwaldes machen lieber einen großen Bogen um die Hexenfamilie. Auch das Kind des bösen Wolfs ist einsam. Als sie feststellen, dass nicht einmal der Weihnachtsmann den Weg in ihren Wald findet, überlegen sie, wie sie das Weihnachtsfest übernehmen können. Wird ihr Plan gelingen? Und was bedeutet das für die anderen Märchenbewohner? Nach dem Stück gibt es für die Kinder die Möglichkeit eigene Fingerpuppen zu basteln, damit wir in gemütlicher Runde ein bekanntes Märchen nachspielen können. Hier können die Kinder ihre Kreativität entfalten und das Spielen fördert das soziale Miteinander.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-28",
+  "endedat": "2026-11-28",
+  "beginnuhr": "10:00",
+  "endeuhr": "11:30",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 7",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 7",
+  "ortid": "162",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "20",
+  "tnmax": "20",
+  "tnmin": "12",
+  "material": "Rutschfeste Söckchen oder Hausschuhe, Kleidung, die schmutzig werden darf, Snack und Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H301009",
+    "tag": "2026-11-28",
+    "zeitvon": "10:00:00",
+    "zeitbis": "11:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H301009",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "inkl. Materialkosten",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H301009",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Basteln",
+   "Kunst",
+   "kreativ",
+   "Kreativkurs"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "197": "Kreativität"
+  }
+ },
+ {
+  "knr": "261H304003",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Knigge für Kids",
+  "hauptuntertitel": "Für Kinder von 7 bis 12 Jahren",
+  "inhalt": "Gute Umgangsformen können richtig Spaß machen. In diesem Kurs entdecken die Kinder spielerisch, wie sie sich in verschiedenen Situationen sicher und entspannt bewegen können. Bei einem gemeinsamen Essen mit einer Knigge-Beraterin lernen sie, worauf es beim Essen zu Hause oder im Restaurant ankommt - vom Umgang mit Besteck und Serviette bis zu guten Tischmanieren und einem wertschätzenden Miteinander. Mit viel Freude, praktischen Übungen und ohne erhobenen Zeigefinger lernen die Kinder, sich aufmerksam, respektvoll und selbstbewusst zu verhalten - Fähigkeiten, die ihnen im Alltag immer wieder zugutekommen.",
+  "web_info": "Gute Umgangsformen können richtig Spaß machen. In diesem Kurs entdecken die Kinder spielerisch, wie sie sich in verschiedenen Situationen sicher und entspannt bewegen können. Bei einem gemeinsamen Essen mit einer Knigge-Beraterin lernen sie, worauf es beim Essen zu Hause oder im Restaurant ankommt - vom Umgang mit Besteck und Serviette bis zu guten Tischmanieren und einem wertschätzenden Miteinander. Mit viel Freude, praktischen Übungen und ohne erhobenen Zeigefinger lernen die Kinder, sich aufmerksam, respektvoll und selbstbewusst zu verhalten - Fähigkeiten, die ihnen im Alltag immer wieder zugutekommen.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-28",
+  "endedat": "2026-11-28",
+  "beginnuhr": "11:00",
+  "endeuhr": "14:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, La Toscana, Südstr. 88",
+  "ortplz": "74072",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, La Toscana, Südstr. 88",
+  "ortid": "42",
+  "fachb": "3",
+  "gebnorm": "45.00",
+  "tnanmeldungen": "8",
+  "tnmax": "15",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H304003",
+    "tag": "2026-11-28",
+    "zeitvon": "11:00:00",
+    "zeitbis": "14:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H304003",
+    "betragnorm": "45.00",
+    "text": "€ inkl. Essen und ein Getränk",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-11-28"
+   }
+  ],
+  "keywords": [
+   "Erziehung",
+   "Essen",
+   "Knigge",
+   "Benimmregeln",
+   "Tischregeln",
+   "Benehmen",
+   "Manieren",
+   "Verhalten",
+   "Tischsitten"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": []
+ },
+ {
+  "knr": "261H304002",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Programmieren Lernen - Scratch",
+  "hauptuntertitel": "Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+  "inhalt": "In diesem Workshop erlernen die Kinder die visuelle Programmiersprache Scratch, speziell für Kinder konzipiert. Ganz ohne Vorkenntnisse können die Kinder durch das Zusammenfügen von Code-Blöcken eigene Programme erstellen. In Zweiergruppen entdecken sie die Grundlagen des Programmierens und gestalten ihre eigenen Charaktere, die sie zum Leben erwecken - sie lassen sie laufen, hüpfen und spannende Aufgaben meistern. Scratch fördert kreatives Denken und Problemlösungsfähigkeiten, da die Kinder lernen, logische Abläufe zu erstellen und ihre Ideen in digitale Projekte umzusetzen.",
+  "web_info": "In diesem Workshop erlernen die Kinder die visuelle Programmiersprache Scratch, speziell für Kinder konzipiert. Ganz ohne Vorkenntnisse können die Kinder durch das Zusammenfügen von Code-Blöcken eigene Programme erstellen. In Zweiergruppen entdecken sie die Grundlagen des Programmierens und gestalten ihre eigenen Charaktere, die sie zum Leben erwecken - sie lassen sie laufen, hüpfen und spannende Aufgaben meistern. Scratch fördert kreatives Denken und Problemlösungsfähigkeiten, da die Kinder lernen, logische Abläufe zu erstellen und ihre Ideen in digitale Projekte umzusetzen.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-11-28",
+  "endedat": "2026-11-28",
+  "beginnuhr": "12:30",
+  "endeuhr": "15:30",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortid": "159",
+  "fachb": "3",
+  "gebnorm": "30.00",
+  "tnanmeldungen": "8",
+  "tnmax": "8",
+  "tnmin": "6",
+  "material": "Schreibzeug, Ordner, Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H304002",
+    "tag": "2026-11-28",
+    "zeitvon": "12:30:00",
+    "zeitbis": "15:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H304002",
+    "betragnorm": "30.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-11-28"
+   }
+  ],
+  "keywords": [
+   "Digitale Medien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "individuell"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "184": "Digitale Familienwerkstatt"
+  }
+ },
+ {
+  "knr": "261H302019",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Gesundheitshelden – Entdecken, Bewegen, Wohlfühlen",
+  "hauptuntertitel": "Für Kinder von 6 bis 8 Jahren",
+  "inhalt": "Was braucht unser Körper, damit es ihm gut geht? Wie fühlt sich Bewegung an? Und wie können wir zwischendurch zur Ruhe kommen? Der Workshop „Gesundheitshelden“ vermittelt Kindern auf spielerische und altersgerechte Weise die drei grundlegenden Bereiche: Bewegung – Ernährung – Entspannung, sie erfahren und entwickeln so ein erstes positives Verständnis für den eigenen Körper. Dabei stehen Neugier und die Freude am eigenen Ausprobieren im Mittelpunkt. Mit abwechslungsreichen Bewegungsspielen, kleinen Experimenten, Sinneserfahrungen und Fantasiereisen lernen die Kinder ihren Körper besser kennen. Sie erleben, wie viel Freude Bewegung macht, entdecken verschiedene Lebensmittel mit allen Sinnen und erfahren, warum ausreichend Trinken, Ruhe und Erholung ebenso wichtig sind. Die Kinder dürfen selbst aktiv werden, Neues ausprobieren und eigene Erfahrungen sammeln. So werden die Kinder frühzeitig für ihren Körper und das Thema Gesundheit sensibilisiert und entwickeln spielerisch erste Kompetenzen für einen gesunden und ausgeglichenen Alltag.",
+  "web_info": "Was braucht unser Körper, damit es ihm gut geht? Wie fühlt sich Bewegung an? Und wie können wir zwischendurch zur Ruhe kommen? Der Workshop „Gesundheitshelden“ vermittelt Kindern auf spielerische und altersgerechte Weise die drei grundlegenden Bereiche: Bewegung – Ernährung – Entspannung, sie erfahren und entwickeln so ein erstes positives Verständnis für den eigenen Körper. Dabei stehen Neugier und die Freude am eigenen Ausprobieren im Mittelpunkt. Mit abwechslungsreichen Bewegungsspielen, kleinen Experimenten, Sinneserfahrungen und Fantasiereisen lernen die Kinder ihren Körper besser kennen. Sie erleben, wie viel Freude Bewegung macht, entdecken verschiedene Lebensmittel mit allen Sinnen und erfahren, warum ausreichend Trinken, Ruhe und Erholung ebenso wichtig sind. Die Kinder dürfen selbst aktiv werden, Neues ausprobieren und eigene Erfahrungen sammeln. So werden die Kinder frühzeitig für ihren Körper und das Thema Gesundheit sensibilisiert und entwickeln spielerisch erste Kompetenzen für einen gesunden und ausgeglichenen Alltag.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-04",
+  "endedat": "2026-12-18",
+  "beginnuhr": "15:30",
+  "endeuhr": "16:30",
+  "dauer": "3 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5",
+  "ortid": "160",
+  "fachb": "3",
+  "gebnorm": "36.00",
+  "tnanmeldungen": "0",
+  "tnmax": "10",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H302019",
+    "tag": "2026-12-04",
+    "zeitvon": "15:30:00",
+    "zeitbis": "16:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302019",
+    "tag": "2026-12-11",
+    "zeitvon": "15:30:00",
+    "zeitbis": "16:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302019",
+    "tag": "2026-12-18",
+    "zeitvon": "15:30:00",
+    "zeitbis": "16:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H302019",
+    "betragnorm": "36.00",
+    "text": "Gebühr",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-12-04"
+   }
+  ],
+  "keywords": [
+   "Bewegung",
+   "Entspannung",
+   "Gesundheit",
+   "Motorik",
+   "Achtsamkeit",
+   "Ruhe",
+   "Konzentration"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "5": "Entspannung",
+   "164": "Gesundheit",
+   "204": "Bewegung"
+  }
+ },
+ {
+  "knr": "261H302020",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Gesundheitshelden – Entdecken, Bewegen, Wohlfühlen",
+  "hauptuntertitel": "Für Kinder von 9 bis 12 Jahren",
+  "inhalt": "Was braucht unser Körper, damit es ihm gut geht? Wie fühlt sich Bewegung an? Und wie können wir zwischendurch zur Ruhe kommen? Der Workshop „Gesundheitshelden“ vermittelt Kindern auf spielerische und altersgerechte Weise die drei grundlegenden Bereiche: Bewegung – Ernährung – Entspannung, sie erfahren und entwickeln so ein erstes positives Verständnis für den eigenen Körper. Dabei stehen Neugier und die Freude am eigenen Ausprobieren im Mittelpunkt. Mit abwechslungsreichen Bewegungsspielen, kleinen Experimenten, Sinneserfahrungen und Fantasiereisen lernen die Kinder ihren Körper besser kennen. Sie erleben, wie viel Freude Bewegung macht, entdecken verschiedene Lebensmittel mit allen Sinnen und erfahren, warum ausreichend Trinken, Ruhe und Erholung ebenso wichtig sind. Die Kinder dürfen selbst aktiv werden, Neues ausprobieren und eigene Erfahrungen sammeln. So werden die Kinder frühzeitig für ihren Körper und das Thema Gesundheit sensibilisiert und entwickeln spielerisch erste Kompetenzen für einen gesunden und ausgeglichenen Alltag.",
+  "web_info": "Was braucht unser Körper, damit es ihm gut geht? Wie fühlt sich Bewegung an? Und wie können wir zwischendurch zur Ruhe kommen? Der Workshop „Gesundheitshelden“ vermittelt Kindern auf spielerische und altersgerechte Weise die drei grundlegenden Bereiche: Bewegung – Ernährung – Entspannung, sie erfahren und entwickeln so ein erstes positives Verständnis für den eigenen Körper. Dabei stehen Neugier und die Freude am eigenen Ausprobieren im Mittelpunkt. Mit abwechslungsreichen Bewegungsspielen, kleinen Experimenten, Sinneserfahrungen und Fantasiereisen lernen die Kinder ihren Körper besser kennen. Sie erleben, wie viel Freude Bewegung macht, entdecken verschiedene Lebensmittel mit allen Sinnen und erfahren, warum ausreichend Trinken, Ruhe und Erholung ebenso wichtig sind. Die Kinder dürfen selbst aktiv werden, Neues ausprobieren und eigene Erfahrungen sammeln. So werden die Kinder frühzeitig für ihren Körper und das Thema Gesundheit sensibilisiert und entwickeln spielerisch erste Kompetenzen für einen gesunden und ausgeglichenen Alltag.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-04",
+  "endedat": "2026-12-18",
+  "beginnuhr": "17:00",
+  "endeuhr": "18:00",
+  "dauer": "3 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5",
+  "ortid": "160",
+  "fachb": "3",
+  "gebnorm": "36.00",
+  "tnanmeldungen": "0",
+  "tnmax": "10",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H302020",
+    "tag": "2026-12-04",
+    "zeitvon": "17:00:00",
+    "zeitbis": "18:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302020",
+    "tag": "2026-12-11",
+    "zeitvon": "17:00:00",
+    "zeitbis": "18:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302020",
+    "tag": "2026-12-18",
+    "zeitvon": "17:00:00",
+    "zeitbis": "18:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H302020",
+    "betragnorm": "36.00",
+    "text": "Gebühr",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-12-04"
+   }
+  ],
+  "keywords": [
+   "Bewegung",
+   "Entspannung",
+   "Gesundheit",
+   "Motorik",
+   "Achtsamkeit",
+   "Ruhe",
+   "Konzentration",
+   "Regulation"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "5": "Entspannung",
+   "164": "Gesundheit",
+   "204": "Bewegung"
+  }
+ },
+ {
+  "knr": "261H301005",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Fröhliche Weihnacht überall",
+  "hauptuntertitel": "Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+  "inhalt": "In diesem liebevoll gestalteten Kreativkurs tauchen die Kinder in die Weihnachtszeit ein. Mit fröhlichen Weihnachtsliedern, kreativen Bastelideen und viel Fantasie gestalten sie gemeinsam festliche Dekorationen und kleine Geschenke. Neben dem kreativen Arbeiten bleibt ausreichend Zeit zum Spielen und gemeinsamen Entdecken. So werden nicht nur Kreativität und Feinmotorik spielerisch gefördert, sondern auch soziale Fähigkeiten gestärkt. Ein abwechslungsreicher Kurs voller Freude, Kreativität und weihnachtlicher Stimmung.",
+  "web_info": "In diesem liebevoll gestalteten Kreativkurs tauchen die Kinder in die Weihnachtszeit ein. Mit fröhlichen Weihnachtsliedern, kreativen Bastelideen und viel Fantasie gestalten sie gemeinsam festliche Dekorationen und kleine Geschenke. Neben dem kreativen Arbeiten bleibt ausreichend Zeit zum Spielen und gemeinsamen Entdecken. So werden nicht nur Kreativität und Feinmotorik spielerisch gefördert, sondern auch soziale Fähigkeiten gestärkt. Ein abwechslungsreicher Kurs voller Freude, Kreativität und weihnachtlicher Stimmung.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-05",
+  "endedat": "2026-12-05",
+  "beginnuhr": "09:30",
+  "endeuhr": "11:00",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortid": "156",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "20",
+  "tnmax": "20",
+  "tnmin": "12",
+  "material": "Rutschfeste Söckchen oder Hausschuhe, Kleidung, die schmutzig werden darf, Snack und Getränk, Korb oder Schuhkarton zum Transport der Bastelmaterialien",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H301005",
+    "tag": "2026-12-05",
+    "zeitvon": "09:30:00",
+    "zeitbis": "11:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H301005",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "inkl. Materialkosten",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H301005",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Basteln",
+   "Kunst",
+   "kreativ",
+   "Kreativkurs",
+   "Winter",
+   "kreatives Gestalten"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "197": "Kreativität"
+  }
+ },
+ {
+  "knr": "261H301015",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Fröhliche Weihnacht überall",
+  "hauptuntertitel": "Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+  "inhalt": "In diesem liebevoll gestalteten Kreativkurs tauchen die Kinder in die Weihnachtszeit ein. Mit fröhlichen Weihnachtsliedern, kreativen Bastelideen und viel Fantasie gestalten sie gemeinsam festliche Dekorationen und kleine Geschenke. Neben dem kreativen Arbeiten bleibt ausreichend Zeit zum Spielen und gemeinsamen Entdecken. So werden nicht nur Kreativität und Feinmotorik spielerisch gefördert, sondern auch soziale Fähigkeiten gestärkt. Ein abwechslungsreicher Kurs voller Freude, Kreativität und weihnachtlicher Stimmung.",
+  "web_info": "In diesem liebevoll gestalteten Kreativkurs tauchen die Kinder in die Weihnachtszeit ein. Mit fröhlichen Weihnachtsliedern, kreativen Bastelideen und viel Fantasie gestalten sie gemeinsam festliche Dekorationen und kleine Geschenke. Neben dem kreativen Arbeiten bleibt ausreichend Zeit zum Spielen und gemeinsamen Entdecken. So werden nicht nur Kreativität und Feinmotorik spielerisch gefördert, sondern auch soziale Fähigkeiten gestärkt. Ein abwechslungsreicher Kurs voller Freude, Kreativität und weihnachtlicher Stimmung.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-05",
+  "endedat": "2026-12-05",
+  "beginnuhr": "11:45",
+  "endeuhr": "13:15",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortid": "156",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "19",
+  "tnmax": "19",
+  "tnmin": "12",
+  "material": "Rutschfeste Söckchen oder Hausschuhe, Kleidung, die schmutzig werden darf, Snack und Getränk, Korb oder Schuhkarton zum Transport der Bastelmaterialien",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H301015",
+    "tag": "2026-12-05",
+    "zeitvon": "11:45:00",
+    "zeitbis": "13:15:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H301015",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "inkl. Materialkosten",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H301015",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Basteln",
+   "Kunst",
+   "kreativ",
+   "Kreativkurs",
+   "Winter",
+   "kreatives Gestalten"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "197": "Kreativität"
+  }
+ },
+ {
+  "knr": "261H303013",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Entdeckertour bei der Feuerwehr",
+  "hauptuntertitel": "Für Kinder ab 4 Jahren mit Begleitperson",
+  "inhalt": "Die Kinder lernen in Begleitung eines Erwachsenen die Feuerwehr in Heilbronn kennen. Sie erkunden die Notrufleitstelle, ein Feuerwehrauto und den Schlauchturm. Dabei erfahren sie Wissenswertes über Blaulicht, Wasserschläuche, Schutzkleidung und Ausrüstung der Feuerwehr. Gemeinsam entdecken sie, welche Aufgaben die Feuerwehr übernimmt, wie Brände gelöscht werden. Zudem lernen sie welche Maßnahmen dem Brandschutz dienen, wie sie sich im Brandfall richtig verhalten und wie ein Notruf korrekt abgesetzt wird",
+  "web_info": "Die Kinder lernen in Begleitung eines Erwachsenen die Feuerwehr in Heilbronn kennen. Sie erkunden die Notrufleitstelle, ein Feuerwehrauto und den Schlauchturm. Dabei erfahren sie Wissenswertes über Blaulicht, Wasserschläuche, Schutzkleidung und Ausrüstung der Feuerwehr. Gemeinsam entdecken sie, welche Aufgaben die Feuerwehr übernimmt, wie Brände gelöscht werden. Zudem lernen sie welche Maßnahmen dem Brandschutz dienen, wie sie sich im Brandfall richtig verhalten und wie ein Notruf korrekt abgesetzt wird",
+  "internetaktiv": "W",
+  "semester": "F26",
+  "beginndat": "2026-12-09",
+  "endedat": "2026-12-09",
+  "beginnuhr": "14:00",
+  "endeuhr": "16:00",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "74074 Heilbronn, Feuerwehr Heilbronn, Beethovenstr. 29",
+  "ortplz": "74074",
+  "ortname": "Heilbronn",
+  "ortraumname": "74074 Heilbronn, Feuerwehr Heilbronn, Beethovenstr. 29",
+  "ortid": "148",
+  "fachb": "3",
+  "gebnorm": "10.00",
+  "tnanmeldungen": "14",
+  "tnmax": "20",
+  "tnmin": "10",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H303013",
+    "tag": "2026-12-09",
+    "zeitvon": "14:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H303013",
+    "betragnorm": "10.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-12-09"
+   }
+  ],
+  "keywords": [
+   "Kinder",
+   "Entdeckertour",
+   "Feuerwehr",
+   "Feuer",
+   "Hilfe",
+   "Brandschutz"
+  ],
+  "kategorien": {
+   "13": "Eltern",
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": []
+ },
+ {
+  "knr": "261H302009",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Kobra, Katze, Hund - Kinderyoga",
+  "hauptuntertitel": "Für Kinder von 4 bis 5 Jahren ohne Begleitperson",
+  "inhalt": "Kinderyoga bringt jede Menge Spaß und gute Laune. Mit lustigen und spannenden Geschichten sowie Übungen erleben die kleinen Yogis viele Abenteuer und lernen auf spielerische Weise Yoga kennen. Kinderyoga bringt aber nicht nur Spaß und gute Laune, es hat auch viele positive Effekte auf Körper und Geist der kleinen Yogis. Es fördert zum einen die Koordination und Haltung, stärkt die Konzentration und das Gefühl für den eigenen Körper, zum anderen baut es das Selbstwertgefühl auf und steigert die Sinneswahrnehmungen. Durch viele kleine gemeinsame Übungen lernen die Kinder einen positiven Umgang mit ihren eigenen Gefühlen und können so auch besser auf die Gefühle anderer eingehen und diese verstehen. Das fördert das Mitgefühl und ein schönes Miteinander. Durch Yoga erschaffen die Kinder einen zauberhaften, sicheren und entspannten Ort in sich selbst.",
+  "web_info": "Kinderyoga bringt jede Menge Spaß und gute Laune. Mit lustigen und spannenden Geschichten sowie Übungen erleben die kleinen Yogis viele Abenteuer und lernen auf spielerische Weise Yoga kennen. Kinderyoga bringt aber nicht nur Spaß und gute Laune, es hat auch viele positive Effekte auf Körper und Geist der kleinen Yogis. Es fördert zum einen die Koordination und Haltung, stärkt die Konzentration und das Gefühl für den eigenen Körper, zum anderen baut es das Selbstwertgefühl auf und steigert die Sinneswahrnehmungen. Durch viele kleine gemeinsame Übungen lernen die Kinder einen positiven Umgang mit ihren eigenen Gefühlen und können so auch besser auf die Gefühle anderer eingehen und diese verstehen. Das fördert das Mitgefühl und ein schönes Miteinander. Durch Yoga erschaffen die Kinder einen zauberhaften, sicheren und entspannten Ort in sich selbst.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-10",
+  "endedat": "2027-02-04",
+  "beginnuhr": "15:00",
+  "endeuhr": "16:00",
+  "dauer": "6 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "3",
+  "gebnorm": "72.00",
+  "tnanmeldungen": "1",
+  "tnmax": "10",
+  "tnmin": "8",
+  "material": "Rutschfeste Socken, bequeme Kleidung, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H302009",
+    "tag": "2026-12-10",
+    "zeitvon": "15:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302009",
+    "tag": "2026-12-17",
+    "zeitvon": "15:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302009",
+    "tag": "2027-01-14",
+    "zeitvon": "15:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302009",
+    "tag": "2027-01-21",
+    "zeitvon": "15:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302009",
+    "tag": "2027-01-28",
+    "zeitvon": "15:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302009",
+    "tag": "2027-02-04",
+    "zeitvon": "15:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H302009",
+    "betragnorm": "72.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-12-10"
+   }
+  ],
+  "keywords": [
+   "Bewegung",
+   "Entspannung",
+   "Yoga",
+   "Gesundheit",
+   "Kinder",
+   "Achtsamkeit",
+   "Kinderyoga",
+   "Ruhe",
+   "Konzentration",
+   "Spaß",
+   "Förderung der Motorik"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "5": "Entspannung"
+  }
+ },
+ {
+  "knr": "261H302012",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Kobra, Katze, Hund - Kinderyoga",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Kinderyoga bringt jede Menge Spaß und gute Laune. Mit lustigen und spannenden Geschichten sowie Übungen erleben die kleinen Yogis viele Abenteuer und lernen auf spielerische Weise Yoga kennen. Kinderyoga bringt aber nicht nur Spaß und gute Laune, es hat auch viele positive Effekte auf Körper und Geist der kleinen Yogis. Es fördert zum einen die Koordination und Haltung, stärkt die Konzentration und das Gefühl für den eigenen Körper, zum anderen baut es das Selbstwertgefühl auf und steigert die Sinneswahrnehmungen. Durch viele kleine gemeinsame Übungen lernen die Kinder einen positiven Umgang mit ihren eigenen Gefühlen und können so auch besser auf die Gefühle anderer eingehen und diese verstehen. Das fördert das Mitgefühl und ein schönes Miteinander. Durch Yoga erschaffen die Kinder einen zauberhaften, sicheren und entspannten Ort in sich selbst.",
+  "web_info": "Kinderyoga bringt jede Menge Spaß und gute Laune. Mit lustigen und spannenden Geschichten sowie Übungen erleben die kleinen Yogis viele Abenteuer und lernen auf spielerische Weise Yoga kennen. Kinderyoga bringt aber nicht nur Spaß und gute Laune, es hat auch viele positive Effekte auf Körper und Geist der kleinen Yogis. Es fördert zum einen die Koordination und Haltung, stärkt die Konzentration und das Gefühl für den eigenen Körper, zum anderen baut es das Selbstwertgefühl auf und steigert die Sinneswahrnehmungen. Durch viele kleine gemeinsame Übungen lernen die Kinder einen positiven Umgang mit ihren eigenen Gefühlen und können so auch besser auf die Gefühle anderer eingehen und diese verstehen. Das fördert das Mitgefühl und ein schönes Miteinander. Durch Yoga erschaffen die Kinder einen zauberhaften, sicheren und entspannten Ort in sich selbst.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-10",
+  "endedat": "2027-02-04",
+  "beginnuhr": "16:30",
+  "endeuhr": "17:30",
+  "dauer": "6 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "3",
+  "gebnorm": "72.00",
+  "tnanmeldungen": "0",
+  "tnmax": "10",
+  "tnmin": "8",
+  "material": "Rutschfeste Socken, bequeme Kleidung, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H302012",
+    "tag": "2026-12-10",
+    "zeitvon": "16:30:00",
+    "zeitbis": "17:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302012",
+    "tag": "2026-12-17",
+    "zeitvon": "16:30:00",
+    "zeitbis": "17:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302012",
+    "tag": "2027-01-14",
+    "zeitvon": "16:30:00",
+    "zeitbis": "17:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302012",
+    "tag": "2027-01-21",
+    "zeitvon": "16:30:00",
+    "zeitbis": "17:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302012",
+    "tag": "2027-01-28",
+    "zeitvon": "16:30:00",
+    "zeitbis": "17:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302012",
+    "tag": "2027-02-04",
+    "zeitvon": "16:30:00",
+    "zeitbis": "17:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H302012",
+    "betragnorm": "72.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-12-10"
+   }
+  ],
+  "keywords": [
+   "Bewegung",
+   "Entspannung",
+   "Yoga",
+   "Gesundheit",
+   "Motorik",
+   "Achtsamkeit",
+   "Ruhe",
+   "Konzentration",
+   "Yoga für Kinder"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "5": "Entspannung"
+  }
+ },
+ {
+  "knr": "261H301006",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Fröhliche Weihnacht überall",
+  "hauptuntertitel": "Basteln und Spielen für Kinder von 3 bis 6 Jahren mit Begleitperson",
+  "inhalt": "In diesem liebevoll gestalteten Kreativkurs tauchen die Kinder in die Weihnachtszeit ein. Mit fröhlichen Weihnachtsliedern, kreativen Bastelideen und viel Fantasie gestalten sie gemeinsam festliche Dekorationen und kleine Geschenke. Neben dem kreativen Arbeiten bleibt ausreichend Zeit zum Spielen und gemeinsamen Entdecken. So werden nicht nur Kreativität und Feinmotorik spielerisch gefördert, sondern auch soziale Fähigkeiten gestärkt. Ein abwechslungsreicher Kurs voller Freude, Kreativität und weihnachtlicher Stimmung.",
+  "web_info": "In diesem liebevoll gestalteten Kreativkurs tauchen die Kinder in die Weihnachtszeit ein. Mit fröhlichen Weihnachtsliedern, kreativen Bastelideen und viel Fantasie gestalten sie gemeinsam festliche Dekorationen und kleine Geschenke. Neben dem kreativen Arbeiten bleibt ausreichend Zeit zum Spielen und gemeinsamen Entdecken. So werden nicht nur Kreativität und Feinmotorik spielerisch gefördert, sondern auch soziale Fähigkeiten gestärkt. Ein abwechslungsreicher Kurs voller Freude, Kreativität und weihnachtlicher Stimmung.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-12",
+  "endedat": "2026-12-12",
+  "beginnuhr": "09:30",
+  "endeuhr": "11:00",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortid": "156",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "19",
+  "tnmax": "19",
+  "tnmin": "12",
+  "material": "Rutschfeste Söckchen oder Hausschuhe, Kleidung, die schmutzig werden darf, Snack und Getränk, Korb oder Schuhkarton zum Transport der Bastelmaterialien",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H301006",
+    "tag": "2026-12-12",
+    "zeitvon": "09:30:00",
+    "zeitbis": "11:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H301006",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "inkl. Materialkosten",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H301006",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Basteln",
+   "Kunst",
+   "kreativ",
+   "Winter",
+   "Kreativkurs kreatives Gestalten"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "197": "Kreativität"
+  }
+ },
+ {
+  "knr": "261H303011",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Winter- und Weihnachtsmärchen aus dem Koffer",
+  "hauptuntertitel": "Für Kinder ab 4 Jahren mit Begleitperson",
+  "inhalt": "In der Vorweihnachtszeit öffnet sich ein ganz besonderer Koffer - alt, geheimnisvoll und voller Geschichten. Darin verborgen: Schneezauber, Winterwunder und leise Weihnachtsmagie. Was als Nächstes über Weihnachten erzählt wird? Das entscheiden die Kinder - gemeinsam mit dem Koffer. Wer mutig genug ist, steckt die Hand hinein und zieht einen geheimnisvollen Gegenstand heraus. Einen kleinen Handschuh? Vielleicht entdecken die Kinder auch eine glitzernde Schneeflocke? Oder sie finden eine zarte Blume - und erfahren, woher der Schnee seine Farbe hat. Und wer weiß, was der Märchenkoffer sonst noch preisgibt. Es wird eine märchenhafte Stunde voller Wärme, Fantasie und zauberhafter Geschichten - für Groß und Klein, zum Träumen, Lachen und Staunen.",
+  "web_info": "In der Vorweihnachtszeit öffnet sich ein ganz besonderer Koffer - alt, geheimnisvoll und voller Geschichten. Darin verborgen: Schneezauber, Winterwunder und leise Weihnachtsmagie. Was als Nächstes über Weihnachten erzählt wird? Das entscheiden die Kinder - gemeinsam mit dem Koffer. Wer mutig genug ist, steckt die Hand hinein und zieht einen geheimnisvollen Gegenstand heraus. Einen kleinen Handschuh? Vielleicht entdecken die Kinder auch eine glitzernde Schneeflocke? Oder sie finden eine zarte Blume - und erfahren, woher der Schnee seine Farbe hat. Und wer weiß, was der Märchenkoffer sonst noch preisgibt. Es wird eine märchenhafte Stunde voller Wärme, Fantasie und zauberhafter Geschichten - für Groß und Klein, zum Träumen, Lachen und Staunen.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-13",
+  "endedat": "2026-12-13",
+  "beginnuhr": "10:00",
+  "endeuhr": "11:30",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 2",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 2",
+  "ortid": "157",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "20",
+  "tnmax": "40",
+  "tnmin": "24",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H303011",
+    "tag": "2026-12-13",
+    "zeitvon": "10:00:00",
+    "zeitbis": "11:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H303011",
+    "betragnorm": "20.00",
+    "text": "",
+    "zahlplan": "Standard-Gebühr",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H303011",
+    "betragnorm": "20.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Singen",
+   "Basteln",
+   "Kinder",
+   "kreativ",
+   "kreatives Gestalten",
+   "Eltern-Kind",
+   "Herbst",
+   "Geschichten- und Bastelvormittag",
+   "Kinder mit Begleitung"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "88": "Theater"
+  }
+ },
+ {
+  "knr": "261H301012",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Weihnachtszauber - Kunstwerke aus Kaltporzellan",
+  "hauptuntertitel": "Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+  "inhalt": "In diesem weihnachtlichen Kreativangebot dürfen die Kinder formen, kneten, gestalten und zauberhafte Kunstwerke aus Kaltporzellan herstellen. Das ist eine weiche, knetbare Masse, die nach dem Trocknen zu festen und haltbaren Deko- und Geschenkstücken wird. Der Fantasie und Kreativität sind keine Grenzen gesetzt, es können Anhänger für den Weihnachtsbaum, kleine Figuren oder liebevolle Geschenkanhänger hergestellt werden. Während die Kaltporzellan-Werke in Ruhe trocknen, geht der Bastelspaß weiter. Die Kinder gestalten eigene, weihnachtliche Grußkarten. Mit buntem Papier, Stempeln, Aufklebern und Stiften entstehen so persönliche Weihnachtsgrüße, die sie verschenken oder zu ihren Kunstwerken dazulegen können. Durch das Arbeiten mit Kaltporzellan und kreativen Materialien werden Feinmotorik und visuelle Wahrnehmung gezielt gefördert.",
+  "web_info": "In diesem weihnachtlichen Kreativangebot dürfen die Kinder formen, kneten, gestalten und zauberhafte Kunstwerke aus Kaltporzellan herstellen. Das ist eine weiche, knetbare Masse, die nach dem Trocknen zu festen und haltbaren Deko- und Geschenkstücken wird. Der Fantasie und Kreativität sind keine Grenzen gesetzt, es können Anhänger für den Weihnachtsbaum, kleine Figuren oder liebevolle Geschenkanhänger hergestellt werden. Während die Kaltporzellan-Werke in Ruhe trocknen, geht der Bastelspaß weiter. Die Kinder gestalten eigene, weihnachtliche Grußkarten. Mit buntem Papier, Stempeln, Aufklebern und Stiften entstehen so persönliche Weihnachtsgrüße, die sie verschenken oder zu ihren Kunstwerken dazulegen können. Durch das Arbeiten mit Kaltporzellan und kreativen Materialien werden Feinmotorik und visuelle Wahrnehmung gezielt gefördert.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2026-12-19",
+  "endedat": "2026-12-19",
+  "beginnuhr": "10:00",
+  "endeuhr": "12:30",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 2",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 2",
+  "ortid": "157",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "19",
+  "tnmax": "20",
+  "tnmin": "14",
+  "material": "Kleidung die schmutzig werden darf, Snack und Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "2",
+  "termine": [
+   {
+    "kurs_knr": "261H301012",
+    "tag": "2026-12-19",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H301012",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "inkl. Materialkosten",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H301012",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Feinmotorik",
+   "Kinder",
+   "gestalten",
+   "Weihnachten",
+   "Kunstwerke",
+   "weihnachtliches Kreativangebot",
+   "Kaltporzellan",
+   "formen",
+   "kneten",
+   "Deko",
+   "Geschenke",
+   "Anhänger",
+   "Weihnachtsbaum",
+   "Figuren",
+   "Geschenkanhänger",
+   "Bastelspaß",
+   "Grußkarten",
+   "buntes Papier",
+   "Stempel",
+   "Aufkleber",
+   "Stifte",
+   "persönliche Weihnachtsgrüße",
+   "visuelle Wahrnehmung",
+   "kreative Materialien"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "197": "Kreativität"
+  }
+ },
+ {
+  "knr": "261H302003",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Resilienz & Selbstbehauptungstraining - Bärenstark durchs Leben",
+  "hauptuntertitel": "Für Kinder von 5 bis 6 Jahren ohne Begleitperson",
+  "inhalt": "In dieser Kursreihe lernen die Kinder ihre eigenen Stärken zu entfalten, wie sie an Herausforderungen wachsen und auch in schwierigeren Situationen selbstsicher und ruhig sein können. Mit altersgerechten Übungen, Gesprächen und Spielen üben sie, für sich selbst einzustehen, ihre eigenen Grenzen wahrzunehmen und klar „Nein“ zu sagen. Zudem lernen die Kinder respektvoll, selbstbewusst und wertschätzend zu kommunizieren. Der Kurs stärkt ihr Selbstvertrauen und unterstützt sie dabei, ihre Gefühle besser wahrzunehmen, auszudrücken und mutig ihren eigenen Weg zu gehen.",
+  "web_info": "In dieser Kursreihe lernen die Kinder ihre eigenen Stärken zu entfalten, wie sie an Herausforderungen wachsen und auch in schwierigeren Situationen selbstsicher und ruhig sein können. Mit altersgerechten Übungen, Gesprächen und Spielen üben sie, für sich selbst einzustehen, ihre eigenen Grenzen wahrzunehmen und klar „Nein“ zu sagen. Zudem lernen die Kinder respektvoll, selbstbewusst und wertschätzend zu kommunizieren. Der Kurs stärkt ihr Selbstvertrauen und unterstützt sie dabei, ihre Gefühle besser wahrzunehmen, auszudrücken und mutig ihren eigenen Weg zu gehen.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-12",
+  "endedat": "2027-02-02",
+  "beginnuhr": "15:00",
+  "endeuhr": "16:00",
+  "dauer": "4 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "3",
+  "gebnorm": "48.00",
+  "tnanmeldungen": "10",
+  "tnmax": "10",
+  "tnmin": "8",
+  "material": "bequeme Kleidung, Hausschuhe oder Rutschsocken, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H302003",
+    "tag": "2027-01-12",
+    "zeitvon": "15:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302003",
+    "tag": "2027-01-19",
+    "zeitvon": "15:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302003",
+    "tag": "2027-01-26",
+    "zeitvon": "15:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302003",
+    "tag": "2027-02-02",
+    "zeitvon": "15:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H302003",
+    "betragnorm": "48.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-01-12"
+   }
+  ],
+  "keywords": [
+   "Selbstbehauptung",
+   "Selbstbehauptung für Kinder",
+   "Resilienz",
+   "Selbstbewusstsein",
+   "Selbstwert",
+   "Durchsetzungsvermögen"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "164": "Gesundheit",
+   "204": "Bewegung"
+  }
+ },
+ {
+  "knr": "261H301004",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Kleine Künstlerwerkstatt - mit Pinsel, Papier und Fantasie",
+  "hauptuntertitel": "Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+  "inhalt": "In diesen Workshops können Kinder kreativ sein, Neues entdecken und Kunst gestalten. Gemeinsam malen und basteln sie, probieren neue Ideen aus und lassen ihrer Fantasie freien Lauf. Mit Pinsel, Stiften, Papier und anderen einfachen Materialien erkunden sie vielfältige Techniken. Dabei lernen die Kinder spielerisch viel über Farben und deren Mischungen und experimentieren mit unterschiedlichen Materialien. So entstehen mit viel Freude und Kreativität kleine Kunstwerke. Im Mittelpunkt steht nicht nur das künstlerische Schaffen, sondern auch die gemeinsame Zeit, in der sich jedes Kind frei entfalten und seine eigene Ausdruckskraft entwickeln kann. Eltern erhalten wertvolle Inspirationen und Anregungen für kreative Stunden zu Hause.",
+  "web_info": "In diesen Workshops können Kinder kreativ sein, Neues entdecken und Kunst gestalten. Gemeinsam malen und basteln sie, probieren neue Ideen aus und lassen ihrer Fantasie freien Lauf. Mit Pinsel, Stiften, Papier und anderen einfachen Materialien erkunden sie vielfältige Techniken. Dabei lernen die Kinder spielerisch viel über Farben und deren Mischungen und experimentieren mit unterschiedlichen Materialien. So entstehen mit viel Freude und Kreativität kleine Kunstwerke. Im Mittelpunkt steht nicht nur das künstlerische Schaffen, sondern auch die gemeinsame Zeit, in der sich jedes Kind frei entfalten und seine eigene Ausdruckskraft entwickeln kann. Eltern erhalten wertvolle Inspirationen und Anregungen für kreative Stunden zu Hause.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-13",
+  "endedat": "2027-02-03",
+  "beginnuhr": "15:30",
+  "endeuhr": "17:00",
+  "dauer": "4 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortid": "156",
+  "fachb": "3",
+  "gebnorm": "46.00",
+  "tnanmeldungen": "2",
+  "tnmax": "20",
+  "tnmin": "8",
+  "material": "Kleidung, die schmutzig werden darf, Snack und Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H301004",
+    "tag": "2027-01-13",
+    "zeitvon": "15:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H301004",
+    "tag": "2027-01-20",
+    "zeitvon": "15:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H301004",
+    "tag": "2027-01-27",
+    "zeitvon": "15:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H301004",
+    "tag": "2027-02-03",
+    "zeitvon": "15:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H301004",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "inkl. Materialkosten",
+    "zahlplanbetrag": "46.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H301004",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "23.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Basteln",
+   "Kunst",
+   "Experimentieren",
+   "kreativ",
+   "Kreativworkshop",
+   "malen",
+   "Fantasie",
+   "Zeichentechniken",
+   "Ausdruckskraft",
+   "Kreativkurs"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "197": "Kreativität"
+  }
+ },
+ {
+  "knr": "261H302006",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Little Dancer - Tanzen für Kinder",
+  "hauptuntertitel": "Für Kinder von 4 bis 6 Jahren mit Begleitperson",
+  "inhalt": "Der Kurs richtet sich an Kinder, die ihre Begeisterung für Bewegung entdecken möchten, um so tanzend die eigene Persönlichkeit zu entwickeln. Mit wiederkehrenden Ritualen, wie Begrüßung, Aufwärmtanz, gemeinsamer Pausenzeit und Verabschiedung, lernen die Kinder feste Strukturen für ein Miteinander. Der natürliche Bewegungsdrang der Kinder wird in schwungvolle und gezielte Bewegungsabläufe umgesetzt und vertieft. Durch unterschiedlichste Schwerpunkte bei Koordination (Körper/Raum), Musikalität (Takt/Rhythmus), Tanz (Basics/Schrittkombinationen/Choreos) sowie die Verwendung von verschiedenen Materialien (Tücher/Bänder/Bälle) werden Konzentration und Fokus, aber auch musische Fähigkeiten, gefördert. In der gemischten Altersstruktur lernen die Kinder einen rücksichtsvollen Umgang miteinander, ältere Kinder haben gegenüber den Jüngeren oft eine Vorbildfunktion Während der Kurseinheiten erlernt die Gruppe einen Tanz zu einem bestimmten Motto - mit passender Musik und Tanzschritten.",
+  "web_info": "Der Kurs richtet sich an Kinder, die ihre Begeisterung für Bewegung entdecken möchten, um so tanzend die eigene Persönlichkeit zu entwickeln. Mit wiederkehrenden Ritualen, wie Begrüßung, Aufwärmtanz, gemeinsamer Pausenzeit und Verabschiedung, lernen die Kinder feste Strukturen für ein Miteinander. Der natürliche Bewegungsdrang der Kinder wird in schwungvolle und gezielte Bewegungsabläufe umgesetzt und vertieft. Durch unterschiedlichste Schwerpunkte bei Koordination (Körper/Raum), Musikalität (Takt/Rhythmus), Tanz (Basics/Schrittkombinationen/Choreos) sowie die Verwendung von verschiedenen Materialien (Tücher/Bänder/Bälle) werden Konzentration und Fokus, aber auch musische Fähigkeiten, gefördert. In der gemischten Altersstruktur lernen die Kinder einen rücksichtsvollen Umgang miteinander, ältere Kinder haben gegenüber den Jüngeren oft eine Vorbildfunktion Während der Kurseinheiten erlernt die Gruppe einen Tanz zu einem bestimmten Motto - mit passender Musik und Tanzschritten.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-15",
+  "endedat": "2027-02-26",
+  "beginnuhr": "16:00",
+  "endeuhr": "16:45",
+  "dauer": "6 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "3",
+  "gebnorm": "74.00",
+  "tnanmeldungen": "4",
+  "tnmax": "20",
+  "tnmin": "14",
+  "material": "Bequeme Kleidung, Turnschläppchen oder rutschfeste Socken, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H302006",
+    "tag": "2027-01-15",
+    "zeitvon": "16:00:00",
+    "zeitbis": "16:45:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302006",
+    "tag": "2027-01-22",
+    "zeitvon": "16:00:00",
+    "zeitbis": "16:45:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302006",
+    "tag": "2027-01-29",
+    "zeitvon": "16:00:00",
+    "zeitbis": "16:45:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302006",
+    "tag": "2027-02-05",
+    "zeitvon": "16:00:00",
+    "zeitbis": "16:45:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302006",
+    "tag": "2027-02-19",
+    "zeitvon": "16:00:00",
+    "zeitbis": "16:45:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302006",
+    "tag": "2027-02-26",
+    "zeitvon": "16:00:00",
+    "zeitbis": "16:45:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H302006",
+    "betragnorm": "74.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-01-15"
+   }
+  ],
+  "keywords": [
+   "Eltern-kind-kurs",
+   "Tanz",
+   "Kindertanz",
+   "Kindertanzen",
+   "Tanzkurs für Kinder",
+   "Rhythmus",
+   "Tanzpädagogik",
+   "Tanzunterricht für Kinder",
+   "Kinder Tanzkurs"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "40": "Tanz"
+  }
+ },
+ {
+  "knr": "261H303007",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Waldentdecker: Orientierung und „Geocaching“",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Bei diesem Kurs lernen die Kinder gemeinsam mit einem erfahrenen Naturpädagoge spielerisch verschiedene Möglichkeiten kennen, sich in der Natur und im Wald zu orientieren. Mit einfachen Karten, Wegbeschreibungen, Orientierungspunkten und kleinen Aufgaben begeben sie sich auf eine abwechslungsreiche Entdeckungstour. Sie trainieren Wahrnehmung und lernen, aufmerksam auf die Umgebung zu achten. Spielerische Übungen und kleine Herausforderungen fördern Teamarbeit, logisches Denken und die Fähigkeit, sich in unbekanntem Gelände zurechtzufinden. Dieses naturpädagogische Angebot verbindet Bewegung, Wissen und Abenteuer zu einem abwechslungsreichen Erlebnis.",
+  "web_info": "Bei diesem Kurs lernen die Kinder gemeinsam mit einem erfahrenen Naturpädagoge spielerisch verschiedene Möglichkeiten kennen, sich in der Natur und im Wald zu orientieren. Mit einfachen Karten, Wegbeschreibungen, Orientierungspunkten und kleinen Aufgaben begeben sie sich auf eine abwechslungsreiche Entdeckungstour. Sie trainieren Wahrnehmung und lernen, aufmerksam auf die Umgebung zu achten. Spielerische Übungen und kleine Herausforderungen fördern Teamarbeit, logisches Denken und die Fähigkeit, sich in unbekanntem Gelände zurechtzufinden. Dieses naturpädagogische Angebot verbindet Bewegung, Wissen und Abenteuer zu einem abwechslungsreichen Erlebnis.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-16",
+  "endedat": "2027-01-16",
+  "beginnuhr": "10:00",
+  "endeuhr": "12:30",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Waldheide, Wanderparkplatz Jägerhaus",
+  "ortplz": "74074",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Waldheide, Wanderparkplatz Jägerhaus",
+  "ortid": "168",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "2",
+  "tnmax": "14",
+  "tnmin": "12",
+  "material": "dem Wetter angepasste Kleidung, Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H303007",
+    "tag": "2027-01-16",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H303007",
+    "betragnorm": "20.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-01-16"
+   }
+  ],
+  "keywords": [
+   "Natur",
+   "Wald",
+   "Waldpädagogik",
+   "Walderlebnis",
+   "Naturpädagogik",
+   "Achtsamkeit",
+   "Entdeckertour",
+   "Geocaching",
+   "Orientierung",
+   "Schatzsuche",
+   "Nachhaltigkeit",
+   "nachhaltig",
+   "grün",
+   "EGC",
+   "European Green Capital",
+   ".now",
+   "Grüne Hauptstadt Europas",
+   "Zukunft",
+   "Umweltbewusst",
+   "Umweltbewusstsein"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "728720": "Natur"
+  }
+ },
+ {
+  "knr": "261H303009",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Zwei Monster - Theaterstück mit Führung",
+  "hauptuntertitel": "Für Kinder von 4 bis 8 Jahren mit Begleitperson",
+  "inhalt": "Das Theaterstück erzählt eine wunderbare und vergnügliche Geschichte über Streit und Verständigung mit einem liebvollen Ende - frei nach dem Bilderbuch ,,Du hast angefangen! Nein! Du!  Durch eine Lücke im Berg können sich zwei Monster miteinander darüber unterhalten, was sie eigentlich den ganzen Tag so als Monster tun. Bergsteiger:innen erschrecken? Zähne putzen? Die Sonne, die hinter dem Berg hervorkommt, steht ihnen mit Rat zur Seite. Doch genau über sie geraten die Monster in einen fürchterlichen Streit – und wenn Monster streiten, kann alles passieren! Verspielt und mit viel Musik erzählt das Stück vom Streiten, von unterschiedlichen Perspektiven, vom Schummeln und vom Versöhnen. Vor dem Theaterstück tauchen die Kinder ein in die Welt hinter der Bühne. Wo entstehen die riesigen Bühnenbilder? Was passiert vor einer Vorstellung? Was machen Schauspieler eigentlich am Vormittag und warum darf man im Theater nicht pfeifen? All diesen Fragen gehen die Kinder durch die verschlungenen Gänge des Theaters nach, die sonst den Augen der Zuschauer verborgen bleiben.",
+  "web_info": "Das Theaterstück erzählt eine wunderbare und vergnügliche Geschichte über Streit und Verständigung mit einem liebvollen Ende - frei nach dem Bilderbuch ,,Du hast angefangen! Nein! Du!  Durch eine Lücke im Berg können sich zwei Monster miteinander darüber unterhalten, was sie eigentlich den ganzen Tag so als Monster tun. Bergsteiger:innen erschrecken? Zähne putzen? Die Sonne, die hinter dem Berg hervorkommt, steht ihnen mit Rat zur Seite. Doch genau über sie geraten die Monster in einen fürchterlichen Streit – und wenn Monster streiten, kann alles passieren! Verspielt und mit viel Musik erzählt das Stück vom Streiten, von unterschiedlichen Perspektiven, vom Schummeln und vom Versöhnen. Vor dem Theaterstück tauchen die Kinder ein in die Welt hinter der Bühne. Wo entstehen die riesigen Bühnenbilder? Was passiert vor einer Vorstellung? Was machen Schauspieler eigentlich am Vormittag und warum darf man im Theater nicht pfeifen? All diesen Fragen gehen die Kinder durch die verschlungenen Gänge des Theaters nach, die sonst den Augen der Zuschauer verborgen bleiben.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-17",
+  "endedat": "2027-01-17",
+  "beginnuhr": "14:00",
+  "endeuhr": "16:00",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Theater, Kasse, Berliner Platz 1",
+  "ortplz": "74072",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Theater, Kasse, Berliner Platz 1",
+  "ortid": "45",
+  "fachb": "3",
+  "gebnorm": "25.00",
+  "tnanmeldungen": "25",
+  "tnmax": "25",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H303009",
+    "tag": "2027-01-17",
+    "zeitvon": "14:00:00",
+    "zeitbis": "16:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H303009",
+    "betragnorm": "20.00",
+    "text": "",
+    "zahlplan": "Standard-Gebühr",
+    "zahlplanbetrag": "25.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H303009",
+    "betragnorm": "20.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "12.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Kultur",
+   "Kultur für Kinder",
+   "Theater",
+   "Theater für Kinder",
+   "kulturelle Bildung",
+   "Kindertheater",
+   "Theaterführung"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "88": "Theater"
+  }
+ },
+ {
+  "knr": "261H302017",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Gesundheitshelden – Entdecken, Bewegen, Wohlfühlen",
+  "hauptuntertitel": "Für Kinder von 6 bis 8 Jahren",
+  "inhalt": "Was braucht unser Körper, damit es ihm gut geht? Wie fühlt sich Bewegung an? Und wie können wir zwischendurch zur Ruhe kommen? Der Workshop „Gesundheitshelden“ vermittelt Kindern auf spielerische und altersgerechte Weise die drei grundlegenden Bereiche: Bewegung – Ernährung – Entspannung, sie erfahren und entwickeln so ein erstes positives Verständnis für den eigenen Körper. Dabei stehen Neugier und die Freude am eigenen Ausprobieren im Mittelpunkt. Mit abwechslungsreichen Bewegungsspielen, kleinen Experimenten, Sinneserfahrungen und Fantasiereisen lernen die Kinder ihren Körper besser kennen. Sie erleben, wie viel Freude Bewegung macht, entdecken verschiedene Lebensmittel mit allen Sinnen und erfahren, warum ausreichend Trinken, Ruhe und Erholung ebenso wichtig sind. Die Kinder dürfen selbst aktiv werden, Neues ausprobieren und eigene Erfahrungen sammeln. So werden die Kinder frühzeitig für ihren Körper und das Thema Gesundheit sensibilisiert und entwickeln spielerisch erste Kompetenzen für einen gesunden und ausgeglichenen Alltag.",
+  "web_info": "Was braucht unser Körper, damit es ihm gut geht? Wie fühlt sich Bewegung an? Und wie können wir zwischendurch zur Ruhe kommen? Der Workshop „Gesundheitshelden“ vermittelt Kindern auf spielerische und altersgerechte Weise die drei grundlegenden Bereiche: Bewegung – Ernährung – Entspannung, sie erfahren und entwickeln so ein erstes positives Verständnis für den eigenen Körper. Dabei stehen Neugier und die Freude am eigenen Ausprobieren im Mittelpunkt. Mit abwechslungsreichen Bewegungsspielen, kleinen Experimenten, Sinneserfahrungen und Fantasiereisen lernen die Kinder ihren Körper besser kennen. Sie erleben, wie viel Freude Bewegung macht, entdecken verschiedene Lebensmittel mit allen Sinnen und erfahren, warum ausreichend Trinken, Ruhe und Erholung ebenso wichtig sind. Die Kinder dürfen selbst aktiv werden, Neues ausprobieren und eigene Erfahrungen sammeln. So werden die Kinder frühzeitig für ihren Körper und das Thema Gesundheit sensibilisiert und entwickeln spielerisch erste Kompetenzen für einen gesunden und ausgeglichenen Alltag.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-22",
+  "endedat": "2027-02-05",
+  "beginnuhr": "15:30",
+  "endeuhr": "16:30",
+  "dauer": "3 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortid": "159",
+  "fachb": "3",
+  "gebnorm": "36.00",
+  "tnanmeldungen": "0",
+  "tnmax": "10",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H302017",
+    "tag": "2027-01-22",
+    "zeitvon": "15:30:00",
+    "zeitbis": "16:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302017",
+    "tag": "2027-01-29",
+    "zeitvon": "15:30:00",
+    "zeitbis": "16:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302017",
+    "tag": "2027-02-05",
+    "zeitvon": "15:30:00",
+    "zeitbis": "16:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H302017",
+    "betragnorm": "36.00",
+    "text": "Gebühr",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-11-06"
+   }
+  ],
+  "keywords": [
+   "Bewegung",
+   "Entspannung",
+   "Gesundheit",
+   "Motorik",
+   "Achtsamkeit",
+   "Ruhe",
+   "Konzentration",
+   "Regulation"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "5": "Entspannung",
+   "164": "Gesundheit",
+   "204": "Bewegung"
+  }
+ },
+ {
+  "knr": "261H302018",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Gesundheitshelden – Entdecken, Bewegen, Wohlfühlen",
+  "hauptuntertitel": "Für Kinder von 9 bis 12 Jahren",
+  "inhalt": "Was braucht unser Körper, damit es ihm gut geht? Wie fühlt sich Bewegung an? Und wie können wir zwischendurch zur Ruhe kommen? Der Workshop „Gesundheitshelden“ vermittelt Kindern auf spielerische und altersgerechte Weise die drei grundlegenden Bereiche: Bewegung – Ernährung – Entspannung, sie erfahren und entwickeln so ein erstes positives Verständnis für den eigenen Körper. Dabei stehen Neugier und die Freude am eigenen Ausprobieren im Mittelpunkt. Mit abwechslungsreichen Bewegungsspielen, kleinen Experimenten, Sinneserfahrungen und Fantasiereisen lernen die Kinder ihren Körper besser kennen. Sie erleben, wie viel Freude Bewegung macht, entdecken verschiedene Lebensmittel mit allen Sinnen und erfahren, warum ausreichend Trinken, Ruhe und Erholung ebenso wichtig sind. Die Kinder dürfen selbst aktiv werden, Neues ausprobieren und eigene Erfahrungen sammeln. So werden die Kinder frühzeitig für ihren Körper und das Thema Gesundheit sensibilisiert und entwickeln spielerisch erste Kompetenzen für einen gesunden und ausgeglichenen Alltag.",
+  "web_info": "Was braucht unser Körper, damit es ihm gut geht? Wie fühlt sich Bewegung an? Und wie können wir zwischendurch zur Ruhe kommen? Der Workshop „Gesundheitshelden“ vermittelt Kindern auf spielerische und altersgerechte Weise die drei grundlegenden Bereiche: Bewegung – Ernährung – Entspannung, sie erfahren und entwickeln so ein erstes positives Verständnis für den eigenen Körper. Dabei stehen Neugier und die Freude am eigenen Ausprobieren im Mittelpunkt. Mit abwechslungsreichen Bewegungsspielen, kleinen Experimenten, Sinneserfahrungen und Fantasiereisen lernen die Kinder ihren Körper besser kennen. Sie erleben, wie viel Freude Bewegung macht, entdecken verschiedene Lebensmittel mit allen Sinnen und erfahren, warum ausreichend Trinken, Ruhe und Erholung ebenso wichtig sind. Die Kinder dürfen selbst aktiv werden, Neues ausprobieren und eigene Erfahrungen sammeln. So werden die Kinder frühzeitig für ihren Körper und das Thema Gesundheit sensibilisiert und entwickeln spielerisch erste Kompetenzen für einen gesunden und ausgeglichenen Alltag.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-22",
+  "endedat": "2027-02-05",
+  "beginnuhr": "17:00",
+  "endeuhr": "18:00",
+  "dauer": "3 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortid": "159",
+  "fachb": "3",
+  "gebnorm": "36.00",
+  "tnanmeldungen": "0",
+  "tnmax": "10",
+  "tnmin": "8",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H302018",
+    "tag": "2027-01-22",
+    "zeitvon": "17:00:00",
+    "zeitbis": "18:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302018",
+    "tag": "2027-01-29",
+    "zeitvon": "17:00:00",
+    "zeitbis": "18:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H302018",
+    "tag": "2027-02-05",
+    "zeitvon": "17:00:00",
+    "zeitbis": "18:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H302018",
+    "betragnorm": "36.00",
+    "text": "Gebühr",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-11-06"
+   }
+  ],
+  "keywords": [
+   "Bewegung",
+   "Entspannung",
+   "Gesundheit",
+   "Motorik",
+   "Achtsamkeit",
+   "Ruhe",
+   "Konzentration",
+   "Regulation"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "5": "Entspannung",
+   "164": "Gesundheit",
+   "204": "Bewegung"
+  }
+ },
+ {
+  "knr": "261H301013",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Magische Kunst im Dunkeln - Malen im Schwarzlicht",
+  "hauptuntertitel": "Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+  "inhalt": "In diesem Kreativworkshop tauchen die Kinder in die faszinierende Welt des Schwarzlichts. Sie gestalten gemeinsam mit speziellen Farben leuchtende Bilder und Figuren, die im Dunkeln geheimnisvoll leuchten. Durch gezielte Farb- und Kompositionstechniken lernen sie Farben, Materialien kennen und können ihre Bilder kreativ gestalten. Neben dem Malen bleibt Zeit zum Spielen und gemeinsamen Erleben. So werden nicht nur Kreativität und Feinmotorik spielerisch gefördert, sondern auch soziale Fähigkeiten gestärkt.",
+  "web_info": "In diesem Kreativworkshop tauchen die Kinder in die faszinierende Welt des Schwarzlichts. Sie gestalten gemeinsam mit speziellen Farben leuchtende Bilder und Figuren, die im Dunkeln geheimnisvoll leuchten. Durch gezielte Farb- und Kompositionstechniken lernen sie Farben, Materialien kennen und können ihre Bilder kreativ gestalten. Neben dem Malen bleibt Zeit zum Spielen und gemeinsamen Erleben. So werden nicht nur Kreativität und Feinmotorik spielerisch gefördert, sondern auch soziale Fähigkeiten gestärkt.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-23",
+  "endedat": "2027-01-23",
+  "beginnuhr": "10:00",
+  "endeuhr": "12:30",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortid": "156",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "20",
+  "tnmax": "20",
+  "tnmin": "8",
+  "material": "Kleidung, die schmutzig werden darf, Snack und Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H301013",
+    "tag": "2027-01-23",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H301013",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "Standard-Gebühr",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H301013",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Kunst",
+   "Kunstwerke",
+   "Bilder"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "197": "Kreativität"
+  }
+ },
+ {
+  "knr": "261H303012",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Flughafen Stuttgart - Entdeckertour",
+  "hauptuntertitel": "Für Kinder ab 5 Jahren mit Begleitperson",
+  "inhalt": "Vom Einchecken bis zum Abflug lernen die Kinder den Ablauf am Flughafen Stuttgart kennen. Was passiert mit den Koffern, wenn sie auf dem Gepäckband verschwinden? Was gibt es auf dem Rollfeld zu tun? Nach einem kurzen Film über den Flughafen stehen folgende Dinge auf dem Programm: Vorfeldrundfahrt, Flugzeugabfertigung mit Informationen zu Starts und Landungen, Besichtigung der Flughafenfeuerwehr sowie ein Einblick in die Gepäcksortierung. Die Kinder bekommen Einblicke in die Technik und erfahren, dass die Sicherheit stark von klaren Regeln abhängt, dass ohne ein strukturiertes und verantwortungsbewusstes Handeln am Flughafen keine Flüge stattfinden können.\nBitte spätestens 15 Minuten vor Beginn der Flughafenführung am Treffpunkt SkyLand in Terminal 3 auf der Galerieebene (Ebene 4, beim Reisemarkt) sein.",
+  "web_info": "Vom Einchecken bis zum Abflug lernen die Kinder den Ablauf am Flughafen Stuttgart kennen. Was passiert mit den Koffern, wenn sie auf dem Gepäckband verschwinden? Was gibt es auf dem Rollfeld zu tun? Nach einem kurzen Film über den Flughafen stehen folgende Dinge auf dem Programm: Vorfeldrundfahrt, Flugzeugabfertigung mit Informationen zu Starts und Landungen, Besichtigung der Flughafenfeuerwehr sowie ein Einblick in die Gepäcksortierung. Die Kinder bekommen Einblicke in die Technik und erfahren, dass die Sicherheit stark von klaren Regeln abhängt, dass ohne ein strukturiertes und verantwortungsbewusstes Handeln am Flughafen keine Flüge stattfinden können.\nBitte spätestens 15 Minuten vor Beginn der Flughafenführung am Treffpunkt SkyLand in Terminal 3 auf der Galerieebene (Ebene 4, beim Reisemarkt) sein.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-24",
+  "endedat": "2027-01-24",
+  "beginnuhr": "11:00",
+  "endeuhr": "13:00",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Stuttgart Flughafen, SKYLAND in Terminal 3, Galerie",
+  "ortplz": "70629",
+  "ortname": "Stuttgart",
+  "ortraumname": "Stuttgart Flughafen, SKYLAND in Terminal 3, Galerie",
+  "ortid": "34",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "24",
+  "tnmax": "24",
+  "tnmin": "24",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H303012",
+    "tag": "2027-01-24",
+    "zeitvon": "11:00:00",
+    "zeitbis": "13:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H303012",
+    "betragnorm": "20.00",
+    "text": "",
+    "zahlplan": "€",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H303012",
+    "betragnorm": "20.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Kinder",
+   "Flughafen",
+   "Führung",
+   "fliegen",
+   "Flugzeug",
+   "Flughafenführung",
+   "Stuttgart",
+   "Stuttgart Airport",
+   "Eltern-Kind"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)",
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": []
+ },
+ {
+  "knr": "261H303003",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Der aktuelle Sternenhimmel – Besuch bei der Sternwarte Heilbronn",
+  "hauptuntertitel": "Für Kinder ab 6 Jahren mit Begleitperson",
+  "inhalt": "Auf der Robert-Mayer-Sternwarte können Kinder in Begleitung eines Erwachsenen den faszinierenden nächtlichen Sternhimmel erleben. Im Mittelpunkt stehen markante Sternbilder der jeweiligen Jahreszeit und die von ihnen beherbergten Sterne, sichtbare Objekte unseres Sonnensystems sowie weitere ausgewählte Deep-Sky-Objekte. Mit den Teleskopen der Robert-Mayer-Sternwarte kann die Schönheit des Nachthimmels entdeckt werden und man erfährt Spannendes über die beobachteten Himmelsobjekte. Neugier und Interesse der Kinder an Wissenschaft und Natur wird gefördert.\nTreffpunkt: 19:00 Uhr am Robert-Mayer-Gymnasium, Seiteneingang Sternwarte, Mönchseestraße. Bitte klingeln.",
+  "web_info": "Auf der Robert-Mayer-Sternwarte können Kinder in Begleitung eines Erwachsenen den faszinierenden nächtlichen Sternhimmel erleben. Im Mittelpunkt stehen markante Sternbilder der jeweiligen Jahreszeit und die von ihnen beherbergten Sterne, sichtbare Objekte unseres Sonnensystems sowie weitere ausgewählte Deep-Sky-Objekte. Mit den Teleskopen der Robert-Mayer-Sternwarte kann die Schönheit des Nachthimmels entdeckt werden und man erfährt Spannendes über die beobachteten Himmelsobjekte. Neugier und Interesse der Kinder an Wissenschaft und Natur wird gefördert.\nTreffpunkt: 19:00 Uhr am Robert-Mayer-Gymnasium, Seiteneingang Sternwarte, Mönchseestraße. Bitte klingeln.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-29",
+  "endedat": "2027-01-29",
+  "beginnuhr": "19:00",
+  "endeuhr": "21:00",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Robert-Mayer-Sternwarte, Eingang Mönchseestraße",
+  "ortplz": "74072",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Robert-Mayer-Sternwarte, Eingang Mönchseestraße",
+  "ortid": "56",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "19",
+  "tnmax": "25",
+  "tnmin": "10",
+  "material": "",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "2",
+  "termine": [
+   {
+    "kurs_knr": "261H303003",
+    "tag": "2027-01-29",
+    "zeitvon": "19:00:00",
+    "zeitbis": "21:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H303003",
+    "betragnorm": "36.00",
+    "text": "",
+    "zahlplan": "Standard-Gebühr",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H303003",
+    "betragnorm": "36.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Kinder",
+   "Nachhaltigkeit",
+   "nachhaltig",
+   "grün",
+   "EGC",
+   "European Green Capital",
+   ".now",
+   "Grüne Hauptstadt Europas",
+   "Zukunft",
+   "Umweltbewusst",
+   "Umweltbewusstsein",
+   "Sternwarte",
+   "der Mond",
+   "Astronomie",
+   "Himmel",
+   "Weltall",
+   "All",
+   "Weltraum",
+   "Teleskop",
+   "abends",
+   "Samstag",
+   "Nachthimmel"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "85": "MINT"
+  }
+ },
+ {
+  "knr": "261H301001",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Bastelwerkstatt - Uhr in Leinwand",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Die Kinder gestalten ihre eigene Leinwand mit Acrylfarben und Airbrush-Techniken. Anschließend wird ein funktionierendes Uhrwerk in das Kunstwerk integriert. Es können auch weitere Objekte angebracht werden. Dafür dürfen gerne eigene Materialien zur Wiederverwendung (Upcycling) mitgebracht werden. Gemeinsam werden die Materialien betrachtet und entschieden, welche sich für die Gestaltung eignen. Jedes Kind erschafft ein individuelles Kunstwerk und experimentiert mit unterschiedlichen Materialien und Techniken. Durch Bemalen, Besprühen, Zuschneiden und Bekleben entstehen spannende Strukturen, kreative Effekte und einzigartige Designs. So wird jede Leinwand zu einem ganz persönlichen Kunstwerk mit funktionierender Uhr. Kreativität, Fantasie und gestalterische Fähigkeiten werden gefördert. Durch das Arbeiten mit Upcycling-Materialien wird zudem ein bewusster und nachhaltiger Umgang mit Ressourcen angeregt.",
+  "web_info": "Die Kinder gestalten ihre eigene Leinwand mit Acrylfarben und Airbrush-Techniken. Anschließend wird ein funktionierendes Uhrwerk in das Kunstwerk integriert. Es können auch weitere Objekte angebracht werden. Dafür dürfen gerne eigene Materialien zur Wiederverwendung (Upcycling) mitgebracht werden. Gemeinsam werden die Materialien betrachtet und entschieden, welche sich für die Gestaltung eignen. Jedes Kind erschafft ein individuelles Kunstwerk und experimentiert mit unterschiedlichen Materialien und Techniken. Durch Bemalen, Besprühen, Zuschneiden und Bekleben entstehen spannende Strukturen, kreative Effekte und einzigartige Designs. So wird jede Leinwand zu einem ganz persönlichen Kunstwerk mit funktionierender Uhr. Kreativität, Fantasie und gestalterische Fähigkeiten werden gefördert. Durch das Arbeiten mit Upcycling-Materialien wird zudem ein bewusster und nachhaltiger Umgang mit Ressourcen angeregt.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-30",
+  "endedat": "2027-01-30",
+  "beginnuhr": "10:00",
+  "endeuhr": "13:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+  "ortid": "156",
+  "fachb": "3",
+  "gebnorm": "35.00",
+  "tnanmeldungen": "3",
+  "tnmax": "9",
+  "tnmin": "8",
+  "material": "Kleidung, die schmutzig werden darf, Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H301001",
+    "tag": "2027-01-30",
+    "zeitvon": "10:00:00",
+    "zeitbis": "13:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H301001",
+    "betragnorm": "35.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-01-30"
+   }
+  ],
+  "keywords": [
+   "Nachhaltigkeit",
+   "nachhaltig",
+   "grün",
+   "EGC",
+   "European Green Capital",
+   ".now",
+   "Grüne Hauptstadt Europas",
+   "Zukunft",
+   "Umweltbewusst",
+   "Umweltbewusstsein",
+   "kreativ",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "Uhr",
+   "Leinwand",
+   "Farben",
+   "KinderFerienBox"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "197": "Kreativität"
+  }
+ },
+ {
+  "knr": "261H301011",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Seifenblasenzauber - Malen mit Seifenblasen",
+  "hauptuntertitel": "Für Kinder von 3 bis 6 Jahren mit Begleitperson",
+  "inhalt": "In diesem Workshop entdecken die Kinder, dass man Seifenblasen nicht nur pusten, sondern auch wunderschöne Bilder gestalten kann. Gemeinsam mischen wir bunte Farben und verwandeln Seifenblasen in kleine Kunstwerke. Die Kinder pusten die farbigen Seifenblasen direkt auf das Papier und beobachten gespannt, wie sie dort zerplatzen. Dabei entstehen ganz von selbst einzigartigem Muster, Kreise und Farbspiele – jedes Bild sieht anders aus, kann individuell gestaltet werden und wird so zu einem kleinen Unikat. Die Kinder können experimentieren, ihrer Fantasie freien Lauf lassen und immer wieder neue Effekte entdecken. Kreativität, Feinmotorik und die Freude am Ausprobieren werden gefördert.",
+  "web_info": "In diesem Workshop entdecken die Kinder, dass man Seifenblasen nicht nur pusten, sondern auch wunderschöne Bilder gestalten kann. Gemeinsam mischen wir bunte Farben und verwandeln Seifenblasen in kleine Kunstwerke. Die Kinder pusten die farbigen Seifenblasen direkt auf das Papier und beobachten gespannt, wie sie dort zerplatzen. Dabei entstehen ganz von selbst einzigartigem Muster, Kreise und Farbspiele – jedes Bild sieht anders aus, kann individuell gestaltet werden und wird so zu einem kleinen Unikat. Die Kinder können experimentieren, ihrer Fantasie freien Lauf lassen und immer wieder neue Effekte entdecken. Kreativität, Feinmotorik und die Freude am Ausprobieren werden gefördert.",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-01-30",
+  "endedat": "2027-01-30",
+  "beginnuhr": "10:00",
+  "endeuhr": "12:30",
+  "dauer": "1 x",
+  "kurstyp": "Eltern-Kind-Kurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 2",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 2",
+  "ortid": "157",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "21",
+  "tnmax": "20",
+  "tnmin": "12",
+  "material": "Kleidung, die schmutzig werden darf, Snack und Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:14",
+  "status": "3",
+  "termine": [
+   {
+    "kurs_knr": "261H301011",
+    "tag": "2027-01-30",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H301011",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "€",
+    "zahlplanbetrag": "20.00",
+    "faelligkeit": "0000-00-00"
+   },
+   {
+    "kurs_knr": "261H301011",
+    "betragnorm": "35.00",
+    "text": "",
+    "zahlplan": "jede weitere Person",
+    "zahlplanbetrag": "10.00",
+    "faelligkeit": "0000-00-00"
+   }
+  ],
+  "keywords": [
+   "Feinmotorik",
+   "kreativ",
+   "Farben",
+   "malen",
+   "Fantasie",
+   "Farbkreis",
+   "Lieblingsfarbe",
+   "Maltechniken",
+   "Sommer",
+   "Kunstwerke"
+  ],
+  "kategorien": {
+   "199": "Kindergartenkind (3-6 Jahre)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "197": "Kreativität"
+  }
+ },
+ {
+  "knr": "261H305050",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Mit Spaß in die Faschingsferien! - Es war einmal... Abenteuer Märchenwelt",
+  "hauptuntertitel": "Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+  "inhalt": "FlexWoche für Kinder von 6 bis 12 Jahren.\nDie FlexWoche ist ein modernes Ferienkonzept, das Familien ermöglicht, tageweise flexibel zu buchen – ohne auf ein durchdachtes, ganztägiges Programm verzichten zu müssen. Jeder Tag steht unter einem eigenen Themenschwerpunkt und lässt sich einzeln besuchen oder als komplette Themenwoche erleben.\nDurch abwechselnde kreative, bewegungsorientierte und thematisch passende Aktivitäten bietet die FlexWoche Kindern eine strukturierte und zugleich abwechslungsreiche Ferienzeit.\nFlexibel für Eltern – erlebnisreich für Kinder.\n\nMärchen wie ihr sie noch nie erlebt habt! In dieser besonderen Faschingswoche werden die bekanntesten Märchen lebendig und wir tauchen selbst mitten ins Geschehen ein. Nach dem Backen in der Märchenküche von Hänsel und Gretel folgen wir geheimnisvollen Spuren, gestalten Aladins magische Wunderlampe, arbeiten wie in einer Holzwerkstatt und werden selbst zu Schauspielern einer Märchengeschichte.\nJeden Tag wartet ein neues Abenteuer auf uns. Ob Froschkönig, Schneewittchen, Aladin, Pinocchio oder Rapunzel – gemeinsam lösen wir Rätsel, werden kreativ, entdecken spannende Märchenwelten und erleben die Geschichten auf ganz neue Weise.\nVerkleidungen sind natürlich herzlich willkommen!",
+  "web_info": "FlexWoche für Kinder von 6 bis 12 Jahren.\nDie FlexWoche ist ein modernes Ferienkonzept, das Familien ermöglicht, tageweise flexibel zu buchen – ohne auf ein durchdachtes, ganztägiges Programm verzichten zu müssen. Jeder Tag steht unter einem eigenen Themenschwerpunkt und lässt sich einzeln besuchen oder als komplette Themenwoche erleben.\nDurch abwechselnde kreative, bewegungsorientierte und thematisch passende Aktivitäten bietet die FlexWoche Kindern eine strukturierte und zugleich abwechslungsreiche Ferienzeit.\nFlexibel für Eltern – erlebnisreich für Kinder.\n\nMärchen wie ihr sie noch nie erlebt habt! In dieser besonderen Faschingswoche werden die bekanntesten Märchen lebendig und wir tauchen selbst mitten ins Geschehen ein. Nach dem Backen in der Märchenküche von Hänsel und Gretel folgen wir geheimnisvollen Spuren, gestalten Aladins magische Wunderlampe, arbeiten wie in einer Holzwerkstatt und werden selbst zu Schauspielern einer Märchengeschichte.\nJeden Tag wartet ein neues Abenteuer auf uns. Ob Froschkönig, Schneewittchen, Aladin, Pinocchio oder Rapunzel – gemeinsam lösen wir Rätsel, werden kreativ, entdecken spannende Märchenwelten und erleben die Geschichten auf ganz neue Weise.\nVerkleidungen sind natürlich herzlich willkommen!",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-08",
+  "endedat": "2027-02-12",
+  "beginnuhr": "07:30",
+  "endeuhr": "17:00",
+  "dauer": "5 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 3",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 3",
+  "ortid": "158",
+  "fachb": "3",
+  "gebnorm": "199.00",
+  "tnanmeldungen": "16",
+  "tnmax": "50",
+  "tnmin": "50",
+  "material": "Im Vorfeld erhalten die Erziehungsberechtigten einen Informationsbrief.",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "W",
+  "related": "261H305051, 261H305052, 261H305053, 261H305054, 261H305055, 272H306050, 272H307051, 272H308051, 272H308052, 272H308053, 272H308054, 271H309050",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305050",
+    "tag": "2027-02-08",
+    "zeitvon": "07:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305050",
+    "tag": "2027-02-09",
+    "zeitvon": "07:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305050",
+    "tag": "2027-02-10",
+    "zeitvon": "07:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305050",
+    "tag": "2027-02-11",
+    "zeitvon": "07:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305050",
+    "tag": "2027-02-12",
+    "zeitvon": "07:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305050",
+    "betragnorm": "199.00",
+    "text": "Gebühr",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-04"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "Betreuung",
+   "Themenwochen",
+   "ganztägige Ferienbetreuung",
+   "Bildungsangebot in den Ferien",
+   "Flexwoche",
+   "Traumberuf",
+   "Traumberufe",
+   "ganze Woche"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305051",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Mit Spaß in die Faschingsferien! - Froschkönig & Bremer Stadtmusikanten",
+  "hauptuntertitel": "Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+  "inhalt": "FlexWoche für Kinder von 6 bis 12 Jahren\nDie FlexWoche ist ein modernes Ferienkonzept, das Familien ermöglicht, tageweise flexibel zu buchen – ohne auf ein durchdachtes, ganztägiges Programm verzichten zu müssen. Jeder Tag steht unter einem eigenen Themenschwerpunkt und lässt sich einzeln besuchen oder als komplette Themenwoche erleben.\nDurch abwechselnde kreative, bewegungsorientierte und thematisch passende Aktivitäten bietet die FlexWoche Kindern eine strukturierte und zugleich abwechslungsreiche Ferienzeit.\nFlexibel für Eltern – erlebnisreich für Kinder.\n\nMontag - Froschkönig & Bremer Stadtmusikanten\n\nDer erste Tag unserer Märchenreise führt uns direkt zu zwei Märchenklassikern. Gemeinsam meistern wir spannende Spiele rund um den goldenen Ball des Froschkönigs, lernen uns kennen und erleben jede Menge Bewegung und Spaß. Außerdem begegnen wir den tierischen Helden der Bremer Stadtmusikanten und erfahren Spannendes über ihre Lebensweise. Ein erlebnisreicher Ferientag voller Spiel, Tiere und märchenhafter Abenteuer erwartet euch!",
+  "web_info": "FlexWoche für Kinder von 6 bis 12 Jahren\nDie FlexWoche ist ein modernes Ferienkonzept, das Familien ermöglicht, tageweise flexibel zu buchen – ohne auf ein durchdachtes, ganztägiges Programm verzichten zu müssen. Jeder Tag steht unter einem eigenen Themenschwerpunkt und lässt sich einzeln besuchen oder als komplette Themenwoche erleben.\nDurch abwechselnde kreative, bewegungsorientierte und thematisch passende Aktivitäten bietet die FlexWoche Kindern eine strukturierte und zugleich abwechslungsreiche Ferienzeit.\nFlexibel für Eltern – erlebnisreich für Kinder.\n\nMontag - Froschkönig & Bremer Stadtmusikanten\n\nDer erste Tag unserer Märchenreise führt uns direkt zu zwei Märchenklassikern. Gemeinsam meistern wir spannende Spiele rund um den goldenen Ball des Froschkönigs, lernen uns kennen und erleben jede Menge Bewegung und Spaß. Außerdem begegnen wir den tierischen Helden der Bremer Stadtmusikanten und erfahren Spannendes über ihre Lebensweise. Ein erlebnisreicher Ferientag voller Spiel, Tiere und märchenhafter Abenteuer erwartet euch!",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-08",
+  "endedat": "2027-02-08",
+  "beginnuhr": "07:30",
+  "endeuhr": "17:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortid": "159",
+  "fachb": "3",
+  "gebnorm": "45.00",
+  "tnanmeldungen": "18",
+  "tnmax": "50",
+  "tnmin": "50",
+  "material": "Im Vorfeld erhalten die Erziehungsberechtigten einen Informationsbrief.",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "W",
+  "related": "261H305050, 261H305052, 261H305053, 261H305054, 261H305055, 272H306050, 272H307051, 272H308051, 272H308052, 272H308053, 272H308054, 271H309050",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305051",
+    "tag": "2027-02-08",
+    "zeitvon": "07:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305051",
+    "betragnorm": "45.00",
+    "text": "Gebühr",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-04"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "Betreuung",
+   "Themenwochen",
+   "ganztägige Ferienbetreuung",
+   "Bildungsangebot in den Ferien",
+   "Flexwoche",
+   "Traumberuf",
+   "Traumberufe",
+   "Einzeltag"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305001",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Ponyfreuden - Ponypflege und Ausritt",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Gemeinsam besuchen die Kinder Ponys auf dem Krainbachhof. Sie können die Tiere ausgiebig bürsten und streicheln. Die Ponys dürfen über Stangen und vorbei an Hütchen geführt werden und die Kinder machen Spiele mit ihnen. Anschließend wird der Stall sauber gemacht, Heu aufgefüllt und alle reiten gemeinsam spazieren. Ein tolles Erlebnis für kleine Ponyfans. Der Umgang mit den Ponys trägt dazu bei, dass die Kinder Verantwortung übernehmen, das Einfühlungsvermögen und das Vertrauen zu einem Tier werden gestärkt.\nKinderFerienBox  - Faschingsferien 2027",
+  "web_info": "Gemeinsam besuchen die Kinder Ponys auf dem Krainbachhof. Sie können die Tiere ausgiebig bürsten und streicheln. Die Ponys dürfen über Stangen und vorbei an Hütchen geführt werden und die Kinder machen Spiele mit ihnen. Anschließend wird der Stall sauber gemacht, Heu aufgefüllt und alle reiten gemeinsam spazieren. Ein tolles Erlebnis für kleine Ponyfans. Der Umgang mit den Ponys trägt dazu bei, dass die Kinder Verantwortung übernehmen, das Einfühlungsvermögen und das Vertrauen zu einem Tier werden gestärkt.\nKinderFerienBox  - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-08",
+  "endedat": "2027-02-08",
+  "beginnuhr": "10:00",
+  "endeuhr": "13:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Schwaigern-Massenbach, Krainbachhof, Krainbachhöfe 3",
+  "ortplz": "74193",
+  "ortname": "Schwaigern",
+  "ortraumname": "Schwaigern-Massenbach, Krainbachhof, Krainbachhöfe 3",
+  "ortid": "25",
+  "fachb": "3",
+  "gebnorm": "30.00",
+  "tnanmeldungen": "2",
+  "tnmax": "10",
+  "tnmin": "8",
+  "material": "Kleidung, die schmutzig werden darf, Fahrradhelm, Snack und Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305001",
+    "tag": "2027-02-08",
+    "zeitvon": "10:00:00",
+    "zeitbis": "13:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305001",
+    "betragnorm": "30.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-08"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "Tiere",
+   "Ponys",
+   "Bauernhof",
+   "reiten"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305018",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Kreativwerkstatt  - Bunte Papierkunst auf Leinwand",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "In diesem kreativen Kurs gestalten die Kinder bunte Bilder aus einfachem Küchenpapier. Mit Farben, Fantasie und viel Freude am Gestalten verwandeln sie gewöhnliches Küchenpapier in leuchtend bunte Motive. Zunächst färben die Kinder das Küchenpapier, anschließend gestalten sie auf einer kleinen Leinwand ihr eigenes Bild und setzen farbenfrohen Blumen, Herzen oder eigenen Wunschmotiven zu einem Kunstwerk zusammen. Spielerisch lernen die Kinder den Umgang mit Farben, Formen und verschiedenen Materialien kennen. Dabei werden Kreativität, Feinmotorik und Konzentration gefördert. Jedes Kind kann seine eigenen Ideen einbringen und seiner Fantasie freien Lauf lassen.\nKinderFerienBox - Faschingsferien 2027",
+  "web_info": "In diesem kreativen Kurs gestalten die Kinder bunte Bilder aus einfachem Küchenpapier. Mit Farben, Fantasie und viel Freude am Gestalten verwandeln sie gewöhnliches Küchenpapier in leuchtend bunte Motive. Zunächst färben die Kinder das Küchenpapier, anschließend gestalten sie auf einer kleinen Leinwand ihr eigenes Bild und setzen farbenfrohen Blumen, Herzen oder eigenen Wunschmotiven zu einem Kunstwerk zusammen. Spielerisch lernen die Kinder den Umgang mit Farben, Formen und verschiedenen Materialien kennen. Dabei werden Kreativität, Feinmotorik und Konzentration gefördert. Jedes Kind kann seine eigenen Ideen einbringen und seiner Fantasie freien Lauf lassen.\nKinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-08",
+  "endedat": "2027-02-08",
+  "beginnuhr": "14:00",
+  "endeuhr": "17:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 7",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 7",
+  "ortid": "162",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "1",
+  "tnmax": "15",
+  "tnmin": "10",
+  "material": "Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305018",
+    "tag": "2027-02-08",
+    "zeitvon": "14:00:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305018",
+    "betragnorm": "20.00",
+    "text": "€ inkl. Materialkosten",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-08"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "individuell"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305052",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Mit Spaß in die Faschingsferien! - Hänsel und Gretel & Tischlein deck dich",
+  "hauptuntertitel": "Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+  "inhalt": "FlexWoche für Kinder von 6 bis 12 Jahren \nDie FlexWoche ist ein modernes Ferienkonzept, das Familien ermöglicht, tageweise flexibel zu buchen – ohne auf ein durchdachtes, ganztägiges Programm verzichten zu müssen. Jeder Tag steht unter einem eigenen Themenschwerpunkt und lässt sich einzeln besuchen oder als komplette Themenwoche erleben.\nDurch abwechselnde kreative, bewegungsorientierte und thematisch passende Aktivitäten bietet die FlexWoche Kindern eine strukturierte und zugleich abwechslungsreiche Ferienzeit.\nFlexibel für Eltern – erlebnisreich für Kinder.\n\nDienstag - Hänsel und Gretel & Tischlein deck dich\n\nHeute reisen wir in die Welt von Hänsel und Gretel und entdecken die Geheimnisse der Märchenküche. Gemeinsam backen wir, decken ein ganz besonderes Zaubertischlein und erfahren Spannendes über gesunde Lebensmittel. Doch plötzlich verschwindet ein wertvoller Märchenschatz! Gemeinsam machen wir uns auf die Suche nach geheimen Hinweisen, lösen knifflige Rätsel und erleben ein aufregendes Abenteuer voller märchenhafter Überraschungen. Ob wir den Goldesel, das Zaubertischlein und den Knüppel aus dem Sack wiederfinden – und ob der Goldesel vielleicht sogar einen Schatz für uns bereithält? Das werden wir gemeinsam herausfinden!",
+  "web_info": "FlexWoche für Kinder von 6 bis 12 Jahren \nDie FlexWoche ist ein modernes Ferienkonzept, das Familien ermöglicht, tageweise flexibel zu buchen – ohne auf ein durchdachtes, ganztägiges Programm verzichten zu müssen. Jeder Tag steht unter einem eigenen Themenschwerpunkt und lässt sich einzeln besuchen oder als komplette Themenwoche erleben.\nDurch abwechselnde kreative, bewegungsorientierte und thematisch passende Aktivitäten bietet die FlexWoche Kindern eine strukturierte und zugleich abwechslungsreiche Ferienzeit.\nFlexibel für Eltern – erlebnisreich für Kinder.\n\nDienstag - Hänsel und Gretel & Tischlein deck dich\n\nHeute reisen wir in die Welt von Hänsel und Gretel und entdecken die Geheimnisse der Märchenküche. Gemeinsam backen wir, decken ein ganz besonderes Zaubertischlein und erfahren Spannendes über gesunde Lebensmittel. Doch plötzlich verschwindet ein wertvoller Märchenschatz! Gemeinsam machen wir uns auf die Suche nach geheimen Hinweisen, lösen knifflige Rätsel und erleben ein aufregendes Abenteuer voller märchenhafter Überraschungen. Ob wir den Goldesel, das Zaubertischlein und den Knüppel aus dem Sack wiederfinden – und ob der Goldesel vielleicht sogar einen Schatz für uns bereithält? Das werden wir gemeinsam herausfinden!",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-09",
+  "endedat": "2027-02-09",
+  "beginnuhr": "07:30",
+  "endeuhr": "17:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortid": "159",
+  "fachb": "3",
+  "gebnorm": "45.00",
+  "tnanmeldungen": "22",
+  "tnmax": "50",
+  "tnmin": "50",
+  "material": "Im Vorfeld erhalten die Erziehungsberechtigten einen Informationsbrief.",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "W",
+  "related": "261H305050, 261H305051, 261H305053, 261H305054, 261H305055, 272H306050, 272H307051, 272H308051, 272H308052, 272H308053, 272H308054, 271H309050",
+  "letzte_sync": "2026-11-14 15:10:16",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305052",
+    "tag": "2027-02-09",
+    "zeitvon": "07:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305052",
+    "betragnorm": "45.00",
+    "text": "Gebühr",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-04"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "Betreuung",
+   "Themenwochen",
+   "ganztägige Ferienbetreuung",
+   "Bildungsangebot in den Ferien",
+   "Flexwoche",
+   "Traumberufe",
+   "Einzeltag",
+   "-\tTraumberuf"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305003",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Selbstbehauptung und Selbstverteidigung",
+  "hauptuntertitel": "Workshop für Kinder von 6,5 bis 8 Jahren ohne Begleitperson",
+  "inhalt": "In Gesprächen, Übungen und Rollenspielen lernen die Kinder durch eine qualifizierte und erfahrene Kursleitung viel über ihre Stärken, ihre Körpersprache und trainieren ein adäquates Verhalten in unangenehmen und schwierigen Situationen. Selbstbewusstes Auftreten, Stärke zeigen, miteinander sprechen und das Setzen von Grenzen, ohne andere klein zu machen und ohne leichtsinnig zu sein, stehen dabei im Vordergrund, ebenso einfache und wirkungsvolle Selbstverteidigungstechniken. Am 10.2. gibt es um 11:45 Uhr und um 14:45 Uhr für die Eltern eine kurze Information und einen Einblick in die Aktivitäten des Kurses.\nKinderFerienBox - Faschingsferien 2027",
+  "web_info": "In Gesprächen, Übungen und Rollenspielen lernen die Kinder durch eine qualifizierte und erfahrene Kursleitung viel über ihre Stärken, ihre Körpersprache und trainieren ein adäquates Verhalten in unangenehmen und schwierigen Situationen. Selbstbewusstes Auftreten, Stärke zeigen, miteinander sprechen und das Setzen von Grenzen, ohne andere klein zu machen und ohne leichtsinnig zu sein, stehen dabei im Vordergrund, ebenso einfache und wirkungsvolle Selbstverteidigungstechniken. Am 10.2. gibt es um 11:45 Uhr und um 14:45 Uhr für die Eltern eine kurze Information und einen Einblick in die Aktivitäten des Kurses.\nKinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-09",
+  "endedat": "2027-02-10",
+  "beginnuhr": "09:30",
+  "endeuhr": "12:00",
+  "dauer": "2 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 7",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 7",
+  "ortid": "162",
+  "fachb": "3",
+  "gebnorm": "50.00",
+  "tnanmeldungen": "11",
+  "tnmax": "15",
+  "tnmin": "10",
+  "material": "Bequeme Kleidung, Sportschuhe, Snack und Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305003",
+    "tag": "2027-02-09",
+    "zeitvon": "09:30:00",
+    "zeitbis": "12:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305003",
+    "tag": "2027-02-10",
+    "zeitvon": "09:30:00",
+    "zeitbis": "12:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305003",
+    "betragnorm": "50.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-09"
+   }
+  ],
+  "keywords": [
+   "Bewegung",
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Selbstbewusstsein",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "Selbstvertrauen"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305016",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Forscherwerkstatt Klima –  junge Forschende auf Klimamission",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Warum schmelzen die Eisberge? Was hat eine unsichtbare Gaswolke mit unserem Klima zu tun? Und was können wir selbst für unsere Umwelt tun? In diesem spannenden Workshop werden die Kinder zu echten Klimaforscherinnen und Klimaforschern. Mit verblüffenden Experimenten, kniffligen Herausforderungen und faszinierenden Entdeckungen gehen wir den Geheimnissen unseres Planeten auf die Spur. Die Kinder erforschen selbst, wie der Treibhauseffekt funktioniert, warum sich das Klima verändert und welche Folgen das für Menschen, Tiere und die Natur hat. Statt trockener Theorie heißt es ausprobieren, beobachten, staunen und verstehen. Dabei erleben die Kinder Wissenschaft zum Anfassen, stärken ihre Neugier und lernen spielerisch, wie sie die Welt von morgen mitgestalten können.\nKinderFerienBox - Faschingsferien 2027",
+  "web_info": "Warum schmelzen die Eisberge? Was hat eine unsichtbare Gaswolke mit unserem Klima zu tun? Und was können wir selbst für unsere Umwelt tun? In diesem spannenden Workshop werden die Kinder zu echten Klimaforscherinnen und Klimaforschern. Mit verblüffenden Experimenten, kniffligen Herausforderungen und faszinierenden Entdeckungen gehen wir den Geheimnissen unseres Planeten auf die Spur. Die Kinder erforschen selbst, wie der Treibhauseffekt funktioniert, warum sich das Klima verändert und welche Folgen das für Menschen, Tiere und die Natur hat. Statt trockener Theorie heißt es ausprobieren, beobachten, staunen und verstehen. Dabei erleben die Kinder Wissenschaft zum Anfassen, stärken ihre Neugier und lernen spielerisch, wie sie die Welt von morgen mitgestalten können.\nKinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-09",
+  "endedat": "2027-02-09",
+  "beginnuhr": "10:00",
+  "endeuhr": "13:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "5",
+  "tnmax": "30",
+  "tnmin": "10",
+  "material": "Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305016",
+    "tag": "2027-02-09",
+    "zeitvon": "10:00:00",
+    "zeitbis": "13:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305016",
+    "betragnorm": "20.00",
+    "text": "€  inkl. Materialkosten",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-09"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Nachhaltigkeit",
+   "nachhaltig",
+   "grün",
+   "EGC",
+   "European Green Capital",
+   ".now",
+   "Grüne Hauptstadt Europas",
+   "Zukunft",
+   "Umweltbewusst",
+   "Umweltbewusstsein",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "individuell"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305004",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Selbstbehauptung und Selbstverteidigung",
+  "hauptuntertitel": "Workshop für Kinder von 9 bis 12 Jahren ohne Begleitperson",
+  "inhalt": "In Gesprächen, Übungen und Rollenspielen lernen die Kinder durch eine qualifizierte und erfahrene Kursleitung viel über ihre Stärken, ihre Körpersprache und trainieren ein adäquates Verhalten in unangenehmen und schwierigen Situationen. Selbstbewusstes Auftreten, Stärke zeigen, miteinander sprechen und das Setzen von Grenzen, ohne andere klein zu machen und ohne leichtsinnig zu sein, stehen dabei im Vordergrund, ebenso einfache und wirkungsvolle Selbstverteidigungstechniken. Am 10.2. gibt es um 14:45 Uhr für die Eltern eine kurze Information und einen Einblick in die Aktivitäten des Kurses.\nKinderFerienBox - Faschingsferien 2027",
+  "web_info": "In Gesprächen, Übungen und Rollenspielen lernen die Kinder durch eine qualifizierte und erfahrene Kursleitung viel über ihre Stärken, ihre Körpersprache und trainieren ein adäquates Verhalten in unangenehmen und schwierigen Situationen. Selbstbewusstes Auftreten, Stärke zeigen, miteinander sprechen und das Setzen von Grenzen, ohne andere klein zu machen und ohne leichtsinnig zu sein, stehen dabei im Vordergrund, ebenso einfache und wirkungsvolle Selbstverteidigungstechniken. Am 10.2. gibt es um 14:45 Uhr für die Eltern eine kurze Information und einen Einblick in die Aktivitäten des Kurses.\nKinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-09",
+  "endedat": "2027-02-10",
+  "beginnuhr": "12:30",
+  "endeuhr": "15:00",
+  "dauer": "2 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 7",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 7",
+  "ortid": "162",
+  "fachb": "3",
+  "gebnorm": "50.00",
+  "tnanmeldungen": "6",
+  "tnmax": "15",
+  "tnmin": "10",
+  "material": "Bequeme Kleidung, Sportschuhe, Snack und Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305004",
+    "tag": "2027-02-09",
+    "zeitvon": "12:30:00",
+    "zeitbis": "15:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305004",
+    "tag": "2027-02-10",
+    "zeitvon": "12:30:00",
+    "zeitbis": "15:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305004",
+    "betragnorm": "50.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-09"
+   }
+  ],
+  "keywords": [
+   "Bewegung",
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Selbstbewusstsein",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "Selbstvertrauen"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305017",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: 1-2-3 Zauberei",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "In diesem spannenden Kurs tauchen die Kinder in die faszinierende Welt der Magie ein. Gemeinsam entdecken sie verschiedene Zaubertricks und lernen Schritt für Schritt, wie scheinbar Unmögliches möglich wird. Dabei sind sowohl Kinder mit ersten Zaubererfahrungen als auch neugierige Anfänger*innen herzlich willkommen. Unter fachkundiger Anleitung üben die jungen Zauberkünstler*innen verschiedene Tricks und kleine Zauberkunststücke. Neben dem Erlernen der technischen Kniffe erfahren sie auch, wie wichtig Präsentation, Körpersprache und eine spannende Geschichte für eine gelungene Zaubervorführung sind. Zaubern fördert die Kreativität und Fantasie der Kinder. Gleichzeitig werden Konzentration, Geschicklichkeit sowie die Grob- und Feinmotorik spielerisch trainiert. \nEin Angebot der KinderFerienBox - Faschingsferien 2027",
+  "web_info": "In diesem spannenden Kurs tauchen die Kinder in die faszinierende Welt der Magie ein. Gemeinsam entdecken sie verschiedene Zaubertricks und lernen Schritt für Schritt, wie scheinbar Unmögliches möglich wird. Dabei sind sowohl Kinder mit ersten Zaubererfahrungen als auch neugierige Anfänger*innen herzlich willkommen. Unter fachkundiger Anleitung üben die jungen Zauberkünstler*innen verschiedene Tricks und kleine Zauberkunststücke. Neben dem Erlernen der technischen Kniffe erfahren sie auch, wie wichtig Präsentation, Körpersprache und eine spannende Geschichte für eine gelungene Zaubervorführung sind. Zaubern fördert die Kreativität und Fantasie der Kinder. Gleichzeitig werden Konzentration, Geschicklichkeit sowie die Grob- und Feinmotorik spielerisch trainiert. \nEin Angebot der KinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-09",
+  "endedat": "2027-02-09",
+  "beginnuhr": "14:00",
+  "endeuhr": "17:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "9",
+  "tnmax": "12",
+  "tnmin": "8",
+  "material": "Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "2",
+  "termine": [
+   {
+    "kurs_knr": "261H305017",
+    "tag": "2027-02-09",
+    "zeitvon": "14:00:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305017",
+    "betragnorm": "20.00",
+    "text": "€ inkl. Materialkosten",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-09"
+   }
+  ],
+  "keywords": [
+   "Kinder",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Sommer",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "individuell",
+   "Faschingsferien Zaubern",
+   "Zauberei",
+   "Tricks"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305053",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Mit Spaß in die Faschingsferien! - Dornröschen & Schneewittchen",
+  "hauptuntertitel": "Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+  "inhalt": "FlexWoche für Kinder von 6 bis 12 Jahren \nDie FlexWoche ist ein modernes Ferienkonzept, das Familien ermöglicht, tageweise flexibel zu buchen – ohne auf ein durchdachtes, ganztägiges Programm verzichten zu müssen. Jeder Tag steht unter einem eigenen Themenschwerpunkt und lässt sich einzeln besuchen oder als komplette Themenwoche erleben.\nDurch abwechselnde kreative, bewegungsorientierte und thematisch passende Aktivitäten bietet die FlexWoche Kindern eine strukturierte und zugleich abwechslungsreiche Ferienzeit.\nFlexibel für Eltern – erlebnisreich für Kinder.\n\nMittwoch - Dornröschen & Schneewittchen\n\nHeute tauchen wir in die märchenhaften Welten von Dornröschen und Schneewittchen ein. Gemeinsam entdecken wir die bunte Welt der Blumen und Pflanzen und topfen unsere eigene Pflanze ein. In der Zwergenwerkstatt gestalten wir besondere Kunstwerke und lassen unserer Fantasie freien Lauf. Freut euch auf einen Tag voller Natur, Kreativität und Action!",
+  "web_info": "FlexWoche für Kinder von 6 bis 12 Jahren \nDie FlexWoche ist ein modernes Ferienkonzept, das Familien ermöglicht, tageweise flexibel zu buchen – ohne auf ein durchdachtes, ganztägiges Programm verzichten zu müssen. Jeder Tag steht unter einem eigenen Themenschwerpunkt und lässt sich einzeln besuchen oder als komplette Themenwoche erleben.\nDurch abwechselnde kreative, bewegungsorientierte und thematisch passende Aktivitäten bietet die FlexWoche Kindern eine strukturierte und zugleich abwechslungsreiche Ferienzeit.\nFlexibel für Eltern – erlebnisreich für Kinder.\n\nMittwoch - Dornröschen & Schneewittchen\n\nHeute tauchen wir in die märchenhaften Welten von Dornröschen und Schneewittchen ein. Gemeinsam entdecken wir die bunte Welt der Blumen und Pflanzen und topfen unsere eigene Pflanze ein. In der Zwergenwerkstatt gestalten wir besondere Kunstwerke und lassen unserer Fantasie freien Lauf. Freut euch auf einen Tag voller Natur, Kreativität und Action!",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-10",
+  "endedat": "2027-02-10",
+  "beginnuhr": "07:30",
+  "endeuhr": "17:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortid": "159",
+  "fachb": "3",
+  "gebnorm": "45.00",
+  "tnanmeldungen": "19",
+  "tnmax": "50",
+  "tnmin": "50",
+  "material": "Im Vorfeld erhalten die Erziehungsberechtigten einen Informationsbrief.",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "W",
+  "related": "261H305050, 261H305051, 261H305052, 261H305054, 261H305055, 272H306050, 272H307051, 272H308051, 272H308052, 272H308053, 272H308054, 271H309050",
+  "letzte_sync": "2026-11-14 15:10:16",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305053",
+    "tag": "2027-02-10",
+    "zeitvon": "07:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305053",
+    "betragnorm": "45.00",
+    "text": "Gebühr",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-04"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "Betreuung",
+   "Themenwochen",
+   "ganztägige Ferienbetreuung",
+   "Bildungsangebot in den Ferien",
+   "Flexwoche",
+   "Traumberuf",
+   "Traumberufe",
+   "Einzeltag"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305002",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Ponyfreuden - Ponypflege und Ausritt",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Gemeinsam besuchen die Kinder Ponys auf dem Krainbachhof. Sie können die Tiere ausgiebig bürsten und streicheln. Die Ponys dürfen über Stangen und vorbei an Hütchen geführt werden und die Kinder machen Spiele mit ihnen. Anschließend wird der Stall sauber gemacht, Heu aufgefüllt und alle reiten gemeinsam spazieren. Ein tolles Erlebnis für kleine Ponyfans. Der Umgang mit den Ponys trägt dazu bei, dass die Kinder Verantwortung übernehmen, das Einfühlungsvermögen und das Vertrauen zu einem Tier werden gestärkt.\nKinderFerienBox  - Faschingsferien 2027",
+  "web_info": "Gemeinsam besuchen die Kinder Ponys auf dem Krainbachhof. Sie können die Tiere ausgiebig bürsten und streicheln. Die Ponys dürfen über Stangen und vorbei an Hütchen geführt werden und die Kinder machen Spiele mit ihnen. Anschließend wird der Stall sauber gemacht, Heu aufgefüllt und alle reiten gemeinsam spazieren. Ein tolles Erlebnis für kleine Ponyfans. Der Umgang mit den Ponys trägt dazu bei, dass die Kinder Verantwortung übernehmen, das Einfühlungsvermögen und das Vertrauen zu einem Tier werden gestärkt.\nKinderFerienBox  - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-10",
+  "endedat": "2027-02-10",
+  "beginnuhr": "10:00",
+  "endeuhr": "13:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Schwaigern-Massenbach, Krainbachhof, Krainbachhöfe 3",
+  "ortplz": "74193",
+  "ortname": "Schwaigern",
+  "ortraumname": "Schwaigern-Massenbach, Krainbachhof, Krainbachhöfe 3",
+  "ortid": "25",
+  "fachb": "3",
+  "gebnorm": "30.00",
+  "tnanmeldungen": "2",
+  "tnmax": "10",
+  "tnmin": "8",
+  "material": "Kleidung, die schmutzig werden darf, Fahrradhelm, Snack und Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305002",
+    "tag": "2027-02-10",
+    "zeitvon": "10:00:00",
+    "zeitbis": "13:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305002",
+    "betragnorm": "30.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-10"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "Tiere",
+   "Ponys",
+   "Bauernhof",
+   "reiten"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305009",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Abenteuer Klettern - Indoor-Klettererlebnis",
+  "hauptuntertitel": "Für Kinder ab 8 Jahren ohne Begleitperson",
+  "inhalt": "In diesem dreitägigen Kompaktkurs können die Kinder unter Anleitung eines Trainers und gut gesichert die Faszination des Klettersports bis auf 18 Meter Höhe erlernen. Wer Freude am Klettern hat, wird an den Kletterwänden der Kletterarena ebenfalls jede Menge Spaß haben. Insgesamt trägt das Klettern dazu bei, dass Kinder ihre körperlichen und geistigen Fähigkeiten weiterentwickeln, ihre sozialen Kompetenzen ausbauen und ihre Selbstwahrnehmung stärken.\nKinderFerienBox - Faschingsferien 2027",
+  "web_info": "In diesem dreitägigen Kompaktkurs können die Kinder unter Anleitung eines Trainers und gut gesichert die Faszination des Klettersports bis auf 18 Meter Höhe erlernen. Wer Freude am Klettern hat, wird an den Kletterwänden der Kletterarena ebenfalls jede Menge Spaß haben. Insgesamt trägt das Klettern dazu bei, dass Kinder ihre körperlichen und geistigen Fähigkeiten weiterentwickeln, ihre sozialen Kompetenzen ausbauen und ihre Selbstwahrnehmung stärken.\nKinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-10",
+  "endedat": "2027-02-12",
+  "beginnuhr": "10:00",
+  "endeuhr": "13:00",
+  "dauer": "3 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Die Kletterarena, Lichtenbergerstraße 17",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Die Kletterarena, Lichtenbergerstraße 17",
+  "ortid": "22",
+  "fachb": "3",
+  "gebnorm": "70.00",
+  "tnanmeldungen": "7",
+  "tnmax": "12",
+  "tnmin": "10",
+  "material": "Sportkleidung, Hallenturnschuhe, Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305009",
+    "tag": "2027-02-10",
+    "zeitvon": "10:00:00",
+    "zeitbis": "13:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305009",
+    "tag": "2027-02-11",
+    "zeitvon": "10:00:00",
+    "zeitbis": "13:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305009",
+    "tag": "2027-02-12",
+    "zeitvon": "10:00:00",
+    "zeitbis": "13:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305009",
+    "betragnorm": "70.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-10"
+   }
+  ],
+  "keywords": [
+   "Bewegung",
+   "Motorik",
+   "Klettern",
+   "Aktion",
+   "Kletterkurs"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305019",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Kreativwerkstatt - bunte Fensterbilder",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "In diesem Kurs gestalten die Kinder bunte Fensterbilder. Mit unterschiedlichen Materialien, Farben und Techniken lernen sie verschiedene Gestaltungsmöglichkeiten kennen und setzen ihre eigenen Ideen Schritt für Schritt um. Ob Tiere, Blumen, saisonale Motive oder fantasievolle Kunstwerke - jedes Kind gestaltet ein eigenes Fensterbild. Neben der Freude am Gestalten werden Kreativität, Feinmotorik und Konzentration gefördert.\nKinderFerienBox - Faschingsferien 2027",
+  "web_info": "In diesem Kurs gestalten die Kinder bunte Fensterbilder. Mit unterschiedlichen Materialien, Farben und Techniken lernen sie verschiedene Gestaltungsmöglichkeiten kennen und setzen ihre eigenen Ideen Schritt für Schritt um. Ob Tiere, Blumen, saisonale Motive oder fantasievolle Kunstwerke - jedes Kind gestaltet ein eigenes Fensterbild. Neben der Freude am Gestalten werden Kreativität, Feinmotorik und Konzentration gefördert.\nKinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-10",
+  "endedat": "2027-02-10",
+  "beginnuhr": "10:00",
+  "endeuhr": "13:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "3",
+  "gebnorm": "20.00",
+  "tnanmeldungen": "0",
+  "tnmax": "12",
+  "tnmin": "8",
+  "material": "Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305019",
+    "tag": "2027-02-10",
+    "zeitvon": "10:00:00",
+    "zeitbis": "13:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305019",
+    "betragnorm": "20.00",
+    "text": "€  inkl. Materialkosten",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-10"
+   }
+  ],
+  "keywords": [
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "individuell",
+   "Herbstferien"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305015",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Besuch einer ASB Rettungswache",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Die Kinder besichtigen eine Rettungswache, erfahren wie ein Rettungswagen von innen aussieht und was sich alles im Notfallfahrzeug befindet. Danach dürfen sie in der Fahrerkabine sitzen und sich vorstellen, wie es ist, wenn der Wagen mit Blaulicht zu Rettungseinsätzen fährt. Zudem lernen die Kinder, wie sie sich in Notfallsituationen verhalten müssen. Sie lernen, wann sie Hilfe benötigen und wie ein Notruf abgesetzt wird.\nKinderFerienBox - Faschingsferien 2027",
+  "web_info": "Die Kinder besichtigen eine Rettungswache, erfahren wie ein Rettungswagen von innen aussieht und was sich alles im Notfallfahrzeug befindet. Danach dürfen sie in der Fahrerkabine sitzen und sich vorstellen, wie es ist, wenn der Wagen mit Blaulicht zu Rettungseinsätzen fährt. Zudem lernen die Kinder, wie sie sich in Notfallsituationen verhalten müssen. Sie lernen, wann sie Hilfe benötigen und wie ein Notruf abgesetzt wird.\nKinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-10",
+  "endedat": "2027-02-10",
+  "beginnuhr": "13:30",
+  "endeuhr": "16:30",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, ASB, Rettungswache 3, Böllinger Str. 75",
+  "ortplz": "74078",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, ASB, Rettungswache 3, Böllinger Str. 75",
+  "ortid": "139",
+  "fachb": "3",
+  "gebnorm": "15.00",
+  "tnanmeldungen": "0",
+  "tnmax": "15",
+  "tnmin": "12",
+  "material": "Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305015",
+    "tag": "2027-02-10",
+    "zeitvon": "13:30:00",
+    "zeitbis": "16:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305015",
+    "betragnorm": "15.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-10"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "individuell"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305014",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Blaulicht-Helden: Feuerwehr, Polizei, Rettungsdienst und THW",
+  "hauptuntertitel": "Mitmach-Ausstellung im Museum Neckarsulm für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Die Kinder tauchen ein in die spannende Welt der Blaulicht-Helden: Feuerwehr, Polizei, Rettungsdienst und THW. In der museumspädagogischen Ausstellung entdecken und erleben die Kinder in Mitmachstationen und einem begehbaren Bilderbuch die Blaulichtberufe, sie bekommen spielerisch Wissen vermittelt mit viel Action, Spaß und Abenteuer. Gleichzeitig erfahren sie, wie wichtig diese Berufe in unserer Gesellschaft sind - es geht hier nicht nur um schnelle Hilfe, sondern auch um Werte wie Verantwortung, Hilfsbereitschaft und Teamgeist.\nTreffpunkt: Stadtmuseum Neckarsulm Foyer\nKinderFerienBox - Faschingsferien 2027",
+  "web_info": "Die Kinder tauchen ein in die spannende Welt der Blaulicht-Helden: Feuerwehr, Polizei, Rettungsdienst und THW. In der museumspädagogischen Ausstellung entdecken und erleben die Kinder in Mitmachstationen und einem begehbaren Bilderbuch die Blaulichtberufe, sie bekommen spielerisch Wissen vermittelt mit viel Action, Spaß und Abenteuer. Gleichzeitig erfahren sie, wie wichtig diese Berufe in unserer Gesellschaft sind - es geht hier nicht nur um schnelle Hilfe, sondern auch um Werte wie Verantwortung, Hilfsbereitschaft und Teamgeist.\nTreffpunkt: Stadtmuseum Neckarsulm Foyer\nKinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-10",
+  "endedat": "2027-02-10",
+  "beginnuhr": "14:00",
+  "endeuhr": "16:30",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Neckarsulm, Stadtmuseum, Urbanstr. 14",
+  "ortplz": "74172",
+  "ortname": "Neckarsulm",
+  "ortraumname": "Neckarsulm, Stadtmuseum, Urbanstr. 14",
+  "ortid": "21",
+  "fachb": "3",
+  "gebnorm": "15.00",
+  "tnanmeldungen": "0",
+  "tnmax": "15",
+  "tnmin": "8",
+  "material": "Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305014",
+    "tag": "2027-02-10",
+    "zeitvon": "14:00:00",
+    "zeitbis": "16:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305014",
+    "betragnorm": "15.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-10"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "individuell"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305054",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "Mit Spaß in die Faschingsferien! - Aladin & Pinocchio",
+  "hauptuntertitel": "Ganztägige Kinderferienbetreuung für Kinder von 6 bis 12 Jahren",
+  "inhalt": "FlexWoche für Kinder von 6 bis 12 Jahren\nDie FlexWoche ist ein modernes Ferienkonzept, das Familien ermöglicht, tageweise flexibel zu buchen – ohne auf ein durchdachtes, ganztägiges Programm verzichten zu müssen. Jeder Tag steht unter einem eigenen Themenschwerpunkt und lässt sich einzeln besuchen oder als komplette Themenwoche erleben.\nDurch abwechselnde kreative, bewegungsorientierte und thematisch passende Aktivitäten bietet die FlexWoche Kindern eine strukturierte und zugleich abwechslungsreiche Ferienzeit.\nFlexibel für Eltern – erlebnisreich für Kinder.\n\nDonnerstag - Aladin & Pinocchio\n\nHeute reisen wir in die Welten von Aladin und Pinocchio. Gemeinsam lassen wir unsere Wünsche für die Zukunft lebendig werden und gestalten unsere eigene magische Wunderlampe. Anschließend wird es handwerklich: In unserer Holzwerkstatt arbeiten wir mit echtem Holz, Werkzeugen und viel Kreativität. Dabei entstehen einzigartige Werkstücke, die jedes Kind mit nach Hause nehmen darf. Freut euch auf einen besonderen Tag voller Fantasie, Handwerk und selbstgemachter Schätze!",
+  "web_info": "FlexWoche für Kinder von 6 bis 12 Jahren\nDie FlexWoche ist ein modernes Ferienkonzept, das Familien ermöglicht, tageweise flexibel zu buchen – ohne auf ein durchdachtes, ganztägiges Programm verzichten zu müssen. Jeder Tag steht unter einem eigenen Themenschwerpunkt und lässt sich einzeln besuchen oder als komplette Themenwoche erleben.\nDurch abwechselnde kreative, bewegungsorientierte und thematisch passende Aktivitäten bietet die FlexWoche Kindern eine strukturierte und zugleich abwechslungsreiche Ferienzeit.\nFlexibel für Eltern – erlebnisreich für Kinder.\n\nDonnerstag - Aladin & Pinocchio\n\nHeute reisen wir in die Welten von Aladin und Pinocchio. Gemeinsam lassen wir unsere Wünsche für die Zukunft lebendig werden und gestalten unsere eigene magische Wunderlampe. Anschließend wird es handwerklich: In unserer Holzwerkstatt arbeiten wir mit echtem Holz, Werkzeugen und viel Kreativität. Dabei entstehen einzigartige Werkstücke, die jedes Kind mit nach Hause nehmen darf. Freut euch auf einen besonderen Tag voller Fantasie, Handwerk und selbstgemachter Schätze!",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-11",
+  "endedat": "2027-02-11",
+  "beginnuhr": "07:30",
+  "endeuhr": "17:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+  "ortid": "159",
+  "fachb": "3",
+  "gebnorm": "45.00",
+  "tnanmeldungen": "22",
+  "tnmax": "50",
+  "tnmin": "50",
+  "material": "Im Vorfeld erhalten die Erziehungsberechtigten einen Informationsbrief.",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "W",
+  "related": "261H305050, 261H305051, 261H305052, 261H305053, 261H305055, 272H306050, 272H307051, 272H308051, 272H308052, 272H308053, 272H308054, 271H309050",
+  "letzte_sync": "2026-11-14 15:10:16",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305054",
+    "tag": "2027-02-11",
+    "zeitvon": "07:30:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305054",
+    "betragnorm": "45.00",
+    "text": "Gebühr",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-04"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "Betreuung",
+   "Themenwochen",
+   "ganztägige Ferienbetreuung",
+   "Bildungsangebot in den Ferien",
+   "Flexwoche",
+   "Traumberuf",
+   "Traumberufe",
+   "Einzeltag"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305008",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Wie funktionieren Roboter und wie werden sie programmiert?",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "In diesem spielerischen Kurs entdecken Kinder, wie Roboter „denken“, was sie brauchen um zu funktionieren und wie man ihnen Schritt für Schritt Aufgaben beibringt - ganz ohne Tablet oder Bildschirm. Wir starten kreativ und anschließend planen die Kinder mit kindgerechten Robotern Wege, geben Befehle, probieren aus und verbessern gemeinsam ihre Ideen. Ganz nebenbei entwickeln die Kinder wichtige Zukunftskompetenzen: logisches und planvolles Denken, Problemlösefreude, Teamarbeit und frühe Begeisterung für Technik - ein erster und wichtiger Schritt in Richtung digitale Kompetenz. Der Kurs wird von der Bildungsinitiative ROKI – Robotic4Kids durchgeführt.\nKinderFerienBox - Faschingsferien 2027",
+  "web_info": "In diesem spielerischen Kurs entdecken Kinder, wie Roboter „denken“, was sie brauchen um zu funktionieren und wie man ihnen Schritt für Schritt Aufgaben beibringt - ganz ohne Tablet oder Bildschirm. Wir starten kreativ und anschließend planen die Kinder mit kindgerechten Robotern Wege, geben Befehle, probieren aus und verbessern gemeinsam ihre Ideen. Ganz nebenbei entwickeln die Kinder wichtige Zukunftskompetenzen: logisches und planvolles Denken, Problemlösefreude, Teamarbeit und frühe Begeisterung für Technik - ein erster und wichtiger Schritt in Richtung digitale Kompetenz. Der Kurs wird von der Bildungsinitiative ROKI – Robotic4Kids durchgeführt.\nKinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-11",
+  "endedat": "2027-02-12",
+  "beginnuhr": "09:00",
+  "endeuhr": "12:30",
+  "dauer": "2 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortplz": "74076",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+  "ortid": "163",
+  "fachb": "3",
+  "gebnorm": "60.00",
+  "tnanmeldungen": "8",
+  "tnmax": "12",
+  "tnmin": "12",
+  "material": "Hausschuhe oder Rutschsocken, Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305008",
+    "tag": "2027-02-11",
+    "zeitvon": "09:00:00",
+    "zeitbis": "10:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305008",
+    "tag": "2027-02-11",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:30:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305008",
+    "tag": "2027-02-12",
+    "zeitvon": "09:00:00",
+    "zeitbis": "10:00:00",
+    "termin_status": "normale Planung"
+   },
+   {
+    "kurs_knr": "261H305008",
+    "tag": "2027-02-12",
+    "zeitvon": "10:00:00",
+    "zeitbis": "12:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305008",
+    "betragnorm": "60.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-11"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "individuell"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305007",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Alpakas hautnah erleben",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Bei dem Besuch auf dem Alpakahof Nester können Kinder Alpakas, eine südamerikanische kleine Kamelart, hautnah erleben und die Tiere genau kennenlernen. Bei den liebevollen, ruhigen Alpakas mit ihren großen Kulleraugen schlagen die Kinderherzen höher. Gemeinsam werden die Tiere versorgt und es gibt tolle Aufgaben für jeden. Der Umgang mit den Tieren trägt dazu bei, dass die Kinder Verantwortung übernehmen, das Einfühlungsvermögen und das Vertrauen zu einem Tier werden gestärkt.\nKinderFerienBox  - Faschingsferien 2027",
+  "web_info": "Bei dem Besuch auf dem Alpakahof Nester können Kinder Alpakas, eine südamerikanische kleine Kamelart, hautnah erleben und die Tiere genau kennenlernen. Bei den liebevollen, ruhigen Alpakas mit ihren großen Kulleraugen schlagen die Kinderherzen höher. Gemeinsam werden die Tiere versorgt und es gibt tolle Aufgaben für jeden. Der Umgang mit den Tieren trägt dazu bei, dass die Kinder Verantwortung übernehmen, das Einfühlungsvermögen und das Vertrauen zu einem Tier werden gestärkt.\nKinderFerienBox  - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-11",
+  "endedat": "2027-02-11",
+  "beginnuhr": "09:30",
+  "endeuhr": "12:30",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "Heilbronn, Alpakahof Nester, Bruhweg 26",
+  "ortplz": "74080",
+  "ortname": "Heilbronn",
+  "ortraumname": "Heilbronn, Alpakahof Nester, Bruhweg 26",
+  "ortid": "115",
+  "fachb": "3",
+  "gebnorm": "30.00",
+  "tnanmeldungen": "3",
+  "tnmax": "15",
+  "tnmin": "10",
+  "material": "Kleidung, die schmutzig werden darf, Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305007",
+    "tag": "2027-02-11",
+    "zeitvon": "09:30:00",
+    "zeitbis": "12:30:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305007",
+    "betragnorm": "30.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2027-02-11"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ },
+ {
+  "knr": "261H305013",
+  "mandant_id": "0",
+  "hauptdozent_dnr": "",
+  "level": "0",
+  "haupttitel": "KinderFerienBox: Besuch bei der Feuerwehr",
+  "hauptuntertitel": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+  "inhalt": "Die Kinder lernen die Feuerwehr in Heilbronn kennen. Sie besichtigen ein Feuerwehrauto, die Notrufleitzentrale und den Schlauchturm, hierzu gehören natürlich Blaulicht, Wasserschläuche, Schutzkleidung und vieles mehr. Sie erfahren welche Aufgaben die Feuerwehr hat und wie die Feuerwehr ein Feuer löscht. Zudem lernen die Kinder wichtiges zum Thema Brandschutz, eigenes Verhalten im Brandfall und wie sie einen Notruf absetzen.\nKinderFerienBox - Faschingsferien 2027",
+  "web_info": "Die Kinder lernen die Feuerwehr in Heilbronn kennen. Sie besichtigen ein Feuerwehrauto, die Notrufleitzentrale und den Schlauchturm, hierzu gehören natürlich Blaulicht, Wasserschläuche, Schutzkleidung und vieles mehr. Sie erfahren welche Aufgaben die Feuerwehr hat und wie die Feuerwehr ein Feuer löscht. Zudem lernen die Kinder wichtiges zum Thema Brandschutz, eigenes Verhalten im Brandfall und wie sie einen Notruf absetzen.\nKinderFerienBox - Faschingsferien 2027",
+  "internetaktiv": "W",
+  "semester": "H26",
+  "beginndat": "2027-02-11",
+  "endedat": "2027-02-11",
+  "beginnuhr": "14:00",
+  "endeuhr": "17:00",
+  "dauer": "1 x",
+  "kurstyp": "Kinderkurs",
+  "online_kurstyp": "Präsenzkurs",
+  "ort": "74074 Heilbronn, Feuerwehr Heilbronn, Beethovenstr. 29",
+  "ortplz": "74074",
+  "ortname": "Heilbronn",
+  "ortraumname": "74074 Heilbronn, Feuerwehr Heilbronn, Beethovenstr. 29",
+  "ortid": "148",
+  "fachb": "3",
+  "gebnorm": "15.00",
+  "tnanmeldungen": "7",
+  "tnmax": "20",
+  "tnmin": "10",
+  "material": "Dem Wetter angepasste Kleidung, feste Schuhe, Snack, Getränk",
+  "highlightkurs": "F",
+  "offeneferienbetreuung": "F",
+  "related": "",
+  "letzte_sync": "2026-11-14 15:10:15",
+  "status": "1",
+  "termine": [
+   {
+    "kurs_knr": "261H305013",
+    "tag": "2027-02-11",
+    "zeitvon": "14:00:00",
+    "zeitbis": "17:00:00",
+    "termin_status": "normale Planung"
+   }
+  ],
+  "gebuehren": [
+   {
+    "kurs_knr": "261H305013",
+    "betragnorm": "15.00",
+    "text": "€",
+    "zahlplan": "",
+    "zahlplanbetrag": "0.00",
+    "faelligkeit": "2026-02-11"
+   }
+  ],
+  "keywords": [
+   "Faschingsferien",
+   "Kinderbetreuung",
+   "modular",
+   "Module",
+   "flexibel",
+   "Baukasten",
+   "KinderFerienBox",
+   "Ferien",
+   "Ferienprogramm",
+   "Ferienbetreuung",
+   "Kinderferienbetreuung",
+   "individuell"
+  ],
+  "kategorien": {
+   "1282": "Schulkinder & Jugendliche (ab 6 Jahren)"
+  },
+  "firmen_namen": [],
+  "themen": {
+   "208": "Ferienbetreuung"
+  }
+ }
+]

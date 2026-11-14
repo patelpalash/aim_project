@@ -50,9 +50,9 @@ export function timingOf(sessions: SourceSession[], now: Date): Timing {
 
 export function normalizeRecord(record: SourceRecord, now: Date = new Date()): Candidate {
   const evidence: FieldEvidence[] = [...record.evidence];
-  const notes: string[] = [];
-  const blocking: Issue[] = [];
-  const id = offerId(record.providerId, record.externalId);
+  const notes: string[] = [...(record.adapterNotes ?? [])];
+  const blocking: Issue[] = [...(record.extractionIssues ?? [])];
+  const id = offerId(record.providerId, record.occurrenceKey ? `${record.externalId}-${record.occurrenceKey}` : record.externalId);
   const text = [record.title, record.lead ?? "", record.description].join("\n");
 
   // Age: prefer the title wording, cross-check against participation text.
@@ -94,13 +94,15 @@ export function normalizeRecord(record: SourceRecord, now: Date = new Date()): C
   if (record.sessions.length > 1)
     notes.push(`Series of ${record.sessions.length} sessions; startsAt is the first session, endsAt the end of the last.`);
 
-  const format: Format = record.sessions.length > 1 ? "course" : "workshop";
+  const format: Format = record.formatHint ?? (record.sessions.length > 1 ? "course" : "workshop");
   notes.push("English title/summary copied from the German source text; translation pending review.");
 
   const outOfScope = isProfessionalOnly(record.audienceLabels);
   if (!topics.length) blocking.push({ path: "topics", message: "No explicit AI/coding/gaming wording found" });
   if (!interests.length) blocking.push({ path: "interests", message: "No discovery interest matched; reviewer must choose one" });
-  if (!audiences.length) blocking.push({ path: "audiences", message: "No published child/teen/family/parent audience" });
+  if (!audiences.length) blocking.push({ path: "audiences", message: record.audienceText
+    ? `Published target group "${record.audienceText.slice(0, 120)}" is not a child/teen/family/parent audience; a reviewer may assign one only with evidence`
+    : "No published child/teen/family/parent audience" });
   if (!record.venueCity) blocking.push({ path: "venue.city", message: "Venue city not published on the record" });
 
   const summary = summarize(record.lead, record.description);

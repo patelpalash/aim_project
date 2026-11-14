@@ -1,11 +1,11 @@
 {
-  "runId": "aim-20261114T145135",
+  "runId": "aim-20261114T151220",
   "providerId": "aim",
   "adapterVersion": "aim-html/1",
-  "startedAt": "2026-11-14T14:51:35.862Z",
-  "finishedAt": "2026-11-14T14:52:08.858Z",
+  "startedAt": "2026-11-14T15:12:20.830Z",
+  "finishedAt": "2026-11-14T15:12:52.970Z",
   "status": "partial",
-  "message": "17 candidate(s) staged for human review (10 ready, 7 need correction). Page cap 20 reached; coverage incomplete.",
+  "message": "15 candidate(s) staged for human review (9 ready, 6 need correction). Page cap 20 reached; coverage incomplete.",
   "windowDays": 180,
   "pageCap": 20,
   "partialCoverage": true,
@@ -153,13 +153,120 @@
   ],
   "counts": {
     "listed": 40,
-    "outOfScope": 17,
+    "outOfScope": 18,
     "outsideWindow": 2,
     "extracted": 17,
-    "ready": 10,
-    "blocked": 7,
+    "ready": 9,
+    "blocked": 6,
     "failed": 0
   },
+  "skipped": [
+    {
+      "externalId": "262410KIDT",
+      "title": "Werde zum KI-Detektiv: KI-generierte Bilder, Videos und Stimmen erkennen (ab 10 Jahren)",
+      "reason": "All sessions have ended"
+    },
+    {
+      "externalId": "262410DKI",
+      "title": "Deepfakes & soziale Medien: Wie KI den Alltag von Kindern und Jugendlichen prägt",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Ganztagesbetreuende, Schulsozialarbeitende)"
+    },
+    {
+      "externalId": "271410ZGR",
+      "title": "Zukunftswerkstatt: Generative KI trifft Grundschulalltag",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271408RTG",
+      "title": "Round Table Grundschule - Digitale Bildungsoffensive",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271408LER",
+      "title": "Das iPad im Unterricht - Digitale Werkzeuge für einen kreativen und wirksamen Unterricht",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271410DD",
+      "title": "KI als Entlastung in der Schulverwaltung – Datenschutz- und Dokumentationspflichten clever meistern",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271410HBL",
+      "title": "Sicher durch den KI-Dschungel: Digitale Tools gezielt im Unterricht einsetzen",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271410KK",
+      "title": "KI kreativ – eigene Musik- und Klangdesigns für Schule und Unterricht entwickeln",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271430GBL",
+      "title": "Games im Unterricht – Impulse für den Einstieg in Game-based Learning",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271410PM",
+      "title": "Mathe mal anders – Problemlösen als Schlüsselkompetenz",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271410KIP",
+      "title": "Parasoziale Beziehungen und KI – Wenn Werkzeuge zu sozialen Interaktionspartnern werden",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare, Schulsozialarbeitende)"
+    },
+    {
+      "externalId": "271430ZGBL",
+      "title": "Zukunftswerkstatt: Game-based Learning im Unterricht umsetzen – Lernsettings mit Games gestalten",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271470IN",
+      "title": "Im Sog der Likes? Wie Influencer jugendliche Lebenswelten prägen",
+      "reason": "No explicit AI/coding/gaming wording"
+    },
+    {
+      "externalId": "262410KID",
+      "title": "KI im DaZ/DaF Unterricht: Chancen für Vielfalt und Bildungsgerechtigkeit",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271410FK",
+      "title": "Feedback-Tools im Unterricht: gestern analog, heute digital – und morgen mit KI",
+      "reason": "Staff/teacher training (Lehrkraft, Referendare)"
+    },
+    {
+      "externalId": "271420SDD",
+      "title": "Future Skills: Mit Python & Datenbanken die Welt von morgen gestalten (ab 14 Jahre)",
+      "reason": "Starts 2027-05-24, after the 180-day window"
+    },
+    {
+      "externalId": "271410KR",
+      "title": "KI-Recht in der Schule – Künstliche Intelligenz verantwortungsvoll und rechtssicher im Unterricht einsetzen",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "262410KR",
+      "title": "KI-Recht in der Schule – Künstliche Intelligenz verantwortungsvoll und rechtssicher im Unterricht einsetzen",
+      "reason": "Staff/teacher training (Schulleitung, Lehrkraft)"
+    },
+    {
+      "externalId": "271410ZKT",
+      "title": "Zukunftswerkstatt: Die smarte Kita – Planung und Organisation vereinfachen mit KI",
+      "reason": "Staff/teacher training (Leitungskraft und Stellvertretung in Krippe und Kita, pädagogische Fachkraft Krippe und Kita, Zusatzkraft in Krippe und Kita, Kindertagespflegeperson)"
+    },
+    {
+      "externalId": "271410KIKT",
+      "title": "KI in der Kita? Chancen, Fragen und erste Erfahrungen",
+      "reason": "Staff/teacher training (Leitungskraft und Stellvertretung in Krippe und Kita, pädagogische Fachkraft Krippe und Kita, Zusatzkraft in Krippe und Kita, Kindertagespflegeperson)"
+    },
+    {
+      "externalId": "271470SIT",
+      "title": "IT erleben statt nur verstehen - Ein Besuch im IT Education Center der Schwarz Digits (ab 13 Jahre)",
+      "reason": "Starts 2027-05-25, after the 180-day window"
+    }
+  ],
   "candidates": [
     {
       "rowId": "aim-262420pai",
@@ -203,7 +310,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Python-lernen-mit-KI-ab-16-Jahren/262420PAI",
-          "fetchedAt": "2026-11-14T14:52:00.249Z",
+          "fetchedAt": "2026-11-14T15:12:44.673Z",
           "verifiedAt": null
         }
       },
@@ -475,7 +582,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/262420SC",
-          "fetchedAt": "2026-11-14T14:52:01.987Z",
+          "fetchedAt": "2026-11-14T15:12:46.333Z",
           "verifiedAt": null
         }
       },
@@ -762,7 +869,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Programmieren-lernen-mit-Python-1216-Jahre/262420PY",
-          "fetchedAt": "2026-11-14T14:52:03.733Z",
+          "fetchedAt": "2026-11-14T15:12:48.018Z",
           "verifiedAt": null
         }
       },
@@ -1047,7 +1154,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/262420RK2",
-          "fetchedAt": "2026-11-14T14:52:05.625Z",
+          "fetchedAt": "2026-11-14T15:12:49.730Z",
           "verifiedAt": null
         }
       },
@@ -1245,7 +1352,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/KI-Orientierung-fuer-Eltern-Grundlagen-Praxis-und-Zukunftsperspektiven/262410KIE",
-          "fetchedAt": "2026-11-14T14:52:07.218Z",
+          "fetchedAt": "2026-11-14T15:12:51.350Z",
           "verifiedAt": null
         }
       },
@@ -1407,182 +1514,6 @@
       ]
     },
     {
-      "rowId": "aim-262410kidt",
-      "state": "ready-for-review",
-      "timing": "ongoing",
-      "offer": {
-        "id": "aim-262410kidt",
-        "providerId": "aim",
-        "externalId": "262410KIDT",
-        "title": {
-          "de": "Werde zum KI-Detektiv: KI-generierte Bilder, Videos und Stimmen erkennen (ab 10 Jahren)",
-          "en": "Werde zum KI-Detektiv: KI-generierte Bilder, Videos und Stimmen erkennen (ab 10 Jahren)"
-        },
-        "summary": {
-          "de": "Erkenne KI-generierte Bilder, Videos und Stimmen und lerne, digitale Inhalte kritisch zu prüfen.",
-          "en": "Erkenne KI-generierte Bilder, Videos und Stimmen und lerne, digitale Inhalte kritisch zu prüfen."
-        },
-        "topics": [
-          "ai"
-        ],
-        "interests": [
-          "solve-puzzles"
-        ],
-        "audiences": [
-          "children"
-        ],
-        "format": "workshop",
-        "minAge": 10,
-        "maxAge": null,
-        "startsAt": "2026-11-14T10:30:00+01:00",
-        "endsAt": "2026-11-14T16:00:00+01:00",
-        "timeZone": "Europe/Berlin",
-        "priceEur": 0,
-        "venue": {
-          "name": "Bildungscampus",
-          "city": "Heilbronn",
-          "access": "unknown"
-        },
-        "availability": "unknown",
-        "reviewStatus": "pending",
-        "source": {
-          "kind": "verified",
-          "url": "https://www.aim-akademie.org/kurse/kurs/KI-Detektive-KI-generierte-Bilder-Videos-und-Stimmen-erkennen-10-15-Jahre/262410KIDT",
-          "fetchedAt": "2026-11-14T14:51:41.546Z",
-          "verifiedAt": null
-        }
-      },
-      "issues": [],
-      "reviewNotes": [
-        "English title/summary copied from the German source text; translation pending review."
-      ],
-      "evidence": [
-        {
-          "field": "externalId",
-          "value": "262410KIDT",
-          "text": "Kursnummer: 262410KIDT",
-          "locator": "div.course_detail#course-<KNR> + URL",
-          "method": "explicit"
-        },
-        {
-          "field": "title",
-          "value": "Werde zum KI-Detektiv: KI-generierte Bilder, Videos und Stimmen erkennen (ab 10 Jahren)",
-          "text": "Werde zum KI-Detektiv: KI-generierte Bilder, Videos und Stimmen erkennen (ab 10 Jahren)",
-          "locator": "div.course_detail h1",
-          "method": "explicit"
-        },
-        {
-          "field": "audienceText",
-          "value": "Diese Veranstaltung richtet sich an neugierige Kinder und Jugendliche ab 10 bis 15 Jahre, die gerne rätseln, entdecken und kreativ mit digitalen Medien arbeiten. Vorkenntnisse in Künstlicher Intelligenz oder Medienproduktion sind nicht erforderlich.",
-          "text": "Diese Veranstaltung richtet sich an neugierige Kinder und Jugendliche ab 10 bis 15 Jahre, die gerne rätseln, entdecken und kreativ mit digitalen Medien arbeiten. Vorkenntnisse in Künstlicher Intelligenz oder Medienproduktion sind nicht erforderlich.",
-          "locator": "description › Teilnehmen",
-          "method": "explicit"
-        },
-        {
-          "field": "sessions",
-          "value": [
-            {
-              "date": "2026-11-14",
-              "startTime": "10:30",
-              "endTime": "16:00",
-              "place": "Bildungscampus"
-            }
-          ],
-          "text": "14.11.2026 | 10:30 - 16:00 Uhr | Bildungscampus",
-          "locator": "table#coursesDateTable (Termine)",
-          "method": "explicit"
-        },
-        {
-          "field": "statusText",
-          "value": "Anmeldung nicht mehr möglich",
-          "text": "Anmeldung nicht mehr möglich",
-          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
-          "method": "explicit"
-        },
-        {
-          "field": "venue",
-          "value": {
-            "name": "Bildungscampus",
-            "city": "Heilbronn"
-          },
-          "text": "Bildungscampus",
-          "locator": "table#coursesDateTable Ort; city: address line \"Bildungscampus 7 74076 Heilbronn\" naming the venue",
-          "method": "derived",
-          "note": "City taken from a published street address for the same venue name; confirm in review."
-        },
-        {
-          "field": "audienceLabels",
-          "value": [
-            "Schüler/in"
-          ],
-          "text": "Schüler/in",
-          "locator": "listing card badges",
-          "method": "explicit"
-        },
-        {
-          "field": "minAge/maxAge",
-          "value": {
-            "min": 10,
-            "max": null,
-            "kind": "minimum"
-          },
-          "text": "ab 10 Jahren",
-          "locator": "title",
-          "method": "explicit",
-          "note": "Published minimum only; no maximum invented."
-        },
-        {
-          "field": "priceEur",
-          "value": 0,
-          "text": "keine",
-          "locator": "cost block",
-          "method": "explicit"
-        },
-        {
-          "field": "availability",
-          "value": "unknown",
-          "text": "Anmeldung nicht mehr möglich",
-          "locator": "course status",
-          "method": "explicit"
-        },
-        {
-          "field": "topics",
-          "value": [
-            "ai"
-          ],
-          "text": "KI",
-          "locator": "title + description",
-          "method": "rule"
-        },
-        {
-          "field": "interests",
-          "value": [
-            "solve-puzzles"
-          ],
-          "text": "Detektiv",
-          "locator": "title + description",
-          "method": "rule"
-        },
-        {
-          "field": "audiences",
-          "value": [
-            "children"
-          ],
-          "text": "Schüler/in",
-          "locator": "provider audience labels + published age",
-          "method": "rule"
-        }
-      ],
-      "sessions": [
-        {
-          "date": "2026-11-14",
-          "startTime": "10:30",
-          "endTime": "16:00",
-          "place": "Bildungscampus"
-        }
-      ]
-    },
-    {
       "rowId": "aim-262430dsw",
       "state": "blocked",
       "timing": "upcoming",
@@ -1622,7 +1553,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Aktuelle-digitale-Spielewelten-von-Kindern-und-Jugendlichen/262430DSW",
-          "fetchedAt": "2026-11-14T14:51:46.477Z",
+          "fetchedAt": "2026-11-14T15:12:31.232Z",
           "verifiedAt": null
         }
       },
@@ -1820,7 +1751,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Einfuehrung-in-die-Programmierung-mit-Mikrocontrollern-1215-Jahre/262420PCB",
-          "fetchedAt": "2026-11-14T14:51:48.183Z",
+          "fetchedAt": "2026-11-14T15:12:33.042Z",
           "verifiedAt": null
         }
       },
@@ -2019,7 +1950,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Kinderuni-auf-Reisen-Mosbach-Wer-bezahlt-eigentlich-den-Spielplatz/26293MOS",
-          "fetchedAt": "2026-11-14T14:52:08.855Z",
+          "fetchedAt": "2026-11-14T15:12:52.968Z",
           "verifiedAt": null
         }
       },
@@ -2194,7 +2125,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Spieleentwicklung-mit-Unity-fuer-Einsteiger-1014-Jahre/271430UN",
-          "fetchedAt": "2026-11-14T14:51:49.941Z",
+          "fetchedAt": "2026-11-14T15:12:34.686Z",
           "verifiedAt": null
         }
       },
@@ -2368,7 +2299,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Craft-Your-City-Baue-deine-nachhaltige-und-smarte-Traumstadt-1014-Jahre/271430CYC1",
-          "fetchedAt": "2026-11-14T14:51:51.676Z",
+          "fetchedAt": "2026-11-14T15:12:36.369Z",
           "verifiedAt": null
         }
       },
@@ -2573,7 +2504,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-1-analoges-Programmieren-ganz-ohne-Bildschirm-710-Jahre/271420RK1",
-          "fetchedAt": "2026-11-14T14:51:53.457Z",
+          "fetchedAt": "2026-11-14T15:12:38.066Z",
           "verifiedAt": null
         }
       },
@@ -2776,7 +2707,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/271420SC",
-          "fetchedAt": "2026-11-14T14:51:55.122Z",
+          "fetchedAt": "2026-11-14T15:12:39.666Z",
           "verifiedAt": null
         }
       },
@@ -3061,7 +2992,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Code-your-Chat-Entwickle-deine-eigene-Messenger-Web-App-1317-Jahre/271420FE",
-          "fetchedAt": "2026-11-14T14:51:56.898Z",
+          "fetchedAt": "2026-11-14T15:12:41.363Z",
           "verifiedAt": null
         }
       },
@@ -3308,201 +3239,6 @@
       ]
     },
     {
-      "rowId": "aim-271470in",
-      "state": "blocked",
-      "timing": "upcoming",
-      "offer": {
-        "id": "aim-271470in",
-        "providerId": "aim",
-        "externalId": "271470IN",
-        "title": {
-          "de": "Im Sog der Likes? Wie Influencer jugendliche Lebenswelten prägen",
-          "en": "Im Sog der Likes? Wie Influencer jugendliche Lebenswelten prägen"
-        },
-        "summary": {
-          "de": "Zwischen Vorbild, Werbung und digitaler Freundschaft – Influencer verstehen und Medienkompetenz stärken",
-          "en": "Zwischen Vorbild, Werbung und digitaler Freundschaft – Influencer verstehen und Medienkompetenz stärken"
-        },
-        "topics": [],
-        "interests": [
-          "tell-stories"
-        ],
-        "audiences": [
-          "parents"
-        ],
-        "format": "course",
-        "minAge": null,
-        "maxAge": null,
-        "startsAt": "2027-03-08T17:00:00+01:00",
-        "endsAt": "2027-03-15T19:30:00+01:00",
-        "timeZone": "Europe/Berlin",
-        "priceEur": 0,
-        "venue": {
-          "name": "Online",
-          "city": "",
-          "access": "unknown"
-        },
-        "availability": "available",
-        "reviewStatus": "pending",
-        "source": {
-          "kind": "verified",
-          "url": "https://www.aim-akademie.org/kurse/kurs/Im-Sog-der-Likes-Wie-Influencer-jugendliche-Lebenswelten-praegen/271470IN",
-          "fetchedAt": "2026-11-14T14:51:43.117Z",
-          "verifiedAt": null
-        }
-      },
-      "issues": [
-        {
-          "path": "topics",
-          "message": "No explicit AI/coding/gaming wording found"
-        },
-        {
-          "path": "venue.city",
-          "message": "Venue city not published on the record"
-        }
-      ],
-      "reviewNotes": [
-        "Series of 2 sessions; startsAt is the first session, endsAt the end of the last.",
-        "English title/summary copied from the German source text; translation pending review."
-      ],
-      "evidence": [
-        {
-          "field": "externalId",
-          "value": "271470IN",
-          "text": "Kursnummer: 271470IN",
-          "locator": "div.course_detail#course-<KNR> + URL",
-          "method": "explicit"
-        },
-        {
-          "field": "title",
-          "value": "Im Sog der Likes? Wie Influencer jugendliche Lebenswelten prägen",
-          "text": "Im Sog der Likes? Wie Influencer jugendliche Lebenswelten prägen",
-          "locator": "div.course_detail h1",
-          "method": "explicit"
-        },
-        {
-          "field": "audienceText",
-          "value": "Dieser Online-Kurs richtet sich an Lehrkräfte aller Schularten, Ganztagesbetreuende, Schulsozialarbeitende und Eltern. Zur Teilnahme benötigen Sie einen Internetzugang sowie ein Endgerät.",
-          "text": "Dieser Online-Kurs richtet sich an Lehrkräfte aller Schularten, Ganztagesbetreuende, Schulsozialarbeitende und Eltern. Zur Teilnahme benötigen Sie einen Internetzugang sowie ein Endgerät.",
-          "locator": "description › Teilnehmen",
-          "method": "explicit"
-        },
-        {
-          "field": "sessions",
-          "value": [
-            {
-              "date": "2027-03-08",
-              "startTime": "17:00",
-              "endTime": "19:30",
-              "place": "Online"
-            },
-            {
-              "date": "2027-03-15",
-              "startTime": "17:00",
-              "endTime": "19:30",
-              "place": "Online"
-            }
-          ],
-          "text": "08.03.2027 | 17:00 - 19:30 Uhr | Online ; 15.03.2027 | 17:00 - 19:30 Uhr | Online",
-          "locator": "table#coursesDateTable (Termine)",
-          "method": "explicit"
-        },
-        {
-          "field": "statusText",
-          "value": "frei",
-          "text": "frei",
-          "locator": "sidebar div.kufer-content-kursdetails-status after Kursnummer",
-          "method": "explicit"
-        },
-        {
-          "field": "venue",
-          "value": {
-            "name": "Online",
-            "city": null
-          },
-          "text": "Online",
-          "locator": "table#coursesDateTable Ort; city: description › Adresse",
-          "method": "absent"
-        },
-        {
-          "field": "audienceLabels",
-          "value": [
-            "Eltern",
-            "Lehrkraft",
-            "Ganztagesbetreuende",
-            "Schulsozialarbeitende"
-          ],
-          "text": "Eltern, Lehrkraft, Ganztagesbetreuende, Schulsozialarbeitende",
-          "locator": "listing card badges",
-          "method": "explicit"
-        },
-        {
-          "field": "minAge/maxAge",
-          "value": {
-            "min": null,
-            "max": null,
-            "kind": "unknown"
-          },
-          "text": null,
-          "locator": "participation text",
-          "method": "absent"
-        },
-        {
-          "field": "priceEur",
-          "value": 0,
-          "text": "keine",
-          "locator": "cost block",
-          "method": "explicit"
-        },
-        {
-          "field": "availability",
-          "value": "available",
-          "text": "frei",
-          "locator": "course status",
-          "method": "explicit"
-        },
-        {
-          "field": "topics",
-          "value": [],
-          "text": null,
-          "locator": "title + description",
-          "method": "absent"
-        },
-        {
-          "field": "interests",
-          "value": [
-            "tell-stories"
-          ],
-          "text": "Geschichten",
-          "locator": "title + description",
-          "method": "rule"
-        },
-        {
-          "field": "audiences",
-          "value": [
-            "parents"
-          ],
-          "text": "Eltern, Lehrkraft, Ganztagesbetreuende, Schulsozialarbeitende",
-          "locator": "provider audience labels + published age",
-          "method": "rule"
-        }
-      ],
-      "sessions": [
-        {
-          "date": "2027-03-08",
-          "startTime": "17:00",
-          "endTime": "19:30",
-          "place": "Online"
-        },
-        {
-          "date": "2027-03-15",
-          "startTime": "17:00",
-          "endTime": "19:30",
-          "place": "Online"
-        }
-      ]
-    },
-    {
       "rowId": "aim-271420sg",
       "state": "ready-for-review",
       "timing": "upcoming",
@@ -3547,7 +3283,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Talking-Plants-Programmiere-deine-Pflanze-bis-sie-spricht-1216-Jahre/271420SG",
-          "fetchedAt": "2026-11-14T14:51:44.807Z",
+          "fetchedAt": "2026-11-14T15:12:29.565Z",
           "verifiedAt": null
         }
       },
@@ -3725,7 +3461,7 @@
         "source": {
           "kind": "verified",
           "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/271420RK2",
-          "fetchedAt": "2026-11-14T14:51:58.608Z",
+          "fetchedAt": "2026-11-14T15:12:43.025Z",
           "verifiedAt": null
         }
       },

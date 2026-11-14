@@ -1,0 +1,723 @@
+{
+  "runId": "ipai-20261114T151328",
+  "providerId": "ipai",
+  "adapterVersion": "ipai-html/1",
+  "startedAt": "2026-11-14T15:13:28.713Z",
+  "finishedAt": "2026-11-14T15:13:34.296Z",
+  "status": "needs-review",
+  "message": "4 candidate(s) staged for human review (0 ready, 4 need correction).",
+  "windowDays": 180,
+  "pageCap": 20,
+  "partialCoverage": false,
+  "pages": [
+    {
+      "url": "https://ipai-foundation.ai/",
+      "finalUrl": "https://ipai-foundation.ai/",
+      "status": 200,
+      "bytes": 154747,
+      "kind": "listing"
+    },
+    {
+      "url": "https://ipai-foundation.ai/event/ki-salon-workshop-vibe-coding-ki-agenten-von-der-idee-zur-anwendung/",
+      "finalUrl": "https://ipai-foundation.ai/event/ki-salon-workshop-vibe-coding-ki-agenten-von-der-idee-zur-anwendung/",
+      "status": 200,
+      "bytes": 56066,
+      "kind": "detail"
+    },
+    {
+      "url": "https://ipai-foundation.ai/event/ki-salon-workshop-erstelle-dein-board-of-excellence/",
+      "finalUrl": "https://ipai-foundation.ai/event/ki-salon-workshop-erstelle-dein-board-of-excellence/",
+      "status": 200,
+      "bytes": 56468,
+      "kind": "detail"
+    },
+    {
+      "url": "https://ipai-foundation.ai/event/ki-salon-community-event-21/",
+      "finalUrl": "https://ipai-foundation.ai/event/ki-salon-community-event-21/",
+      "status": 200,
+      "bytes": 54159,
+      "kind": "detail"
+    },
+    {
+      "url": "https://ipai-foundation.ai/event/ki-salon-impuls-prof-dr-sebastian-hallensleben-regulieren-wir-uns-an-die-wand/",
+      "finalUrl": "https://ipai-foundation.ai/event/ki-salon-impuls-prof-dr-sebastian-hallensleben-regulieren-wir-uns-an-die-wand/",
+      "status": 200,
+      "bytes": 57914,
+      "kind": "detail"
+    }
+  ],
+  "counts": {
+    "listed": 4,
+    "outOfScope": 0,
+    "outsideWindow": 0,
+    "extracted": 4,
+    "ready": 0,
+    "blocked": 4,
+    "failed": 0
+  },
+  "skipped": [],
+  "candidates": [
+    {
+      "rowId": "ipai-10379",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "ipai-10379",
+        "providerId": "ipai",
+        "externalId": "10379",
+        "title": {
+          "de": "KI SALON WORKSHOP: Vibe Coding & KI-Agenten: Von der Idee zur Anwendung",
+          "en": "KI SALON WORKSHOP: Vibe Coding & KI-Agenten: Von der Idee zur Anwendung"
+        },
+        "summary": {
+          "de": "Software primär durch intuitive, KI-gestützte Anweisungen entstehen lassen – das ist das Prinzip hinter „Vibe Coding“. Doch wie funktioniert das Zusammenspiel mit modernen KI-Agenten in der Praxis und worauf müsst ihr achten, um nicht ins Stolpern zu geraten?",
+          "en": "Software primär durch intuitive, KI-gestützte Anweisungen entstehen lassen – das ist das Prinzip hinter „Vibe Coding“. Doch wie funktioniert das Zusammenspiel mit modernen KI-Agenten in der Praxis und worauf müsst ihr achten, um nicht ins Stolpern zu geraten?"
+        },
+        "topics": [
+          "ai",
+          "coding"
+        ],
+        "interests": [],
+        "audiences": [],
+        "format": "workshop",
+        "minAge": null,
+        "maxAge": null,
+        "startsAt": "2026-11-23T15:00:00+01:00",
+        "endsAt": "2026-11-23T17:00:00+01:00",
+        "timeZone": "Europe/Berlin",
+        "priceEur": 0,
+        "venue": {
+          "name": "IPAI Spaces, Im Zukunftspark 11/13",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://ipai-foundation.ai/event/ki-salon-workshop-vibe-coding-ki-agenten-von-der-idee-zur-anwendung/",
+          "fetchedAt": "2026-11-14T15:13:30.907Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        },
+        {
+          "path": "audiences",
+          "message": "Published target group \"Alle interessierten KI-Nutzer:innen (keine besonderen Voraussetzungen / Vorkenntnisse erforderlich)\" is not a child/teen/family/parent audience; a reviewer may assign one only with evidence"
+        }
+      ],
+      "reviewNotes": [
+        "Event details are repeated 2× in the page layout; treated as one occurrence.",
+        "Registration is handled on www.eventbrite.de; that host is not crawled.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "10379",
+          "text": "post-10379 event",
+          "locator": "Elementor single-event container class",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "KI SALON WORKSHOP: Vibe Coding & KI-Agenten: Von der Idee zur Anwendung",
+          "text": "KI SALON WORKSHOP: Vibe Coding & KI-Agenten: Von der Idee zur Anwendung",
+          "locator": "cruise-event-details-hero h1",
+          "method": "explicit"
+        },
+        {
+          "field": "category",
+          "value": "Workshop",
+          "text": "Workshop",
+          "locator": "cruise-event-details-hero .bx-category",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-11-23",
+              "startTime": "15:00",
+              "endTime": "17:00",
+              "place": "IPAI Spaces, Im Zukunftspark 11/13, 74076 Heilbronn"
+            }
+          ],
+          "text": "23. November 2026 15:00 – 17:00",
+          "locator": "cruise-event-informations .bx-date-time-container",
+          "method": "explicit"
+        },
+        {
+          "field": "keyfacts.when",
+          "value": "23. November 2026, 15:00-17:00 Uhr",
+          "text": "23. November 2026, 15:00-17:00 Uhr",
+          "locator": "post content › Keyfacts › Wann",
+          "method": "explicit"
+        },
+        {
+          "field": "audienceText",
+          "value": "Alle interessierten KI-Nutzer:innen (keine besonderen Voraussetzungen / Vorkenntnisse erforderlich)",
+          "text": "Alle interessierten KI-Nutzer:innen (keine besonderen Voraussetzungen / Vorkenntnisse erforderlich)",
+          "locator": "post content › Keyfacts › Zielgruppe",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "IPAI Spaces, Im Zukunftspark 11/13, 74076 Heilbronn",
+            "room": "IPAI (Innovation Park Artificial Intelligence) Heilbronn, Alan Turing Raum"
+          },
+          "text": "IPAI Spaces, Im Zukunftspark 11/13, 74076 Heilbronn",
+          "locator": "cruise-event-informations .bx-location",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": null,
+            "max": null,
+            "kind": "unknown"
+          },
+          "text": null,
+          "locator": "participation text",
+          "method": "absent"
+        },
+        {
+          "field": "priceEur",
+          "value": 0,
+          "text": "kostenfrei",
+          "locator": "cost block",
+          "method": "explicit"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": null,
+          "locator": "course status",
+          "method": "absent"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai",
+            "coding"
+          ],
+          "text": "KI | Coding",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [],
+          "text": "Alle interessierten KI-Nutzer:innen (keine besonderen Voraussetzungen / Vorkenntnisse erforderlich)",
+          "locator": "provider audience labels + published age",
+          "method": "absent"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-11-23",
+          "startTime": "15:00",
+          "endTime": "17:00",
+          "place": "IPAI Spaces, Im Zukunftspark 11/13, 74076 Heilbronn"
+        }
+      ]
+    },
+    {
+      "rowId": "ipai-10602",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "ipai-10602",
+        "providerId": "ipai",
+        "externalId": "10602",
+        "title": {
+          "de": "KI SALON WORKSHOP: Erstelle dein Board of Excellence",
+          "en": "KI SALON WORKSHOP: Erstelle dein Board of Excellence"
+        },
+        "summary": {
+          "de": "Wo: IPAI Spaces (Innovation Park Artificial Intelligence) Heilbronn, Alan Turing Raum",
+          "en": "Wo: IPAI Spaces (Innovation Park Artificial Intelligence) Heilbronn, Alan Turing Raum"
+        },
+        "topics": [
+          "ai",
+          "coding"
+        ],
+        "interests": [],
+        "audiences": [],
+        "format": "workshop",
+        "minAge": null,
+        "maxAge": null,
+        "startsAt": "2026-11-30T12:30:00+01:00",
+        "endsAt": "2026-11-30T14:30:00+01:00",
+        "timeZone": "Europe/Berlin",
+        "priceEur": null,
+        "venue": {
+          "name": "IPAI Spaces, Im Zukunftspark 11/13",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://ipai-foundation.ai/event/ki-salon-workshop-erstelle-dein-board-of-excellence/",
+          "fetchedAt": "2026-11-14T15:13:31.904Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        },
+        {
+          "path": "audiences",
+          "message": "No published child/teen/family/parent audience"
+        }
+      ],
+      "reviewNotes": [
+        "Event details are repeated 2× in the page layout; treated as one occurrence.",
+        "Registration is handled on www.eventbrite.de; that host is not crawled.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "10602",
+          "text": "post-10602 event",
+          "locator": "Elementor single-event container class",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "KI SALON WORKSHOP: Erstelle dein Board of Excellence",
+          "text": "KI SALON WORKSHOP: Erstelle dein Board of Excellence",
+          "locator": "cruise-event-details-hero h1",
+          "method": "explicit"
+        },
+        {
+          "field": "category",
+          "value": "Workshop",
+          "text": "Workshop",
+          "locator": "cruise-event-details-hero .bx-category",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-11-30",
+              "startTime": "12:30",
+              "endTime": "14:30",
+              "place": "IPAI Spaces, Im Zukunftspark 11/13, 74076 Heilbronn"
+            }
+          ],
+          "text": "30. November 2026 12:30 – 14:30",
+          "locator": "cruise-event-informations .bx-date-time-container",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "IPAI Spaces, Im Zukunftspark 11/13, 74076 Heilbronn",
+            "room": null
+          },
+          "text": "IPAI Spaces, Im Zukunftspark 11/13, 74076 Heilbronn",
+          "locator": "cruise-event-informations .bx-location",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": null,
+            "max": null,
+            "kind": "unknown"
+          },
+          "text": null,
+          "locator": "participation text",
+          "method": "absent"
+        },
+        {
+          "field": "priceEur",
+          "value": null,
+          "text": null,
+          "locator": "cost block",
+          "method": "absent"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": null,
+          "locator": "course status",
+          "method": "absent"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai",
+            "coding"
+          ],
+          "text": "KI | Programmier",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [],
+          "text": null,
+          "locator": "provider audience labels + published age",
+          "method": "absent"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-11-30",
+          "startTime": "12:30",
+          "endTime": "14:30",
+          "place": "IPAI Spaces, Im Zukunftspark 11/13, 74076 Heilbronn"
+        }
+      ]
+    },
+    {
+      "rowId": "ipai-9445",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "ipai-9445",
+        "providerId": "ipai",
+        "externalId": "9445",
+        "title": {
+          "de": "KI SALON COMMUNITY EVENT #21",
+          "en": "KI SALON COMMUNITY EVENT #21"
+        },
+        "summary": {
+          "de": "Treffe die KI-Community bei unserem nächsten KI Salon Event im IPAI SPACES!",
+          "en": "Treffe die KI-Community bei unserem nächsten KI Salon Event im IPAI SPACES!"
+        },
+        "topics": [
+          "ai"
+        ],
+        "interests": [],
+        "audiences": [],
+        "format": "event",
+        "minAge": null,
+        "maxAge": null,
+        "startsAt": "2026-12-01T17:30:00+01:00",
+        "endsAt": "2026-12-01T20:30:00+01:00",
+        "timeZone": "Europe/Berlin",
+        "priceEur": null,
+        "venue": {
+          "name": "Besucherzentrum IPAI, Im Zukunftspark 11/13",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://ipai-foundation.ai/event/ki-salon-community-event-21/",
+          "fetchedAt": "2026-11-14T15:13:32.937Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        },
+        {
+          "path": "audiences",
+          "message": "No published child/teen/family/parent audience"
+        }
+      ],
+      "reviewNotes": [
+        "Event details are repeated 2× in the page layout; treated as one occurrence.",
+        "Registration is handled on www.eventbrite.de; that host is not crawled.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "9445",
+          "text": "post-9445 event",
+          "locator": "Elementor single-event container class",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "KI SALON COMMUNITY EVENT #21",
+          "text": "KI SALON COMMUNITY EVENT #21",
+          "locator": "cruise-event-details-hero h1",
+          "method": "explicit"
+        },
+        {
+          "field": "category",
+          "value": "Community",
+          "text": "Community",
+          "locator": "cruise-event-details-hero .bx-category",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-12-01",
+              "startTime": "17:30",
+              "endTime": "20:30",
+              "place": "Besucherzentrum IPAI, Im Zukunftspark 11/13, 74076 Heilbronn"
+            }
+          ],
+          "text": "1. Dezember 2026 17:30 - 20:30 Uhr",
+          "locator": "cruise-event-informations .bx-date-time-container",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Besucherzentrum IPAI, Im Zukunftspark 11/13, 74076 Heilbronn",
+            "room": null
+          },
+          "text": "Besucherzentrum IPAI, Im Zukunftspark 11/13, 74076 Heilbronn",
+          "locator": "cruise-event-informations .bx-location",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": null,
+            "max": null,
+            "kind": "unknown"
+          },
+          "text": null,
+          "locator": "participation text",
+          "method": "absent"
+        },
+        {
+          "field": "priceEur",
+          "value": null,
+          "text": null,
+          "locator": "cost block",
+          "method": "absent"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": null,
+          "locator": "course status",
+          "method": "absent"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai"
+          ],
+          "text": "KI",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [],
+          "text": null,
+          "locator": "provider audience labels + published age",
+          "method": "absent"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-12-01",
+          "startTime": "17:30",
+          "endTime": "20:30",
+          "place": "Besucherzentrum IPAI, Im Zukunftspark 11/13, 74076 Heilbronn"
+        }
+      ]
+    },
+    {
+      "rowId": "ipai-9449",
+      "state": "blocked",
+      "timing": "upcoming",
+      "offer": {
+        "id": "ipai-9449",
+        "providerId": "ipai",
+        "externalId": "9449",
+        "title": {
+          "de": "KI SALON IMPULS: Dr. Sebastian Hallensleben – Regulieren wir uns an die Wand?",
+          "en": "KI SALON IMPULS: Dr. Sebastian Hallensleben – Regulieren wir uns an die Wand?"
+        },
+        "summary": {
+          "de": "Wann: 08.12.2026, 18:30 Uhr (Einlass: 18:00 Uhr)",
+          "en": "Wann: 08.12.2026, 18:30 Uhr (Einlass: 18:00 Uhr)"
+        },
+        "topics": [
+          "ai"
+        ],
+        "interests": [],
+        "audiences": [],
+        "format": "event",
+        "minAge": null,
+        "maxAge": null,
+        "startsAt": "2026-12-08T18:30:00+01:00",
+        "endsAt": "2026-12-08T20:30:00+01:00",
+        "timeZone": "Europe/Berlin",
+        "priceEur": null,
+        "venue": {
+          "name": "Besucherzentrum IPAI, Im Zukunftspark 11/13",
+          "city": "Heilbronn",
+          "access": "unknown"
+        },
+        "availability": "unknown",
+        "reviewStatus": "pending",
+        "source": {
+          "kind": "verified",
+          "url": "https://ipai-foundation.ai/event/ki-salon-impuls-prof-dr-sebastian-hallensleben-regulieren-wir-uns-an-die-wand/",
+          "fetchedAt": "2026-11-14T15:13:34.295Z",
+          "verifiedAt": null
+        }
+      },
+      "issues": [
+        {
+          "path": "interests",
+          "message": "No discovery interest matched; reviewer must choose one"
+        },
+        {
+          "path": "audiences",
+          "message": "No published child/teen/family/parent audience"
+        }
+      ],
+      "reviewNotes": [
+        "Event details are repeated 2× in the page layout; treated as one occurrence.",
+        "Registration is handled on www.eventbrite.de; that host is not crawled.",
+        "English title/summary copied from the German source text; translation pending review."
+      ],
+      "evidence": [
+        {
+          "field": "externalId",
+          "value": "9449",
+          "text": "post-9449 event",
+          "locator": "Elementor single-event container class",
+          "method": "explicit"
+        },
+        {
+          "field": "title",
+          "value": "KI SALON IMPULS: Dr. Sebastian Hallensleben – Regulieren wir uns an die Wand?",
+          "text": "KI SALON IMPULS: Dr. Sebastian Hallensleben – Regulieren wir uns an die Wand?",
+          "locator": "cruise-event-details-hero h1",
+          "method": "explicit"
+        },
+        {
+          "field": "category",
+          "value": "Impuls",
+          "text": "Impuls",
+          "locator": "cruise-event-details-hero .bx-category",
+          "method": "explicit"
+        },
+        {
+          "field": "sessions",
+          "value": [
+            {
+              "date": "2026-12-08",
+              "startTime": "18:30",
+              "endTime": "20:30",
+              "place": "Besucherzentrum IPAI, Im Zukunftspark 11/13, 74076 Heilbronn"
+            }
+          ],
+          "text": "8. Dezember 2026 18:30 - 20:30",
+          "locator": "cruise-event-informations .bx-date-time-container",
+          "method": "explicit"
+        },
+        {
+          "field": "venue",
+          "value": {
+            "name": "Besucherzentrum IPAI, Im Zukunftspark 11/13, 74076 Heilbronn",
+            "room": null
+          },
+          "text": "Besucherzentrum IPAI, Im Zukunftspark 11/13, 74076 Heilbronn",
+          "locator": "cruise-event-informations .bx-location",
+          "method": "explicit"
+        },
+        {
+          "field": "minAge/maxAge",
+          "value": {
+            "min": null,
+            "max": null,
+            "kind": "unknown"
+          },
+          "text": null,
+          "locator": "participation text",
+          "method": "absent"
+        },
+        {
+          "field": "priceEur",
+          "value": null,
+          "text": null,
+          "locator": "cost block",
+          "method": "absent"
+        },
+        {
+          "field": "availability",
+          "value": "unknown",
+          "text": null,
+          "locator": "course status",
+          "method": "absent"
+        },
+        {
+          "field": "topics",
+          "value": [
+            "ai"
+          ],
+          "text": "KI",
+          "locator": "title + description",
+          "method": "rule"
+        },
+        {
+          "field": "interests",
+          "value": [],
+          "text": null,
+          "locator": "title + description",
+          "method": "absent"
+        },
+        {
+          "field": "audiences",
+          "value": [],
+          "text": null,
+          "locator": "provider audience labels + published age",
+          "method": "absent"
+        }
+      ],
+      "sessions": [
+        {
+          "date": "2026-12-08",
+          "startTime": "18:30",
+          "endTime": "20:30",
+          "place": "Besucherzentrum IPAI, Im Zukunftspark 11/13, 74076 Heilbronn"
+        }
+      ]
+    }
+  ]
+}

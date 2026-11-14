@@ -10,7 +10,9 @@ import { isAllowedUrl, getProvider, type ProviderConfig } from "../src/server/sc
 import { parseAge, parseAvailability, parsePrice, deriveAudiences, isProfessionalOnly } from "../src/server/normalize/rules.ts";
 import { normalizeRecord, offerId } from "../src/server/normalize/to-offer.ts";
 import { getOffers, getLatestSourceRun } from "../src/server/catalog/read.ts";
-import { runAim } from "../src/server/scraping/runner.ts";
+import { runProvider } from "../src/server/scraping/runner.ts";
+import { aimAdapter } from "../src/server/scraping/adapters/aim.ts";
+const runAim = (o: Parameters<typeof runProvider>[1]) => runProvider(aimAdapter, o);
 import type { SourceRecord } from "../src/server/scraping/types.ts";
 
 const aim = getProvider("aim");
@@ -134,4 +136,12 @@ test("provider config exposes exactly the four permitted institutions", () => {
   assert.equal(ids.length, 4);
   const p: ProviderConfig = { ...aim, enabled: false };
   assert.throws(() => getProvider("aim", [p]), /disabled/);
+});
+
+test("topic rules use word boundaries: 'Community' and 'Robot Games' are not gaming", async () => {
+  const { matchTopics } = await import("../src/server/normalize/rules.ts");
+  assert.deepEqual(matchTopics("Treffe die Maker Community"), []);
+  assert.deepEqual(matchTopics("Zuschauen bei den Robot Games").map(t => t.value), []);
+  assert.deepEqual(matchTopics("Spieleentwicklung mit Unity").map(t => t.value), ["gaming"]);
+  assert.deepEqual(matchTopics("Games im Unterricht").map(t => t.value), ["gaming"]);
 });

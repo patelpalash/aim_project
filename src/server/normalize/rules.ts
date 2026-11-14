@@ -19,6 +19,7 @@ const AGE_PATTERNS: { re: RegExp; kind: "range" | "minimum" }[] = [
   { re: /(?:zwischen|von)\s+(\d{1,2})\s+(?:und|bis)\s+(\d{1,2})\s+Jahre?n?/i, kind: "range" },
   { re: /\bAlter\s+von\s+(\d{1,2})\s+bis\s+(\d{1,2})\s+Jahre?n?/i, kind: "range" },
   { re: /(\d{1,2})\s*[–—-]\s*(\d{1,2})\s+Jahre?n?/i, kind: "range" },
+  { re: /\b(\d{1,2})\s+bis\s+(\d{1,2})\s+Jahre?n?/i, kind: "range" },
   { re: /\bab\s+(\d{1,2})\s*(?:Jahre?n?|J\.)/i, kind: "minimum" },
 ];
 
@@ -51,14 +52,14 @@ export function parseAvailability(text: string | null | undefined): RuleHit<"ava
   const t = (text ?? "").trim();
   if (/abgesagt|fällt aus|entfällt|storniert/i.test(t)) return { value: "cancelled", matched: t };
   if (/ausgebucht|warteliste|keine (freien )?plätze/i.test(t)) return { value: "full", matched: t };
-  if (/^frei$|restpl[aä]tze|plätze frei|freie plätze/i.test(t)) return { value: "available", matched: t };
+  if (/^frei$|restpl[aä]tze|plätze frei|freie plätze|keine anmeldung (nötig|notwendig|erforderlich)/i.test(t)) return { value: "available", matched: t };
   return { value: "unknown", matched: t };
 }
 
 const TOPIC_RULES: { topic: Topic; re: RegExp }[] = [
   { topic: "ai", re: /\bKI\b|\bKI-|künstliche[nr]? Intelligenz|\bAI\b|Sprachmodell|machine learning/i },
   { topic: "coding", re: /programmier|\bcoding\b|\bcode\b|python|scratch|mikrocontroller|ESP32|calliope|arduino|web-app/i },
-  { topic: "gaming", re: /videospiel|spieleentwicklung|spiele-engine|\bgames?\b|\bgaming\b|unity|minecraft/i },
+  { topic: "gaming", re: /videospiel|spieleentwicklung|spiele-engine|(?<!robot[ -])\bgames?\b|\bgaming\b|\bunity\b|minecraft/i },
 ];
 
 const INTEREST_RULES: { interest: Interest; re: RegExp }[] = [
@@ -95,6 +96,9 @@ export function deriveAudiences(labels: string[], age: AgeEvidence): RuleHit<Aud
   }
   const parents = has(/eltern/i);
   if (parents) hits.push({ value: "parents", matched: parents });
+  const teen = has(/^jugendliche$/i);
+  if (teen && !hits.some(h => h.value === "teens") && (age.minAge === null || (age.maxAge ?? 99) >= 13))
+    hits.push({ value: "teens", matched: teen });
   const family = has(/famili/i);
   if (family) hits.push({ value: "families", matched: family });
   return hits;

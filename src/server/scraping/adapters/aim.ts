@@ -10,7 +10,10 @@
  * Traps handled: related-course dates/status ("Diese Angebote könnten Sie auch interessieren"),
  * the provider footer address (not the venue), cart links (?knradd=) which are never followed.
  */
-import { germanDateToIso } from "../berlin-time.ts";
+import { isProfessionalOnly } from "../../normalize/rules.ts";
+import { berlinDate, germanDateToIso } from "../berlin-time.ts";
+import { PageCapReached } from "../fetcher.ts";
+import { recordFailure, type AdapterContext, type ProviderAdapter } from "../runner.ts";
 import { decodeEntities, elementAt, findElement, htmlToText, oneLine } from "../html.ts";
 import type { FieldEvidence, SourceRecord, SourceSession } from "../types.ts";
 
@@ -24,6 +27,8 @@ export interface AimListingCard {
   statusText: string | null;
   audienceLabels: string[];
   firstDate: string | null;
+  /** "3 Termine" on the card; 1 when the card shows a single date; null when not stated. */
+  sessionCount: number | null;
 }
 
 /** Canonical detail URL: path only, no query (drops ?knradd= cart actions and tracking). */
@@ -58,6 +63,7 @@ export function parseAimListing(html: string): AimListingCard[] {
       statusText: (/class="kw_ampel status\d">([^<]*)</.exec(card)?.[1] ?? null)?.trim() ?? null,
       audienceLabels: [...card.matchAll(/<span class="badge[^"]*">([^<]+)<\/span>/g)].map(b => oneLine(decodeEntities(b[1]))),
       firstDate: date ? germanDateToIso(date) : null,
+      sessionCount: (() => { const n = /color--74">\s*(\d+)\s+Termin/.exec(card)?.[1]; return n ? Number(n) : null; })(),
     });
   }
   return cards;
@@ -184,3 +190,40 @@ export function parseAimDetail(html: string, url: string, fetchedAt: string, lis
     evidence,
   };
 }
+
+// ---------------------------------------------------------------------------------------------
+// Adapter (listing seeds -> scoped details)
+
+export const aimAdapter: ProviderAdapter = {
+  providerId: "aim",
+  version: AIM_ADAPTER_VERSION,
+  async collect(ctx: AdapterContext) {
+    const cards = new Map<string, AimListingCard>();
+    for (const seed of ctx.provider.scraping?.seedUrls ?? []) {
+      let html: string;
+      try { ({ html } = await ctx.fetch(seed, "listing")); }
+      catch (error) { if (error instanceof PageCapReached) throw error; ctx.error(`Listing ${seed}: ${(error as Error).message}`); continue; }
+      const found = parseAimListing(html);
+      if (!found.length) { ctx.error(`No course cards recognised on ${seed} (layout change or empty listing)`); continue; }
+      let added = 0;
+      for (const card of found) if (!cards.has(card.externalId)) { cards.set(card.externalId, card); added++; }
+      ctx.listingOk(added);
+    }
+    const today = berlinDate(ctx.now);
+    for (const card of cards.values()) {
+      if (isProfessionalOnly(card.audienceLabels)) { ctx.skip(card.externalId, card.title, `Staff/teacher training (${card.audienceLabels.join(", ")})`, "outOfScope"); continue; }
+      if (card.firstDate && Date.parse(`${card.firstDate}T00:00:00Z`) > ctx.horizon) { ctx.skip(card.externalId, card.title, `Starts ${card.firstDate}, after the ${ctx.windowDays}-day window`, "outsideWindow"); continue; }
+      // Single-date cards in the past cannot have remaining sessions; skip without spending a page.
+      if (card.firstDate && card.firstDate < today && card.sessionCount === 1) { ctx.skip(card.externalId, card.title, "Single session already past", "ended"); continue; }
+      try {
+        const { html, finalUrl } = await ctx.fetch(card.detailUrl, "detail");
+        const record = parseAimDetail(html, finalUrl, new Date().toISOString(), card);
+        record.evidence.push({ field: "audienceLabels", value: card.audienceLabels, text: card.audienceLabels.join(", ") || null,
+          locator: "listing card badges", method: card.audienceLabels.length ? "explicit" : "absent" });
+        ctx.emit(record);
+      } catch (error) {
+        recordFailure(ctx, card.externalId, error instanceof AimLayoutError ? new Error(`layout check failed – ${error.message}`) : error);
+      }
+    }
+  },
+};

@@ -45,3 +45,27 @@ export function germanDateToIso(text: string): string | null {
 export function berlinDate(instant: Date): string {
   return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Berlin", year: "numeric", month: "2-digit", day: "2-digit" }).format(instant);
 }
+
+const MONTHS = ["januar", "februar", "märz", "april", "mai", "juni", "juli", "august", "september", "oktober", "november", "dezember"];
+
+/** "23. November 2026" / "Sa., 28. November 2026" -> "2026-11-23"; null when no full date is present. */
+export function germanLongDateToIso(text: string): string | null {
+  const m = /(\d{1,2})\.\s*(Januar|Februar|März|Maerz|April|Mai|Juni|Juli|August|September|Oktober|November|Dezember)\s+(\d{4})/i.exec(text);
+  if (!m) return null;
+  const month = MONTHS.indexOf(m[2].toLowerCase().replace("maerz", "märz")) + 1;
+  return germanDateToIso(`${m[1]}.${month}.${m[3]}`);
+}
+
+/** Local Europe/Berlin date and HH:MM for an absolute instant. */
+export function berlinParts(instant: Date): { date: string; time: string } {
+  const parts = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Berlin", hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(instant);
+  return { date: berlinDate(instant), time: parts };
+}
+
+/** "15:00 – 17:00", "17:30 - 20:30 Uhr", "10:00 bis 18:00 Uhr" -> start/end; a lone time gives only a start. */
+export function parseTimeRange(text: string): { start: string | null; end: string | null } {
+  const range = /(\d{1,2}:\d{2})\s*(?:-|–|—|bis)\s*(\d{1,2}:\d{2})/.exec(text);
+  if (range) return { start: range[1].padStart(5, "0"), end: range[2].padStart(5, "0") };
+  const single = /(\d{1,2}:\d{2})/.exec(text);
+  return { start: single ? single[1].padStart(5, "0") : null, end: null };
+}

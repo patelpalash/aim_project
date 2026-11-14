@@ -1,6 +1,6 @@
 # U1 handoff (Umang + Claude): source inspection, adapter boundary, first real record
 
-Branch `codex/umang-data`, 14 November 2026. Covers task **U1** only. Nothing here is published to the public catalogue: scraped records are staged with `reviewStatus: "pending"` until the U4 review/approval service exists.
+Branch `codex/umang-data`, 14 November 2026. Covers task **U1** only. *The committed aim snapshot has since been refreshed by U2 (`aim-20261114T151220`); see [UMANG_U2.md](UMANG_U2.md) for current counts.* Nothing here is published to the public catalogue: scraped records are staged with `reviewStatus: "pending"` until the U4 review/approval service exists.
 
 ## What works now (checked by an actual run)
 

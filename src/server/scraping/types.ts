@@ -2,7 +2,7 @@
  * Server-only scraping types (Umang, U1). Raw evidence stays here and never
  * passes through the public `Offer` read API.
  */
-import type { Issue, Offer } from "../../shared/contracts.ts";
+import type { Format, Issue, Offer } from "../../shared/contracts.ts";
 
 /** How a field value was obtained. "absent" means the source did not state it. */
 export type EvidenceMethod = "explicit" | "derived" | "rule" | "absent";
@@ -33,6 +33,8 @@ export interface SourceRecord {
   providerId: string;
   /** Provider course/event identity (aim: Kursnummer). */
   externalId: string;
+  /** Occurrence identity when one provider record has separately dated occurrences (experimenta ?termin=). */
+  occurrenceKey?: string;
   /** Exact canonical HTTPS detail URL on an allowed provider host. */
   detailUrl: string;
   fetchedAt: string;
@@ -50,6 +52,12 @@ export interface SourceRecord {
   costText: string | null;
   statusText: string | null;
   evidence: FieldEvidence[];
+  /** Cross-check failures found by the adapter (e.g. listing data disagrees with the detail page). */
+  extractionIssues?: Issue[];
+  /** Reviewer-visible notes from the adapter (online event, duplicate layout blocks ignored, ...). */
+  adapterNotes?: string[];
+  /** Provider-stated format (e.g. category "Workshop"); otherwise derived from the session count. */
+  formatHint?: Format;
 }
 
 export type Timing = "upcoming" | "ongoing" | "ended" | "undated";
@@ -94,5 +102,7 @@ export interface ProviderRunResult {
   partialCoverage: boolean;
   pages: PageLog[];
   counts: { listed: number; outOfScope: number; outsideWindow: number; extracted: number; ready: number; blocked: number; failed: number };
+  /** Records seen but not staged, with the reason (out of scope, outside window, ended, page cap). */
+  skipped: { externalId: string; title: string; reason: string }[];
   candidates: Candidate[];
 }
