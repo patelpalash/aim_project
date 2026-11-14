@@ -5,10 +5,10 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 
 ## Current report
 
-- Protocol adoption: adopted 2026-11-14. Read PALASH.md from `origin/codex/palash-integration`. `origin/codex/ishan-design` did not exist on the remote at this checkpoint, so Ishan's report is **not reported**.
-- Last updated (UTC): 2026-11-14T16:45Z. Checkpoint: `origin/main` = `6629eca` (push-recovery guide), merged into this branch with no conflicts; `npm ci`, `npm run check` 102/102, `npm run build` clean after the merge. `origin/codex/ishan-design` still absent.
-- Current task/slice: PALASH-002 and PALASH-003 backend slices are both done. Remaining: U6 rehearsal/verification support, and Ishan's I5 desk UI integration.
-- State: U1–U5 backend implemented. Four live adapters stage records for review. The public read API follows the shared contract. CSV upload, review sessions, inline edits, selected publication, source refresh and reset are available as local desk routes.
+- Protocol adoption: adopted 2026-11-14. Owner reports are read from their remote branches: PALASH.md from `origin/codex/palash-integration`, ISHAN.md from `origin/codex/ishan-design` (present since this checkpoint, tip `a1826f2`).
+- Last updated (UTC): 2026-11-14T17:20Z. Checkpoint: `origin/main` = `6629eca` (already merged here); `origin/codex/ishan-design` = `a1826f2` (I5 organizer desk).
+- Current task/slice: U5 maintenance routes are done (`8a75c3b`). Ishan's desk was checked end-to-end against this backend; U6 rehearsal support is next.
+- State: U1–U5 backend implemented and pushed. Four live adapters, the public read API, CSV/review/publication, source refresh, desk summary and theme/source maintenance are in place.
 - Based on `main` commit: `6629eca` (merged; earlier merges of `0b09fa8` and `2ccc5c8`).
 - Publishing: **resolved.** A normal `git push -u origin codex/umang-data` succeeded at 2026-11-14T16:47Z. `git ls-remote --heads origin codex/umang-data` = `de1635d1ca8227288ed2bac989da88a2e29e8c8d`, equal to the local tip; code commits `97e3e43` (PALASH-002) and `4016c3d` (PALASH-003) are ancestors of the remote tip. All commits listed below are now on GitHub.
 - Next independent task: U6 support. Answer integration questions, re-run sources before rehearsal, and fix whatever Palash's integration finds.
@@ -23,6 +23,19 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
   Acceptance: a written decision in PALASH.md. Continuing with U3/U4 meanwhile.
 
 ## Replies to teammates
+
+- **ISH-REQ-1 -> Ishan: ready.** `/api/offers`, `/api/taxonomy` and `/api/providers` are on `codex/umang-data` (code `97e3e43`, current tip `8a75c3b`), validated with the shared validators.
+  - Checked against your branch: in a local merge of `codex/umang-data` (`8a75c3b`) with `codex/ishan-design` (`a1826f2`), with no conflicts, `/` loads the bundle from the real API through `loadCatalog`.
+  - The status line still reads "Demo-Daten…" because the catalogue contains the 8 demo fixtures, so `mode` is `demo`. It switches to "Geprüfter Katalog" only once no demo records remain.
+- **ISH-REQ-2 -> Ishan: ready.** Admin review routes are on `codex/umang-data` (code `4016c3d` + `8a75c3b`). They are local-only: start the app with `INTEREST_ATLAS_LOCAL_DESK=1`, otherwise they return 404 and your desk shows "not built yet".
+  - Checked in headless Chromium against your `/organizer` page on the merged build:
+    - The CSV upload shows 20 rows: 18 selectable, 2 blocked.
+    - The row editor date fix on `aim-demo-csv-07` makes 19 selectable ("Zeile gespeichert und neu geprüft").
+    - "Ausgewählte veröffentlichen (19)" publishes: `/api/offers` returns 27 offers at `catalogueVersion 1`, and `aim-demo-csv-15` is not public.
+  - Integrated `npm run build` is clean.
+  - Two server fixes were made for your editor's simple fields (`8a75c3b`):
+    - a date edit on a timed row now moves the session and keeps its times (previously it blocked the row)
+    - editing ages re-derives `ageEvidence` (previously a mismatch blocked the row)
 
 - **PALASH-004 -> Palash: resolved.** The normal push works, and the branch is retrievable at https://github.com/patelpalash/aim_project/tree/codex/umang-data (tip `de1635d1ca8227288ed2bac989da88a2e29e8c8d`, verified with `git ls-remote`). A zip with the same commits (git bundle + instructions) is also being sent as a backup only. Fetching the branch is the primary route.
 - **PALASH-004 (earlier diagnostics, kept for reference):** Diagnostics, credentials redacted:
@@ -75,6 +88,20 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
     - `lastReviewedAt` in `sourceStatuses` is still null.
     - No desk UI from my side; Ishan owns it.
 
+- **UMANG-002 -> Ishan (I5 desk, needed before rehearsal):** these came out of the integration check above.
+  1. **Error messages.** `request()` in `src/components/organizer/api.ts` reads `body.message ?? body.error`, but the agreed envelope (CONTRACT.md) is `{ error: { code, message, issues } }`, so errors would display "[object Object]". Please read `body.error?.message` and show `issues[].message`.
+  2. **Publish result disappears.** In `onApprove`, `adoptSession()` runs after `setApproveResult(result)` and resets it to null, so the "Veröffentlichung abgeschlossen" panel never stays visible, although publishing succeeded.
+  3. **Newly available routes for "Quellen & Themen"** (all local-only):
+     - `GET /api/admin/summary`: catalogue version, per-source status, synthetic demo gaps.
+     - `GET /api/admin/scrape-runs/:runId`: poll after "Aktualisieren".
+     - `POST /api/admin/imports/from-source {providerId}`: stage the last source run as a review session.
+     - `GET /api/admin/source-runs/:providerId/latest`: field evidence for a row.
+     - `GET/POST /api/admin/topics`, body `{kind:"topic"|"interest", id, label:{de,en}, enabled, topicIds}`.
+     - `GET/POST /api/admin/providers`, body `{id, name, discoveryUrl, enabled}`. A new source is created CSV-only, `adapter: "none"`.
+     - `POST /api/admin/reset {resetDemo:true}`.
+  - Acceptance: the desk can refresh a source and see its status, review a source run, add or disable a theme, and add a CSV-only source, all without editing files. This is the PDF maintenance demonstration.
+  - Continuing meanwhile: U6 rehearsal checks.
+
 ## Ready slices
 
 All on `origin/codex/umang-data` (verified 2026-11-14T16:47Z).
@@ -83,6 +110,7 @@ All on `origin/codex/umang-data` (verified 2026-11-14T16:47Z).
 | --- | --- | --- | --- | --- |
 | aim adapter, normalization core, first real record | U1 | `eb5db20` | `src/server/scraping/{types,html,berlin-time,providers,fetcher,runner,cli}.ts`, `src/server/scraping/adapters/aim.ts`, `src/server/normalize/*`, `tests/aim-adapter.test.ts` | live aim run; 34/34 tests at that commit |
 | experimenta, Haus der Familie, IPAI adapters; shared runner | U2 | `832d3f6` | `src/server/scraping/adapters/{experimenta,hdf,ipai,index}.ts`, `tests/source-adapters.test.ts`, `tests/fixtures/**` | live four-source run; 46/46 tests at that commit; records spot-checked against source pages |
+| Desk summary, theme/source maintenance, desk-compatible edits | U5 | `8a75c3b` | `src/server/config/maintenance.ts`, `src/server/review/{http,service}.ts`, `src/app/api/admin/{summary,topics,providers}`, `data/demo-gap-requests.json`, `tests/maintenance.test.ts` | 106/106 tests; integrated build with Ishan's branch; headless desk flow |
 | CSV intake, review sessions, selected publication, refresh, reset | U3/U4/U5, PALASH-003 | `4016c3d` | `src/server/review/*`, `src/app/api/admin/**`, `data/demo-upload.csv`, `tests/review-service.test.ts` | live `next start` walk-through; 102/102 tests; clean build |
 | Public read API on the shared contract | U1/U5, PALASH-002 | `97e3e43` | `src/server/catalog/read.ts`, `src/app/api/{offers,taxonomy,providers}/route.ts`, `tests/catalog-api.test.ts` | as listed under PALASH-002 |
 

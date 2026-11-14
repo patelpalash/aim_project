@@ -20,6 +20,7 @@ import {
 } from "../../shared/review.ts";
 import { loadProviders, isAllowedUrl } from "../scraping/providers.ts";
 import type { Candidate } from "../scraping/types.ts";
+import { berlinLocalToIso, berlinParts } from "../scraping/berlin-time.ts";
 
 export const SESSION_TTL_MS = 30 * 60_000;
 
@@ -172,8 +173,35 @@ export function patchRow(importId: string, rowId: string, request: unknown, opts
     else if (key === "sourceUrl") draft.source = { ...(draft.source as object), url: value };
     else draft[key] = value;
   }
-  // A corrected date-only field means date-only precision unless the editor sent timestamps.
-  if ("startDate" in request.changes && !("schedulePrecision" in request.changes) && !draft.startsAt) draft.schedulePrecision = "date-only";
+  const changes = request.changes as Record<string, unknown>;
+  // Date edit from a simple date field: keep the published times on a timed record (move the session),
+  // otherwise the record becomes date-only. Never invent a time.
+  if ("startDate" in changes && !("schedulePrecision" in changes) && !("startsAt" in changes)) {
+    const day = changes.startDate as string | null;
+    const prevStart = typeof row.draft?.startsAt === "string" ? row.draft.startsAt : row.candidate?.startsAt ?? null;
+    const prevEnd = typeof row.draft?.endsAt === "string" ? row.draft.endsAt : row.candidate?.endsAt ?? null;
+    if (day && prevStart) {
+      const start = berlinLocalToIso(day, berlinParts(new Date(prevStart)).time);
+      const sameDayEnd = prevEnd && berlinParts(new Date(prevEnd)).date === berlinParts(new Date(prevStart)).date;
+      draft.startsAt = start;
+      draft.endsAt = prevEnd && sameDayEnd ? berlinLocalToIso(day, berlinParts(new Date(prevEnd)).time) : null;
+      draft.schedulePrecision = start ? "date-time" : "unknown";
+      delete draft.startDate; delete draft.endDate;
+    } else if (day) {
+      draft.schedulePrecision = "date-only";
+      draft.startsAt = null; draft.endsAt = null;
+      if (!("endDate" in changes) || !draft.endDate || (draft.endDate as string) < day) draft.endDate = day;
+    } else {
+      draft.schedulePrecision = "unknown";
+      draft.startsAt = null; draft.endsAt = null; delete draft.startDate; delete draft.endDate;
+    }
+  }
+  // Age edit without explicit evidence: the evidence kind follows the edited published bounds.
+  if (("minAge" in changes || "maxAge" in changes) && !("ageEvidence" in changes)) {
+    const min = draft.minAge as number | null, max = draft.maxAge as number | null;
+    const kind = min !== null && max !== null ? "range" : min !== null ? "minimum-only" : max !== null ? "maximum-only" : "unknown";
+    draft.ageEvidence = { kind };
+  }
   draft.reviewStatus = "pending";
   const published = readPublished(store);
   const ctx: Context = { taxonomy: opts.taxonomy, providerId: session.providerId, mode: session.mode, published: new Map(published.offers.map(o => [o.id, o])) };
