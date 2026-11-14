@@ -1,18 +1,21 @@
 "use client";
 
-import type { Taxonomy } from "@/shared/contracts";
-import type { ProviderSummary } from "@/shared/api-contract";
-import { validateProvidersResponse } from "@/shared/api-contract";
-import { validateTaxonomy } from "@/shared/taxonomy";
-import { validateReviewSession, type ReviewFieldPatch, type ReviewSession } from "@/shared/review";
+import type { Taxonomy } from "../../shared/contracts.ts";
+import type { ProviderSummary, SourceStatus } from "../../shared/api-contract.ts";
+import { validateCatalogResponse, validateProvidersResponse } from "../../shared/api-contract.ts";
+import { validateTaxonomy } from "../../shared/taxonomy.ts";
+import { validateReviewSession, type ReviewFieldPatch, type ReviewSession } from "../../shared/review.ts";
+import { isRecord } from "../../shared/validation.ts";
 
 /**
- * Thin client for Umang's admin routes (docs/CONTRACT.md). Every call validates the response
- * through the shared validators. A 404 means the route is not built yet (U-tasks): that state is
- * surfaced as `ServiceMissingError` so the UI can say so honestly instead of pretending.
+ * Thin client for the local desk. Disabled/missing routes and expired sessions are distinct.
+ * Shared catalog/review validators keep client and service payloads aligned.
  */
 export class ServiceMissingError extends Error { constructor() { super("Review service not available yet"); this.name = "ServiceMissingError"; } }
-export class AdminApiError extends Error { constructor(message: string, readonly status?: number) { super(message); this.name = "AdminApiError"; } }
+export class AdminApiError extends Error {
+  readonly status?: number;
+  constructor(message: string, status?: number) { super(message); this.name = "AdminApiError"; this.status = status; }
+}
 
 async function request(url: string, init?: RequestInit): Promise<unknown> {
   let response: Response;
@@ -21,13 +24,18 @@ async function request(url: string, init?: RequestInit): Promise<unknown> {
   // A route that does not exist yet answers 404, or — for a method the dev server does not route —
   // 405/409/501 with an HTML error page. None of those are real review errors.
   const json = (response.headers.get("content-type") ?? "").includes("json");
-  if (response.status === 404 || ([405, 409, 501].includes(response.status) && !json)) throw new ServiceMissingError();
+  let payload: unknown;
+  try { payload = json ? await response.json() : null; } catch { throw new AdminApiError("Antwort ist kein gültiges JSON.", response.status); }
+  const envelope = isRecord(payload) && isRecord(payload.error) ? payload.error : null;
+  if ((response.status === 404 && (!json || envelope?.code === "DESK_DISABLED" || envelope?.message === "Not available.")) ||
+      ([405, 409, 501].includes(response.status) && !json)) throw new ServiceMissingError();
   if (!response.ok) {
-    let message = `Fehler ${response.status}`;
-    try { const body = await response.json() as { message?: string; error?: string }; message = body.message ?? body.error ?? message; } catch { /* keep status text */ }
+    const message = typeof envelope?.message === "string" ? envelope.message
+      : isRecord(payload) && typeof payload.message === "string" ? payload.message : `Fehler ${response.status}`;
     throw new AdminApiError(message, response.status);
   }
-  try { return await response.json(); } catch { throw new AdminApiError("Antwort ist kein JSON."); }
+  if (!json) throw new AdminApiError("Antwort ist kein JSON.");
+  return payload;
 }
 
 function toSession(input: unknown, taxonomy?: Taxonomy): ReviewSession {
@@ -81,4 +89,27 @@ export async function startScrapeRun(providerId: string | "all"): Promise<{ runI
   }) as { runId?: string; status?: string };
   if (!result?.runId) throw new AdminApiError("Scrape-Antwort ungültig.");
   return { runId: result.runId, status: result.status ?? "queued" };
+}
+
+export interface ScrapeRun {
+  runId: string;
+  status: "queued" | "running" | "done";
+  results: { providerId: string; status: string; message: string }[];
+}
+export async function fetchScrapeRun(runId: string): Promise<ScrapeRun> {
+  const value = await request(`/api/admin/scrape-runs/${encodeURIComponent(runId)}`);
+  if (!isRecord(value) || value.runId !== runId || !["queued", "running", "done"].includes(String(value.status)) ||
+      !Array.isArray(value.results) || value.results.some(r => !isRecord(r) || typeof r.providerId !== "string" || typeof r.status !== "string" || typeof r.message !== "string"))
+    throw new AdminApiError("Quellenstatus ist ungültig.");
+  return value as unknown as ScrapeRun;
+}
+export async function importFromSource(providerId: string, taxonomy?: Taxonomy): Promise<ReviewSession> {
+  return toSession(await request("/api/admin/imports/from-source", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ providerId })
+  }), taxonomy);
+}
+export async function fetchSourceStatuses(taxonomy?: Taxonomy): Promise<SourceStatus[]> {
+  const parsed = validateCatalogResponse(await request("/api/offers"), taxonomy);
+  if (!parsed.ok) throw new AdminApiError("Katalogstatus ist ungültig.");
+  return parsed.catalog.sourceStatuses ?? [];
 }

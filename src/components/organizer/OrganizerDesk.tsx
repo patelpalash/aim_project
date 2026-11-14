@@ -3,11 +3,10 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
 import type { Offer, Taxonomy } from "@/shared/contracts";
-import type { ProviderSummary } from "@/shared/api-contract";
+import type { ProviderSummary, SourceStatus } from "@/shared/api-contract";
 import { countReviewRows, validateReviewSession, type ReviewFieldPatch, type ReviewRow, type ReviewSession } from "@/shared/review";
-import { validateTaxonomy } from "@/shared/taxonomy";
 import { formatPrice } from "../atlas/format";
-import { AdminApiError, ServiceMissingError, approveRows, fetchProviders, fetchSession, fetchTaxonomy, patchRow, startScrapeRun, uploadCsv, type ApproveResult } from "./api";
+import { AdminApiError, ServiceMissingError, approveRows, fetchProviders, fetchSession, fetchTaxonomy, fetchSourceStatuses, fetchScrapeRun, importFromSource, patchRow, startScrapeRun, uploadCsv, type ApproveResult, type ScrapeRun } from "./api";
 import "./organizer.css";
 
 const STATE_LABEL: Record<ReviewRow["state"], string> = {
@@ -16,6 +15,7 @@ const STATE_LABEL: Record<ReviewRow["state"], string> = {
 const STATE_TONE: Record<ReviewRow["state"], string> = { "ready-new": "ok", "ready-update": "ok", "needs-review": "warn", blocked: "bad", unchanged: "muted" };
 const AVAILABILITIES = ["available", "full", "cancelled", "unknown"] as const;
 const AVAIL_LABEL: Record<string, string> = { available: "Plätze frei", full: "Ausgebucht", cancelled: "Abgesagt", unknown: "Unbekannt" };
+const selectableRow = (row: ReviewRow) => row.candidate !== null && row.state !== "blocked" && row.state !== "unchanged" && row.issues.length === 0;
 
 /**
  * I5: the organizer desk — CSV template/upload, readable row states, inline correction via the
@@ -39,6 +39,9 @@ export function OrganizerDesk() {
   const [error, setError] = useState<string | null>(null);
   const [notice, setNotice] = useState<string | null>(null);
   const [approveResult, setApproveResult] = useState<ApproveResult | null>(null);
+  const [statuses, setStatuses] = useState<SourceStatus[]>([]);
+  const [scrape, setScrape] = useState<ScrapeRun | null>(null);
+  const [watchRunId, setWatchRunId] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -48,27 +51,44 @@ export function OrganizerDesk() {
         const [p, t] = await Promise.all([fetchProviders(), fetchTaxonomy()]);
         if (!alive) return;
         setProviders(p); setTaxonomy(t); setProviderId(prev => prev || p[0]?.id || "");
+        const nextStatuses = await fetchSourceStatuses(t);
+        if (alive) setStatuses(nextStatuses);
       } catch {
-        // Public config routes are not up yet: fall back to the repo fixtures, visibly.
-        try {
-          const [p, t] = await Promise.all([
-            import("../../../data/providers.json").then(m => ((m.default ?? m) as { id: string; name: string; discoveryUrl: string }[]).map(x => ({ id: x.id, name: x.name, discoveryUrl: x.discoveryUrl }))),
-            import("../../../data/taxonomy.json").then(m => {
-              const valid = validateTaxonomy(m.default ?? m);
-              return valid.ok ? valid.taxonomy : null;
-            })
-          ]);
-          if (!alive) return;
-          setProviders(p); setTaxonomy(t); setPublicApiMissing(true); setProviderId(prev => prev || p[0]?.id || "");
-        } catch { if (alive) setError("Konfiguration konnte nicht geladen werden."); }
+        if (alive) { setPublicApiMissing(true); setError("Konfiguration oder Quellenstatus konnten nicht geladen werden. Bitte erneut laden."); }
       }
     })();
     return () => { alive = false; };
   }, []);
 
+  useEffect(() => {
+    if (!watchRunId) return;
+    let alive = true;
+    let timer: ReturnType<typeof setTimeout>;
+    const deadline = Date.now() + 120_000;
+    const poll = async () => {
+      try {
+        const next = await fetchScrapeRun(watchRunId);
+        if (!alive) return;
+        setScrape(next);
+        if (next.status === "done") {
+          setNotice("Quellenlauf beendet. Änderungen bleiben bis zu deiner Prüfung unveröffentlicht.");
+          const nextStatuses = await fetchSourceStatuses(taxonomy ?? undefined);
+          if (alive) { setStatuses(nextStatuses); setWatchRunId(null); }
+        } else if (Date.now() >= deadline) {
+          setWatchRunId(null);
+          setNotice("Der Lauf dauert noch an. Du kannst seinen Status erneut prüfen.");
+        } else timer = setTimeout(poll, 1000);
+      } catch (err) {
+        if (alive) { setWatchRunId(null); setError(err instanceof Error ? err.message : "Quellenstatus konnte nicht geladen werden."); }
+      }
+    };
+    void poll();
+    return () => { alive = false; clearTimeout(timer); };
+  }, [watchRunId, taxonomy]);
+
   const adoptSession = useCallback((next: ReviewSession, local: boolean) => {
     setSession(next); setLocalOnly(local); setApproveResult(null); setOpenRow(null);
-    setSelected(prev => next.rows.filter(r => prev.includes(r.rowId) && r.state.startsWith("ready")).map(r => r.rowId));
+    setSelected(prev => next.rows.filter(r => prev.includes(r.rowId) && selectableRow(r)).map(r => r.rowId));
   }, []);
 
   const run = async (label: string, work: () => Promise<void>) => {
@@ -97,10 +117,10 @@ export function OrganizerDesk() {
 
   const onApprove = () => session && run("approve", async () => {
     const result = await approveRows(session.importId, selected, session.revision);
-    setApproveResult(result);
     setNotice(null);
     const next = await fetchSession(session.importId, taxonomy ?? undefined).catch(() => null);
     if (next) adoptSession(next, false);
+    setApproveResult(result);
   });
 
   const loadExample = () => run("example", async () => {
@@ -112,7 +132,7 @@ export function OrganizerDesk() {
   });
 
   const counts = useMemo(() => (session ? countReviewRows(session.rows) : null), [session]);
-  const readyIds = session?.rows.filter(r => r.state.startsWith("ready")).map(r => r.rowId) ?? [];
+  const readyIds = session?.rows.filter(selectableRow).map(r => r.rowId) ?? [];
 
   return (
     <div className="org">
@@ -128,11 +148,11 @@ export function OrganizerDesk() {
       </header>
 
       <main className="wrap org__main">
-        {publicApiMissing ? <p className="status-line" data-tone="warn">Konfigurations-API fehlt noch; Anbieter und Themen kommen aus den Repo-Fixtures.</p> : null}
+        {publicApiMissing ? <p className="status-line" data-tone="warn">Verbindung zur Konfiguration prüfen und die Seite erneut laden.</p> : null}
         {adminMissing ? (
           <div className="panel org__missing">
-            <h2>Der Review-Server ist noch nicht da.</h2>
-            <p className="muted">Upload, Korrektur und Veröffentlichen laufen über die /api/admin-Routen (Umangs Aufgabe U4/U5), die noch 404 liefern. Sobald sie da sind, funktioniert diese Seite ohne Änderung.</p>
+            <h2>Der Wartungsbereich ist nicht freigeschaltet.</h2>
+            <p className="muted">Die lokale Demo muss mit aktivierter Wartung gestartet werden. Die öffentliche Ansicht gibt keine Schreibrechte frei.</p>
             <div className="row">
               <button type="button" className="btn" onClick={loadExample} disabled={busy !== null}>Beispiel-Session ansehen (Demo)</button>
               <button type="button" className="btn" onClick={() => setAdminMissing(false)}>Nochmal versuchen</button>
@@ -193,13 +213,13 @@ export function OrganizerDesk() {
                 <div className="org__rows">
                   {session.rows.map((row, n) => {
                     const title = row.candidate?.title.de || (row.draft as { title?: { de?: string } } | undefined)?.title?.de || "(ohne Titel)";
-                    const selectable = row.state.startsWith("ready") && !localOnly;
+                    const selectable = selectableRow(row) && !localOnly;
                     return (
                       <article key={row.rowId} className={`org-row panel${openRow === row.rowId ? " is-open" : ""}`} style={{ "--i": Math.min(n, 10) } as CSSProperties}>
                         <div className="org-row__line">
                           <input type="checkbox" id={`sel-${row.rowId}`} checked={selected.includes(row.rowId)} disabled={!selectable}
                             onChange={e => setSelected(s => (e.target.checked ? [...s, row.rowId] : s.filter(x => x !== row.rowId)))}
-                            aria-label={`${title} zum Veröffentlichen auswählen`} />
+                            aria-label={`${title} geprüft, zum Veröffentlichen auswählen`} />
                           <span className="org-row__state" data-tone={STATE_TONE[row.state]}>{STATE_LABEL[row.state]}</span>
                           <div className="org-row__title">
                             <h3>{title}</h3>
@@ -219,6 +239,7 @@ export function OrganizerDesk() {
                             {row.issues.map((issue, i) => <li key={i}><code>{issue.path}</code> {issue.message}</li>)}
                           </ul>
                         ) : null}
+                        {session.notes?.[row.rowId]?.length ? <ul className="org-row__issues">{session.notes[row.rowId]!.map((note, i) => <li key={i}>{note}</li>)}</ul> : null}
                         {openRow === row.rowId ? (
                           <RowEditor row={row} disabled={localOnly || busy !== null} busy={busy === `patch:${row.rowId}`}
                             onSave={changes => onPatch(row, changes)} />
@@ -229,7 +250,7 @@ export function OrganizerDesk() {
                 </div>
                 <div className="org__publish panel">
                   <p>
-                    <strong>{selected.length}</strong> von {readyIds.length} bereiten Zeilen ausgewählt.
+                    <strong>{selected.length}</strong> von {readyIds.length} gültigen Zeilen ausgewählt. Wähle nur Zeilen, die du inhaltlich geprüft hast.
                     {counts?.blocked ? ` ${counts.blocked} blockierte Zeilen können nicht veröffentlicht werden.` : ""}
                   </p>
                   <div className="row">
@@ -252,9 +273,15 @@ export function OrganizerDesk() {
             ) : null}
           </>
         ) : (
-          <SourcesPanel providers={providers} taxonomy={taxonomy} disabled={adminMissing || busy !== null}
+          <SourcesPanel providers={providers} taxonomy={taxonomy} statuses={statuses} scrape={scrape} watching={watchRunId !== null}
+            disabled={adminMissing || busy !== null || watchRunId !== null}
+            onCheckRun={() => scrape && setWatchRunId(scrape.runId)}
+            onReview={pid => run("source-review", async () => {
+              adoptSession(await importFromSource(pid, taxonomy ?? undefined), false); setTab("review");
+            })}
             onScrape={pid => run("scrape", async () => {
               const r = await startScrapeRun(pid);
+              setScrape({ runId: r.runId, status: "queued", results: [] }); setWatchRunId(r.runId);
               setNotice(`Lauf ${r.runId} gestartet (${r.status}).`);
             })} notice={notice} error={error} />
         )}
@@ -310,8 +337,10 @@ function RowEditor({ row, disabled, busy, onSave }: { row: ReviewRow; disabled: 
   );
 }
 
-function SourcesPanel({ providers, taxonomy, disabled, onScrape, notice, error }: {
+function SourcesPanel({ providers, taxonomy, disabled, onScrape, onReview, statuses, scrape, watching, onCheckRun, notice, error }: {
   providers: ProviderSummary[]; taxonomy: Taxonomy | null; disabled: boolean;
+  statuses: SourceStatus[]; scrape: ScrapeRun | null; watching: boolean; onCheckRun: () => void;
+  onReview: (providerId: string) => void;
   onScrape: (providerId: string | "all") => void; notice: string | null; error: string | null;
 }) {
   return (
@@ -322,13 +351,18 @@ function SourcesPanel({ providers, taxonomy, disabled, onScrape, notice, error }
       </div>
       {error ? <p className="status-line" data-tone="bad" role="alert">{error}</p> : null}
       {notice ? <p className="status-line" data-tone="ok" role="status">{notice}</p> : null}
+      {scrape ? <div className="panel" role="status"><p>Lauf {scrape.runId}: {scrape.status === "done" ? "beendet" : "läuft"}</p>
+        {scrape.results.map(result => <p key={result.providerId}>{result.providerId}: {result.message}</p>)}
+        {!watching && scrape.status !== "done" ? <button className="btn" onClick={onCheckRun}>Status erneut prüfen</button> : null}</div> : null}
       {disabled ? <p className="muted">Quellen-Läufe brauchen den Review-Server (U-Aufgaben).</p> : null}
       <div className="org__provider-grid">
         {providers.map(p => (
           <article key={p.id} className="panel org-provider">
             <h3>{p.name}</h3>
+            {statuses.filter(s => s.providerId === p.id).map(s => <p key={s.providerId} className="muted">{s.message} {s.extractedCount} erfasst, {s.rejectedCount} nicht bereit. {s.lastSuccessfulImportAt ? `Datenstand: ${new Date(s.lastSuccessfulImportAt).toLocaleString("de-DE", { timeZone: "Europe/Berlin" })}` : "Noch kein erfolgreicher Abruf."}</p>)}
             {p.discoveryUrl ? <a href={p.discoveryUrl} target="_blank" rel="noreferrer">Quellseite öffnen</a> : <p className="muted">Keine Quellseite hinterlegt.</p>}
             <button type="button" className="btn" disabled={disabled} onClick={() => onScrape(p.id)}>Aktualisieren</button>
+            <button type="button" className="btn" disabled={disabled} onClick={() => onReview(p.id)}>Änderungen prüfen</button>
           </article>
         ))}
       </div>

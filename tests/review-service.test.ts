@@ -161,19 +161,19 @@ test("HTTP desk: 404 unless local flag; upload -> patch -> approve over Request/
     assert.equal(up.status, 201);
     const session = await up.json() as { importId: string; counts: Record<string, number> };
     assert.equal(session.counts["ready-new"], 18);
-    const fix = await http.patchImportRow(new Request("http://x", { method: "PATCH", body: JSON.stringify({ revision: 1, changes: { startDate: "2026-12-20" } }) }), session.importId, "aim-demo-csv-07");
+    const fix = await http.patchImportRow(new Request("http://localhost", { method: "PATCH", body: JSON.stringify({ revision: 1, changes: { startDate: "2026-12-20" } }) }), session.importId, "aim-demo-csv-07");
     assert.equal(fix.status, 200);
-    const stale = await http.patchImportRow(new Request("http://x", { method: "PATCH", body: JSON.stringify({ revision: 1, changes: { priceEur: 3 } }) }), session.importId, "aim-demo-csv-01");
+    const stale = await http.patchImportRow(new Request("http://localhost", { method: "PATCH", body: JSON.stringify({ revision: 1, changes: { priceEur: 3 } }) }), session.importId, "aim-demo-csv-01");
     assert.equal(stale.status, 409);
     const current = await (await http.getImport(session.importId)).json() as { revision: number; rows: { rowId: string; state: string }[] };
     const ids = current.rows.filter(r => r.state !== "blocked").map(r => r.rowId);
-    const ok = await http.postApprove(new Request("http://x", { method: "POST", body: JSON.stringify({ approve: true, rowIds: ids, revision: current.revision }) }), session.importId);
+    const ok = await http.postApprove(new Request("http://localhost", { method: "POST", body: JSON.stringify({ approve: true, rowIds: ids, revision: current.revision }) }), session.importId);
     assert.equal(ok.status, 200);
     assert.equal((await ok.json() as { publishedCount: number }).publishedCount, 19);
-    const blocked = await http.postApprove(new Request("http://x", { method: "POST", body: JSON.stringify({ approve: true, rowIds: ["aim-demo-csv-15"], revision: current.revision }) }), session.importId);
+    const blocked = await http.postApprove(new Request("http://localhost", { method: "POST", body: JSON.stringify({ approve: true, rowIds: ["aim-demo-csv-15"], revision: current.revision }) }), session.importId);
     assert.equal(blocked.status, 400);
-    assert.equal((await http.postReset(new Request("http://x", { method: "POST", body: "{}" }))).status, 400);
-    assert.equal((await http.postReset(new Request("http://x", { method: "POST", body: JSON.stringify({ resetDemo: true }) }))).status, 200);
+    assert.equal((await http.postReset(new Request("http://localhost", { method: "POST", body: "{}" }))).status, 400);
+    assert.equal((await http.postReset(new Request("http://localhost", { method: "POST", body: JSON.stringify({ resetDemo: true }) }))).status, 200);
   } finally {
     delete process.env.INTEREST_ATLAS_LOCAL_DESK;
     process.chdir(cwd);

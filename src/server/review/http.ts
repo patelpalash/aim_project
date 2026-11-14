@@ -17,8 +17,21 @@ const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
 const fail = (status: number, code: string, message: string, issues: unknown[] = []) => json({ error: { code, message, issues } }, status);
 
-async function desk(fn: () => Promise<Response> | Response): Promise<Response> {
-  if (!localDeskEnabled()) return fail(404, "NOT_FOUND", "Not available.");
+/** Local writes also reject cross-site browser requests; a parent-view switch grants no access. */
+function localWrite(request: Request): boolean {
+  try {
+    const url = new URL(request.url);
+    const local = (host: string) => ["localhost", "127.0.0.1", "[::1]"].includes(host);
+    const destination = new URL(`${url.protocol}//${request.headers.get("host") ?? url.host}`);
+    if (!local(url.hostname) || !local(destination.hostname) || destination.username || destination.password) return false;
+    if (request.headers.get("sec-fetch-site") === "cross-site") return false;
+    const origin = request.headers.get("origin");
+    return !origin || origin === destination.origin;
+  } catch { return false; }
+}
+async function desk(fn: () => Promise<Response> | Response, request?: Request): Promise<Response> {
+  if (!localDeskEnabled()) return fail(404, "DESK_DISABLED", "Not available.");
+  if (request && !localWrite(request)) return fail(403, "LOCAL_ONLY", "Maintenance writes require a same-origin localhost request.");
   try { return await fn(); }
   catch (error) {
     if (error instanceof ReviewError) return fail(error.status, error.code, error.message, error.issues);
@@ -53,7 +66,7 @@ export const postUpload = (request: Request) => desk(async () => {
     return { rowId: c.rowKey, draft: c.offer as unknown as Record<string, unknown>, issues: c.issues, notes: c.notes };
   });
   return json(createSession({ providerId, mode, drafts, taxonomy: loadTaxonomy() }), 201);
-});
+}, request);
 
 /** Stage the latest stored source run of a provider into a review session. */
 export const postImportFromSource = (request: Request) => desk(async () => {
@@ -65,21 +78,21 @@ export const postImportFromSource = (request: Request) => desk(async () => {
   const run = JSON.parse(readFileSync(file, "utf8")) as ProviderRunResult;
   if (!run.candidates.length) return fail(400, "EMPTY_RUN", "The last run staged no candidates.");
   return json(createSession({ providerId, mode: "source", drafts: draftsFromCandidates(run.candidates.slice(0, 100)), taxonomy: loadTaxonomy() }), 201);
-});
+}, request);
 
 export const getImport = (importId: string) => desk(() => json(getSession(importId)));
 
 export const patchImportRow = (request: Request, importId: string, rowId: string) =>
-  desk(async () => json(patchRow(importId, rowId, await body(request), { taxonomy: loadTaxonomy() })));
+  desk(async () => json(patchRow(importId, rowId, await body(request), { taxonomy: loadTaxonomy() })), request);
 
 export const postApprove = (request: Request, importId: string) =>
-  desk(async () => json(approve(importId, await body(request), { taxonomy: loadTaxonomy() })));
+  desk(async () => json(approve(importId, await body(request), { taxonomy: loadTaxonomy() })), request);
 
 export const postReset = (request: Request) => desk(async () => {
   const input = await body(request) as { resetDemo?: unknown };
   if (input?.resetDemo !== true) return fail(400, "MALFORMED", "Send { \"resetDemo\": true } to confirm.");
   return json(resetDemo());
-});
+}, request);
 
 // ---- Source refresh: bounded background run, polled status (visitor requests never wait for it).
 type RunState = { runId: string; providerIds: string[]; status: "queued" | "running" | "done"; results: Pick<ProviderRunResult, "providerId" | "runId" | "status" | "message" | "counts">[] };
@@ -111,7 +124,7 @@ export const postScrapeRun = (request: Request) => desk(async () => {
     }
   })();
   return json({ runId: state.runId, status: "queued" }, 202);
-});
+}, request);
 
 export const getScrapeRun = (runId: string) => desk(() => {
   const state = runs.get(runId);
