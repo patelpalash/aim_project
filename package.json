@@ -1,0 +1,19 @@
+{
+  "name": "aim-interest-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Shared starter for the AIM Learning Guide hackathon. The application UI and server are planned separately.",
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run typecheck && npm test"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "typescript": "^7.0.2"
+  }
+}

@@ -1,0 +1,91 @@
+[
+  {
+    "id": "demo-aim-game-1",
+    "providerId": "aim",
+    "externalId": "demo-game-lab",
+    "title": {
+      "de": "Demo: Baue dein erstes Spiel",
+      "en": "Demo: Build your first game"
+    },
+    "summary": {
+      "de": "Erfinde eine Spielfigur und baue ein kleines Spiel.",
+      "en": "Invent a character and build a small game."
+    },
+    "topics": [
+      "coding",
+      "gaming"
+    ],
+    "interests": [
+      "build-games",
+      "tell-stories"
+    ],
+    "audiences": [
+      "children",
+      "teens"
+    ],
+    "format": "workshop",
+    "minAge": 10,
+    "maxAge": 15,
+    "startsAt": "2026-11-21T10:00:00+01:00",
+    "endsAt": "2026-11-21T12:00:00+01:00",
+    "timeZone": "Europe/Berlin",
+    "priceEur": 4,
+    "venue": {
+      "name": "Demo-Ort aim",
+      "city": "Heilbronn",
+      "access": "unknown"
+    },
+    "availability": "available",
+    "reviewStatus": "pending",
+    "source": {
+      "kind": "demo",
+      "url": null,
+      "fetchedAt": null,
+      "verifiedAt": null
+    }
+  },
+  {
+    "id": "demo-ipai-art-2",
+    "providerId": "ipai",
+    "externalId": "demo-ai-art",
+    "title": {
+      "de": "Demo: Bilder und KI entdecken",
+      "en": "Demo: Explore pictures and AI"
+    },
+    "summary": {
+      "de": "Entdecke gemeinsam, wie Computer Muster in Bildern finden.",
+      "en": "Explore together how computers find patterns in pictures."
+    },
+    "topics": [
+      "ai"
+    ],
+    "interests": [
+      "make-art",
+      "solve-puzzles"
+    ],
+    "audiences": [
+      "families",
+      "teens"
+    ],
+    "format": "drop-in",
+    "minAge": 10,
+    "maxAge": 17,
+    "startsAt": "2026-11-28T13:00:00+01:00",
+    "endsAt": "2026-11-28T15:00:00+01:00",
+    "timeZone": "Europe/Berlin",
+    "priceEur": 0,
+    "venue": {
+      "name": "Demo-Ort IPAI",
+      "city": "Heilbronn",
+      "access": "unknown"
+    },
+    "availability": "available",
+    "reviewStatus": "pending",
+    "source": {
+      "kind": "demo",
+      "url": null,
+      "fetchedAt": null,
+      "verifiedAt": null
+    }
+  }
+]

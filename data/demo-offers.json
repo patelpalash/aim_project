@@ -1,0 +1,90 @@
+[
+  {
+    "id": "demo-aim-game-1", "providerId": "aim", "externalId": "demo-game-lab",
+    "title": { "de": "Demo: Baue dein erstes Spiel", "en": "Demo: Build your first game" },
+    "summary": { "de": "Erfinde eine Spielfigur und baue ein kleines Spiel.", "en": "Invent a character and build a small game." },
+    "topics": ["coding", "gaming"], "interests": ["build-games", "tell-stories"],
+    "audiences": ["children", "teens"], "format": "workshop", "minAge": 10, "maxAge": 15,
+    "startsAt": "2026-11-21T10:00:00+01:00", "endsAt": "2026-11-21T12:00:00+01:00", "timeZone": "Europe/Berlin", "priceEur": 0,
+    "venue": { "name": "Demo-Ort aim", "city": "Heilbronn", "access": "unknown" },
+    "availability": "available", "reviewStatus": "approved",
+    "source": { "kind": "demo", "url": null, "fetchedAt": null, "verifiedAt": null }
+  },
+  {
+    "id": "demo-aim-robot-1", "providerId": "aim", "externalId": "demo-robot-lab",
+    "title": { "de": "Demo: Roboter auf Mission", "en": "Demo: Robots on a mission" },
+    "summary": { "de": "Löse kleine Rätsel und gib einem Roboter Befehle.", "en": "Solve small puzzles and give a robot instructions." },
+    "topics": ["coding", "ai"], "interests": ["robots", "solve-puzzles"],
+    "audiences": ["children"], "format": "course", "minAge": 8, "maxAge": 12,
+    "startsAt": "2026-11-22T10:00:00+01:00", "endsAt": "2026-11-22T12:00:00+01:00", "timeZone": "Europe/Berlin", "priceEur": 0,
+    "venue": { "name": "Demo-Ort aim", "city": "Heilbronn", "access": "unknown" },
+    "availability": "full", "reviewStatus": "approved",
+    "source": { "kind": "demo", "url": null, "fetchedAt": null, "verifiedAt": null }
+  },
+  {
+    "id": "demo-experimenta-code-1", "providerId": "experimenta", "externalId": "demo-puzzle-studio",
+    "title": { "de": "Demo: Code knacken", "en": "Demo: Crack the code" },
+    "summary": { "de": "Teste mit anderen clevere Ideen für ein Rätselspiel.", "en": "Try clever ideas for a puzzle game together." },
+    "topics": ["coding", "gaming"], "interests": ["solve-puzzles", "build-games"],
+    "audiences": ["children", "families"], "format": "workshop", "minAge": 9, "maxAge": 14,
+    "startsAt": "2026-11-21T14:00:00+01:00", "endsAt": "2026-11-21T16:00:00+01:00", "timeZone": "Europe/Berlin", "priceEur": 8,
+    "venue": { "name": "Demo-Ort experimenta", "city": "Heilbronn", "access": "unknown" },
+    "availability": "unknown", "reviewStatus": "approved",
+    "source": { "kind": "demo", "url": null, "fetchedAt": null, "verifiedAt": null }
+  },
+  {
+    "id": "demo-experimenta-school-1", "providerId": "experimenta", "externalId": "demo-school-ai",
+    "title": { "de": "Demo: KI mit der Schulklasse", "en": "Demo: AI with your school class" },
+    "summary": { "de": "Ein Gruppenangebot für Schulklassen über Bilderkennung.", "en": "A group activity for school classes about image recognition." },
+    "topics": ["ai"], "interests": ["robots", "make-art"],
+    "audiences": ["school-groups"], "format": "course", "minAge": 12, "maxAge": 17,
+    "startsAt": "2026-11-23T09:00:00+01:00", "endsAt": "2026-11-23T12:00:00+01:00", "timeZone": "Europe/Berlin", "priceEur": null,
+    "venue": { "name": "Demo-Ort experimenta", "city": "Heilbronn", "access": "unknown" },
+    "availability": "unknown", "reviewStatus": "approved",
+    "source": { "kind": "demo", "url": null, "fetchedAt": null, "verifiedAt": null }
+  },
+  {
+    "id": "demo-hdf-story-1", "providerId": "haus-der-familie", "externalId": "demo-digital-story",
+    "title": { "de": "Demo: Unsere digitale Geschichte", "en": "Demo: Our digital story" },
+    "summary": { "de": "Erfindet als Familie eine Geschichte mit Bildern und einfachen Spielregeln.", "en": "Make a family story with pictures and simple game rules." },
+    "topics": ["gaming", "coding"], "interests": ["tell-stories", "make-art", "build-games"],
+    "audiences": ["families"], "format": "workshop", "minAge": 6, "maxAge": 12,
+    "startsAt": "2026-11-22T14:00:00+01:00", "endsAt": "2026-11-22T16:00:00+01:00", "timeZone": "Europe/Berlin", "priceEur": 5,
+    "venue": { "name": "Demo-Ort Haus der Familie", "city": "Heilbronn", "access": "unknown" },
+    "availability": "available", "reviewStatus": "approved",
+    "source": { "kind": "demo", "url": null, "fetchedAt": null, "verifiedAt": null }
+  },
+  {
+    "id": "demo-hdf-parent-1", "providerId": "haus-der-familie", "externalId": "demo-parent-gaming",
+    "title": { "de": "Demo: Gaming gemeinsam verstehen", "en": "Demo: Understand gaming together" },
+    "summary": { "de": "Eltern entdecken, was Kinder an Spielen interessiert.", "en": "Parents explore what interests children about games." },
+    "topics": ["gaming"], "interests": ["build-games"],
+    "audiences": ["parents"], "format": "event", "minAge": 18, "maxAge": null,
+    "startsAt": "2026-11-24T18:00:00+01:00", "endsAt": "2026-11-24T19:30:00+01:00", "timeZone": "Europe/Berlin", "priceEur": null,
+    "venue": { "name": "Demo-Ort Haus der Familie", "city": "Heilbronn", "access": "unknown" },
+    "availability": "unknown", "reviewStatus": "approved",
+    "source": { "kind": "demo", "url": null, "fetchedAt": null, "verifiedAt": null }
+  },
+  {
+    "id": "demo-ipai-art-1", "providerId": "ipai", "externalId": "demo-ai-art",
+    "title": { "de": "Demo: Bilder und KI entdecken", "en": "Demo: Explore pictures and AI" },
+    "summary": { "de": "Entdecke gemeinsam, wie Computer Muster in Bildern finden.", "en": "Explore together how computers find patterns in pictures." },
+    "topics": ["ai"], "interests": ["make-art", "solve-puzzles"],
+    "audiences": ["families", "teens"], "format": "drop-in", "minAge": 10, "maxAge": 17,
+    "startsAt": "2026-11-21T13:00:00+01:00", "endsAt": "2026-11-21T15:00:00+01:00", "timeZone": "Europe/Berlin", "priceEur": 0,
+    "venue": { "name": "Demo-Ort IPAI", "city": "Heilbronn", "access": "unknown" },
+    "availability": "available", "reviewStatus": "approved",
+    "source": { "kind": "demo", "url": null, "fetchedAt": null, "verifiedAt": null }
+  },
+  {
+    "id": "demo-ipai-robot-1", "providerId": "ipai", "externalId": "demo-robot-questions",
+    "title": { "de": "Demo: Kann ein Roboter raten?", "en": "Demo: Can a robot guess?" },
+    "summary": { "de": "Stelle Fragen zu Robotern und löse gemeinsam ein Muster-Rätsel.", "en": "Ask questions about robots and solve a pattern puzzle together." },
+    "topics": ["ai", "coding"], "interests": ["robots", "solve-puzzles"],
+    "audiences": ["children", "teens"], "format": "workshop", "minAge": null, "maxAge": null,
+    "startsAt": null, "endsAt": null, "timeZone": "Europe/Berlin", "priceEur": null,
+    "venue": { "name": "Demo-Ort IPAI", "city": "Heilbronn", "access": "unknown" },
+    "availability": "unknown", "reviewStatus": "approved",
+    "source": { "kind": "demo", "url": null, "fetchedAt": null, "verifiedAt": null }
+  }
+]

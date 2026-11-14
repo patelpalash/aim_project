@@ -1,0 +1,34 @@
+[
+  {
+    "id": "aim",
+    "name": "aim",
+    "discoveryUrl": "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_sonderrubrik=1277",
+    "allowedHosts": ["www.aim-akademie.org", "aim-akademie.org"],
+    "importMode": "reviewed-json",
+    "enabled": true
+  },
+  {
+    "id": "experimenta",
+    "name": "experimenta",
+    "discoveryUrl": "https://www.experimenta.science/lernen/",
+    "allowedHosts": ["www.experimenta.science", "experimenta.science", "buchung.experimenta.science"],
+    "importMode": "reviewed-json",
+    "enabled": true
+  },
+  {
+    "id": "haus-der-familie",
+    "name": "Haus der Familie",
+    "discoveryUrl": "https://hdf-hn.de/angebote/digitale-familienwerkstatt/",
+    "allowedHosts": ["hdf-hn.de", "www.hdf-hn.de"],
+    "importMode": "reviewed-json",
+    "enabled": true
+  },
+  {
+    "id": "ipai",
+    "name": "IPAI Foundation",
+    "discoveryUrl": "https://ipai-foundation.ai/#events",
+    "allowedHosts": ["ipai-foundation.ai", "www.ipai-foundation.ai"],
+    "importMode": "reviewed-json",
+    "enabled": true
+  }
+]
