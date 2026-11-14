@@ -6,7 +6,7 @@
     "allowedHosts": ["www.aim-akademie.org", "aim-akademie.org"],
     "importMode": "scrape-and-review",
     "scraping": {
-      "implementationStatus": "planned",
+      "implementationStatus": "u1-adapter-staging-only",
       "permissionStatus": "user-confirmed",
       "permissionScope": "public-course-and-event-pages",
       "strategy": "scoped-html",
