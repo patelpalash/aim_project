@@ -1,6 +1,6 @@
 # Shared contract v1
 
-**Implemented:** shared types/pure functions, taxonomy/schedule/age extensions, catalog/review validators, discovery state/hook, quiz/puzzle evaluators, public catalog client and concrete examples. **Planned:** every HTTP endpoint and storage operation below. See [HANDOFF_PALASH.md](HANDOFF_PALASH.md) and [STATUS.md](STATUS.md). This is not a claim that a backend service exists.
+**Implemented:** shared functions, the integrated frontend, public read APIs, local CSV/source review/publication, source refresh, summary and configuration services. See [STATUS.md](STATUS.md) and [Umang's service handoff](handoffs/UMANG_U3_U4.md). The normalized JSON preview endpoint below remains a proposed recovery route; the implemented inputs are CSV upload and stored-source staging. A passing build does not complete all application acceptance.
 
 Palash owns this contract. Ishan and Umang should propose a small example before changing it. Do not create parallel `Event`, `Course` and `Activity` models with incompatible fields.
 
@@ -30,7 +30,7 @@ The authoritative type is [contracts.ts](../src/shared/contracts.ts), and [demo-
 | `id` | Stable ID for one occurrence. Do not regenerate it on every retrieval. |
 | `providerId` | Must refer to an enabled configured provider. Server checks this. |
 | `externalId` | Provider's course identity. Prefer a stable source occurrence key when available. Dates can help identify an initial occurrence, but must not become a mutable primary identity: preserve a known occurrence ID when it is rescheduled. |
-| `title`, `summary` | German and English strings. Render as text, not HTML. Mark team translations as translations when using real sources. |
+| `title`, `summary` | Render as text, not HTML. The current German-only prototype may retain German fallback in `en` with translation-pending review notes; this is not an English translation. Before enabling English UI, add explicit per-field translation provenance and actual reviewed English copy. |
 | `topics` | Configured IDs; defaults are `ai`, `coding`, `gaming`. Validate against the current taxonomy, not a hardcoded UI list. |
 | `interests` | Configured discovery IDs; the five original defaults remain unchanged. |
 | `audiences` | `children`, `teens`, `families`, `parents`, `school-groups`. Do not assume school-group bookings are individually accessible. |
@@ -50,7 +50,7 @@ The library validates record structure and simple HTTPS links. **Umang must addi
 
 Child/teen presentation is client state, separate from source audience categories. A parent selecting an activity for a child uses family results; `audience=parent` means activities aimed at adults, not merely the adult visual mode.
 
-## Planned endpoints
+## HTTP contract and current services
 
 ### P2 shared extensions now available
 
@@ -87,7 +87,7 @@ For this day, use one public catalog read and client-side filtering. This keeps 
 | `POST /api/admin/topics` | Validated topic definition | Saved configuration/version, preserving existing IDs |
 | `POST /api/admin/providers` | Validated source definition and supported adapter/config | Saved configuration/version; a new website format can remain explicitly unsupported |
 
-Every route above is still proposed. Scrape execution belongs to a bounded local runner/worker outside visitor requests, with cached publication and polled status. Source refresh uses enabled configured provider IDs and exact allowed hosts, never an arbitrary public visitor URL. Adding/editing a source is an organizer operation and does not bypass hostname/input validation. Only the four user-authorized providers are initially enabled.
+Public reads and the local CSV/source review/refresh/summary/configuration routes are implemented. `POST /api/admin/imports/from-source { providerId }` stages a stored source run; `POST /api/admin/imports/preview` remains proposed. `/api/admin/topics` and `/api/admin/providers` also have GET handlers. Topic changes use `{ kind: "topic" | "interest", id, label?, enabled?, topicIds? }`. Scrape execution is bounded and separate from visitor reads, with cached publication and polled status. Source refresh accepts configured provider IDs and exact allowed hosts, never an arbitrary public visitor URL. Newly configured CSV-only providers do not automatically gain a scraper or new scraping permission.
 
 Scraped candidates and CSV rows share one normalization/draft/edit/publication service. CSV is a simple nontechnical bulk-input path; it does not replace the required live adapters. Normalized JSON preview remains internal/recovery tooling. Add a scheduled backend refresh after the live workflow is verified; this plan creates no desktop automation.
 
@@ -119,7 +119,7 @@ Use synthetic aggregates for the one-day gap demonstration. No public demand sub
 
 ## Server rules for imports
 
-1. Writable desk routes run only when an explicit local-demo setting is enabled; return 404 otherwise. Bind the demo to loopback. An adult-view switch is not admin authorization. Public hosting must disable these routes until proper access control and storage exist.
+1. Writable desk routes run only with `INTEREST_ATLAS_LOCAL_DESK=1`; return 404 otherwise. Bind the demo to loopback. Writes also reject nonlocal destinations and cross-site origins. An adult-view switch is not admin authorization. Public hosting must disable these routes until proper access control and storage exist.
 2. Accept the fixed-column UTF-8 CSV upload and the existing normalized JSON preview format; no PDF/LLM/email/XLSX or custom header mapping is required. Cap uploads at 1 MB and 100 rows/records. Reject unknown providers, wrong provider assignments, source URLs outside exact allowed hosts and unsafe fields. The client cannot supply an arbitrary URL to fetch.
 3. Map to known `Offer` fields, set candidate review state to `pending`, validate and preview against the current catalog. Do not trust an uploaded `approved` state or reviewer timestamp. Return readable per-record failures.
 4. Store the preview and validated candidates server-side for a short period, such as 30 minutes. Approval accepts the import ID, not a second client-supplied replacement payload. Record the catalog version used for the preview.
@@ -127,7 +127,7 @@ Use synthetic aggregates for the one-day gap demonstration. No public demand sub
 6. Repeat approval returns its prior result rather than duplicating records. A repeated unchanged import yields no substantive change. A missing record or failed source read must never silently delete a published offer.
 7. Show source errors and old review timestamps honestly. No unattended auto-approval. Only describe a live adapter as working after an actual run has been inspected.
 
-`previewImport` already checks basic structure, ID/occurrence collisions and substantive differences. It does not implement steps 1-5 or persist anything. It ignores fetch/review timestamp changes and array order when finding content changes. It does flag source URL/kind changes. There is no automatic fuzzy deduplication.
+`previewImport` is a pure helper for structure/identity/difference checks. The actual local service is in `src/server/review/`, using the same shared validators and review-session contract. The local file store is a single-server demo implementation; it is not production multi-process storage. Fetch/review timestamp changes alone are not substantive offer changes. There is no automatic fuzzy deduplication.
 
 The same publication rules apply to scraped updates. Record adapter version, attempted/final source URLs, retrieval status, coverage window and field evidence in server-side run records. Treat a zero extraction as unknown until layout/response checks establish a genuine empty result. Preserve the last good catalog after failure or partial coverage. Keep source fetch time distinct from human review time.
 

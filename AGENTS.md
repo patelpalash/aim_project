@@ -6,7 +6,7 @@ Follow the supplied AIM challenge PDF and [docs/REQUIREMENTS.md](docs/REQUIREMEN
 
 The user confirmed a **one-day build window** and permission to scrape the public event/course pages of **aim, experimenta, Haus der Familie and IPAI**. Treat this as user-confirmed permission within that named scope. Do not keep permission marked pending or ask the team to repeat the same approval.
 
-The team is **Palash + ChatGPT, Ishan + Claude, Umang + Claude**. The working concept remains **Interest Atlas**. A minimal Next.js shell is now implemented alongside shared logic, fictional fixtures and tests. Read `docs/STATUS.md` for actual verified progress. The interactive frontend, source adapters, review service and deployment are separate workstreams; do not infer their completion from the shell or source probes.
+The team is **Palash + ChatGPT, Ishan + Claude, Umang + Claude**. The working concept remains **Interest Atlas**. The Next.js frontend and backend workstreams are now integrated with shared logic, fictional fixtures, source snapshots and tests. Read `docs/STATUS.md` and the remote owner coordination reports for actual verified progress and remaining P5 acceptance. An integrated build is not proof of complete source coverage, human approval or deployment.
 
 ## Read in this order
 
@@ -47,6 +47,6 @@ Follow [docs/COLLABORATION.md](docs/COLLABORATION.md): work simultaneously in se
 
 ## Verify and hand off
 
-Use Node.js 24 or newer. `npm ci` installs dependencies; `npm run dev` starts the local shell; `npm run check` regenerates route types and checks types/tests; `npm run build` builds production and `npm run start` serves it. Proposed scrape commands/endpoints are not implemented by the shell. Check `docs/STATUS.md` and the actual checkout.
+Use Node.js 24 or newer. `npm ci` installs dependencies; `npm run dev` starts the app; `npm run check` regenerates route types and checks types/tests; `npm run build` builds production and `npm run start` serves it. The scraping CLI and local maintenance routes now exist; use their actual signatures and `docs/STATUS.md`, not stale proposed commands. Local maintenance requires `INTEREST_ATLAS_LOCAL_DESK=1` and loopback/same-origin writes.
 
 Use role branches from `CONTRIBUTING.md`, hand off small working slices with examples and actual checks, and record final application evidence against `docs/DEMO_CHECKLIST.md` and PDF requirement IDs. Library tests do not establish completion of the website.

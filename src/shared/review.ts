@@ -26,6 +26,8 @@ export interface ReviewSession {
   expiresAt: string;
   rows: ReviewRow[];
   counts: Record<ReviewRowState, number>;
+  /** Review assumptions/corrections; raw field evidence remains server-side. */
+  notes?: Record<string, string[]>;
 }
 export interface ReviewApprovalRequest { approve: true; rowIds: string[]; revision: number }
 export type ReviewFieldPatch = Partial<Pick<Offer,
@@ -50,6 +52,9 @@ export function validateReviewSession(input: unknown, taxonomy: Taxonomy = DEFAU
   if (!Number.isSafeInteger(input.catalogueVersion) || Number(input.catalogueVersion) < 0) issue("catalogueVersion", "Expected catalog version");
   if (input.mode !== "source" && input.mode !== "demo") issue("mode", "Expected source or demo");
   if (!isIsoTimestamp(input.expiresAt)) issue("expiresAt", "Expected expiry timestamp");
+  if (input.notes !== undefined && (!isRecord(input.notes) || Object.values(input.notes).some(value =>
+      !Array.isArray(value) || value.some(note => typeof note !== "string"))))
+    issue("notes", "Expected review notes grouped by row ID");
   if (!Array.isArray(input.rows) || input.rows.length > 100) issue("rows", "Expected at most 100 rows");
   else {
     const rowIds = new Set<string>();

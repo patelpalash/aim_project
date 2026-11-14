@@ -26,15 +26,15 @@ Agents begin with [AGENTS.md](AGENTS.md). Claude also has [CLAUDE.md](CLAUDE.md)
 | Ishan | [Claude prompt](docs/prompts/ISHAN_CLAUDE.md), [task sheet I1-I6](docs/tasks/ISHAN.md) | All design/frontend, motion, visitor journey and review/config controls |
 | Umang | [Claude prompt](docs/prompts/UMANG_CLAUDE.md), [task sheet U1-U6](docs/tasks/UMANG.md) | Four adapters, CSV intake, common review API, cache/storage and source evidence |
 
-Selected additions from the supplied plan: downloadable CSV template, row-level preview, inline corrections, selected valid bulk publication, simple source/theme controls and source-error recovery. Keep one ingestion core. PDF/LLM/email/arbitrary-link ingestion, XLSX parsing, automatic publication and heat maps are deferred. These workflow additions are specifications, not implemented endpoints or files yet.
+Selected additions from the supplied plan: downloadable CSV template, row-level preview, inline corrections, selected valid bulk publication, simple source/theme controls and source-error recovery. Keep one ingestion core. The CSV/review services and UI are integrated; remaining controls and acceptance gaps are listed in `docs/STATUS.md`. PDF/LLM/email/arbitrary-link ingestion, XLSX parsing, automatic publication and heat maps are deferred.
 
 ## Implemented versus planned
 
-Implemented: the Next.js shell/alias, configurable taxonomy, date-only/DST and age-evidence behavior, memory-only discovery/shortlist state and React hook, filtering/matching/handoff/import preview, quiz/puzzle evaluation, catalog client, catalog/review types and pure guards, validated fictional examples and 62 passing tests. See [STATUS.md](docs/STATUS.md) and [HANDOFF_PALASH.md](docs/HANDOFF_PALASH.md). Actual backend routes and atomic publication are not implemented by those helpers.
+Implemented and integrated: Ishan's discovery/detail/map/shortlist/parent/quiz/puzzle frontend and organizer desk; Umang's four adapters, cached source evidence, public APIs, CSV/review/publication/refresh/configuration services; Palash's shared contracts/state and integration fixes. **112 checks and the production build pass.** The browser CSV correction/publication flow is verified. See [STATUS.md](docs/STATUS.md) and [Palash's current integration report](docs/coordination/PALASH.md) for remaining acceptance gaps and exact commits.
 
 Read-only source checks on 14 November 2026 returned public HTML for all four seed pages and inspected one follow-up page per provider. They informed the scraping plan. **They are not finished adapters, a real event dataset or proof of current child eligibility.**
 
-Still to build: Ishan's interactive website/motion, quiz/puzzle interfaces, Umang's live adapters and normalization/review services, configuration controls and deployment. The raw probe cache is ignored. Original challenge files remain unmodified under `reference/`.
+Still to finish: the remaining maintenance controls and accessibility fixes, full connected acceptance checks and any deployment. Source coverage can be partial; real candidates remain pending until reviewed. Original challenge files remain unmodified under `reference/`.
 
 ## Run and check the bootstrap
 
@@ -53,7 +53,7 @@ npm run build
 npm run start
 ```
 
-`dev` starts the local shell on loopback port 3000. `check` regenerates route types and runs type/test checks; `build` creates the production app; `start` serves that build. Proposed scrape commands in the plan do not yet exist. The shared starter, fixtures and source documents are preserved.
+`dev` starts the app on loopback port 3000. `check` regenerates route types and runs type/test checks; `build` creates the production app; `start` serves that build. For `/organizer` maintenance, set `$env:INTEREST_ATLAS_LOCAL_DESK = "1"` before starting; leave it unset for the public read-only configuration. Scraping CLI: `node src/server/scraping/cli.ts --provider all --window-days 180` stages records, never automatically publishes them. The original fixtures and source documents are preserved.
 
 ## Product rules
 

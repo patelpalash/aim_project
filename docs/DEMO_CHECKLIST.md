@@ -7,7 +7,7 @@ Consolidated plan revision 3. These checks apply to the application the team wil
 - [ ] R1/R4: All four institutions are represented and their actual source outcomes are recorded. Failed/incomplete extraction is listed as a remaining gap, not no events.
 - [ ] R1/R6/R9: Real source-backed upcoming AI/coding/gaming activities reach combined discovery results where available; a record can be traced to its exact provider page.
 - [ ] R2: Child/teen/adult presentations serve the same selected activity, with understandable copy and useful practical adult details.
-- [ ] R3/R8: The interactive scene changes actual interests/results; direct overview/search works without playing or registering.
+- [x] R3/R8: The interactive scene changes actual interests/results; direct overview/search works without playing or registering. Evidence: browser interest selection changed the displayed matches and preserved the selected offer through the parent handoff.
 - [ ] R8: Query/theme/age/date/type/provider/budget constraints combine correctly. Unknown values do not become confirmed suitability or free cost.
 - [ ] R9/R10: A fresh source refresh creates staged changes, readable errors and source evidence. Review/approval publishes accepted changes.
 - [ ] R4/R9: Dynamic pages use actual rendered/public-response records, not loading placeholders. Page caps and partial coverage are visible.
@@ -15,15 +15,15 @@ Consolidated plan revision 3. These checks apply to the application the team wil
 - [ ] R5: A failed, malformed or empty scrape does not delete the last good catalog. A real empty source result is distinguished from failure.
 - [ ] R5: Repeat scrape/import/approval does not duplicate events; stale approval is rejected and reset is repeatable.
 - [ ] R5: CSV template download and fixed-column UTF-8 upload work, including quoted cells. Scraping and CSV share one normalization/draft/review service and catalog.
-- [ ] R5: Inline edits revalidate a server-stored draft and increment its revision; published events do not change before approval. Stale edit/publication is rejected.
-- [ ] R5: A clearly fictional 20-row CSV starts with 18 valid and two blocked rows. After one correction, 19 explicitly reviewed eligible rows can publish; the unresolved row remains unpublished.
+- [x] R5: Inline edits revalidate a server-stored draft and increment its revision; published events do not change before approval. Stale edit/publication is rejected. Evidence: 112-check integrated suite and browser date correction; public count stayed 8 during editing.
+- [x] R5: A clearly fictional 20-row CSV starts with 18 valid and two blocked rows. After one correction, 19 explicitly reviewed eligible rows can publish; the unresolved row remains unpublished. Evidence: browser upload/inline fix/selection/publication; API 27 offers, `aim-demo-csv-15` excluded. Screenshot: local `.local-analysis/evidence/csv-publication.jpg`.
 - [ ] R5/R10: Changed titles and reschedules preserve stable source/occurrence identity, and repeated import adds no duplicate. Unknown ages/costs remain unknown.
 - [ ] R5: A nontechnical teammate can refresh a source, understand an error/change and publish a reviewed update without editing code.
 - [ ] R7: A theme can be added through configuration/controls without rewriting components. Explain configuration versus a new website adapter.
 - [ ] R11: Child view cannot book in-app; the adult handoff is a practical view, not an identity/consent check. Demo fixtures never offer real registration.
 - [ ] R12: Keyboard/touch alternatives, clear labels, visible focus, contrast, larger text and reduced motion work across the actual journey.
 - [ ] R13/R14: No child name/email/address/birth date/profile or remote preference/search payload is required. Reset clears in-memory state. No real-name leaderboard or daily-login pressure.
-- [ ] R15: Clean-clone install/start, type checking, relevant tests and production build pass using documented commands; actual contribution boundaries are recorded.
+- [x] R15: Clean-clone install/start, type checking, relevant tests and production build pass using documented commands; actual contribution boundaries are recorded. Evidence: fresh GitHub clone `c4f6deb`, Node 24.18.1/npm 11.4.2, install/112 checks/build passed, production public APIs worked, Git stayed clean; see `STATUS.md` and the role reports.
 - [ ] User direction: Interest, result, event-detail, shortlist and view transitions feel coherent and preserve context; decorative movement does not block actions.
 - [ ] User direction: Optional quiz has skip/back/editable results. At least one polished pattern/sequence puzzle evaluates real input, explains outcomes, supports retry and leads to related events. A second puzzle is added only after core flows work.
 - [ ] User direction: Phone/laptop, slow loading, empty results, source failures and cached status have been inspected in the running app.
