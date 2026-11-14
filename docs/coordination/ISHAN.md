@@ -6,11 +6,11 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted.
-- Last updated (UTC): 2026-11-14 16:10.
-- Current task/slice: I1 visual direction is in a second revision round (Ishan is choosing between five directions); I2 discovery page shipped and now refactored onto the shared P3 state; next slice is I3 detail/shortlist/parent view in the chosen look.
-- State: discovery page (`/`) works on demo fixtures with the demo banner; visual restyle pending Ishan's pick.
+- Last updated (UTC): 2026-11-14 16:40.
+- Current task/slice: I1 settled ("Clean studio", Ishan's pick, docs/DESIGN.md) and the site restyled to it, including a new list/map toggle (schematic Heilbronn map); I3 shortlist + parent handoff shipped. Next: I4 quiz + sequence puzzle UI.
+- State: discovery page (`/`) works on demo fixtures with the demo banner; clean-studio look live; shortlist sheet with "Für Eltern" tab live.
 - Based on `main` commit: 0b09fa8 (merged in 08e1bb5).
-- Next independent task: I3 shortlist + parent handoff views; I4 quiz/puzzle UI over shared evaluators.
+- Next independent task: I4 quiz/puzzle UI over shared evaluators; then I5 organizer desk (needs ISH-REQ-2).
 
 ## Requests to teammates
 
@@ -22,6 +22,11 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 None open.
 
 ## Ready slices
+
+- I1 rev 3 + I3, code SHAs `68beb96` (clean-studio restyle + MapView) and `d5b3dd8` (ShortlistSheet with parent handoff) on `codex/ishan-design`.
+  - Paths: `src/styles/*`, `src/app/layout.tsx`, `src/components/atlas/{MapView,ShortlistSheet}.tsx`, restyled atlas components; docs/DESIGN.md rev 3. HeroCanvas removed.
+  - Checks run: `npm run check`, `npm run build`, headless Chromium flows (save → shortlist → parent tab, map pins → detail sheet, phone width no h-scroll). Screenshots in project files `ishan-design/screens/v3-*.png`.
+  - Known gaps: map is schematic until offers carry addresses/coordinates; audience-mode currently only switches to parent via "Erwachsenen zeigen".
 
 - I2 (+ I3 groundwork), code SHA `43d8357` on `codex/ishan-design`.
   - Paths: `src/components/atlas/*` (Discovery now uses `@/shared/use-discovery`, `@/shared/catalog-client`, `@/shared/catalog` reasons, taxonomy-driven tiles, provider names from the providers list; new `catalog-data.ts` wrapper; removed the temporary `catalog.ts` loader), `src/styles/*`, `src/app/layout.tsx`, `src/app/page.tsx`.
