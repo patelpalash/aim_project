@@ -1,0 +1,54 @@
+/* I4: play section (quiz + robot-path puzzle), clean studio. */
+.play { display: grid; gap: var(--space-5); padding-block: var(--space-2) var(--space-6); }
+.play__grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(420px, 100%), 1fr)); gap: var(--space-4); align-items: start; }
+.play-card { padding: var(--space-4); display: grid; gap: var(--space-4); transition: box-shadow 300ms var(--ease-out); }
+.play-card.is-open { box-shadow: var(--shadow-2); }
+.play-card__head { display: grid; grid-template-columns: 52px minmax(0, 1fr) auto; gap: var(--space-3); align-items: center; }
+.play-card__head h3 { font-size: var(--text-md); }
+.play-card__head .muted { font-size: var(--text-sm); }
+.play-card__orb { width: 52px; height: 52px; display: grid; place-items: center; color: #fff; border-radius: 16px;
+  background: linear-gradient(135deg, var(--a), var(--b)); box-shadow: 0 10px 22px -10px var(--a); }
+@media (max-width: 560px) { .play-card__head { grid-template-columns: 44px minmax(0, 1fr); } .play-card__head .btn { grid-column: 1 / -1; } }
+
+/* Quiz */
+.quiz { display: grid; gap: var(--space-3); }
+.quiz__progress { font: 700 var(--text-xs)/1 var(--font-body); letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); }
+.quiz__q { margin: 0; font: 700 var(--text-lg)/1.25 var(--font-display); }
+.quiz__choices { display: grid; gap: var(--space-2); }
+.quiz__choice { appearance: none; cursor: pointer; text-align: left; font: 600 var(--text-md)/1.3 var(--font-body); color: var(--ink);
+  padding: var(--space-3) var(--space-4); border: 1.5px solid var(--line); border-radius: var(--radius-md); background: var(--surface);
+  transition: border-color 200ms, transform 200ms var(--ease-out), box-shadow 200ms; }
+.quiz__choice:hover { border-color: var(--ink); transform: translateY(-2px); box-shadow: var(--shadow-1); }
+.quiz__choice[aria-pressed="true"] { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.quiz__skip { color: var(--ink-faint); justify-self: start; font-size: var(--text-sm); }
+.quiz__chip { display: inline-flex; align-items: center; gap: 8px; padding: 8px 14px 8px 10px; border-radius: var(--radius-pill);
+  color: #fff; font: 600 var(--text-sm)/1 var(--font-body); background: linear-gradient(135deg, var(--a), var(--b)); box-shadow: 0 8px 18px -8px var(--a); }
+
+/* Robot path puzzle */
+.pz { display: grid; gap: var(--space-3); }
+.pz__board-wrap { display: grid; justify-content: start; }
+.pz__board { position: relative; display: grid; grid-template-columns: repeat(var(--w), 64px); grid-auto-rows: 64px; gap: 6px;
+  padding: 10px; border-radius: var(--radius-md); background: var(--surface-2); border: 1px solid var(--line); }
+@media (max-width: 480px) { .pz__board { grid-template-columns: repeat(var(--w), 52px); grid-auto-rows: 52px; } }
+.pz__cell { display: grid; place-items: center; border-radius: 10px; background: var(--surface); border: 1px solid var(--line);
+  font-size: 22px; color: var(--ink-faint); }
+.pz__cell.is-blocked { background: repeating-linear-gradient(45deg, var(--surface-2) 0 6px, var(--line) 6px 12px); color: var(--ink-soft); }
+.pz__cell.is-goal { color: #b8860b; background: rgb(245 166 35 / 0.14); border-color: rgb(245 166 35 / 0.5); font-size: 26px; }
+.pz__bot { position: absolute; left: 10px; top: 10px; width: 64px; height: 64px; display: grid; place-items: center; color: #fff; pointer-events: none;
+  transform: translate(calc(var(--x) * 70px), calc(var(--y) * 70px)); transition: transform 320ms var(--ease-in-out); }
+@media (max-width: 480px) { .pz__bot { width: 52px; height: 52px; transform: translate(calc(var(--x) * 58px), calc(var(--y) * 58px)); } }
+.pz__bot > svg { background: linear-gradient(135deg, var(--i-robots-a), var(--i-robots-b)); border-radius: 14px; padding: 7px; width: 44px; height: 44px;
+  box-shadow: 0 10px 20px -8px var(--i-robots-a); rotate: var(--r); transition: rotate 300ms var(--ease-spring); }
+.pz__bot.is-happy > svg { animation: m-pop 500ms var(--ease-spring); }
+.pz__nose { position: absolute; left: 50%; top: 4px; width: 6px; height: 6px; margin-left: -3px; border-radius: 50%;
+  background: #fff; box-shadow: 0 0 6px rgb(255 255 255 / 0.9); rotate: var(--r); transform-origin: 50% 26px; transition: rotate 300ms var(--ease-spring); }
+@media (max-width: 480px) { .pz__nose { transform-origin: 50% 22px; } }
+.pz__slots { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.pz__slot { appearance: none; cursor: pointer; width: 48px; height: 48px; display: grid; place-items: center; font-size: 20px; font-weight: 700; color: var(--ink);
+  border: 1.5px solid var(--line-strong); border-radius: var(--radius-sm); background: var(--surface); transition: border-color 200ms, background 200ms, transform 200ms var(--ease-spring); }
+.pz__slot:hover:not(:disabled) { border-color: var(--status-bad); }
+.pz__slot.is-empty { border-style: dashed; color: var(--ink-faint); background: var(--surface-2); }
+.pz__slot.is-fixed { cursor: default; background: var(--surface-2); color: var(--ink-soft); }
+.pz__slot.is-now { border-color: var(--accent); transform: scale(1.12); box-shadow: 0 0 0 3px rgb(31 94 255 / 0.18); }
+.pz__slot:disabled { opacity: 0.85; }
+.pz__msg { justify-self: start; }
