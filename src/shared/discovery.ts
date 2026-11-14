@@ -24,6 +24,7 @@ export type DiscoveryAction =
   | { type: "toggle-saved"; id: string }
   | { type: "set-quiz-answer"; questionId: string; choiceId: string | null }
   | { type: "complete-puzzle"; id: string }
+  | { type: "reset-play" }
   | { type: "clear-filters" }
   | { type: "reset" };
 
@@ -71,6 +72,7 @@ export function discoveryReducer(state: DiscoveryState, action: DiscoveryAction)
     case "complete-puzzle":
       if (!getPuzzleDefinition(action.id)) throw new RangeError("Unknown puzzle");
       return state.completedPuzzleIds.includes(action.id) ? state : { ...state, completedPuzzleIds: [...state.completedPuzzleIds, action.id] };
+    case "reset-play": return { ...state, quizAnswers: {}, completedPuzzleIds: [] };
     case "clear-filters": return { ...state, filters: createDiscoveryState().filters };
     case "reset": return createDiscoveryState();
   }

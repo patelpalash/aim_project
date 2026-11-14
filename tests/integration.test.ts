@@ -1,8 +1,20 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { loadBundle } from "../src/components/atlas/catalog-data.ts";
+import { readFileSync } from "node:fs";
+import type { Offer } from "../src/shared/contracts.ts";
+import { describeCatalog, loadBundle } from "../src/components/atlas/catalog-data.ts";
 import { AdminApiError, ServiceMissingError, fetchSession, fetchScrapeRun } from "../src/components/organizer/api.ts";
 import { postReset, postTopic, postAdminProvider } from "../src/server/review/http.ts";
+
+test("catalog wording distinguishes mixed, example-only, reviewed-only and empty data", () => {
+  const demo: Offer = JSON.parse(readFileSync(new URL("../data/demo-offers.json", import.meta.url), "utf8"))[0];
+  const reviewed: Offer = { ...structuredClone(demo), source: { kind: "verified", url: "https://example.org/test-course", fetchedAt: "2026-11-14T10:00:00Z", verifiedAt: "2026-11-14T11:00:00Z" } };
+  assert.deepEqual(describeCatalog([reviewed, demo]), { text: "1 geprüftes Angebot · 1 Demo-Beispiel (erfunden)", tone: "warn" });
+  assert.deepEqual(describeCatalog([demo, demo]), { text: "2 Demo-Beispiele (erfunden)", tone: "warn" });
+  assert.deepEqual(describeCatalog([reviewed, reviewed]), { text: "2 geprüfte Angebote", tone: "ok" });
+  assert.deepEqual(describeCatalog([]), { text: "Noch keine freigegebenen Angebote", tone: "muted" });
+  assert.deepEqual(describeCatalog([{ ...reviewed, reviewStatus: "pending" }]), describeCatalog([]));
+});
 
 test("discovery reports missing/failed APIs without substituting fictional offers", async () => {
   for (const status of [404, 500]) {

@@ -87,6 +87,21 @@ test("reset clears all session data and new sessions share no mutable state", ()
   assert.deepEqual(createDiscoveryState().savedOfferIds, []);
 });
 
+test("play reset clears quiz and completions while keeping discovery and shortlist context", () => {
+  let state = createDiscoveryState();
+  state = discoveryReducer(state, { type: "set-filters", patch: { interests: ["robots"], topics: ["coding"], age: 12 } });
+  state = discoveryReducer(state, { type: "set-audience-mode", mode: "teen" });
+  state = discoveryReducer(state, { type: "toggle-saved", id: offers[0].id });
+  state = discoveryReducer(state, { type: "select-offer", id: offers[0].id });
+  state = discoveryReducer(state, { type: "set-quiz-answer", questionId: "project", choiceId: "robot" });
+  state = discoveryReducer(state, { type: "complete-puzzle", id: "sequence-path" });
+  const before = structuredClone(state);
+  const reset = discoveryReducer(state, { type: "reset-play" });
+  assert.deepEqual(reset, { ...before, quizAnswers: {}, completedPuzzleIds: [] });
+  assert.deepEqual(state, before);
+  assert.deepEqual(discoveryReducer(reset, { type: "reset-play" }), reset);
+});
+
 test("invalid filter updates fail before mutating existing state", () => {
   const state = createDiscoveryState(), before = JSON.stringify(state);
   assert.throws(() => discoveryReducer(state, { type: "set-filters", patch: { age: -1 } }), RangeError);

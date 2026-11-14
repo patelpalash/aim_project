@@ -19,25 +19,21 @@ export interface PlaySectionProps {
   selectedInterests: readonly Interest[];
   onAnswer: (questionId: string, choiceId: string | null) => void;
   onPuzzleDone: (id: string) => void;
+  onResetPlay: () => void;
   /** Turn suggested interests on and jump to the results. */
   onApplyInterests: (ids: Interest[]) => void;
 }
 
-export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selectedInterests, onAnswer, onPuzzleDone, onApplyInterests }: PlaySectionProps) {
+export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selectedInterests, onAnswer, onPuzzleDone, onResetPlay, onApplyInterests }: PlaySectionProps) {
   const [open, setOpen] = useState<"quiz" | "puzzle" | null>(null);
   /** Bumping this remounts quiz and puzzle, so a reset really clears the board and the step. */
   const [round, setRound] = useState(0);
-  /**
-   * The shared `completedPuzzleIds` only ever grows (P3's reducer has no un-complete action), so
-   * the "solved" note is tracked here and cleared by the reset instead of claiming a stale state.
-   */
-  const [solved, setSolved] = useState(() => completedPuzzleIds.includes("sequence-path"));
+  const solved = completedPuzzleIds.includes("sequence-path");
   const puzzle = PUZZLES.find(p => p.kind === "sequence") as SequencePuzzle | undefined;
-  const started = Object.keys(quizAnswers).length > 0 || solved;
+  const started = open !== null || Object.keys(quizAnswers).length > 0 || solved;
 
   const resetPlay = () => {
-    QUIZ_QUESTIONS.forEach(q => { if (q.id in quizAnswers) onAnswer(q.id, null); });
-    setSolved(false);
+    onResetPlay();
     setOpen(null);
     setRound(r => r + 1);
   };
@@ -84,7 +80,7 @@ export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selecte
           </header>
           {open === "puzzle" && puzzle ? (
             <PathPuzzle key={`pz-${round}`} puzzle={puzzle} selectedInterests={selectedInterests}
-              onDone={id => { setSolved(true); onPuzzleDone(id); }} onApply={onApplyInterests} />
+              onDone={onPuzzleDone} onApply={onApplyInterests} />
           ) : null}
         </article>
       </div>

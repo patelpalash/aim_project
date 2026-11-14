@@ -8,7 +8,7 @@ import { filterOffers, getRecommendationReasons } from "@/shared/catalog";
 import { getActiveInterests, getActiveTopics } from "@/shared/taxonomy";
 import { useDiscovery } from "@/shared/use-discovery";
 import type { AudienceMode, DiscoverySort } from "@/shared/discovery";
-import { loadBundle, type BundleState } from "./catalog-data";
+import { describeCatalog, loadBundle, type BundleState } from "./catalog-data";
 import { SourceStatusPanel } from "./SourceStatus";
 import { WHEN_LABEL, whenPatch, type When } from "./dates";
 import { DetailSheet } from "./DetailSheet";
@@ -71,6 +71,7 @@ export function Discovery() {
   const [pulse, setPulse] = useState<Interest | null>(null);
   const [view, setView] = useState<"list" | "map">("list");
   const [shortlistTab, setShortlistTab] = useState<"list" | "parent" | null>(null);
+  const [playSession, setPlaySession] = useState(0);
   const [bump, setBump] = useState(0);
   const [announce, setAnnounce] = useState("");
   const [scrolled, setScrolled] = useState(false);
@@ -174,6 +175,12 @@ export function Discovery() {
   const resetAll = () => withTransition(() => {
     dispatch({ type: "clear-filters" });
     setAnnounce("Alle Filter zurückgesetzt. Gemerkte Angebote bleiben.");
+  });
+  const resetSession = () => withTransition(() => {
+    dispatch({ type: "reset" });
+    setShortlistTab(null); setPulse(null); setView("list"); setBump(0);
+    setPlaySession(value => value + 1);
+    setAnnounce("Deine Auswahl, Merkliste und Spielstände wurden zurückgesetzt.");
   });
   const savedCount = shortlist.offers.length + shortlist.unavailableIds.length;
   const nameFor = (id: string, idx: number) => (vt && idx < MAX_NAMED ? `offer-${id.replace(/[^a-zA-Z0-9_-]/g, "_")}` : undefined);
@@ -282,10 +289,11 @@ export function Discovery() {
             <p className="status-line">Quiz und Rätsel liegen in der Kinder- und Jugendansicht. Antworten und gelöste Rätsel bleiben beim Wechseln erhalten.</p>
           </section>
         ) : (
-        <PlaySection taxonomy={bundle?.taxonomy ?? null} quizAnswers={state.quizAnswers}
+        <PlaySection key={playSession} taxonomy={bundle?.taxonomy ?? null} quizAnswers={state.quizAnswers}
           completedPuzzleIds={state.completedPuzzleIds} selectedInterests={interests}
           onAnswer={(questionId, choiceId) => dispatch({ type: "set-quiz-answer", questionId, choiceId })}
           onPuzzleDone={id => dispatch({ type: "complete-puzzle", id })}
+          onResetPlay={() => dispatch({ type: "reset-play" })}
           onApplyInterests={ids => {
             withTransition(() => { for (const id of ids) if (!interests.includes(id)) dispatch({ type: "toggle-interest", id }); });
             setAnnounce(`${ids.length === 1 ? "Interesse" : "Interessen"} übernommen`);
@@ -383,7 +391,7 @@ export function Discovery() {
                 <p className="muted">{when === "today" || when === "weekend" ? `Für „${WHEN_LABEL[when]}“ ist nichts eingetragen.` : "Probiere andere Interessen oder weniger Filter."}</p>
                 <div className="row">
                   {when !== "all" ? <button type="button" className="btn" onClick={() => patch(whenPatch("all"))}>Alle Termine zeigen</button> : null}
-                  <button type="button" className="btn btn--primary" onClick={resetAll}>Alles zurücksetzen</button>
+                  <button type="button" className="btn btn--primary" onClick={resetAll}>Filter zurücksetzen</button>
                 </div>
               </div>
             </div>
@@ -394,6 +402,7 @@ export function Discovery() {
       <footer className="wrap dz-foot reveal">
         <p>Interest Atlas zeigt Angebote von aim, experimenta, Haus der Familie und IPAI. Anmeldung immer direkt beim Anbieter.</p>
         <p>Deine Auswahl bleibt nur in diesem Tab. Kein Konto, keine Namen, nichts wird gesendet.</p>
+        <p><button type="button" className="btn" onClick={resetSession}>Sitzung zurücksetzen</button></p>
         <p><a href="/organizer">Organizer-Bereich</a> für Anbieter: CSV-Import, Review und Veröffentlichung.</p>
       </footer>
 
@@ -427,7 +436,6 @@ function CatalogStatus({ catalog, onRetry }: { catalog: BundleState; onRetry: ()
   if (catalog.phase === "loading") return <span className="status-line">Katalog wird geladen…</span>;
   if (catalog.phase === "error") return <span className="status-line" data-tone="bad">Nicht geladen <button type="button" className="dz-link" onClick={onRetry}>Neu laden</button></span>;
   if (catalog.note) return <span className="status-line" data-tone="warn">{catalog.note}</span>;
-  if (catalog.bundle.catalog.mode === "demo") return <span className="status-line" data-tone="warn">Demo-Daten: erfundene Beispiele, keine echten Termine</span>;
-  const at = catalog.bundle.catalog.generatedAt;
-  return <span className="status-line" data-tone="ok">Geprüfter Katalog{at ? ` · Stand ${new Date(at).toLocaleString("de-DE", { timeZone: "Europe/Berlin", dateStyle: "short", timeStyle: "short" })}` : ""}</span>;
+  const status = describeCatalog(catalog.bundle.catalog.offers);
+  return <span className="status-line" data-tone={status.tone}>{status.text}</span>;
 }

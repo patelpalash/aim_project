@@ -1,15 +1,115 @@
 {
-  "version": 1,
+  "version": 3,
   "topics": [
-    { "id": "ai", "label": { "de": "KI", "en": "AI" }, "enabled": true },
-    { "id": "coding", "label": { "de": "Coding", "en": "Coding" }, "enabled": true },
-    { "id": "gaming", "label": { "de": "Gaming", "en": "Gaming" }, "enabled": true }
+    {
+      "id": "ai",
+      "label": {
+        "de": "KI",
+        "en": "AI"
+      },
+      "enabled": true
+    },
+    {
+      "id": "coding",
+      "label": {
+        "de": "Coding",
+        "en": "Coding"
+      },
+      "enabled": true
+    },
+    {
+      "id": "gaming",
+      "label": {
+        "de": "Gaming",
+        "en": "Gaming"
+      },
+      "enabled": true
+    }
   ],
   "interests": [
-    { "id": "build-games", "label": { "de": "Spiele bauen", "en": "Build games" }, "topicIds": ["coding", "gaming"], "enabled": true },
-    { "id": "robots", "label": { "de": "Roboter", "en": "Robots" }, "topicIds": ["ai", "coding"], "enabled": true },
-    { "id": "make-art", "label": { "de": "Bilder gestalten", "en": "Make art" }, "topicIds": ["ai", "coding"], "enabled": true },
-    { "id": "solve-puzzles", "label": { "de": "Rätsel lösen", "en": "Solve puzzles" }, "topicIds": ["ai", "coding", "gaming"], "enabled": true },
-    { "id": "tell-stories", "label": { "de": "Geschichten erfinden", "en": "Tell stories" }, "topicIds": ["coding", "gaming"], "enabled": true }
+    {
+      "id": "build-games",
+      "label": {
+        "de": "Spiele bauen",
+        "en": "Build games"
+      },
+      "topicIds": [
+        "coding",
+        "gaming"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "robots",
+      "label": {
+        "de": "Roboter",
+        "en": "Robots"
+      },
+      "topicIds": [
+        "ai",
+        "coding"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "make-art",
+      "label": {
+        "de": "Bilder gestalten",
+        "en": "Make art"
+      },
+      "topicIds": [
+        "ai",
+        "coding"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "solve-puzzles",
+      "label": {
+        "de": "Rätsel lösen",
+        "en": "Solve puzzles"
+      },
+      "topicIds": [
+        "ai",
+        "coding",
+        "gaming"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "tell-stories",
+      "label": {
+        "de": "Geschichten erfinden",
+        "en": "Tell stories"
+      },
+      "topicIds": [
+        "coding",
+        "gaming"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "build-worlds",
+      "label": {
+        "de": "Welten bauen",
+        "en": "Build worlds"
+      },
+      "topicIds": [
+        "gaming",
+        "coding"
+      ],
+      "enabled": true
+    },
+    {
+      "id": "build-apps",
+      "label": {
+        "de": "Apps bauen",
+        "en": "Build apps"
+      },
+      "topicIds": [
+        "coding"
+      ],
+      "enabled": true
+    }
   ]
 }
