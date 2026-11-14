@@ -134,14 +134,14 @@ export const getScrapeRun = (runId: string) => desk(() => {
 
 // ---- U5: summary and configuration maintenance (themes, sources).
 
-async function config(fn: () => Promise<Response> | Response): Promise<Response> {
+async function config(fn: () => Promise<Response> | Response, request?: Request): Promise<Response> {
   return desk(async () => {
     try { return await fn(); }
     catch (error) {
       if (error instanceof ConfigChangeError) return fail(400, "INVALID_CONFIGURATION_CHANGE", error.message, error.issues);
       throw error;
     }
-  });
+  }, request);
 }
 
 /** Desk overview: catalogue version, per-source status and the synthetic demo gap panel. */
@@ -167,7 +167,7 @@ export const getSummary = () => desk(() => {
 });
 
 export const getTopics = () => config(() => json(loadTaxonomy()));
-export const postTopic = (request: Request) => config(async () => json({ taxonomy: changeTaxonomy(await body(request)) }));
+export const postTopic = (request: Request) => config(async () => json({ taxonomy: changeTaxonomy(await body(request)) }), request);
 
 export const getAdminProviders = () => config(() => json({ providers: providerViews(Object.keys(ADAPTERS)) }));
 export const postAdminProvider = (request: Request) => config(async () => {
@@ -180,4 +180,4 @@ export const postAdminProvider = (request: Request) => config(async () => {
       ? "Saved as a CSV-only source. Automatic refresh needs a website-specific adapter (development work)."
       : "Saved. The source adapter is unchanged.",
   }, result.created ? 201 : 200);
-});
+}, request);

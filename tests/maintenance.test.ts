@@ -88,12 +88,12 @@ test("HTTP: summary, topics and providers routes (local desk only)", async () =>
     assert.equal(summary.mode, "demo");
     assert.equal(summary.sourceStatuses.length, 4);
     assert.ok(summary.gaps.length >= 5 && summary.gaps.every(g => g.synthetic === true));
-    const bad = await http.postTopic(new Request("http://x", { method: "POST", body: JSON.stringify({ kind: "topic", id: "x" }) }));
+    const bad = await http.postTopic(new Request("http://localhost", { method: "POST", body: JSON.stringify({ kind: "topic", id: "x" }) }));
     assert.equal(bad.status, 400);
     assert.equal((await bad.json() as { error: { code: string } }).error.code, "INVALID_CONFIGURATION_CHANGE");
-    const ok = await http.postTopic(new Request("http://x", { method: "POST", body: JSON.stringify({ kind: "topic", id: "robotics", label: { de: "Robotik", en: "Robotics" } }) }));
+    const ok = await http.postTopic(new Request("http://localhost", { method: "POST", body: JSON.stringify({ kind: "topic", id: "robotics", label: { de: "Robotik", en: "Robotics" } }) }));
     assert.equal(ok.status, 200);
-    const prov = await http.postAdminProvider(new Request("http://x", { method: "POST", body: JSON.stringify({ id: "stadtbibliothek", name: "Stadtbibliothek", discoveryUrl: "https://www.stadtbibliothek.example/" }) }));
+    const prov = await http.postAdminProvider(new Request("http://localhost", { method: "POST", body: JSON.stringify({ id: "stadtbibliothek", name: "Stadtbibliothek", discoveryUrl: "https://www.stadtbibliothek.example/" }) }));
     assert.equal(prov.status, 201);
     assert.match((await prov.json() as { note: string }).note, /CSV-only/);
     const list = await (await http.getAdminProviders()).json() as { providers: { id: string; adapter: string }[] };

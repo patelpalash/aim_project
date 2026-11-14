@@ -2,7 +2,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { loadBundle } from "../src/components/atlas/catalog-data.ts";
 import { AdminApiError, ServiceMissingError, fetchSession, fetchScrapeRun } from "../src/components/organizer/api.ts";
-import { postReset } from "../src/server/review/http.ts";
+import { postReset, postTopic, postAdminProvider } from "../src/server/review/http.ts";
 
 test("discovery reports missing/failed APIs without substituting fictional offers", async () => {
   for (const status of [404, 500]) {
@@ -45,9 +45,11 @@ test("local maintenance rejects cross-site origins and nonlocal destinations bef
       ["http://localhost/api/admin/reset", { host: "public.example" }],
       ["http://localhost/api/admin/reset", { "sec-fetch-site": "cross-site" }],
     ] as const) {
-      const result = await postReset(new Request(url, { method: "POST", headers, body: "{}" }));
-      assert.equal(result.status, 403);
-      assert.equal((await result.json()).error.code, "LOCAL_ONLY");
+      for (const handler of [postReset, postTopic, postAdminProvider]) {
+        const result = await handler(new Request(url, { method: "POST", headers, body: "{}" }));
+        assert.equal(result.status, 403);
+        assert.equal((await result.json()).error.code, "LOCAL_ONLY");
+      }
     }
     assert.equal((await postReset(new Request("http://localhost/api/admin/reset", { method: "POST", headers: { origin: "http://localhost" }, body: "{}" }))).status, 400);
   } finally {
