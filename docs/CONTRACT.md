@@ -4,6 +4,8 @@
 
 Palash owns this contract. Ishan and Umang should propose a small example before changing it. Do not create parallel `Event`, `Course` and `Activity` models with incompatible fields.
 
+Plan revision 2 adds whole-website interaction and core live scraping. Follow [REQUIREMENTS.md](REQUIREMENTS.md), [EXPERIENCE.md](EXPERIENCE.md) and [SCRAPING_PLAN.md](SCRAPING_PLAN.md). The user has confirmed permission for the four named institutions' public course/event pages. The existing shared library is still contract v1; the extensions below are planned, not implemented by these documents.
+
 ## Files and imports
 
 ```ts
@@ -50,16 +52,39 @@ Child/teen presentation is client state, separate from source audience categorie
 
 ## Planned endpoints
 
+### Required shared extensions before implementation
+
+Palash coordinates these with both consumers, preserving existing fixtures/calls where practical:
+
+- **Configurable themes:** the current fixed `Topic` union and validator do not yet allow a nontechnical maintainer to add themes. Introduce shared validated taxonomy configuration and read/edit controls; existing `ai`, `coding`, `gaming` IDs remain stable. Adding a label in one UI component is not the PDF expansion demonstration.
+- **Schedule precision:** add explicit date-only versus date-time/unknown semantics, including a source local date when time is not supplied. Preserve null timestamps rather than inventing midnight. Add matching/sorting behavior for upcoming date-only records in Europe/Berlin.
+- **Age evidence:** preserve published range, explicit minimum-only, all-ages or unknown semantics. The current conservative filter requires both numeric bounds; do not invent an upper age to make source data pass it.
+- **Client discovery state:** audience presentation, selected interest IDs, practical filters, selected/saved offer IDs, quiz choices and puzzle progress stay in memory. Quiz/puzzle evaluators return outcomes and suggested interests, not psychological/ability profiles.
+- **Source run evidence:** raw retrieval/field evidence and parse errors remain in the server layer, separate from selected public `Offer` fields.
+
+Do not silently assume these cases already work because the existing tests pass. Add meaningful checks when the extensions are actually implemented.
+
+### Public reads and local maintenance
+
 For this day, use one public catalog read and client-side filtering. This keeps child preferences and free-text searches off the server. Both UI modes call the same pure matching functions. The application still has searchable data without sending those inputs to an external service.
 
 | Method and route | Request | Success response |
 | --- | --- | --- |
-| `GET /api/offers` | No personal data or search parameters | `{ schemaVersion: 1, mode: "demo", offers: Offer[], generatedAt: string }` |
+| `GET /api/offers` | No personal data or search parameters | `{ schemaVersion: 1, mode: "demo" | "reviewed", offers: Offer[], generatedAt: string, catalogueVersion: number }` plus agreed source/cache metadata |
 | `GET /api/providers` | None | `{ schemaVersion: 1, providers: [{ id, name, discoveryUrl }] }` |
+| `GET /api/taxonomy` | None | Configured topic/interest IDs, labels and mappings, with a configuration version |
+| `POST /api/admin/scrape-runs` | `{ providerId: string | "all" }` for configured sources | HTTP 202 `{ runId: string, status: "queued" }` |
+| `GET /api/admin/scrape-runs/:runId` | None | Run status and per-provider outcomes/counts/errors; no raw HTML in the normal UI |
 | `POST /api/admin/imports/preview` | JSON `{ providerId: string, offers: unknown[] }` | `{ importId: string, preview: ImportPreview, expiresAt: string }` |
 | `POST /api/admin/imports/:importId/approve` | JSON `{ approve: true }` | `{ approved: true, publishedCount: number, catalogueVersion: number }` |
 | `GET /api/admin/summary` | None | `{ mode: "demo", catalogueVersion: number, sourceStatuses: SourceStatus[], gaps: DemoGap[] }` |
 | `POST /api/admin/reset` | JSON `{ resetDemo: true }` | `{ reset: true, catalogueVersion: number }` |
+| `POST /api/admin/topics` | Validated topic definition | Saved configuration/version, preserving existing IDs |
+| `POST /api/admin/providers` | Validated source definition and supported adapter/config | Saved configuration/version; a new website format can remain explicitly unsupported |
+
+Every route above is still proposed. Scrape execution belongs to a bounded local runner/worker outside visitor requests, with cached publication and polled status. Source refresh uses enabled configured provider IDs and exact allowed hosts, never an arbitrary public visitor URL. Adding/editing a source is an organizer operation and does not bypass hostname/input validation. Only the four user-authorized providers are initially enabled.
+
+Scraped candidates use the same preview/review/publication boundary as file imports. File upload is recovery, not a substitute for the requested live adapters. A scheduled backend refresh can be added after the live workflow is verified; this plan creates no desktop automation.
 
 Use `mode: "demo"` while any synthetic records are included. Add a `reviewed` mode only for a catalog containing no synthetic records. Continue displaying per-record provenance even when modes are separated. The public offer route returns only approved, non-cancelled, not-ended records. Call `filterOffers` with an appropriate audience mode when selecting user results. If the API must serve all audience categories, filter publication/time separately so it does not accidentally remove parents or school data before the client can select it.
 
@@ -71,8 +96,11 @@ type SourceStatus = {
   lastAttemptAt: string | null;
   lastSuccessfulImportAt: string | null;
   lastReviewedAt: string | null;
-  status: "demo-only" | "review-needed" | "reviewed" | "error";
+  status: "not-run" | "running" | "demo-only" | "review-needed" | "reviewed" | "empty" | "partial" | "error";
   message: string;
+  partialCoverage: boolean;
+  extractedCount: number;
+  rejectedCount: number;
 };
 type DemoGap = {
   interest: "build-games" | "robots" | "make-art" | "solve-puzzles" | "tell-stories";
@@ -96,6 +124,8 @@ Use synthetic aggregates for the one-day gap demonstration. No public demand sub
 
 `previewImport` already checks basic structure, ID/occurrence collisions and substantive differences. It does not implement steps 1-5 or persist anything. It ignores fetch/review timestamp changes and array order when finding content changes. It does flag source URL/kind changes. There is no automatic fuzzy deduplication.
 
+The same publication rules apply to scraped updates. Record adapter version, attempted/final source URLs, retrieval status, coverage window and field evidence in server-side run records. Treat a zero extraction as unknown until layout/response checks establish a genuine empty result. Preserve the last good catalog after failure or partial coverage. Keep source fetch time distinct from human review time.
+
 Error envelope for the proposed API:
 
 ```json
@@ -118,4 +148,4 @@ Test fixture IDs intentionally cover a full event, unknown age/date/price, paren
 
 ## Adding another institution later
 
-Add an enabled provider configuration, decide a permitted input mechanism, map its records to the same contract, and review them. The `providerId` type permits additional IDs without rewriting the client. New thematic categories require an explicit taxonomy/schema change rather than silently injecting arbitrary tags.
+Add a provider configuration, select a supported adapter/input format, map its records to the common contract and review them. A new website structure may need a new adapter. The existing `providerId` type already permits additional IDs; the planned taxonomy extension must make theme additions similarly configurable. Demonstrate a source/theme maintenance action without rewriting results components, as required by the PDF. Permission for the initial four sources is user-confirmed; a later unrelated institution has its own source context.

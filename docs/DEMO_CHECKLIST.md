@@ -1,50 +1,45 @@
-# Final checks and demo script
+# PDF acceptance checks and demonstration
 
-This checklist is for the application the team will build. It is **not marked complete by the shared library checks**. Record actual evidence at feature freeze rather than assuming a planned feature works.
+Plan revision 2. These checks apply to the application the team will build. Shared-library tests do not complete them. Use [REQUIREMENTS.md](REQUIREMENTS.md) for PDF page references and record actual evidence instead of assuming planned behavior works.
 
 ## Acceptance checks
 
-- [ ] A clean clone installs and starts using the documented commands.
-- [ ] Type checking, shared tests, relevant server checks and the production app build pass.
-- [ ] The catalog includes all four configured provider IDs and AI/coding/gaming themes, with an explicit explanation where no genuine matching record is verified.
-- [ ] Demo records remain visibly labeled throughout results, details and handoff. No demo record offers real registration.
-- [ ] Child, teen and adult presentations can reach the same selected activity without losing state.
-- [ ] Choosing an interest changes actual results, including at phone width around 390px.
-- [ ] Combined query/topic/age/date/format/provider/budget filters reflect real fields. Unknown price is not free. Unknown age does not become a suitability claim.
-- [ ] School-only and parent-only activities do not appear in default family discovery. Full offers are labeled and excluded from bookable recommendations.
-- [ ] Pending, cancelled and ended records stay out of public discovery.
-- [ ] Parent handoff shows useful practical details. The adult-view switch makes no identity/consent claim. Only approved source data can link to provider details.
-- [ ] Date/times display in Europe/Berlin without silently inventing missing times.
-- [ ] Keyboard-only navigation reaches interests, results, details and every form action. Focus remains visible and can leave dialogs.
-- [ ] Essential content reflows on a phone and at increased text size. Contrast and reduced-motion behavior have been checked.
-- [ ] Empty, loading and failed-request states are readable and recoverable.
-- [ ] The local organizer desk previews `data/demo-import.json`: one price change and one new occurrence. Nothing changes publicly before approval.
-- [ ] Approval publishes accepted rows; invalid rows remain rejected. Reapproval and a repeated import do not duplicate records.
-- [ ] A stale preview is rejected. A failed import does not erase the catalog. Reset restores a repeatable demo.
-- [ ] A nontechnical teammate can understand the import errors and correction steps without editing code.
-- [ ] New provider configuration can be added without rewriting results components. Explain that a new source mapping/review is still needed.
-- [ ] No child names, birth dates, emails, exact addresses, raw search logs or remote AI requests appear in the demo data flow. Reset clears session preferences.
-- [ ] Any gap totals are explicitly synthetic; any shortlist is session-only.
-- [ ] Writable admin routes are inaccessible in the public configuration. The localhost demo boundary is documented.
-- [ ] The public journey and review demonstration can be repeated using local fixtures without internet access.
+- [ ] R1/R4: All four institutions are represented and their actual source outcomes are recorded. Failed/incomplete extraction is listed as a remaining gap, not no events.
+- [ ] R1/R6/R9: Real source-backed upcoming AI/coding/gaming activities reach combined discovery results where available; a record can be traced to its exact provider page.
+- [ ] R2: Child/teen/adult presentations serve the same selected activity, with understandable copy and useful practical adult details.
+- [ ] R3/R8: The interactive scene changes actual interests/results; direct overview/search works without playing or registering.
+- [ ] R8: Query/theme/age/date/type/provider/budget constraints combine correctly. Unknown values do not become confirmed suitability or free cost.
+- [ ] R9/R10: A fresh source refresh creates staged changes, readable errors and source evidence. Review/approval publishes accepted changes.
+- [ ] R4/R9: Dynamic pages use actual rendered/public-response records, not loading placeholders. Page caps and partial coverage are visible.
+- [ ] R10: Parsing selects the current event's dates, handles repeated layout text and recurrence, and preserves date-only precision and Europe/Berlin display.
+- [ ] R5: A failed, malformed or empty scrape does not delete the last good catalog. A real empty source result is distinguished from failure.
+- [ ] R5: Repeat scrape/import/approval does not duplicate events; stale approval is rejected and reset is repeatable.
+- [ ] R5: A nontechnical teammate can refresh a source, understand an error/change and publish a reviewed update without editing code.
+- [ ] R7: A theme can be added through configuration/controls without rewriting components. Explain configuration versus a new website adapter.
+- [ ] R11: Child view cannot book in-app; the adult handoff is a practical view, not an identity/consent check. Demo fixtures never offer real registration.
+- [ ] R12: Keyboard/touch alternatives, clear labels, visible focus, contrast, larger text and reduced motion work across the actual journey.
+- [ ] R13/R14: No child name/email/address/birth date/profile or remote preference/search payload is required. Reset clears in-memory state. No real-name leaderboard or daily-login pressure.
+- [ ] R15: Clean-clone install/start, type checking, relevant tests and production build pass using documented commands; actual contribution boundaries are recorded.
+- [ ] User direction: Interest, result, event-detail, shortlist and view transitions feel coherent and preserve context; decorative movement does not block actions.
+- [ ] User direction: Optional quiz has skip/back/editable results. Pattern/sequence puzzles evaluate real input, explain outcomes, support retry and lead back to relevant events.
+- [ ] User direction: Phone/laptop, slow loading, empty results, source failures and cached status have been inspected in the running app.
+- [ ] Evidence: Synthetic offers, reviewed source records, cached snapshots and live refresh outcomes are distinguishable. No unmeasured educational/retention or compliance claims.
+- [ ] Operations: Writable desk routes are disabled in public configuration; local source refresh accepts configured providers only.
+- [ ] Fallback: A reviewed cached snapshot, with retrieval date, supports repeating the journey without internet. It is not described as a fresh fetch.
 
-Do not report a full accessibility, security or legal compliance audit from these checks alone.
+## Approximately four-minute demonstration
 
-## Three-person demonstration, approximately four minutes
-
-| Time | Speaker | Screen and action | Suggested spoken line |
+| Time | Person | Actual screen/action | Point to explain |
 | --- | --- | --- | --- |
-| 0:00-0:35 | Palash | Open entry screen and show the four provider labels | "Families currently have to search several institutions. We bring their activities into one place. The activities in this demonstration are labeled examples." |
-| 0:35-1:35 | Ishan | Choose "Build a game", show matching results, open one activity | "A child can begin with something they want to try. This choice changes the results. The explanation shows which interests and practical constraints match." |
-| 1:35-2:10 | Ishan | Open "Show an adult" and explain age, date and price | "The same activity now shows the details a parent needs. This is a handoff view. Real registration stays with the provider; our demo activity cannot be booked." |
-| 2:10-3:15 | Umang | Open local review desk, upload sample JSON, inspect change, approve and refresh results | "This import proposes a price change and a new session. The organizer reviews them before they appear. Repeating the import does not create another copy. This demonstrates the maintenance workflow; it is not a live website feed." |
-| 3:15-3:40 | Umang | Show source statuses and optional synthetic gap panel | "We preserve where facts came from and what still needs review. These sample gap totals illustrate how institutions could identify missing topics." |
-| 3:40-4:00 | Palash | Return to discovery | "The prototype shows discovery, an adult handoff and controlled updates. Provider-approved live inputs and real-family usability evaluation are the next steps." |
+| 0:00-0:35 | Palash | Show the interactive overview, direct search and four provider context | Families can discover relevant Heilbronn activities in one place; identify source/demo mode honestly. |
+| 0:35-1:30 | Ishan | Select an interest, show changing results, try a short puzzle or optional quiz | Interaction is woven through the website; preferences affect results and play never blocks access. |
+| 1:30-2:05 | Ishan | Open an event with a contextual transition, save it and show the parent view | Practical age/time/cost/source details remain clear; registration stays with the institution. |
+| 2:05-3:15 | Umang | Show real source run/status, inspect a staged change, approve and refresh results | Actual retrieval, validation and controlled maintenance; distinguish all four outcomes and cached/live status. |
+| 3:15-3:40 | Umang | Show source/theme configuration and, if built, the demo gap panel | Maintenance/expansion is understandable; a new site format may require an adapter. |
+| 3:40-4:00 | Palash | Return to discovery and name completed scope/remaining gaps | Connect the experience to PDF requirements without overstating completion. |
 
-Use only screens that actually exist at rehearsal. If the gap panel is cut, omit that action and describe it as future work. If genuine provider records are added, distinguish those from the fictional examples. Never describe a heuristic score as a measured likelihood of learning success.
+Use only screens that actually exist at rehearsal. If refresh fails, explain the failure and show the labeled cached fallback rather than simulating success. If a source or required feature is unfinished, name it. Optional passport/wish counts must be labeled as session/demo information, not research on real families.
 
-## Fallback and handover
+## Handover
 
-Keep the fixture catalog, a resettable import sample and screenshots of the completed journey locally. Run the fallback once before presenting. Keep an offline recording only if time allows; do not substitute it for a claimed live action without saying so.
-
-Final repository handover should contain the run/build/check commands, the agreed source configuration, data provenance, a short architecture note, known limitations and each person's actual contribution. Add any event-specific submission rules when the organizer supplies them. No additional submission checklist, deadline or judging weights were provided in the files inspected.
+Provide run/build/check commands, source/theme config, adapter/run evidence, reviewed snapshot provenance, known limitations, a reset path and each person's actual contribution. The source documents contain no separate final submission checklist or official working schedule; add organizer-specific submission instructions when supplied.

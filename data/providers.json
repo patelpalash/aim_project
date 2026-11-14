@@ -4,7 +4,21 @@
     "name": "aim",
     "discoveryUrl": "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_sonderrubrik=1277",
     "allowedHosts": ["www.aim-akademie.org", "aim-akademie.org"],
-    "importMode": "reviewed-json",
+    "importMode": "scrape-and-review",
+    "scraping": {
+      "implementationStatus": "planned",
+      "permissionStatus": "user-confirmed",
+      "permissionScope": "public-course-and-event-pages",
+      "strategy": "scoped-html",
+      "seedUrls": [
+        "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_sonderrubrik=1277",
+        "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_kursbereich=1278&kfs_sonderrubrik=1277",
+        "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_sonderrubrik=1264"
+      ],
+      "windowDays": 90,
+      "maxPagesPerRun": 20,
+      "minRequestIntervalMs": 1000
+    },
     "enabled": true
   },
   {
@@ -12,7 +26,21 @@
     "name": "experimenta",
     "discoveryUrl": "https://www.experimenta.science/lernen/",
     "allowedHosts": ["www.experimenta.science", "experimenta.science", "buchung.experimenta.science"],
-    "importMode": "reviewed-json",
+    "importMode": "scrape-and-review",
+    "scraping": {
+      "implementationStatus": "planned",
+      "permissionStatus": "user-confirmed",
+      "permissionScope": "public-course-and-event-pages",
+      "strategy": "inspect-public-dynamic-flow",
+      "seedUrls": [
+        "https://www.experimenta.science/lernen/",
+        "https://www.experimenta.science/besuchen/veranstaltungen/",
+        "https://www.experimenta.science/lernen/jugendforschungszentrum/"
+      ],
+      "windowDays": 90,
+      "maxPagesPerRun": 20,
+      "minRequestIntervalMs": 1000
+    },
     "enabled": true
   },
   {
@@ -20,7 +48,21 @@
     "name": "Haus der Familie",
     "discoveryUrl": "https://hdf-hn.de/angebote/digitale-familienwerkstatt/",
     "allowedHosts": ["hdf-hn.de", "www.hdf-hn.de"],
-    "importMode": "reviewed-json",
+    "importMode": "scrape-and-review",
+    "scraping": {
+      "implementationStatus": "planned",
+      "permissionStatus": "user-confirmed",
+      "permissionScope": "public-course-and-event-pages",
+      "strategy": "inspect-public-dynamic-flow",
+      "seedUrls": [
+        "https://hdf-hn.de/angebote/digitale-familienwerkstatt/",
+        "https://hdf-hn.de/kurse/",
+        "https://hdf-hn.de/kinder-jugendliche/"
+      ],
+      "windowDays": 90,
+      "maxPagesPerRun": 20,
+      "minRequestIntervalMs": 1000
+    },
     "enabled": true
   },
   {
@@ -28,7 +70,17 @@
     "name": "IPAI Foundation",
     "discoveryUrl": "https://ipai-foundation.ai/#events",
     "allowedHosts": ["ipai-foundation.ai", "www.ipai-foundation.ai"],
-    "importMode": "reviewed-json",
+    "importMode": "scrape-and-review",
+    "scraping": {
+      "implementationStatus": "planned",
+      "permissionStatus": "user-confirmed",
+      "permissionScope": "public-course-and-event-pages",
+      "strategy": "scoped-html",
+      "seedUrls": ["https://ipai-foundation.ai/#events"],
+      "windowDays": 90,
+      "maxPagesPerRun": 20,
+      "minRequestIntervalMs": 1000
+    },
     "enabled": true
   }
 ]

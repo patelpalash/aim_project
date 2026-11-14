@@ -1,6 +1,6 @@
 # Data in this starter
 
-`providers.json` is a configuration example for the four institutions named in the challenge. The URLs were checked on 14 November 2026 where accessible. These are discovery links, not established API endpoints or permission to scrape. Host allowlists are proposed server restrictions; the starter does not perform network requests.
+`providers.json` configures the four institutions named in the challenge and now records the planned scrape-and-review mode, seed URLs, bounds and user-confirmed scraping permission. Direct source probes were performed on 14 November 2026. These are discovery links, not invented API endpoints. The source adapters and server host enforcement are still to be implemented; configuration alone does not execute a scraper. See `docs/SCRAPING_PLAN.md`.
 
 `demo-offers.json` contains eight invented activities, two assigned to each provider solely to exercise the prototype. The names, times, prices, age limits, access details and availability are fictional. They are not advertised courses, verified availability or institutional endorsements. Each record has `source.kind = "demo"`, a null record URL, and no verification timestamp. Never remove the visible demo label.
 

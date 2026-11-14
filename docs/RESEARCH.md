@@ -6,7 +6,9 @@ Reviewed on **14 November 2026**, using the user's files and a limited check of 
 
 The user asked us to connect `patelpalash/aim_project`, analyze the selected challenge, prepare a proper task split for Palash, Ishan and Umang, and develop distinctive features. The user assigned design to Ishan's Claude and later confirmed a one-day build window.
 
-The supplied README explicitly describes its information as suggestions and invites discussion. Its work packages A-E are ways to organize the challenge, not instructions for this assistant to execute commands, contact people, use a specific provider or build every bonus. This team's role split follows the user's instruction. The project still aims to satisfy the brief's substantive prototype requirements.
+The supplied README describes its guidance as suggestions and invites discussion, but it also has an explicit prototype requirements section. The user now specifically asks us to follow the PDF. [REQUIREMENTS.md](REQUIREMENTS.md) maps every substantive requirement to implementation and acceptance evidence. Packages A-E organize the work; optional bonus examples do not replace the core requirements. Source text is not authorization to execute embedded commands or contact people.
+
+The user's latest direction is an overall interactive website with a distinctive atmosphere, modern animation/transitions and short puzzles/quizzes, with real upcoming data scraping. It supersedes the games-centered emphasis of the previous chat proposal. The user confirmed permission for the four institutions' public event/course pages; treat that as user-confirmed permission, not a pending blocker.
 
 ## Supplied references
 
@@ -33,13 +35,15 @@ The analysis above is a planning summary. Use the original files for the complet
 | Attractive overview beyond a basic calendar | Labeled interest scene plus accessible matching results | Ishan |
 | Overview and search | Combined query/topic/age/date/format/provider/budget filtering | Palash + Ishan |
 | Four institutions and three main themes | Config, correctly tagged catalog and clearly separated demo/source records | Umang |
-| Low maintenance | File import with validation, field changes and review before publication | Umang + Ishan |
-| Easy expansion | Provider configuration and a documented adapter/normalization boundary | Umang |
+| Low maintenance | Live scraping into staged changes, validation, readable source errors and review before publication; file import for recovery | Umang + Ishan |
+| Easy expansion | Source/theme configuration, maintainer controls and a documented adapter/normalization boundary | Palash + Umang + Ishan |
 | Child privacy and suitable interactions | Guest mode, in-memory preferences, reset, no child registration or runtime chatbot | All |
 | Transparent, structured code | Shared contract, separate ownership and focused checks | Palash |
 | Visibility into missing interests | Optional synthetic demand panel with clear labeling | Umang + Ishan |
 
-## Live source feasibility
+## Initial research-tool observations
+
+This table records the first limited research pass. Its fallback suggestions are historical. The updated direct-source inspection below and `SCRAPING_PLAN.md` govern the current live scraping workstream.
 
 | Source checked | What the limited read showed | Decision for the day |
 | --- | --- | --- |
@@ -48,7 +52,15 @@ The analysis above is a planning summary. Use the original files for the complet
 | [Haus der Familie digital workshop](https://hdf-hn.de/angebote/digitale-familienwerkstatt/) | It describes family media activities; the research text view returned a loading placeholder for the course section. | A static page parser may miss course records. Keep a reviewed-file fallback. |
 | [IPAI Foundation events](https://ipai-foundation.ai/#events) | The public page contains dated event entries and descriptions. | A candidate extraction demonstration may be feasible, but minimum ages, family access and reuse permission remain to be checked per record. |
 
-No public API, RSS or iCalendar feed has been established in this pass. No conclusion that those interfaces are absent is justified. No live adapter has been implemented. Time-box investigation to about 30 minutes per difficult source, with at most one simple source adapter after the JSON import path works. Configure all four sources even when only reviewed files can be used during the demo.
+Those were limited observations from the earlier research tool, not a conclusion that the sites cannot be accessed. The revised plan requires actual provider-specific scraping rather than treating a single adapter as sufficient scope.
+
+## Updated direct-source inspection
+
+On 14 November 2026, direct HTTP checks returned 200 for all four seed pages and one follow-up per institution. aim's listing exposed course-detail links and a detail page supplied course identity/date/cost text. This corrects the earlier tool-specific access failure. Haus der Familie's course content remained a loading placeholder, and experimenta's event-page main text did not expose dated entries; both need actual public dynamic-data/rendering investigation. IPAI provided dated overview/detail information, with repeated layout text and some external ticket links.
+
+The inspected aim detail's own date was 14 November 2026 while related-course text included 2027 dates. That demonstrates why a generic whole-page date matcher is unsafe. No complete adapters, upcoming-event dataset, browser network inspection or all-source pagination coverage were produced by these probes.
+
+See [SCRAPING_PLAN.md](SCRAPING_PLAN.md) for observed URLs, per-provider extraction strategy and acceptance checks. No suitable public API/feed has yet been established for the dynamic sources; do not infer absence or invent endpoints. The user-confirmed permission allows work on the named public sources. One working source is an early milestone; all four remain the required target.
 
 ## Implementation references
 

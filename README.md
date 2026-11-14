@@ -1,54 +1,50 @@
 # Interest Atlas: AIM Learning Guide
 
-A one-day hackathon plan for **Palash + ChatGPT, Ishan + Claude, and Umang + Claude**.
+A one-day project for **Palash + ChatGPT, Ishan + Claude and Umang + Claude**. Families explore interests through an engaging website, discover upcoming activities in Heilbronn, and check practical details together.
 
-Families explore what they want to make or try, discover suitable activities in Heilbronn, and check the important details together. Institutions can review incoming course data and see illustrative gaps in demand.
+**Latest direction:** follow the AIM challenge PDF; create a distinctive atmosphere across the whole website with useful animation/transitions, optional short puzzles/quizzes and genuinely scraped upcoming events. A standalone gaming area is optional. The user has confirmed permission for scraping the four named institutions' public course/event pages.
 
 ## Start here
 
-- [The one-day plan and exact task split](docs/PLAN.md)
-- [Challenge analysis and source research](docs/RESEARCH.md)
+- [AIM PDF requirements and acceptance map](docs/REQUIREMENTS.md)
+- [Revised one-day plan and task split](docs/PLAN.md)
+- [Whole-website interactions and motion](docs/EXPERIENCE.md)
+- [Four-source scraping and maintenance plan](docs/SCRAPING_PLAN.md)
 - [Shared data and planned API contract](docs/CONTRACT.md)
-- [Branch workflow and file ownership](CONTRIBUTING.md)
-- [Final checks and three-person demo script](docs/DEMO_CHECKLIST.md)
+- [Source research and evidence limits](docs/RESEARCH.md)
+- [Branch workflow and ownership](CONTRIBUTING.md)
+- [Final checks and demonstration](docs/DEMO_CHECKLIST.md)
 - [Original challenge files](reference/README.md)
 
-Agents should begin with [AGENTS.md](AGENTS.md). Claude sessions also have a root [CLAUDE.md](CLAUDE.md) entry point. Both point to the shared plan, contract and the correct person's prompt.
+Agents begin with [AGENTS.md](AGENTS.md). Claude also has [CLAUDE.md](CLAUDE.md). Plan revision 2 replaces the earlier planning emphasis; use the current documents together.
 
-Copy the matching prompt into your assistant:
+| Person | Assistant prompt | Main responsibility |
+| --- | --- | --- |
+| Palash | [ChatGPT prompt](docs/prompts/PALASH_CHATGPT.md) | App shell, shared state/quiz/puzzle logic, matching and integration |
+| Ishan | [Claude prompt](docs/prompts/ISHAN_CLAUDE.md) | All design/frontend, atmosphere, transitions and responsive interaction |
+| Umang | [Claude prompt](docs/prompts/UMANG_CLAUDE.md) | Four source adapters, actual upcoming records, APIs/cache and maintenance |
 
-| Person | Assistant | Prompt | Main responsibility |
-| --- | --- | --- | --- |
-| Palash | ChatGPT | [Palash's prompt](docs/prompts/PALASH_CHATGPT.md) | Shared logic, app setup, integration and verification |
-| Ishan | Claude | [Ishan's prompt](docs/prompts/ISHAN_CLAUDE.md) | All visual design and frontend implementation |
-| Umang | Claude | [Umang's prompt](docs/prompts/UMANG_CLAUDE.md) | Provider data, import workflow, API and organizer data |
+## Implemented versus planned
 
-## What exists now
+Implemented: shared TypeScript types, record validation, combined filtering, explainable heuristic matching, a parent handoff data object, import change preview, eight clearly fictional fixtures and focused tests.
 
-The linked repository was empty when inspected on **14 November 2026**. This workspace is connected to `https://github.com/patelpalash/aim_project.git` through the `origin` remote.
+Read-only source checks on 14 November 2026 returned public HTML for all four seed pages and inspected one follow-up page per provider. They informed the scraping plan. **They are not finished adapters, a real event dataset or proof of current child eligibility.**
 
-This starter implements shared TypeScript types, import validation, combined search filters, explainable recommendation ordering, a parent handoff data object, and an import change preview. Eight fictional offers cover all four provider IDs, with a second file demonstrating an update and an addition. They are visibly marked as demo data and have no booking URLs.
+Still to build: the website and motion system, quiz/puzzle interfaces, live source adapters, data normalization/review services, configuration controls and deployment. The raw probe cache is local and ignored. The original challenge files are included unmodified under `reference/`.
 
-**A running website, frontend, API server, live source adapters, import approval/persistence and demand dashboard still need to be built.** The plan and prompts identify their owners. There is no claim that data has been scraped or that the application is deployed. Clone or update the shared `main` branch to get this baseline and the original challenge references.
+## Check the shared starter
 
-## Run the shared starter
-
-Use Node.js 24 or newer.
+Use Node.js 24 or newer:
 
 ```powershell
 npm ci
 npm run check
 ```
 
-`npm test` runs meaningful checks for suitability, unknown fields, synthetic booking protection and import handling. `npm run typecheck` checks the shared TypeScript contract. Neither command starts a website.
+These check types and shared behavior; they do not start a website. Proposed scrape commands in the plan do not yet exist. Palash's first application step is an in-place Next.js shell that preserves the starter, source documents and lockfile.
 
-Palash's first implementation step is to add a Next.js App Router shell in this same repository, retaining the starter and lockfile. See the plan before creating a new scaffold.
+## Product rules
 
-## Product decisions
+Keep direct overview/search, the four institutions and AI/coding/gaming scope. Use German copy first, simple labels, keyboard/touch access and reduced motion. Child preferences remain in memory and can be reset. No child account or runtime AI API is needed.
 
-- Use German interface copy first. Keep the existing German/English data fields so Ishan can add an English toggle if the core flow is finished.
-- Keep visitor preferences in memory for the demonstration. Provide a visible reset. A simple adult-view switch demonstrates the handoff; it is not identity or parental-consent verification.
-- Use transparent local matching for recommendations. ChatGPT and Claude help the team develop the project; the prototype does not need a paid AI API.
-- Distinguish demo records, reviewed source facts and missing information everywhere.
-
-The supplied presentation and learning guide are challenge references. Their suggested work packages informed the plan; the user's one-day limit, named owners and design assignment determine this team's execution.
+Keep fictional fixtures separate from reviewed source records and cached snapshots. Unknown price/date/age/access is not a confirmed fact. Registration stays with the institution through the adult/practical flow. The maintenance desk should make refresh, review and expansion understandable to a nontechnical person.
