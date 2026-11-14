@@ -6,14 +6,41 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted 2026-11-14. Owner reports are read from their remote branches: PALASH.md from `origin/codex/palash-integration`, ISHAN.md from `origin/codex/ishan-design` (present since this checkpoint, tip `a1826f2`).
-- Last updated (UTC): 2026-11-14T19:10Z. Checkpoint: `origin/main` = `5045d03` (already merged here); `origin/codex/ishan-design` = `7aa6ae5`. No new requests to Umang except ISH-REQ-3, now done.
-- Current task/slice: ISH-REQ-3 done (`796e438`). Remaining U6: re-apply the review after the next source refresh and support final acceptance.
+- Last updated (UTC): 2026-11-14T19:55Z. Checkpoint: `origin/main` = `7fef39b` (merged here as `a6d9bd8`); `origin/codex/ishan-design` = `7aa6ae5` (already in `main`); `origin/codex/palash-integration` = `7fef39b`.
+- Current task/slice: **temporary final integration and demo readiness** (Palash's Codex session hit its usage limit). Final rehearsal done; README/STATUS/DEMO_CHECKLIST updated (`f271d5d`); PR into `main` next.
 - State: U1–U6 backend done. The public catalogue has **19 evidence-reviewed real events** (aim 8, experimenta 1, Haus der Familie 10) plus the 8 labelled demo examples; the homepage shows "19 geprüfte Angebote · 8 Demo-Beispiele (erfunden)".
-- Based on `main` commit: `5045d03` (merged).
+- Based on `main` commit: `7fef39b` (merged as `a6d9bd8`).
 - Publishing: **resolved.** A normal `git push -u origin codex/umang-data` succeeded at 2026-11-14T16:47Z. `git ls-remote --heads origin codex/umang-data` = `de1635d1ca8227288ed2bac989da88a2e29e8c8d`, equal to the local tip; code commits `97e3e43` (PALASH-002) and `4016c3d` (PALASH-003) are ancestors of the remote tip. All commits listed below are now on GitHub.
 - Next independent task: U6 support. Answer integration questions, re-run sources before rehearsal, and fix whatever Palash's integration finds.
 
+## Temporary integration handoff (Umang for Palash)
+
+- **Why:** Palash's Codex usage limit is exhausted. Umang + Claude take temporary responsibility for final integration and demo readiness. Ownership is unchanged: Ishan owns all design/frontend; Palash resumes `main` integration when available. Other owners' reports were not edited.
+- **Integrated code:** `origin/main` `7fef39b` (which already contains Ishan `7aa6ae5` and Umang `796e438`) merged into `codex/umang-data` as `a6d9bd8`, with no conflicts. Ishan has no newer reported commit. The rehearsal found no backend defects and needed no code changes; documentation is `f271d5d`.
+- **Checks actually run** (fresh worktree of `a6d9bd8`, Node 24.22.3 / npm 10.9.9; details in `docs/STATUS.md`):
+  - Install, tests and build: `npm ci`, `npm run check` 123/123, `npm run build` (no warnings).
+  - **Backend rehearsal over HTTP (30/30):**
+    - The catalog read from the API is 27 = 19 reviewed + 8 examples, and both re-reviewed courses are published.
+    - `lastReviewedAt` matches each provider's newest approval (IPAI `null`), all statuses are German, and the 12 held records stay out.
+    - CSV: 18/2 → fix → 19, stale edit and approval 409, blocked row 400, idempotent repeat approval, no duplicates on re-import.
+    - Source staging publishes nothing, a cross-site write gets 403, and reset restores 27.
+  - **Source outage:** the real IPAI adapter with HTTP 503 on every request kept `ipai-latest.json` (same hash) and the catalog at 27/19; the API shows IPAI `error` with the German "letzter erfolgreicher Lauf" message. The outage was simulated at the HTTP layer; a proxy-based attempt still reached the network and produced a normal fresh run.
+  - **Review ledger dry run:** 19 approved, 12 held, no changed facts.
+  - **Disabled desk:** 8/8 maintenance routes return 404; the public API and pages return 200.
+  - **Visitor browser journey (16/16):** wording matches the API counts, labels are correct, filters and search work, the detail view shows provider link and review time, dialog keyboard handling works, save, audience switching and parent view work, quiz and puzzle work, reset-play and full reset work, only the three public GETs are made, and there are no errors.
+  - **Organizer browser journey:** CSV import, fix and publish with the result panel staying visible; live experimenta refresh with polling; source-to-review staging; theme add, invalid-ID feedback and disable.
+  - **Phone, reduced motion, keyboard:** 390 px (iPhone 13 profile) with no horizontal scroll on both routes, tap open and save work. Reduced motion has no movement. Keyboard reaches the skip link first, and 25 tab stops per route show visible focus. No external hosts are requested.
+- **Not verified:** contrast measurement, 200 % zoom, screen reader, slow network and empty results in the browser, a nontechnical-user session, and hosted deployment.
+- **Rehearsal side effects** (fresh experimenta/IPAI snapshots and a test theme) stayed in the scratch worktree and were not committed. The committed snapshots remain the ones the review ledger was made against.
+- **PR:** `codex/umang-data` → `main` after this report is published. Link and merge commit follow below once done.
+
 ## Requests to teammates
+
+- **UMANG-005 -> Ishan (optional, non-blocking polish; not required for the demo):** from the rehearsal:
+  - The "Nur stufenlos" checkbox measures 20×20 px. It is inside a clickable label, so it is acceptable, but a 24 px box would be clearer on touch.
+  - The inline footer link "Organizer-Bereich" is 19 px tall.
+  - Contrast and 200 % zoom were not measured. If you run them, please report in ISHAN.md.
+  - No frontend defects blocking the demo were found.
 
 - **UMANG-001 -> Palash (shared model):** please decide each of the following. Until then the adapters keep the conservative behaviour described.
   1. Online events. `venue.city` is required, so Haus der Familie "LIVE ONLINE" parent talks are blocked. Needed: an online venue representation.
