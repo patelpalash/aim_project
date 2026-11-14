@@ -6,8 +6,8 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted 2026-11-14. Owner reports are read from their remote branches: PALASH.md from `origin/codex/palash-integration`, ISHAN.md from `origin/codex/ishan-design` (present since this checkpoint, tip `a1826f2`).
-- Last updated (UTC): 2026-11-14T18:55Z. Checkpoint: `origin/main` = `5045d03`, merged here; `origin/codex/ishan-design` = `7aa6ae5`.
-- Current task/slice: UMANG-004 re-review done (`213635a`). Remaining U6: re-apply the review after the next source refresh and support final acceptance.
+- Last updated (UTC): 2026-11-14T19:10Z. Checkpoint: `origin/main` = `5045d03` (already merged here); `origin/codex/ishan-design` = `7aa6ae5`. No new requests to Umang except ISH-REQ-3, now done.
+- Current task/slice: ISH-REQ-3 done (`796e438`). Remaining U6: re-apply the review after the next source refresh and support final acceptance.
 - State: U1–U6 backend done. The public catalogue has **19 evidence-reviewed real events** (aim 8, experimenta 1, Haus der Familie 10) plus the 8 labelled demo examples; the homepage shows "19 geprüfte Angebote · 8 Demo-Beispiele (erfunden)".
 - Based on `main` commit: `5045d03` (merged).
 - Publishing: **resolved.** A normal `git push -u origin codex/umang-data` succeeded at 2026-11-14T16:47Z. `git ls-remote --heads origin codex/umang-data` = `de1635d1ca8227288ed2bac989da88a2e29e8c8d`, equal to the local tip; code commits `97e3e43` (PALASH-002) and `4016c3d` (PALASH-003) are ancestors of the remote tip. All commits listed below are now on GitHub.
@@ -23,6 +23,13 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
   Acceptance: a written decision in PALASH.md. Continuing with U3/U4 meanwhile.
 
 ## Replies to teammates
+
+- **ISH-REQ-3 -> Ishan: done.** Code commit `796e438e7df6f7b25027092c67397f8b85a5f135`.
+  - `sourceStatuses[].message` is now German, built from the structured run and review data. Example (aim): "15 Angebote zur Prüfung bereitgestellt (9 prüfbereit, 6 mit Korrekturbedarf). Abdeckung unvollständig: Seitenlimit erreicht. Prüfung: 8 nach menschlicher Prüfung veröffentlicht, 3 bereitgestellt, aber nicht veröffentlicht (wartet auf Prüfung oder zurückgestellt), 4 blockiert." The English technical log stays in the run files.
+  - Two data fixes found while checking your panel:
+    - `rejectedCount` no longer counts rows that were corrected and published in review. aim goes 6 → 4 and Haus der Familie 3 → 1, so "N Einträge werden noch korrigiert" is now true.
+    - `status` becomes `reviewed` only when the run was fully read, nothing awaits review, nothing is blocked and something was published. Currently only experimenta qualifies; partial coverage stays `partial`.
+  - Checks: `npm run check` 123/123 and `npm run build` clean. With `next start`, the opened "Woher die Angebote kommen" panel shows "aim Teilweise übernommen … 4 Einträge werden noch korrigiert", "experimenta Geprüft", "Haus der Familie … 1 Eintrag" and "IPAI … 4 Einträge", plus the German detail line, with no English text.
 
 - **UMANG-003 -> Palash: closed.** Observed in a browser on the merged build: the status line reads "19 geprüfte Angebote · 8 Demo-Beispiele (erfunden)" from the actual catalogue counts. No backend change was needed.
 - **UMANG-004 -> Palash: done.** Code commit `213635acb0096b477193d7a0ee7c5d987a9412de`.
@@ -148,6 +155,7 @@ All on `origin/codex/umang-data` (verified 2026-11-14T16:47Z).
 | --- | --- | --- | --- | --- |
 | aim adapter, normalization core, first real record | U1 | `eb5db20` | `src/server/scraping/{types,html,berlin-time,providers,fetcher,runner,cli}.ts`, `src/server/scraping/adapters/aim.ts`, `src/server/normalize/*`, `tests/aim-adapter.test.ts` | live aim run; 34/34 tests at that commit |
 | experimenta, Haus der Familie, IPAI adapters; shared runner | U2 | `832d3f6` | `src/server/scraping/adapters/{experimenta,hdf,ipai,index}.ts`, `tests/source-adapters.test.ts`, `tests/fixtures/**` | live four-source run; 46/46 tests at that commit; records spot-checked against source pages |
+| German status messages, accurate review-aware counts | U6, ISH-REQ-3 | `796e438` | `src/server/catalog/read.ts`, `tests/{source-review,catalog-api}.test.ts` | 123/123 tests; clean build; browser check of the source panel |
 | Re-review under taxonomy v3 (2 more real records) | U6, UMANG-004 | `213635a` | `data/catalog/*`, `src/server/review/apply-review.ts`, `src/server/normalize/rules.ts`, `tests/source-review.test.ts` | 2 pages re-verified; 120/120 tests; clean build; browser check of `/` |
 | Reviewed real records + lastReviewedAt | U6, PALASH-007 | `7fa9631` | `data/catalog/{reviewed-offers,review-decisions,review-report}.json`, `src/server/review/apply-review.ts`, `src/server/catalog/read.ts`, `src/server/review/service.ts`, `tests/source-review.test.ts` | 17/17 source pages re-verified; 116/116 tests; clean build; browser check of `/` |
 | Desk summary, theme/source maintenance, desk-compatible edits | U5 | `8a75c3b` | `src/server/config/maintenance.ts`, `src/server/review/{http,service}.ts`, `src/app/api/admin/{summary,topics,providers}`, `data/demo-gap-requests.json`, `tests/maintenance.test.ts` | 106/106 tests; integrated build with Ishan's branch; headless desk flow |

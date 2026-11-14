@@ -58,7 +58,7 @@ test("public API serves the reviewed baseline; lastReviewedAt comes from approva
     assert.equal(body.sourceStatuses.find(s => s.providerId === p)?.lastReviewedAt, latest(p));
   const ipai = body.sourceStatuses.find(s => s.providerId === "ipai")!;
   assert.equal(ipai.lastReviewedAt, null);
-  assert.match(ipai.message, /0 published after human review/);
+  assert.match(ipai.message, /Prüfung: 0 nach menschlicher Prüfung veröffentlicht/);
 });
 
 test("a new approval moves lastReviewedAt to that approval time; staged-only records never do", () => {
@@ -105,4 +105,47 @@ test("future runs tag the new interests from source wording", async () => {
   assert.ok(matchInterests("eine smarte Stadt in der Sandbox-Welt von Luanti").some(h => h.value === "build-worlds"));
   assert.ok(matchInterests("baust deine eigene Messenger Web-App").some(h => h.value === "build-apps"));
   assert.ok(!matchInterests("Programmieren lernen mit Python").some(h => h.value === "build-apps"));
+});
+
+test("ISH-REQ-3: source status messages are German and built from structured run data", async () => {
+  const { germanStatusMessage } = await import("../src/server/catalog/read.ts");
+  const run = (o: object) => ({ status: "needs-review", windowDays: 90, pageCap: 20, pages: [], partialCoverage: false,
+    counts: { listed: 0, outOfScope: 0, outsideWindow: 0, extracted: 0, ready: 0, blocked: 0, failed: 0 }, ...o }) as never;
+  const capped = run({ status: "partial", partialCoverage: true, pages: new Array(20).fill({}), counts: { ready: 9, blocked: 6, failed: 0 } });
+  assert.equal(germanStatusMessage({ current: capped, latest: capped, lastAttemptFailed: false, published: 8, awaiting: 1, blocked: 6 }),
+    "15 Angebote zur Prüfung bereitgestellt (9 prüfbereit, 6 mit Korrekturbedarf). Abdeckung unvollständig: Seitenlimit erreicht. " +
+    "Prüfung: 8 nach menschlicher Prüfung veröffentlicht, 1 bereitgestellt, aber nicht veröffentlicht (wartet auf Prüfung oder zurückgestellt), 6 blockiert.");
+  assert.match(germanStatusMessage({ current: run({ status: "empty", windowDays: 90 }), latest: null, lastAttemptFailed: false, published: 0, awaiting: 0, blocked: 0 }),
+    /^Quelle gelesen; in den nächsten 90 Tagen gibt es keine passenden Angebote/);
+  assert.match(germanStatusMessage({ current: run({ status: "failed" }), latest: null, lastAttemptFailed: true, published: 0, awaiting: 0, blocked: 0 }),
+    /^Die Quelle konnte nicht gelesen werden; der veröffentlichte Katalog bleibt unverändert\.$/);
+  const one = run({ counts: { ready: 1, blocked: 0, failed: 0 } });
+  assert.match(germanStatusMessage({ current: one, latest: one, lastAttemptFailed: false, published: 1, awaiting: 0, blocked: 0 }), /^1 Angebot zur Prüfung bereitgestellt/);
+  // The live statuses contain no English run-log sentence.
+  const { files } = sandbox();
+  for (const s of sourceStatuses(files)) assert.doesNotMatch(s.message, /candidate|staged for|published after|Page cap/, s.providerId);
+});
+
+test("rows blocked at extraction but corrected and published in review are not counted as blocked", () => {
+  const { files } = sandbox();
+  const msg = (p: string) => sourceStatuses(files).find(s => s.providerId === p)!.message;
+  // aim: 6 blocked in the run, 2 of them (Craft Your City, Code your Chat) corrected and published.
+  assert.match(msg("aim"), /8 nach menschlicher Prüfung veröffentlicht, 3 bereitgestellt, aber nicht veröffentlicht .*, 4 blockiert\./);
+  // Haus der Familie: 3 blocked in the run, the two Data Literacy workshops corrected and published.
+  assert.match(msg("haus-der-familie"), /10 nach menschlicher Prüfung veröffentlicht, 0 bereitgestellt, .*, 1 blockiert\./);
+  assert.match(msg("ipai"), /0 nach menschlicher Prüfung veröffentlicht, 0 bereitgestellt, .*, 4 blockiert\./);
+});
+
+test("status and rejectedCount reflect review outcomes, conservatively", () => {
+  const { files } = sandbox();
+  const st = (p: string) => sourceStatuses(files).find(s => s.providerId === p)!;
+  assert.equal(st("experimenta").status, "reviewed", "its one staged record is published; nothing awaits or is blocked");
+  assert.equal(st("experimenta").rejectedCount, 0);
+  assert.equal(st("haus-der-familie").status, "review-needed", "one online record is still blocked");
+  assert.equal(st("haus-der-familie").rejectedCount, 1);
+  assert.equal(st("aim").status, "partial", "page cap: coverage stays explicitly incomplete");
+  assert.equal(st("aim").rejectedCount, 4);
+  assert.equal(st("ipai").status, "review-needed");
+  assert.equal(st("ipai").rejectedCount, 4);
+  assert.equal(st("ipai").lastReviewedAt, null);
 });

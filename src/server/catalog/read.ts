@@ -115,6 +115,37 @@ const RUN_STATUS: Record<ProviderRunResult["status"], SourceStatus["status"]> = 
   empty: "empty", partial: "partial", failed: "error",
 };
 
+const n = (count: number, one: string, many: string) => `${count} ${count === 1 ? one : many}`;
+
+/**
+ * Visitor/organizer-facing German status sentence (ISH-REQ-3), built from structured run data.
+ * The English technical log stays in the run files (`message` of `<provider>-latest.json`).
+ */
+export function germanStatusMessage(input: {
+  current: Partial<ProviderRunResult>; latest: ProviderRunResult | null; lastAttemptFailed: boolean;
+  published: number; awaiting: number; blocked: number;
+}): string {
+  const { current, latest, lastAttemptFailed, published, awaiting, blocked } = input;
+  const parts: string[] = [];
+  const counts = current.counts;
+  if (lastAttemptFailed)
+    parts.push(latest ? "Die letzte Aktualisierung ist fehlgeschlagen; angezeigt wird der letzte erfolgreiche Lauf." : "Die Quelle konnte nicht gelesen werden; der veröffentlichte Katalog bleibt unverändert.");
+  else if (current.status === "failed") parts.push("Die Quelle konnte nicht gelesen werden; der veröffentlichte Katalog bleibt unverändert.");
+  else if (current.status === "empty") parts.push(`Quelle gelesen; in den nächsten ${current.windowDays ?? 90} Tagen gibt es keine passenden Angebote für Kinder, Jugendliche oder Familien.`);
+  else if (counts) {
+    const staged = (counts.ready ?? 0) + (counts.blocked ?? 0);
+    parts.push(`${n(staged, "Angebot", "Angebote")} zur Prüfung bereitgestellt (${counts.ready ?? 0} prüfbereit, ${counts.blocked ?? 0} mit Korrekturbedarf).`);
+  }
+  if (!lastAttemptFailed && current.status !== "failed" && current.partialCoverage) {
+    const capHit = (current.pages?.length ?? 0) >= (current.pageCap ?? Infinity);
+    const unread = counts?.failed ?? 0;
+    parts.push(`Abdeckung unvollständig${capHit ? ": Seitenlimit erreicht" : ""}${unread ? `${capHit ? "," : ":"} ${n(unread, "Seite", "Seiten")} nicht lesbar` : ""}.`);
+  }
+  if (latest)
+    parts.push(`Prüfung: ${published} nach menschlicher Prüfung veröffentlicht, ${awaiting} bereitgestellt, aber nicht veröffentlicht (wartet auf Prüfung oder zurückgestellt), ${blocked} blockiert.`);
+  return parts.join(" ");
+}
+
 /** Per-provider status from the stored run files (no raw evidence, no candidate data). */
 export function sourceStatuses(files: CatalogFiles = defaultFiles(), providerIds = loadProviderSummaries(files).providers.map(p => p.id)): SourceStatus[] {
   const published = readStoredCatalog(files).offers as Partial<Offer>[];
@@ -126,7 +157,7 @@ export function sourceStatuses(files: CatalogFiles = defaultFiles(), providerIds
     const attempt = readJson<(Partial<ProviderRunResult> & { finishedAt?: string }) | null>(new URL(`${providerId}-last-attempt.json`, files.runs), null);
     if (!latest && !attempt)
       return { providerId, lastAttemptAt: null, lastSuccessfulImportAt: null, lastReviewedAt, status: "not-run",
-        message: "No source run recorded yet.", partialCoverage: false, extractedCount: 0, rejectedCount: 0 };
+        message: "Für diese Quelle wurde noch kein Lauf erfasst.", partialCoverage: false, extractedCount: 0, rejectedCount: 0 };
     const lastAttemptFailed = attempt?.status === "failed" && (!latest || (attempt.finishedAt ?? "") > latest.finishedAt);
     const current = lastAttemptFailed ? attempt! : latest!;
     // Staged, publishable candidates that are not yet published unchanged still await review.
@@ -136,20 +167,22 @@ export function sourceStatuses(files: CatalogFiles = defaultFiles(), providerIds
       const p = byId.get(c.offer.id);
       return !p || p.startsAt !== c.offer.startsAt || p.startDate !== c.offer.startDate || p.availability !== c.offer.availability || p.priceEur !== c.offer.priceEur || p.title?.de !== c.offer.title.de;
     }).length;
-    const blocked = (latest?.candidates ?? []).filter(c => c.state === "blocked").length;
-    const reviewNote = latest ? ` Review: ${reviewed.length} published after human review; ${awaiting} staged record(s) not published (awaiting review or held at review); ${blocked} blocked.` : "";
+    // A row blocked at extraction but corrected and approved in review is published, not blocked.
+    const blocked = (latest?.candidates ?? []).filter(c => c.state === "blocked" && !byId.has(c.offer.id)).length;
     return {
       providerId,
       lastAttemptAt: (attempt?.finishedAt && (!latest || attempt.finishedAt > latest.finishedAt)) ? attempt.finishedAt : latest?.finishedAt ?? null,
       lastSuccessfulImportAt: latest?.finishedAt ?? null,
       lastReviewedAt,
-      status: RUN_STATUS[current.status ?? "not-run"],
-      message: (lastAttemptFailed
-        ? `Latest refresh failed; showing the last good staged run. ${current.message ?? ""}`.trim()
-        : current.message ?? "") + reviewNote,
+      // "reviewed" only when the latest run was fully read and every staged record has been decided:
+      // nothing awaiting review, nothing still blocked, and at least one record published after review.
+      status: !lastAttemptFailed && current.status === "needs-review" && awaiting === 0 && blocked === 0 && reviewed.length > 0
+        ? "reviewed" : RUN_STATUS[current.status ?? "not-run"],
+      message: germanStatusMessage({ current, latest, lastAttemptFailed, published: reviewed.length, awaiting, blocked }),
       partialCoverage: Boolean(current.partialCoverage),
       extractedCount: current.counts?.extracted ?? 0,
-      rejectedCount: (current.counts?.blocked ?? 0) + (current.counts?.failed ?? 0),
+      // Still-unpublished blocked rows plus unreadable pages; rows corrected and published in review are excluded.
+      rejectedCount: (lastAttemptFailed ? (current.counts?.blocked ?? 0) : blocked) + (current.counts?.failed ?? 0),
     };
   });
 }
