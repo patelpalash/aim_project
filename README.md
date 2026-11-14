@@ -16,6 +16,7 @@ A one-day project for **Palash + ChatGPT, Ishan + Claude and Umang + Claude**. F
 - [Final checks and demonstration](docs/DEMO_CHECKLIST.md)
 - [Original challenge files](reference/README.md)
 - [Current implementation status and bootstrap handoff](docs/STATUS.md)
+- [P1/P2 contract handoff and examples](docs/HANDOFF_PALASH.md)
 
 Agents begin with [AGENTS.md](AGENTS.md). Claude also has [CLAUDE.md](CLAUDE.md). **Consolidated plan revision 3** is the single merged plan. Read [the three-person execution board](docs/TEAM_TASKS.md) and [the shared CSV/import workflow](docs/IMPORT_WORKFLOW.md) alongside the existing requirement/experience/scraping documents.
 
@@ -29,7 +30,7 @@ Selected additions from the supplied plan: downloadable CSV template, row-level 
 
 ## Implemented versus planned
 
-Implemented: a minimal Next.js App Router + React + TypeScript shell with the `@/` alias; shared types, record validation, combined filtering, explainable matching, parent handoff data, import preview, fictional fixtures and focused tests. See [STATUS.md](docs/STATUS.md) for verified task progress.
+Implemented: the Next.js shell/alias, configurable taxonomy, date-only/DST and age-evidence behavior, filtering/matching/handoff/import preview, catalog/review types and pure guards, validated fictional examples and focused tests. See [STATUS.md](docs/STATUS.md) and [HANDOFF_PALASH.md](docs/HANDOFF_PALASH.md). Actual backend routes and atomic publication are not implemented by those helpers.
 
 Read-only source checks on 14 November 2026 returned public HTML for all four seed pages and inspected one follow-up page per provider. They informed the scraping plan. **They are not finished adapters, a real event dataset or proof of current child eligibility.**
 

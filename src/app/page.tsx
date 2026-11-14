@@ -1,6 +1,4 @@
-import { TOPICS } from "@/shared/contracts";
-
-const labels: Record<string, string> = { ai: "KI", coding: "Coding", gaming: "Gaming" };
+import { getActiveTopics } from "@/shared/taxonomy";
 
 /** Minimal bootstrap surface. Ishan owns the complete visual implementation. */
 export default function HomePage() {
@@ -8,7 +6,7 @@ export default function HomePage() {
     <main>
       <h1>Interest Atlas</h1>
       <p>Lernangebote in Heilbronn entdecken.</p>
-      <ul>{TOPICS.map(topic => <li key={topic}>{labels[topic]}</li>)}</ul>
+      <ul>{getActiveTopics().map(topic => <li key={topic.id}>{topic.label.de}</li>)}</ul>
       <p>Vorschau: Die interaktive Entdeckung entsteht gerade.</p>
     </main>
   );

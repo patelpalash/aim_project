@@ -5,7 +5,7 @@ Verified 14 November 2026. Plan revision 3 remains the product scope. This file 
 | Task | State | Evidence/remaining work |
 | --- | --- | --- |
 | P1 | Implemented and verified | Next.js App Router + React + TypeScript shell, `@/` alias and development/build/start/check commands. Production build, 18 original tests, HTTP 200/404 checks and browser rendering passed. |
-| P2 | In progress | Configurable taxonomy, date-only schedules, age evidence, catalog/review payloads and teammate examples are next. Existing shared v1 behavior remains available. |
+| P2 | Implemented and verified | Additive taxonomy/date-only/age evidence contracts, catalog/review runtime validators, pure patch/selection guards and validated fictional examples. All 40 shared tests and the Next production build pass. See `HANDOFF_PALASH.md`. Actual service/storage remains Umang's work. |
 | P3/P4 | Planned | Shared discovery state, quiz and puzzle evaluation will follow the contract handoff. |
 | I1-I6 | Teammate workstream | Ishan owns all final visual design/frontend. The current page is a minimal bootstrap, not the interactive product. |
 | U1-U6 | Teammate workstream | Umang owns live source adapters, CSV/review services and backend. No source adapter/API is implemented by this bootstrap. |

@@ -1,6 +1,6 @@
 # Shared import and review workflow
 
-Consolidated plan revision 3. This is a specification for Umang's server and Ishan's organizer UI, not an implemented service. Follow [CONTRACT.md](CONTRACT.md) and reuse the shared offer model/validator/change-preview logic, with Palash's coordinated extensions.
+Consolidated plan revision 3. This specifies Umang's server and Ishan's organizer UI, not an implemented service. P2's shared review types/validators/guards are available in `src/shared/review.ts`; follow [HANDOFF_PALASH.md](HANDOFF_PALASH.md) and [CONTRACT.md](CONTRACT.md). Reuse the one offer model and preview logic.
 
 ## Two inputs, one publication path
 
@@ -63,7 +63,7 @@ All routes are proposed and local-maintenance-only:
 
 Use the error envelope and storage/host limits in `CONTRACT.md`. Keep upload size at 1 MB and at most 100 rows for the prototype. Do not expose arbitrary filesystem paths, HTML or unconfigured fetch targets. All published data comes from one catalog store.
 
-Proposed shared response shape, to be implemented once through Palash's contract work:
+Shared response shape implemented by P2 (`src/shared/review.ts` also permits an optional `before` record and unvalidated `draft` for blocked-row editing):
 
 ```ts
 type ReviewRowState = "ready-new" | "ready-update" | "needs-review" | "blocked" | "unchanged";

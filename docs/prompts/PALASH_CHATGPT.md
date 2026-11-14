@@ -8,7 +8,7 @@ The user wants an overall engaging modern website with a distinctive atmosphere,
 
 **Own:** app setup, shared discovery state, filtering/matching, quiz mapping, small puzzle evaluation, schema/config coordination, root dependencies and final integration. **Ishan owns all visual design/frontend**, including motion and puzzle interfaces. **Umang owns all four source adapters, APIs/cache, review and storage.** Respect those boundaries.
 
-Inspect the checkout. The starter library and synthetic fixtures exist; no app shell, live adapters or puzzle UI exists yet. Preserve the starter while adding one Next.js App Router + TypeScript shell and `@/` alias in place. Coordinate styling/motion dependencies with Ishan; do not replace his design. Document actual run/build/check commands.
+Inspect the checkout and `docs/STATUS.md` first. P1's Next.js shell/alias and P2's shared contracts are now available; do not scaffold them again. Read `docs/HANDOFF_PALASH.md` and continue unfinished task IDs. Live adapters, full visual UI and actual review/storage remain teammate work. Coordinate dependencies with Ishan and retain his design ownership.
 
 Early shared work: memory-only state for audience presentation, interests, filters, selected/saved offer IDs, quiz answers and puzzle progress. Keep direct overview/search. Implement deterministic quiz mapping and small pattern/sequence evaluators without user-code execution. Recommendations reflect explicit interests and source facts, not intelligence or performance claims.
 
