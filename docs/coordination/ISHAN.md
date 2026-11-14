@@ -6,20 +6,26 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted.
-- Last updated (UTC): 2026-11-14 17:05.
-- Current task/slice: I1-I6 all implemented and pushed to `codex/ishan-design` (head `728d42f`). Ready for Palash's integration into main.
-- State: `/` discovery works end to end on demo fixtures with the demo banner; `/organizer` works against the admin contract and states plainly that those routes are missing.
-- Based on `main` commit: 0b09fa8 (merged in 08e1bb5).
-- Next independent task: none blocking; waiting on ISH-REQ-1/ISH-REQ-2 to switch from fixtures to live data.
+- Last updated (UTC): 2026-11-14 17:55.
+- Current task/slice: I1-I6 implemented; verified against Umang's backend and fixed what that showed.
+- State: with `codex/umang-data` merged locally, both routes run on the real API: `/` loads the live catalogue and reports per-source import state; `/organizer` does upload -> inline correction -> selected publication against the real review service.
+- Based on `main` commit: `6629eca` (merged in `09c979b`).
+- Next independent task: none blocking. Available for rehearsal fixes and whatever Palash's integration finds.
 
 ## Requests to teammates
 
-- ISH-REQ-1 → Umang: `/api/offers`, `/api/taxonomy`, `/api/providers` per `src/shared/api-contract.ts`. Until they exist the UI falls back explicitly to `data/demo-offers.json` (404 path in `src/components/atlas/catalog-data.ts`). Acceptance: the status line on `/` switches from "Demo-Daten" to "Geprüfter Katalog". Work continues on fixtures meanwhile.
-- ISH-REQ-2 → Umang: `/api/admin` review routes are needed before I5 (organizer desk) can start. Not blocking I3/I4.
+- ISH-REQ-1 → Umang: **closed, delivered.** `/api/offers`, `/api/taxonomy`, `/api/providers` verified from my pages. The fixture fallback stays as the 404 path only.
+- ISH-REQ-2 → Umang: **closed, delivered.** The admin routes work from `/organizer`. Note for everyone: they are local-only behind `INTEREST_ATLAS_LOCAL_DESK=1`; without it the desk correctly shows its "only locally enabled" state.
+- ISH-REQ-3 → Umang (small, not blocking): `sourceStatus.message` is English ("15 candidate(s) staged for human review"). The panel now writes its own German sentence from `extractedCount`/`rejectedCount`/`partialCoverage` and shows your message as secondary detail, so nothing is blocked — but a German message, or a localised pair, would let the raw text move up.
 
 ## Replies to teammates
 
-None open.
+- **To Umang, on your ISH-REQ-1/ISH-REQ-2 replies: confirmed on my side.** I merged `origin/codex/umang-data` (`1323a19`) with my branch locally — no conflicts, `npm run check` 106/106, `npm run build` clean — and ran both routes against your server with `INTEREST_ATLAS_LOCAL_DESK=1`:
+  - `/` loads the real bundle; 24 offers after publication; the status line stays "Demo-Daten" while demo fixtures are in the catalogue, which is the agreed behaviour.
+  - `/organizer`: `data/demo-upload.csv` → 18 ready / 2 blocked; the date fix on the blocked row → 19 ready, revision 2; "Ausgewählte veröffentlichen (19)" → **19 veröffentlicht · 1 blockiert geblieben · Katalogversion 3**, and the blocked row is not public.
+  - Thanks for the two editor-side server fixes in `8a75c3b` — the date edit and the age/`ageEvidence` re-derivation both behave as you describe.
+  - Three things this run found on **my** side, all fixed in `6805780` and `5cbe349`: the publish confirmation was being wiped by the session refresh that follows approval; a reload lost the open import (the desk now stores the import id for the tab and refetches); and the "server missing" copy wrongly said the routes did not exist.
+  - New on the results page: a "Woher die Angebote kommen" panel that reports your `sourceStatuses` and `cache` per provider, naming partial coverage explicitly. See ISH-REQ-3.
 
 ## Ready slices
 
