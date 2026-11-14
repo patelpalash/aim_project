@@ -12,7 +12,7 @@ import { loadBundle, type BundleState } from "./catalog-data";
 import { WHEN_LABEL, whenPatch, type When } from "./dates";
 import { DetailSheet } from "./DetailSheet";
 import { EventCard } from "./EventCard";
-import { HeroCanvas } from "./HeroCanvas";
+import { MapView } from "./MapView";
 import { interestMeta, InterestIcon } from "./interests";
 import { providerName } from "./format";
 import { flyBetween, supportsViewTransitions, useCountUp, useScrollReveal, withTransition } from "./motion";
@@ -22,7 +22,8 @@ const FORMAT_LABEL: Record<Format, string> = { workshop: "Workshop", course: "Ku
 const SORT_LABEL: Record<DiscoverySort, string> = { recommended: "Empfohlen", soonest: "Nächster Termin", title: "Titel A–Z" };
 const PRICE_OPTIONS = [["", "Egal"], ["0", "Kostenlos"], ["10", "bis 10 €"], ["25", "bis 25 €"]] as const;
 const AGES = Array.from({ length: 11 }, (_, i) => i + 7); // 7–17: the target audience is 7+
-const HEADLINE = ["Finde,", "was", "dich", "wirklich", "begeistert."];
+/** The last word repeats the first so the rotation loops without a jump. */
+const ROTATING = ["Bauen", "Entdecken", "Erfinden", "Bauen"];
 const PROVIDERS = ["aim", "experimenta", "Haus der Familie", "IPAI"];
 /** Only the first cards get their own view-transition-name; hundreds of names would be slow. */
 const MAX_NAMED = 24;
@@ -46,6 +47,7 @@ export function Discovery() {
   const { state, dispatch, results, selectedOffer, shortlist } = useDiscovery(offers);
 
   const [pulse, setPulse] = useState<Interest | null>(null);
+  const [view, setView] = useState<"list" | "map">("list");
   const [bump, setBump] = useState(0);
   const [announce, setAnnounce] = useState("");
   const [scrolled, setScrolled] = useState(false);
@@ -131,12 +133,14 @@ export function Discovery() {
 
       <main>
         <section className="dz-hero" aria-labelledby="dz-title">
-          <div className="dz-hero__aurora" aria-hidden="true"><i /><i /><i /></div>
-          <HeroCanvas selected={interests} />
           <div className="wrap dz-hero__in">
             <p className="eyebrow m-up" style={{ "--d": -2 } as CSSProperties}>KI · Coding · Gaming in Heilbronn</p>
-            <h1 id="dz-title" className="m-words" aria-label={HEADLINE.join(" ")}>
-              {HEADLINE.map((wd, n) => <span key={n} aria-hidden="true" style={{ "--w": n } as CSSProperties} className={n === 3 ? "dz-accent" : undefined}>{wd}&nbsp;</span>)}
+            <h1 id="dz-title" className="m-words" aria-label="Finde etwas zum Bauen, Entdecken und Erfinden in Heilbronn.">
+              <span aria-hidden="true" style={{ "--w": 0 } as CSSProperties}>Finde etwas zum&nbsp;</span>
+              <span className="dz-rot" aria-hidden="true" style={{ "--w": 1 } as CSSProperties}>
+                <span className="dz-rot__list">{ROTATING.map((wd, n) => <span key={n}>{wd}</span>)}</span>
+              </span>
+              <span aria-hidden="true" style={{ "--w": 2 } as CSSProperties}>&nbsp;in Heilbronn.</span>
             </h1>
             <p className="dz-lede m-up" style={{ "--d": 1 } as CSSProperties}>Workshops, Kurse und Events für alle ab 7 Jahren. Wähle, was dich interessiert, und sieh sofort, was in Heilbronn dazu passt.</p>
             <form className="dz-search m-up" style={{ "--d": 2 } as CSSProperties} role="search" onSubmit={e => { e.preventDefault(); resultsRef.current?.focus(); resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>
@@ -215,7 +219,19 @@ export function Discovery() {
                 ? <><span className="dz-num" aria-hidden="true">{shownCount}</span><span className="visually-hidden">{results.total}</span> {results.total === 1 ? "Angebot" : "Angebote"}</>
                 : "Angebote"}
             </h2>
-            <CatalogStatus catalog={catalog} onRetry={load} />
+            <div className="dz-results-head__side">
+              <div className="dz-view" role="group" aria-label="Ansicht">
+                <button type="button" aria-pressed={view === "list"} onClick={() => withTransition(() => setView("list"))}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
+                  Liste
+                </button>
+                <button type="button" aria-pressed={view === "map"} onClick={() => withTransition(() => setView("map"))}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2zM9 4v14M15 6v14" fill="none" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" /></svg>
+                  Karte
+                </button>
+              </div>
+              <CatalogStatus catalog={catalog} onRetry={load} />
+            </div>
           </div>
 
           {catalog.phase === "loading" ? (
@@ -227,6 +243,9 @@ export function Discovery() {
               <p><strong>{catalog.message}</strong> Prüfe die Verbindung und versuche es noch einmal.</p>
               <button type="button" className="btn btn--primary" onClick={load}>Neu laden</button>
             </div>
+          ) : view === "map" ? (
+            <MapView offers={results.matches} providerNameOf={id => providerName(id, providers)}
+              onOpen={o => withTransition(() => dispatch({ type: "select-offer", id: o.id }))} />
           ) : results.matches.length ? (
             <div className="dz-grid">
               {results.matches.map((o, idx) => (
