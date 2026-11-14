@@ -83,7 +83,7 @@ test("a failed latest refresh is reported as error but the last good run still c
   assert.equal(s.status, "error");
   assert.equal(s.lastAttemptAt, "2026-11-14T09:00:00.000Z");
   assert.equal(s.lastSuccessfulImportAt, "2026-11-14T08:00:00.000Z");
-  assert.match(s.message, /last good staged run/);
+  assert.match(s.message, /letzte erfolgreiche Lauf/);
 });
 
 test("invalid configuration is an explicit error envelope, and the client reports it as such", async () => {
