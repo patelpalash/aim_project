@@ -15,8 +15,8 @@ Consolidated plan revision 3. These checks apply to the application the team wil
 - [ ] R5: A failed, malformed or empty scrape does not delete the last good catalog. A real empty source result is distinguished from failure.
 - [ ] R5: Repeat scrape/import/approval does not duplicate events; stale approval is rejected and reset is repeatable.
 - [ ] R5: CSV template download and fixed-column UTF-8 upload work, including quoted cells. Scraping and CSV share one normalization/draft/review service and catalog.
-- [ ] R5: Inline edits revalidate a server-stored draft and increment its revision; published events do not change before approval. Stale edit/publication is rejected.
-- [ ] R5: A clearly fictional 20-row CSV starts with 18 valid and two blocked rows. After one correction, 19 explicitly reviewed eligible rows can publish; the unresolved row remains unpublished.
+- [x] R5: Inline edits revalidate a server-stored draft and increment its revision; published events do not change before approval. Stale edit/publication is rejected. Evidence: 112-check integrated suite and browser date correction; public count stayed 8 during editing.
+- [x] R5: A clearly fictional 20-row CSV starts with 18 valid and two blocked rows. After one correction, 19 explicitly reviewed eligible rows can publish; the unresolved row remains unpublished. Evidence: browser upload/inline fix/selection/publication; API 27 offers, `aim-demo-csv-15` excluded. Screenshot: local `.local-analysis/evidence/csv-publication.jpg`.
 - [ ] R5/R10: Changed titles and reschedules preserve stable source/occurrence identity, and repeated import adds no duplicate. Unknown ages/costs remain unknown.
 - [ ] R5: A nontechnical teammate can refresh a source, understand an error/change and publish a reviewed update without editing code.
 - [ ] R7: A theme can be added through configuration/controls without rewriting components. Explain configuration versus a new website adapter.

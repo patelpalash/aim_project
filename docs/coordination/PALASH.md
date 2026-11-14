@@ -6,11 +6,11 @@ Only this owner updates this file. Follow the published [collaboration protocol]
 ## Current report
 
 - Protocol adoption: adopted; protocol commit `87c9020b6b2b9d9a9750499bc7e4372f527c6ac7` is confirmed on `origin/main` and `origin/codex/palash-integration`. Read owner reports from their remote role branches at checkpoints; update only this owner's report. No direct agent connection or background watcher exists.
-- Last updated (UTC): 2026-11-14T16:16:46Z.
-- Current task/slice: P1-P4 ready; P5 shell/client boundary verified, full application integration pending advertised teammate code.
-- State: the user supplied the exact failure: branch-creation POST returns `403 Resource not accessible by integration`. GitHub documents this as insufficient integration/token permissions; the operation requires Contents write. P5 is waiting for the write connection to be corrected and teammate code to become retrievable. See [STATUS.md](../STATUS.md).
-- Based on `main` commit: `2ccc5c8a3a17569c7917230dc885fa1632e4b499`, including checked code through `eedb261` and verification notes at `cd3c525`.
-- Next independent task: apply the [push recovery handoff](../GITHUB_PUSH_RECOVERY.md) with the teammate/owner who controls the failing connection. Their existing code must be retained. Once a source branch/commit is retrievable, review and integrate the advertised P5 slice. No remaining standalone P1-P4 implementation is identified.
+- Last updated (UTC): 2026-11-14T16:58:10Z.
+- Current task/slice: P5 integration and running-app verification; P1-P4 are ready.
+- State: both teammate branches are retrievable. Integrated Ishan `3e9337b929dfcb6721c2cfbf2324971a5b67686d` and Umang `1323a19540f575a32f505ffd182c42eaba4d10f7`, with integration fixes through **code commit `c4b1ab06a7d299aa2db327bb7cd267dde1dab030`**. Checks: 112/112 and production build pass. Browser CSV correction/selected publication passed; final acceptance remains in progress.
+- Based on `main` commit: `6629ecab0460719cde9798a35cf1eada03ca6db8`, plus the integrated code above. This report is published separately so it can name the checked code commit.
+- Next independent task: verify source refresh/review in the browser, clean-clone setup and remaining PDF acceptance. Continue reading owner reports at checkpoints. No application deployment is claimed.
 
 ## Requests to teammates
 
@@ -21,9 +21,20 @@ Only this owner updates this file. Follow the published [collaboration protocol]
 
 ## Replies to teammates
 
-At the current checkpoint, the authenticated remote still advertises only main and Palash's integration branch. The user supplied Ishan's short SHA `43d8357` and intended branch `codex/ishan-design`; direct fetch fails with a missing remote ref and GitHub's commit API returns 422, no commit found. The user then confirmed both agents' pushes are failing with 403. Their local code may exist, but it is not retrievable from this repository yet. Main's Ishan/Umang reports remain initial templates. PALASH-001 through PALASH-004 are open; no acknowledgement or successful push has been observed.
+- **PALASH-001/002/003:** supplied slices are now integrated, with complete P5 acceptance still pending. The UI no longer substitutes fixtures after API errors. Organizer errors read the agreed nested envelope; expired imports stay distinct from a disabled desk. Source refresh polling and staging into the same review UI are connected. Valid `needs-review` rows can be explicitly reviewed/selected, with their notes visible; blocked rows remain disabled. Ishan's newer import-resume, source-status and accessibility changes are retained.
+- **PALASH-004: resolved for both owners.** Both actual role branches and their reported commits were fetched. The owner browser also shows the Claude app has code write permission and includes `aim_project`. No additional app permissions were granted by this agent, and no owner branch was replaced.
+- **UMANG-001: decisions for this one-day baseline.** (1) Keep an online record blocked when a physical city cannot be represented by the current contract; do not invent a city or write "Online" into a city field. An explicit online-venue extension is deferred behind the core integration. (2) German text may remain a fallback in the required `en` fields for the German-only prototype, with the existing translation-pending review notes. This is not an English translation; do not expose an English UI or claim translated content. Per-field translation provenance is required before that extension. (3) Confirmed: never convert school grades to guessed ages; retain unknown ages and the published grade evidence. (4) General adult events do not become parent events. A reviewer may assign `parents` only when actual source evidence supports parent/family relevance; otherwise keep the IPAI rows blocked and report the coverage honestly.
+- **UMANG-002:** nested errors, publication-result retention, refresh polling and stored-source review are fixed in the integration. Theme/source service routes are merged. Their nontechnical UI controls still need the Ishan slice requested below.
+
+## Remaining integration requests
+
+- **PALASH-005 -> Ishan (I6, before final acceptance):** actual browser check: Shift+Tab from the first button in the parent shortlist focuses the background Organizer link (`insideDialog=false`). Please contain Tab/Shift+Tab within both sheets, keep Escape/return focus, and prevent background interaction while modal. Also add quiz Back/edit navigation and verify reset clears any mounted quiz/puzzle progress. Keep the chosen design. Publish code SHA and actual keyboard/reduced-motion checks.
+- **PALASH-006 -> Ishan (I5, PDF R5/R7):** finish the Sources/Themes add/edit/toggle controls on Umang's `GET/POST /api/admin/topics` and `/api/admin/providers`. The service and integration are ready; refresh polling/review import are already connected here. Acceptance: add/disable a theme and add a CSV-only provider through controls, with validation feedback, without editing files. Distinguish a configured provider from an implemented scraper. Merge the shared baseline first to retain the integration fixes.
+- **PALASH-007 -> Umang (U6, PDF R10):** `sourceStatuses.lastReviewedAt` is still always null after approval. Please derive it from actual approved source-record review timestamps, and verify with a service/API check. Do not turn a timestamp into a claim that all staged updates are reviewed.
 
 ## Ready slices and integration
+
+- **Current P5 code:** `c4b1ab06a7d299aa2db327bb7cd267dde1dab030`; 112 shared/service/integration checks and production build pass. Browser: interest selection changes results; the same selected offer reaches the parent shortlist with context retained. Fictional 20-row CSV: 18 ready/2 blocked; date correction -> revision 2, 19 ready/1 blocked; selected publication -> 19 published/1 blocked, public API 27 offers, blocked ID excluded. Draft editing left the public count at 8 before approval. Screenshot: local `.local-analysis/evidence/csv-publication.jpg`. Runtime test data is ignored, not committed. Local write handlers reject nonlocal/cross-site requests; disabled desk returns 404.
 
 - **P1:** `245e1b1`, Next.js App Router/TypeScript shell, `@/` alias, root dependencies and run/build/check commands. Original fixtures/tests/documents preserved. Shell browser and HTTP checks passed.
 - **P2:** `784e3e9`, configurable taxonomy, date-only/DST handling, explicit age evidence, catalog/review runtime contracts and fictional examples. Published on main before P3/P4.
