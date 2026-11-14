@@ -6,7 +6,8 @@
 import { randomUUID } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { loadTaxonomy, localDeskEnabled } from "../catalog/read.ts";
+import { loadCatalog as loadStoredCatalog, loadTaxonomy, localDeskEnabled, publicOffers, sourceStatuses } from "../catalog/read.ts";
+import { changeProvider, changeTaxonomy, ConfigChangeError, providerViews, readDemoGapSeeds } from "../config/maintenance.ts";
 import { ADAPTERS } from "../scraping/adapters/index.ts";
 import { runProvider, saveRun } from "../scraping/runner.ts";
 import type { ProviderRunResult } from "../scraping/types.ts";
@@ -116,4 +117,54 @@ export const postScrapeRun = (request: Request) => desk(async () => {
 export const getScrapeRun = (runId: string) => desk(() => {
   const state = runs.get(runId);
   return state ? json(state) : fail(404, "NOT_FOUND", "Unknown run (runs are kept in memory until the server restarts).");
+});
+
+// ---- U5: summary and configuration maintenance (themes, sources).
+
+async function config(fn: () => Promise<Response> | Response): Promise<Response> {
+  return desk(async () => {
+    try { return await fn(); }
+    catch (error) {
+      if (error instanceof ConfigChangeError) return fail(400, "INVALID_CONFIGURATION_CHANGE", error.message, error.issues);
+      throw error;
+    }
+  });
+}
+
+/** Desk overview: catalogue version, per-source status and the synthetic demo gap panel. */
+export const getSummary = () => desk(() => {
+  const taxonomy = loadTaxonomy();
+  const stored = loadStoredCatalog(undefined, taxonomy);
+  const visible = publicOffers(stored.offers, new Date());
+  const seeds = readDemoGapSeeds();
+  const gaps = taxonomy.interests.filter(i => i.enabled).map(i => ({
+    interest: i.id,
+    exampleRequests: seeds[i.id] ?? 0,
+    suitableCatalogCount: visible.filter(o => o.interests.includes(i.id) && o.availability !== "full").length,
+    synthetic: true as const,
+  }));
+  return json({
+    mode: stored.hasDemo ? "demo" : "reviewed",
+    catalogueVersion: stored.catalogueVersion,
+    publishedRealCount: visible.filter(o => o.source.kind === "verified").length,
+    sourceStatuses: sourceStatuses(),
+    gaps,
+    gapsNote: "Example requests are invented demo numbers (data/demo-gap-requests.json), not measured demand.",
+  });
+});
+
+export const getTopics = () => config(() => json(loadTaxonomy()));
+export const postTopic = (request: Request) => config(async () => json({ taxonomy: changeTaxonomy(await body(request)) }));
+
+export const getAdminProviders = () => config(() => json({ providers: providerViews(Object.keys(ADAPTERS)) }));
+export const postAdminProvider = (request: Request) => config(async () => {
+  const result = changeProvider(await body(request));
+  const provider = { ...result.provider, adapter: ADAPTERS[result.provider.id] ? "implemented" : "none" };
+  return json({
+    provider,
+    created: result.created,
+    note: provider.adapter === "none"
+      ? "Saved as a CSV-only source. Automatic refresh needs a website-specific adapter (development work)."
+      : "Saved. The source adapter is unchanged.",
+  }, result.created ? 201 : 200);
 });

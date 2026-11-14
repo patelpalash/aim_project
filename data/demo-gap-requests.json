@@ -1,0 +1,11 @@
+{
+  "synthetic": true,
+  "note": "Invented example request counts for the one-day demo gap panel. Not measured demand, not distinct families.",
+  "exampleRequests": {
+    "build-games": 14,
+    "robots": 11,
+    "make-art": 9,
+    "solve-puzzles": 7,
+    "tell-stories": 6
+  }
+}
