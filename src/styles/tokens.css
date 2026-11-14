@@ -1,0 +1,93 @@
+/*
+ * Interest Atlas design tokens (task I1, Ishan).
+ * Direction: "Maker workshop" — graph-paper bench, chunky sticker shapes, bold primaries.
+ * Audience 7+ (children, teens, parents). One light world on purpose: the workshop is paper.
+ * Picks recorded in docs/DESIGN.md.
+ */
+:root {
+  /* Ground */
+  --paper: #f4f7fb;
+  --paper-grid: #dbe5f3;
+  --surface: #ffffff;
+  --ink: #1b2230;          /* text, outlines, hard shadows */
+  --ink-soft: #4a5568;     /* secondary text, 7:1 on paper */
+  --ink-faint: #5d687c;    /* captions, ≥4.5:1 on paper */
+  --line: #cdd8e8;
+
+  /* Bold primaries */
+  --blue: #2f7cf6;
+  --blue-strong: #1d5fd1;  /* white text on it ≥ 5:1 */
+  --blue-tint: #e3edff;
+  --yellow: #ffc93c;
+  --yellow-tint: #fff4d1;
+  --red: #ff5a4e;
+  --red-strong: #b42a22;   /* text-safe red, ≥4.5:1 on white and red-tint */
+  --red-tint: #ffe5e2;
+  --green: #22a36b;
+  --green-strong: #157a4e;
+  --green-tint: #dff5ea;
+  --violet: #7b5cf0;
+  --violet-strong: #5a3fd0;
+  --violet-tint: #ece7ff;
+
+  /* Interest colors: one sticker color per interest (labels always in text too) */
+  --interest-build-games: var(--red);
+  --interest-robots: var(--blue);
+  --interest-make-art: var(--yellow);
+  --interest-solve-puzzles: var(--green);
+  --interest-tell-stories: var(--violet);
+
+  /* Status (separate from interest colors; always paired with text/icon) */
+  --status-ok: var(--green-strong);
+  --status-warn: #8a5000;
+  --status-warn-tint: #fff0d6;
+  --status-bad: var(--red-strong);
+  --status-info: var(--blue-strong);
+  --status-demo: #7a5a00;
+  --status-demo-tint: #fff4d1;
+
+  /* Type: Fredoka for display, Atkinson Hyperlegible for reading */
+  --font-display: var(--font-fredoka), "Fredoka", "Trebuchet MS", system-ui, sans-serif;
+  --font-body: var(--font-atkinson), "Atkinson Hyperlegible", "Segoe UI", system-ui, sans-serif;
+  --font-mono: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* Type scale (rem so larger browser text scales everything) */
+  --text-xs: 0.8125rem;
+  --text-sm: 0.9375rem;
+  --text-md: 1.0625rem;
+  --text-lg: 1.25rem;
+  --text-xl: 1.625rem;
+  --text-2xl: clamp(1.9rem, 1.4rem + 2.2vw, 2.75rem);
+  --text-3xl: clamp(2.3rem, 1.6rem + 3.4vw, 3.75rem);
+
+  /* Space (4px grid, matches graph paper at 16px) */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4.5rem;
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+
+  /* Shape: stickers are chunky, outlined, with hard offset shadows */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-pill: 999px;
+  --outline: 3px solid var(--ink);
+  --outline-thin: 2px solid var(--ink);
+  --shadow-sticker: 4px 4px 0 var(--ink);
+  --shadow-sticker-lift: 7px 8px 0 var(--ink);
+  --shadow-sticker-press: 1px 1px 0 var(--ink);
+  --shadow-sheet: -12px 0 32px rgb(27 34 48 / 0.18);
+
+  /* Interaction */
+  --touch: 44px;
+  --focus-ring: 0 0 0 3px var(--surface), 0 0 0 6px var(--blue-strong);
+
+  /* Layout */
+  --content-max: 1180px;
+  --sheet-width: min(480px, 100%);
+}

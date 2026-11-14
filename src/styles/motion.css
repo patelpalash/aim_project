@@ -1,0 +1,120 @@
+/*
+ * Interest Atlas motion system (task I1).
+ * Personality: bouncy spring. Things overshoot a little and settle, like a sticker being slapped down.
+ * Every animated change also changes text/state, so nothing depends on motion.
+ * Reduced motion: transforms are removed, short fades remain.
+ */
+:root {
+  /* Durations from docs/EXPERIENCE.md targets */
+  --dur-tap: 180ms;        /* interest choice feedback 150-220 */
+  --dur-results: 260ms;    /* matching results 200-300 */
+  --dur-sheet: 320ms;      /* event open/close 220-350 */
+  --dur-save: 220ms;       /* shortlist save 150-250 */
+  --dur-step: 220ms;       /* quiz step 180-250 */
+  --dur-success: 520ms;    /* success < 600 */
+  --dur-view: 260ms;       /* child/teen/parent switch 200-300 */
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-in: cubic-bezier(0.5, 0, 0.75, 0);
+  /* Spring with ~12% overshoot, sampled as linear(); falls back to ease-out where unsupported */
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-spring-soft: cubic-bezier(0.3, 1.3, 0.6, 1);
+
+  /* Stagger between result cards */
+  --stagger: 40ms;
+}
+@supports (transition-timing-function: linear(0, 1)) {
+  :root {
+    --ease-spring: linear(0, 0.18 7%, 0.62 18%, 0.94 28%, 1.1 38%, 1.12 44%, 1.06 55%, 0.99 68%, 0.985 76%, 1);
+  }
+}
+
+/* --- Named transitions ------------------------------------------------- */
+
+/* Sticker press: tap feedback for any chunky control */
+.m-press {
+  transition: transform var(--dur-tap) var(--ease-spring), box-shadow var(--dur-tap) var(--ease-out);
+}
+.m-press:hover { transform: translate(-1px, -2px); box-shadow: var(--shadow-sticker-lift); }
+.m-press:active { transform: translate(3px, 3px); box-shadow: var(--shadow-sticker-press); transition-duration: 60ms; }
+
+/* Selected sticker: lifts, tilts and settles */
+@keyframes m-stick {
+  0% { transform: scale(1) rotate(0deg); }
+  45% { transform: scale(1.12) rotate(-4deg); }
+  100% { transform: scale(1.04) rotate(-2deg); }
+}
+.m-stick { animation: m-stick var(--dur-tap) var(--ease-spring) both; }
+
+/* Result card entering (use style="--i: n" for stagger) */
+@keyframes m-enter {
+  from { opacity: 0; transform: translateY(14px) scale(0.97); }
+  to { opacity: 1; transform: none; }
+}
+.m-enter {
+  animation: m-enter var(--dur-results) var(--ease-spring) both;
+  animation-delay: calc(var(--i, 0) * var(--stagger));
+}
+
+/* Side sheet (detail view). Bottom sheet on phones. */
+@keyframes m-sheet-in { from { transform: translateX(100%); } to { transform: none; } }
+@keyframes m-sheet-up { from { transform: translateY(100%); } to { transform: none; } }
+@keyframes m-scrim-in { from { opacity: 0; } to { opacity: 1; } }
+.m-sheet { animation: m-sheet-in var(--dur-sheet) var(--ease-spring-soft) both; }
+.m-scrim { animation: m-scrim-in var(--dur-sheet) var(--ease-out) both; }
+@media (max-width: 640px) {
+  .m-sheet { animation-name: m-sheet-up; }
+}
+
+/* Save to shortlist: heart pops, then a copy flies toward the shortlist */
+@keyframes m-pop { 0% { transform: scale(0.7); } 60% { transform: scale(1.25); } 100% { transform: scale(1); } }
+.m-pop { animation: m-pop var(--dur-save) var(--ease-spring) both; }
+@keyframes m-fly {
+  0% { transform: translate(0, 0) scale(1); opacity: 1; }
+  100% { transform: translate(var(--fly-x, 120px), var(--fly-y, -200px)) scale(0.4); opacity: 0; }
+}
+.m-fly { animation: m-fly 480ms var(--ease-in) both; pointer-events: none; }
+
+/* Shortlist counter bumps when it receives an item */
+@keyframes m-bump { 0%, 100% { transform: scale(1); } 40% { transform: scale(1.3) rotate(-6deg); } }
+.m-bump { animation: m-bump 360ms var(--ease-spring) both; }
+
+/* Success: short localized burst of confetti stickers */
+@keyframes m-burst {
+  0% { transform: translate(0, 0) rotate(0) scale(0.4); opacity: 1; }
+  100% { transform: translate(var(--bx), var(--by)) rotate(var(--br, 90deg)) scale(1); opacity: 0; }
+}
+.m-burst { animation: m-burst var(--dur-success) var(--ease-out) both; }
+
+/* Wrong answer: small sideways wobble, never a red flash */
+@keyframes m-wobble { 0%, 100% { transform: none; } 25% { transform: translateX(-6px) rotate(-2deg); } 75% { transform: translateX(6px) rotate(2deg); } }
+.m-wobble { animation: m-wobble 300ms var(--ease-out) both; }
+
+/* Quiz/puzzle step and view switch: content slides a short distance */
+@keyframes m-step { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+.m-step { animation: m-step var(--dur-step) var(--ease-spring-soft) both; }
+@keyframes m-fade { from { opacity: 0; } to { opacity: 1; } }
+.m-view { animation: m-fade var(--dur-view) var(--ease-out) both; }
+
+/* Paper bird guide: gentle idle bob, only while visible on screen */
+@keyframes m-bob { 0%, 100% { transform: translateY(0) rotate(-2deg); } 50% { transform: translateY(-5px) rotate(2deg); } }
+.m-bob { animation: m-bob 3.2s ease-in-out infinite; }
+
+/* Robot path step highlight */
+@keyframes m-step-glow { 0% { box-shadow: 0 0 0 0 var(--yellow); } 100% { box-shadow: 0 0 0 6px transparent; } }
+.m-step-glow { animation: m-step-glow 420ms var(--ease-out) both; }
+
+/* --- Reduced motion: keep state changes, drop movement ------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+  .m-sheet, .m-step, .m-enter { animation-name: m-fade !important; animation-duration: 120ms !important; }
+  .m-fly, .m-burst { display: none !important; }
+  .m-bob { animation: none !important; }
+}
