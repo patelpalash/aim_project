@@ -15,6 +15,7 @@ A one-day project for **Palash + ChatGPT, Ishan + Claude and Umang + Claude**. F
 - [Branch workflow and ownership](CONTRIBUTING.md)
 - [Final checks and demonstration](docs/DEMO_CHECKLIST.md)
 - [Original challenge files](reference/README.md)
+- [Current implementation status and bootstrap handoff](docs/STATUS.md)
 
 Agents begin with [AGENTS.md](AGENTS.md). Claude also has [CLAUDE.md](CLAUDE.md). **Consolidated plan revision 3** is the single merged plan. Read [the three-person execution board](docs/TEAM_TASKS.md) and [the shared CSV/import workflow](docs/IMPORT_WORKFLOW.md) alongside the existing requirement/experience/scraping documents.
 
@@ -28,22 +29,30 @@ Selected additions from the supplied plan: downloadable CSV template, row-level 
 
 ## Implemented versus planned
 
-Implemented: shared TypeScript types, record validation, combined filtering, explainable heuristic matching, a parent handoff data object, import change preview, eight clearly fictional fixtures and focused tests.
+Implemented: a minimal Next.js App Router + React + TypeScript shell with the `@/` alias; shared types, record validation, combined filtering, explainable matching, parent handoff data, import preview, fictional fixtures and focused tests. See [STATUS.md](docs/STATUS.md) for verified task progress.
 
 Read-only source checks on 14 November 2026 returned public HTML for all four seed pages and inspected one follow-up page per provider. They informed the scraping plan. **They are not finished adapters, a real event dataset or proof of current child eligibility.**
 
-Still to build: the website and motion system, quiz/puzzle interfaces, live source adapters, data normalization/review services, configuration controls and deployment. The raw probe cache is local and ignored. The original challenge files are included unmodified under `reference/`.
+Still to build: Ishan's interactive website/motion, quiz/puzzle interfaces, Umang's live adapters and normalization/review services, configuration controls and deployment. The raw probe cache is ignored. Original challenge files remain unmodified under `reference/`.
 
-## Check the shared starter
+## Run and check the bootstrap
 
 Use Node.js 24 or newer:
 
 ```powershell
 npm ci
-npm run check
+npm run dev
 ```
 
-These check types and shared behavior; they do not start a website. Proposed scrape commands in the plan do not yet exist. Palash's first application step is an in-place Next.js shell that preserves the starter, source documents and lockfile.
+For verification and the production server:
+
+```powershell
+npm run check
+npm run build
+npm run start
+```
+
+`dev` starts the local shell on loopback port 3000. `check` regenerates route types and runs type/test checks; `build` creates the production app; `start` serves that build. Proposed scrape commands in the plan do not yet exist. The shared starter, fixtures and source documents are preserved.
 
 ## Product rules
 

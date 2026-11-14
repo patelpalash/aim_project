@@ -6,7 +6,7 @@ Follow the supplied AIM challenge PDF and [docs/REQUIREMENTS.md](docs/REQUIREMEN
 
 The user confirmed a **one-day build window** and permission to scrape the public event/course pages of **aim, experimenta, Haus der Familie and IPAI**. Treat this as user-confirmed permission within that named scope. Do not keep permission marked pending or ask the team to repeat the same approval.
 
-The team is **Palash + ChatGPT, Ishan + Claude, Umang + Claude**. The working concept remains **Interest Atlas**. The repository currently contains planning documents, shared TypeScript logic, eight fictional offers, an import example and tests. Source probes established entry points; **there is no running website, source adapter, puzzle UI, review service or deployment yet**. Inspect the current checkout before making completion claims.
+The team is **Palash + ChatGPT, Ishan + Claude, Umang + Claude**. The working concept remains **Interest Atlas**. A minimal Next.js shell is now implemented alongside shared logic, fictional fixtures and tests. Read `docs/STATUS.md` for actual verified progress. The interactive frontend, source adapters, review service and deployment are separate workstreams; do not infer their completion from the shell or source probes.
 
 ## Read in this order
 
@@ -43,6 +43,6 @@ Ishan owns UI pages/layout, components, styles and artwork. Umang owns `src/serv
 
 ## Verify and hand off
 
-Use Node.js 24 or newer. `npm ci` installs the shared starter; `npm run check` checks its types/tests. These do not start a website. Proposed scrape commands/endpoints in the plan are not yet implemented.
+Use Node.js 24 or newer. `npm ci` installs dependencies; `npm run dev` starts the local shell; `npm run check` regenerates route types and checks types/tests; `npm run build` builds production and `npm run start` serves it. Proposed scrape commands/endpoints are not implemented by the shell. Check `docs/STATUS.md` and the actual checkout.
 
 Use role branches from `CONTRIBUTING.md`, hand off small working slices with examples and actual checks, and record final application evidence against `docs/DEMO_CHECKLIST.md` and PDF requirement IDs. Library tests do not establish completion of the website.
