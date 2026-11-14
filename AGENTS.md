@@ -28,6 +28,10 @@ Original challenge files are under `reference/`. Their suggested work packages a
 
 Ishan owns UI pages/layout, components, styles and artwork. Umang owns `src/server/`, `src/app/api/`, `data/` and service/scraper tests. Palash owns `src/shared/`, root package/lockfile/config and final integration. Coordinate shared schema changes, including configurable themes and schedule precision, instead of creating incompatible models.
 
+## Parallel collaboration
+
+Follow [docs/COLLABORATION.md](docs/COLLABORATION.md): work simultaneously in separate clones/worktrees, use each owner's remote-branch coordination file for dependency requests and acknowledgements, and promptly push checked working slices to your own branch. Continue independent assigned work while waiting; Palash integrates the shared baseline. Read remote updates at the documented checkpoints. These rules do not create a direct Claude/Codex connection or wake paused sessions. Initial coordination templates are not task-completion evidence.
+
 ## Implementation rules
 
 - Preserve the PDF's overview/search, four institutions, AI/coding/gaming focus, low maintenance, scalability, accessibility and child privacy. Puzzles are optional routes, never gates to activities.
