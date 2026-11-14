@@ -3,6 +3,8 @@
  * never published automatically. A failed/partial run never removes published records.
  */
 import { mkdirSync, renameSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+import { pathToFileURL } from "node:url";
 import { normalizeRecord } from "../normalize/to-offer.ts";
 import { PageCapReached, ProviderFetcher, type FetcherOptions } from "./fetcher.ts";
 import { getProvider, loadProviders, type ProviderConfig } from "./providers.ts";
@@ -124,7 +126,7 @@ export async function runProvider(adapter: ProviderAdapter, options: RunOptions 
   };
 }
 
-export const RUNS_DIR = new URL("../../../data/source-runs/", import.meta.url);
+export const runsDir = () => pathToFileURL(`${join(process.cwd(), "data", "source-runs")}/`);
 
 function writeAtomic(target: URL, body: unknown) {
   const tmp = new URL(`${target.pathname.split("/").pop()}.tmp`, target);
@@ -137,7 +139,7 @@ function writeAtomic(target: URL, body: unknown) {
  * `<provider>-latest.json` (what the review desk reads) is replaced only by a run that read the source,
  * so a failed refresh keeps the last good staged result.
  */
-export function saveRun(result: ProviderRunResult, dir: URL = RUNS_DIR): { latest: URL | null; attempt: URL } {
+export function saveRun(result: ProviderRunResult, dir: URL = runsDir()): { latest: URL | null; attempt: URL } {
   mkdirSync(dir, { recursive: true });
   const attempt = new URL(`${result.providerId}-last-attempt.json`, dir);
   writeAtomic(attempt, { ...result, candidates: undefined, candidateCount: result.candidates.length });

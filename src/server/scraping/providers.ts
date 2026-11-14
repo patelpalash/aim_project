@@ -1,5 +1,6 @@
 /** Configured provider access (exact host allowlist). Source fetching never accepts arbitrary URLs. */
 import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 export interface ProviderConfig {
   id: string;
@@ -18,10 +19,9 @@ export interface ProviderConfig {
   };
 }
 
-const PROVIDERS_FILE = new URL("../../../data/providers.json", import.meta.url);
-
-export function loadProviders(file: URL | string = PROVIDERS_FILE): ProviderConfig[] {
-  return JSON.parse(readFileSync(file, "utf8")) as ProviderConfig[];
+/** Resolved from the project root (npm scripts, `next start`); bundlers rewrite import.meta.url URLs. */
+export function loadProviders(file: URL | string = join(process.cwd(), "data", "providers.json")): ProviderConfig[] {
+  return JSON.parse(readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as ProviderConfig[];
 }
 
 export function getProvider(id: string, providers = loadProviders()): ProviderConfig {

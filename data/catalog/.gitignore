@@ -1,0 +1,3 @@
+# Local published catalogue written by the review service; reset with POST /api/admin/reset.
+published-offers.json
+*.tmp

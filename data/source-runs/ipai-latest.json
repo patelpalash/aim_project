@@ -1,12 +1,12 @@
 {
-  "runId": "ipai-20261114T160443",
+  "runId": "ipai-20261114T161116",
   "providerId": "ipai",
   "adapterVersion": "ipai-html/1",
-  "startedAt": "2026-11-14T16:04:43.979Z",
-  "finishedAt": "2026-11-14T16:04:52.322Z",
+  "startedAt": "2026-11-14T16:11:16.592Z",
+  "finishedAt": "2026-11-14T16:11:24.363Z",
   "status": "needs-review",
   "message": "4 candidate(s) staged for human review (0 ready, 4 need correction).",
-  "windowDays": 180,
+  "windowDays": 90,
   "pageCap": 20,
   "partialCoverage": false,
   "pages": [
@@ -100,7 +100,7 @@
         "source": {
           "kind": "verified",
           "url": "https://ipai-foundation.ai/event/ki-salon-workshop-vibe-coding-ki-agenten-von-der-idee-zur-anwendung/",
-          "fetchedAt": "2026-11-14T16:04:46.429Z",
+          "fetchedAt": "2026-11-14T16:11:21.460Z",
           "verifiedAt": null
         }
       },
@@ -281,7 +281,7 @@
         "source": {
           "kind": "verified",
           "url": "https://ipai-foundation.ai/event/ki-salon-workshop-erstelle-dein-board-of-excellence/",
-          "fetchedAt": "2026-11-14T16:04:50.560Z",
+          "fetchedAt": "2026-11-14T16:11:22.256Z",
           "verifiedAt": null
         }
       },
@@ -447,7 +447,7 @@
         "source": {
           "kind": "verified",
           "url": "https://ipai-foundation.ai/event/ki-salon-community-event-21/",
-          "fetchedAt": "2026-11-14T16:04:51.358Z",
+          "fetchedAt": "2026-11-14T16:11:23.311Z",
           "verifiedAt": null
         }
       },
@@ -612,7 +612,7 @@
         "source": {
           "kind": "verified",
           "url": "https://ipai-foundation.ai/event/ki-salon-impuls-prof-dr-sebastian-hallensleben-regulieren-wir-uns-an-die-wand/",
-          "fetchedAt": "2026-11-14T16:04:52.319Z",
+          "fetchedAt": "2026-11-14T16:11:24.361Z",
           "verifiedAt": null
         }
       },
