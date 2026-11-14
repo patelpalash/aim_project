@@ -6,11 +6,11 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted.
-- Last updated (UTC): 2026-11-14 16:40.
-- Current task/slice: I1 settled ("Clean studio", Ishan's pick, docs/DESIGN.md) and the site restyled to it, including a new list/map toggle (schematic Heilbronn map); I3 shortlist + parent handoff shipped. Next: I4 quiz + sequence puzzle UI.
-- State: discovery page (`/`) works on demo fixtures with the demo banner; clean-studio look live; shortlist sheet with "Für Eltern" tab live.
+- Last updated (UTC): 2026-11-14 17:05.
+- Current task/slice: I1-I6 all implemented and pushed to `codex/ishan-design` (head `728d42f`). Ready for Palash's integration into main.
+- State: `/` discovery works end to end on demo fixtures with the demo banner; `/organizer` works against the admin contract and states plainly that those routes are missing.
 - Based on `main` commit: 0b09fa8 (merged in 08e1bb5).
-- Next independent task: I4 quiz/puzzle UI over shared evaluators; then I5 organizer desk (needs ISH-REQ-2).
+- Next independent task: none blocking; waiting on ISH-REQ-1/ISH-REQ-2 to switch from fixtures to live data.
 
 ## Requests to teammates
 
@@ -22,6 +22,12 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 None open.
 
 ## Ready slices
+
+- I4, I5, I6 — code SHAs `ea38295` (quiz + robot-path puzzle over the shared evaluators), `a1826f2` (organizer desk at `/organizer`), `728d42f` (accessibility pass).
+  - Paths: `src/components/atlas/{PlaySection.tsx,play.css}`, `src/components/organizer/{OrganizerDesk.tsx,api.ts,organizer.css}`, `src/app/organizer/page.tsx`, `src/styles/base.css`.
+  - Example: `/organizer` → "Beispiel-Session ansehen" renders `examples/review-session.json` read-only (1 ready, 1 blocked with its issue); with the admin routes live, upload → row states → inline PATCH → publish selected works without further changes.
+  - Checks run: `npm run check` (62 tests), `npm run build`, headless Chromium at 360-1440px incl. 200% text and reduced motion; quiz suggestions and the puzzle's correct/boundary/not-at-goal paths exercised.
+  - Known gaps: everything server-side is ISH-REQ-1/ISH-REQ-2; the map stays schematic until offers carry addresses.
 
 - I1 rev 3 + I3, code SHAs `68beb96` (clean-studio restyle + MapView) and `d5b3dd8` (ShortlistSheet with parent handoff) on `codex/ishan-design`.
   - Paths: `src/styles/*`, `src/app/layout.tsx`, `src/components/atlas/{MapView,ShortlistSheet}.tsx`, restyled atlas components; docs/DESIGN.md rev 3. HeroCanvas removed.
