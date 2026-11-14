@@ -56,3 +56,11 @@ No scroll hijacking, no flashing, no autoplay sound. The paper bird's idle bob s
 - No new root dependencies. Fonts come from `next/font/google`, which Next already ships. `next build` fetches them at build time.
 - `src/app/layout.tsx` now imports the styles and fonts. Palash's bootstrap page at `/` is unchanged until I2 replaces it.
 - The style guide reads `data/demo-offers.json` directly for previews only. I2 will switch to the agreed shared loader.
+
+## I2 discovery and explorer (first slice)
+
+`/` is now the discovery home (`src/components/atlas/Discovery.tsx`). It has a sticker board for interests, direct search, Today/Weekend/30-day shortcuts, filters for age, provider, cost, format and step-free access, and a reset. Results use the shared `filterOffers` over one catalog. Cards open the detail side sheet, and the heart saves to an in-memory shortlist. There are loading, error-with-retry, empty-with-recovery and demo/cached status states.
+
+- **Loader:** `src/components/atlas/catalog.ts` tries `GET /api/offers` (contract shape) and falls back to `data/demo-offers.json` when the route is missing. Nothing about preferences or search text is sent. Until Umang's route exists, the browser logs one expected 404.
+- **Shared state:** filters and the shortlist live in component state. Swap them for Palash's P3 state when it lands.
+- **Honest filters:** when age, cost or step-free is set, records with unknown values are hidden (shared behavior), and the page says so.

@@ -1,4 +1,4 @@
-import type { Offer } from "@/shared/contracts";
+import type { Interest, Offer } from "@/shared/contracts";
 import { INTEREST_META, InterestIcon } from "./interests";
 import { formatAge, formatPrice, formatWhen, providerLabel } from "./format";
 
@@ -8,10 +8,12 @@ export interface EventCardProps {
   onOpen?: (offer: Offer) => void;
   onToggleSave?: (offer: Offer) => void;
   index?: number;
+  /** Interests the visitor picked that this event matches (shown as the reason it appears). */
+  matches?: Interest[];
 }
 
 /** Sticker card for one event. The whole title is the open button; save is a separate control. */
-export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 0 }: EventCardProps) {
+export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 0, matches = [] }: EventCardProps) {
   const lead = offer.interests[0];
   const meta = lead ? INTEREST_META[lead] : null;
   return (
@@ -26,6 +28,7 @@ export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 
           <button type="button" className="event-card__open" onClick={() => onOpen?.(offer)}>{offer.title.de}</button>
         </h3>
         <p className="event-card__when">{formatWhen(offer)}</p>
+        {matches.length ? <p className="event-card__match">Passt zu: {matches.map(m => INTEREST_META[m].label).join(", ")}</p> : null}
         <div className="event-card__facts">
           <span className={offer.minAge === null && offer.maxAge === null ? "tag tag--unknown" : "tag"}>{formatAge(offer)}</span>
           <span className={offer.priceEur === null ? "tag tag--unknown" : "tag"}>{formatPrice(offer)}</span>

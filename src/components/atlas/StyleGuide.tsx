@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import type { Interest, Offer } from "@/shared/contracts";
 import { INTERESTS } from "@/shared/contracts";
 import fixtures from "../../../data/demo-offers.json";
 import { EventCard } from "./EventCard";
 import { INTEREST_META, InterestIcon } from "./interests";
 import { PaperBird } from "./PaperBird";
+import { DetailSheet } from "./DetailSheet";
 import { formatAge, formatPrice, formatWhen, providerLabel } from "./format";
 import "./styleguide.css";
 
@@ -195,46 +196,6 @@ export function StyleGuide() {
       <p className="visually-hidden" role="status" aria-live="polite">{announce}</p>
       {open ? <DetailSheet offer={open} saved={saved.includes(open.id)} onSave={() => toggleSave(open)} onClose={() => setOpen(null)} /> : null}
     </main>
-  );
-}
-
-function DetailSheet({ offer, saved, onSave, onClose }: { offer: Offer; saved: boolean; onSave: () => void; onClose: () => void }) {
-  const closeRef = useRef<HTMLButtonElement>(null);
-  useEffect(() => {
-    const prev = document.activeElement as HTMLElement | null;
-    closeRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onClose(); };
-    window.addEventListener("keydown", onKey);
-    return () => { window.removeEventListener("keydown", onKey); prev?.focus(); };
-  }, [onClose]);
-  const lead = offer.interests[0];
-  return (
-    <>
-      <div className="sheet-scrim m-scrim" onClick={onClose} aria-hidden="true" />
-      <div className="sheet m-sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title"
-        style={{ ["--c" as string]: lead ? INTEREST_META[lead].color : "var(--blue)" }}>
-        <div className="sheet__head">
-          <button ref={closeRef} type="button" className="btn icon-btn" onClick={onClose} aria-label="Zurück zur Liste">←</button>
-          <span className="tag tag--demo">Demo-Angebot</span>
-        </div>
-        <div className="sheet__body">
-          <h2 id="sheet-title" style={{ fontSize: "var(--text-xl)" }}>{offer.title.de}</h2>
-          <p>{offer.summary.de}</p>
-          <dl className="facts">
-            <dt>Wann</dt><dd>{formatWhen(offer)}</dd>
-            <dt>Alter</dt><dd>{formatAge(offer)}</dd>
-            <dt>Kosten</dt><dd>{formatPrice(offer)}</dd>
-            <dt>Ort</dt><dd>{offer.venue.name}, {offer.venue.city}</dd>
-            <dt>Anbieter</dt><dd>{providerLabel(offer.providerId)}</dd>
-            <dt>Quelle</dt><dd>Erfundenes Beispiel, keine echte Veranstaltung</dd>
-          </dl>
-        </div>
-        <div className="sheet__foot">
-          <button type="button" className="btn m-press" aria-pressed={saved} onClick={onSave}>{saved ? "♥ Gemerkt" : "♡ Merken"}</button>
-          <button type="button" className="btn btn--primary m-press">Erwachsenen zeigen</button>
-        </div>
-      </div>
-    </>
   );
 }
 
