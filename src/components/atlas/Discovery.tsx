@@ -123,6 +123,7 @@ export function Discovery() {
 
   return (
     <div className="dz">
+      <a className="skip-link" href="#dz-results-title">Zu den Angeboten springen</a>
       <header className={`dz-top${scrolled ? " is-scrolled" : ""}`}>
         <div className="wrap dz-top__in">
           <a className="dz-logo" href="/"><span className="dz-logo__mark" aria-hidden="true" />Interest Atlas</a>

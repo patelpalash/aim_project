@@ -116,6 +116,7 @@ export function OrganizerDesk() {
 
   return (
     <div className="org">
+      <a className="skip-link" href="#org-main">Zum Inhalt springen</a>
       <header className="org__top">
         <div className="wrap org__top-in">
           <a className="dz-logo" href="/"><span className="dz-logo__mark" aria-hidden="true" />Interest Atlas</a>
@@ -127,7 +128,7 @@ export function OrganizerDesk() {
         </div>
       </header>
 
-      <main className="wrap org__main">
+      <main className="wrap org__main" id="org-main" tabIndex={-1}>
         {publicApiMissing ? <p className="status-line" data-tone="warn">Konfigurations-API fehlt noch; Anbieter und Themen kommen aus den Repo-Fixtures.</p> : null}
         {adminMissing ? (
           <div className="panel org__missing">
