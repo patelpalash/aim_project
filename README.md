@@ -30,19 +30,32 @@ Selected additions from the supplied plan: downloadable CSV template, row-level 
 
 ## Implemented versus planned
 
-Implemented and integrated: Ishan's discovery/detail/map/shortlist/parent/quiz/puzzle frontend, audience/topic controls and organizer maintenance forms; Umang's four adapters, reviewed baseline, public APIs, CSV/review/publication/refresh/configuration services; Palash's shared contracts/state and integration fixes. On the current integrated branch, **`npm ci`, `npm run check` (123/123 tests) and `npm run build` pass** with Node.js 24.18.1. The default catalog contains 19 reviewed real offers and eight explicitly fictional examples. Its status line counts both honestly. See [STATUS.md](docs/STATUS.md) and [Palash's current integration report](docs/coordination/PALASH.md) for remaining acceptance gaps and exact commits.
+Implemented and integrated: Ishan's discovery/detail/map/shortlist/parent/quiz/puzzle frontend, audience/topic controls and organizer maintenance forms; Umang's four adapters, reviewed baseline, public APIs, CSV/review/publication/refresh/configuration services; Palash's shared contracts/state and integration fixes. Final integration and demo rehearsal (temporarily run by Umang while Palash's session was unavailable) passed **`npm ci`, `npm run check` (123/123 tests) and `npm run build`** on Node.js 24.22.3 in a clean worktree, plus browser and API rehearsals; see [STATUS.md](docs/STATUS.md). Read current catalog counts from `GET /api/offers` (at the final rehearsal: 27 offers = 19 reviewed real + 8 labelled fictional examples).
 
 Initial read-only source probes informed the scraping plan. Implemented adapters and the later reviewed records now have separate evidence in `data/source-runs/` and `data/catalog/`. Source coverage remains partial where indicated; general adult IPAI records and unsupported online venues remain held.
 
-Still to finish: final connected/mobile/accessibility acceptance and any deployment. The two aim courses previously held for missing interests have now been reviewed, approved and published with source evidence. Original challenge files and the eight demo fixtures remain unmodified.
+Not done: hosted deployment, contrast/large-text and slow-network/offline checks, and a usability check with an actual nontechnical organizer. Remaining open items are listed in [DEMO_CHECKLIST.md](docs/DEMO_CHECKLIST.md). Original challenge files and the eight demo fixtures remain unmodified.
 
 ## Run and check the bootstrap
 
-Use Node.js 24 or newer:
+Use Node.js 24 or newer. Open http://127.0.0.1:3000 (visitors) and http://127.0.0.1:3000/organizer (local maintenance desk).
 
 ```powershell
 npm ci
 npm run dev
+```
+
+Demo with the maintenance desk enabled (PowerShell):
+
+```powershell
+npm run build
+$env:INTEREST_ATLAS_LOCAL_DESK = "1"; npm run start
+```
+
+macOS/Linux shell:
+
+```bash
+npm run build && INTEREST_ATLAS_LOCAL_DESK=1 npm run start
 ```
 
 For verification and the production server:
@@ -53,7 +66,7 @@ npm run build
 npm run start
 ```
 
-`dev` starts the app on loopback port 3000. `check` regenerates route types and runs type/test checks; `build` creates the production app; `start` serves that build. For `/organizer` maintenance, set `$env:INTEREST_ATLAS_LOCAL_DESK = "1"` before starting; leave it unset for the public read-only configuration. Scraping CLI: `node src/server/scraping/cli.ts --provider all --window-days 180` stages records, never automatically publishes them. The original fixtures and source documents are preserved.
+`dev` starts the app on loopback port 3000. `check` regenerates route types and runs type/test checks; `build` creates the production app; `start` serves that build. For `/organizer` maintenance, set `$env:INTEREST_ATLAS_LOCAL_DESK = "1"` before starting; leave it unset for the public read-only configuration. Scraping CLI: `node src/server/scraping/cli.ts --provider all --window-days 180` stages records, never automatically publishes them; after a refresh, `node src/server/review/apply-review.ts --dry-run` reconciles the recorded review decisions (changed rows are held for a fresh review). `POST /api/admin/reset` with body `{"resetDemo":true}` (local desk only; there is no reset button in the UI) restores the committed reviewed baseline. The original fixtures and source documents are preserved.
 
 ## Product rules
 
