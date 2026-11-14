@@ -6,10 +6,10 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted 2026-11-14. Owner reports are read from their remote branches: PALASH.md from `origin/codex/palash-integration`, ISHAN.md from `origin/codex/ishan-design` (present since this checkpoint, tip `a1826f2`).
-- Last updated (UTC): 2026-11-14T18:05Z. Checkpoint: `origin/main` = `2cb8143`, merged here at the start of this slice; `origin/codex/ishan-design` = `3e9337b`.
-- Current task/slice: PALASH-007 and the source-data review are done (`7fa9631`). Remaining U6 work: re-apply the review after the next source refresh, and support final acceptance.
-- State: U1–U6 backend done. The public catalogue now contains **17 evidence-reviewed real events** (aim 6, experimenta 1, Haus der Familie 10) plus the 8 demo fixtures. `lastReviewedAt` reflects actual approvals.
-- Based on `main` commit: `2cb8143` (merged).
+- Last updated (UTC): 2026-11-14T18:55Z. Checkpoint: `origin/main` = `5045d03`, merged here; `origin/codex/ishan-design` = `7aa6ae5`.
+- Current task/slice: UMANG-004 re-review done (`213635a`). Remaining U6: re-apply the review after the next source refresh and support final acceptance.
+- State: U1–U6 backend done. The public catalogue has **19 evidence-reviewed real events** (aim 8, experimenta 1, Haus der Familie 10) plus the 8 labelled demo examples; the homepage shows "19 geprüfte Angebote · 8 Demo-Beispiele (erfunden)".
+- Based on `main` commit: `5045d03` (merged).
 - Publishing: **resolved.** A normal `git push -u origin codex/umang-data` succeeded at 2026-11-14T16:47Z. `git ls-remote --heads origin codex/umang-data` = `de1635d1ca8227288ed2bac989da88a2e29e8c8d`, equal to the local tip; code commits `97e3e43` (PALASH-002) and `4016c3d` (PALASH-003) are ancestors of the remote tip. All commits listed below are now on GitHub.
 - Next independent task: U6 support. Answer integration questions, re-run sources before rehearsal, and fix whatever Palash's integration finds.
 
@@ -23,6 +23,17 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
   Acceptance: a written decision in PALASH.md. Continuing with U3/U4 meanwhile.
 
 ## Replies to teammates
+
+- **UMANG-003 -> Palash: closed.** Observed in a browser on the merged build: the status line reads "19 geprüfte Angebote · 8 Demo-Beispiele (erfunden)" from the actual catalogue counts. No backend change was needed.
+- **UMANG-004 -> Palash: done.** Code commit `213635acb0096b477193d7a0ee7c5d987a9412de`.
+  - Both courses were re-checked on their own pages (date, time, title, fee) and approved with interests quoted from the source:
+    - `aim-271430cyc1` "Craft Your City" → `build-worlds` ("…eine nachhaltige und smarte Stadt in der Sandbox-Welt von Luanti (ähnlich wie Minecraft)")
+    - `aim-271420fe` "Code your Chat" → `build-apps` ("…baust deine eigene Messenger Web-App"); its AI topic is genuine ("KI-Verständnis")
+  - The baseline now holds 19 real records at catalogue v2.
+  - `apply-review` now builds on the committed baseline, so the 17 earlier records keep their original review time (17:41:56Z). Only aim's `lastReviewedAt` moved, to the new approval (18:48:52Z). Re-applying is idempotent (dry run: no change).
+  - Future runs tag these interests from source wording.
+  - Checks: `npm run check` 120/120; `npm run build` clean. Live `next start`: `/api/offers` returns 27 offers (19 real), and both courses and the "Welten bauen" / "Apps bauen" tiles render on `/`.
+  - Still held (12), with reasons in `data/catalog/review-decisions.json`: running series with registration closed, online events, IPAI adult events, and one out-of-scope lecture.
 
 - **PALASH-007 -> Palash: ready.** Code commit `7fa9631d7a695b5ab7756c096a6c128aabbd9e82` on `codex/umang-data`.
   - `sourceStatuses[].lastReviewedAt` is the latest `source.verifiedAt` of that provider's approved real records. That value is set by `approve()` at the moment of human approval; runs and staging never set it. It is `null` where nothing was approved (currently IPAI).
@@ -137,6 +148,7 @@ All on `origin/codex/umang-data` (verified 2026-11-14T16:47Z).
 | --- | --- | --- | --- | --- |
 | aim adapter, normalization core, first real record | U1 | `eb5db20` | `src/server/scraping/{types,html,berlin-time,providers,fetcher,runner,cli}.ts`, `src/server/scraping/adapters/aim.ts`, `src/server/normalize/*`, `tests/aim-adapter.test.ts` | live aim run; 34/34 tests at that commit |
 | experimenta, Haus der Familie, IPAI adapters; shared runner | U2 | `832d3f6` | `src/server/scraping/adapters/{experimenta,hdf,ipai,index}.ts`, `tests/source-adapters.test.ts`, `tests/fixtures/**` | live four-source run; 46/46 tests at that commit; records spot-checked against source pages |
+| Re-review under taxonomy v3 (2 more real records) | U6, UMANG-004 | `213635a` | `data/catalog/*`, `src/server/review/apply-review.ts`, `src/server/normalize/rules.ts`, `tests/source-review.test.ts` | 2 pages re-verified; 120/120 tests; clean build; browser check of `/` |
 | Reviewed real records + lastReviewedAt | U6, PALASH-007 | `7fa9631` | `data/catalog/{reviewed-offers,review-decisions,review-report}.json`, `src/server/review/apply-review.ts`, `src/server/catalog/read.ts`, `src/server/review/service.ts`, `tests/source-review.test.ts` | 17/17 source pages re-verified; 116/116 tests; clean build; browser check of `/` |
 | Desk summary, theme/source maintenance, desk-compatible edits | U5 | `8a75c3b` | `src/server/config/maintenance.ts`, `src/server/review/{http,service}.ts`, `src/app/api/admin/{summary,topics,providers}`, `data/demo-gap-requests.json`, `tests/maintenance.test.ts` | 106/106 tests; integrated build with Ishan's branch; headless desk flow |
 | CSV intake, review sessions, selected publication, refresh, reset | U3/U4/U5, PALASH-003 | `4016c3d` | `src/server/review/*`, `src/app/api/admin/**`, `data/demo-upload.csv`, `tests/review-service.test.ts` | live `next start` walk-through; 102/102 tests; clean build |
