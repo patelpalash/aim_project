@@ -54,3 +54,18 @@
 /* Inputs in the organizer reuse the shared field look */
 .org__upload-row .dz-field select, .org-edit .dz-field input, .org-edit .dz-field select { width: 100%; }
 .org__upload-row .dz-field { flex: 0 1 auto; }
+
+/* Source cards and the theme list in the "Quellen & Themen" tab. */
+.org-provider.is-off { opacity: 0.72; }
+.org-provider__head { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.org-provider__meta { margin: 0; font-size: var(--text-sm); }
+.org-tax-list { margin-top: var(--space-4); }
+.org-tax-list h3 { font-size: var(--text-md); margin-bottom: var(--space-2); }
+.org-tax-row { display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-3); align-items: center;
+  padding: 10px 0; border-bottom: 1px solid var(--line); }
+.org-tax-row.is-off { opacity: 0.72; }
+.org-tax-row__text { flex: 1 1 260px; display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.org-tax-row .org-edit { flex: 1 1 100%; }
+.org-edit__fieldset { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 10px 12px;
+  display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
+.org-edit__fieldset legend { padding-inline: 6px; color: var(--ink-faint); font-size: var(--text-sm); }

@@ -19,6 +19,8 @@ export interface EventCardProps {
   reasons?: string[];
   /** view-transition-name so the card can glide on reflow and grow into the detail sheet. */
   vtName?: string;
+  /** Adult presentation adds the practical venue/access line; the data is the same either way. */
+  adult?: boolean;
 }
 
 function tilt(e: PointerEvent<HTMLElement>) {
@@ -36,7 +38,7 @@ function untilt(e: PointerEvent<HTMLElement>) {
 }
 
 /** One event. The title is the open button (covers the card); save is a separate control. */
-export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 0, matches = [], reasons = [], provider, vtName }: EventCardProps) {
+export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 0, matches = [], reasons = [], provider, vtName, adult = false }: EventCardProps) {
   const lead = matches[0] ?? offer.interests[0];
   const meta = lead ? interestMeta(lead) : null;
   const style = { "--i": index, "--a": meta?.a ?? "var(--accent-a)", "--b": meta?.b ?? "var(--accent-b)", viewTransitionName: vtName } as CSSProperties;
@@ -60,6 +62,12 @@ export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 
             {offer.availability === "full" ? <span className="tag tag--full">Ausgebucht</span> : null}
             {offer.availability === "unknown" ? <span className="tag tag--unknown">Plätze unbekannt</span> : null}
           </div>
+          {adult ? (
+            <p className="event-card__venue">
+              {offer.venue.name}, {offer.venue.city}
+              {offer.venue.access === "step-free" ? " · stufenlos" : offer.venue.access === "unknown" ? " · Zugang unbekannt" : ""}
+            </p>
+          ) : null}
         </div>
         <span className="event-card__glare" aria-hidden="true" />
       </div>

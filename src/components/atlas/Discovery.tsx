@@ -2,12 +2,12 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
-import type { Format, Interest, Offer, SearchFilters } from "@/shared/contracts";
+import type { Format, Interest, Offer, SearchFilters, Topic } from "@/shared/contracts";
 import { FORMATS } from "@/shared/contracts";
 import { filterOffers, getRecommendationReasons } from "@/shared/catalog";
-import { getActiveInterests } from "@/shared/taxonomy";
+import { getActiveInterests, getActiveTopics } from "@/shared/taxonomy";
 import { useDiscovery } from "@/shared/use-discovery";
-import type { DiscoverySort } from "@/shared/discovery";
+import type { AudienceMode, DiscoverySort } from "@/shared/discovery";
 import { loadBundle, type BundleState } from "./catalog-data";
 import { SourceStatusPanel } from "./SourceStatus";
 import { WHEN_LABEL, whenPatch, type When } from "./dates";
@@ -28,6 +28,25 @@ const AGES = Array.from({ length: 11 }, (_, i) => i + 7); // 7–17: the target 
 /** The last word repeats the first so the rotation loops without a jump. */
 const ROTATING = ["Bauen", "Entdecken", "Erfinden", "Bauen"];
 const PROVIDERS = ["aim", "experimenta", "Haus der Familie", "IPAI"];
+/** Presentation modes. Switching one only changes wording and emphasis, never the selection. */
+const MODE_LABEL: Record<AudienceMode, string> = { child: "Kinder", teen: "Jugendliche", parent: "Erwachsene" };
+const MODE_COPY: Record<AudienceMode, { eyebrow: string; lede: string; board: string }> = {
+  child: {
+    eyebrow: "KI · Coding · Gaming in Heilbronn",
+    lede: "Workshops, Kurse und Events für alle ab 7 Jahren. Wähle, was dich interessiert, und sieh sofort, was in Heilbronn dazu passt.",
+    board: "Wähle beliebig viele. Oder keins, und stöbere einfach."
+  },
+  teen: {
+    eyebrow: "KI · Coding · Gaming in Heilbronn",
+    lede: "Workshops, Kurse und Projekte ab 7 Jahren — viele davon für ältere Jahrgänge. Filter nach Thema, Termin und Kosten.",
+    board: "Mehrfachauswahl möglich. Ohne Auswahl siehst du alles."
+  },
+  parent: {
+    eyebrow: "Angebote für Kinder und Jugendliche in Heilbronn",
+    lede: "Workshops, Kurse und Veranstaltungen von aim, experimenta, Haus der Familie und IPAI — mit Termin, Alter, Kosten, Ort und Quelle. Anmeldung läuft immer direkt beim Anbieter.",
+    board: "Themen eingrenzen, um die Liste zu kürzen. Ohne Auswahl sind alle Angebote sichtbar."
+  }
+};
 /** Only the first cards get their own view-transition-name; hundreds of names would be slow. */
 const MAX_NAMED = 24;
 
@@ -58,6 +77,7 @@ export function Discovery() {
   const [vt, setVt] = useState(false);
   const resultsRef = useRef<HTMLHeadingElement>(null);
   const counterRef = useRef<HTMLSpanElement>(null);
+  const shortlistBtnRef = useRef<HTMLButtonElement>(null);
 
   const load = useCallback(() => {
     const ctl = new AbortController();
@@ -76,12 +96,33 @@ export function Discovery() {
   useScrollReveal(catalog.phase);
 
   const interests = useMemo(() => state.filters.interests ?? [], [state.filters.interests]);
+  const topics = useMemo(() => state.filters.topics ?? [], [state.filters.topics]);
   const when = whenOf(state.filters);
-  const tiles = useMemo(() => getActiveInterests(bundle?.taxonomy), [bundle]);
+  const mode = state.audienceMode;
+  const adult = mode === "parent";
+  const copy = MODE_COPY[mode];
+  /**
+   * Themes and interests come from the loaded configuration only. Falling back to the bundled
+   * seed taxonomy while loading briefly showed tiles that the organizer may have disabled or
+   * renamed, so nothing is offered until the real configuration is in.
+   */
+  const tiles = useMemo(() => (bundle ? getActiveInterests(bundle.taxonomy) : []), [bundle]);
+  const topicDefs = useMemo(() => (bundle ? getActiveTopics(bundle.taxonomy) : []), [bundle]);
   const providers = bundle?.providers ?? [];
+  /**
+   * Counts on the tiles and topic chips are counted inside the time window that is actually in
+   * effect, so the number matches what the list shows after clicking. Counting against no filters
+   * at all made them promise more offers than the page then displayed.
+   */
+  const timeWindow = useMemo(() => ({
+    schedule: state.filters.schedule, dateFrom: state.filters.dateFrom, dateTo: state.filters.dateTo
+  }), [state.filters.schedule, state.filters.dateFrom, state.filters.dateTo]);
+  const perTopic = useMemo(() => Object.fromEntries(topicDefs.map(t => {
+    try { return [t.id, filterOffers(offers, { ...timeWindow, topics: [t.id] }).length]; } catch { return [t.id, 0]; }
+  })) as Record<string, number>, [offers, topicDefs, timeWindow]);
   const perInterest = useMemo(() => Object.fromEntries(tiles.map(t => {
-    try { return [t.id, filterOffers(offers, { interests: [t.id] }).length]; } catch { return [t.id, 0]; }
-  })) as Record<string, number>, [offers, tiles]);
+    try { return [t.id, filterOffers(offers, { ...timeWindow, interests: [t.id] }).length]; } catch { return [t.id, 0]; }
+  })) as Record<string, number>, [offers, tiles, timeWindow]);
   const reasonsFor = useMemo(() => {
     const map = new Map<string, string[]>();
     if (!bundle) return map;
@@ -93,7 +134,7 @@ export function Discovery() {
 
   const query = state.filters.query ?? "";
   const shownCount = useCountUp(results.total);
-  const activeCount = [query.trim(), interests.length, state.filters.age !== undefined, state.filters.providerId,
+  const activeCount = [query.trim(), interests.length, topics.length, state.filters.age !== undefined, state.filters.providerId,
     state.filters.maxPriceEur !== undefined, state.filters.format, state.filters.stepFreeOnly, when !== "soon"].filter(Boolean).length;
 
   useEffect(() => {
@@ -107,6 +148,18 @@ export function Discovery() {
     setPulse(interests.includes(i) ? null : i);
     withTransition(() => dispatch({ type: "toggle-interest", id: i }));
   };
+  const toggleTopic = (id: Topic) => {
+    const next = topics.includes(id) ? topics.filter(t => t !== id) : [...topics, id];
+    withTransition(() => dispatch({ type: "set-filters", patch: { topics: next.length ? next : undefined } }));
+  };
+  /**
+   * Presentation switch (child/teen/adult). It dispatches only `set-audience-mode`, so interests,
+   * topics, filters, the shortlist and quiz answers all stay exactly as they were.
+   */
+  const setMode = (next: AudienceMode) => withTransition(() => {
+    dispatch({ type: "set-audience-mode", mode: next });
+    setAnnounce(`Darstellung: ${MODE_LABEL[next]}. Deine Auswahl bleibt erhalten.`);
+  });
   const toggleSave = (o: Offer, from?: HTMLElement) => {
     const adding = !state.savedOfferIds.includes(o.id);
     dispatch({ type: "toggle-saved", id: o.id });
@@ -114,9 +167,13 @@ export function Discovery() {
     if (adding && from) flyBetween(from, counterRef.current, () => setBump(b => b + 1));
     else setBump(b => b + 1);
   };
+  /**
+   * Clears the filters only. The shortlist, the presentation mode and the quiz answers are
+   * separate choices with their own controls, so a filter reset no longer throws them away.
+   */
   const resetAll = () => withTransition(() => {
-    dispatch({ type: "reset" });
-    setAnnounce("Alle Filter zurückgesetzt");
+    dispatch({ type: "clear-filters" });
+    setAnnounce("Alle Filter zurückgesetzt. Gemerkte Angebote bleiben.");
   });
   const savedCount = shortlist.offers.length + shortlist.unavailableIds.length;
   const nameFor = (id: string, idx: number) => (vt && idx < MAX_NAMED ? `offer-${id.replace(/[^a-zA-Z0-9_-]/g, "_")}` : undefined);
@@ -128,7 +185,12 @@ export function Discovery() {
       <header className={`dz-top${scrolled ? " is-scrolled" : ""}`}>
         <div className="wrap dz-top__in">
           <a className="dz-logo" href="/"><span className="dz-logo__mark" aria-hidden="true" />Interest Atlas</a>
-          <button type="button" className="dz-shortlist" aria-label={`Merkliste öffnen, ${savedCount} gemerkt`}
+          <div className="dz-view dz-mode" role="group" aria-label="Darstellung">
+            {(Object.keys(MODE_LABEL) as AudienceMode[]).map(m => (
+              <button key={m} type="button" aria-pressed={mode === m} onClick={() => setMode(m)}>{MODE_LABEL[m]}</button>
+            ))}
+          </div>
+          <button ref={shortlistBtnRef} type="button" className="dz-shortlist" aria-label={`Merkliste öffnen, ${savedCount} gemerkt`}
             onClick={() => withTransition(() => setShortlistTab("list"))}>
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.3-9.2C1.3 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.9 3.5 4.5 7.3C19.5 16.4 12 21 12 21z" fill={savedCount ? "#ff6b8a" : "none"} stroke={savedCount ? "#ff6b8a" : "currentColor"} strokeWidth="2" /></svg>
             <span ref={counterRef} key={bump} className={bump ? "dz-shortlist__n m-bump" : "dz-shortlist__n"}>{savedCount}</span>
@@ -140,15 +202,19 @@ export function Discovery() {
       <main>
         <section className="dz-hero" aria-labelledby="dz-title">
           <div className="wrap dz-hero__in">
-            <p className="eyebrow m-up" style={{ "--d": -2 } as CSSProperties}>KI · Coding · Gaming in Heilbronn</p>
-            <h1 id="dz-title" className="m-words" aria-label="Finde etwas zum Bauen, Entdecken und Erfinden in Heilbronn.">
-              <span aria-hidden="true" style={{ "--w": 0 } as CSSProperties}>Finde etwas zum&nbsp;</span>
-              <span className="dz-rot" aria-hidden="true" style={{ "--w": 1 } as CSSProperties}>
-                <span className="dz-rot__list">{ROTATING.map((wd, n) => <span key={n}>{wd}</span>)}</span>
-              </span>
-              <span aria-hidden="true" style={{ "--w": 2 } as CSSProperties}>&nbsp;in Heilbronn.</span>
-            </h1>
-            <p className="dz-lede m-up" style={{ "--d": 1 } as CSSProperties}>Workshops, Kurse und Events für alle ab 7 Jahren. Wähle, was dich interessiert, und sieh sofort, was in Heilbronn dazu passt.</p>
+            <p className="eyebrow m-up" style={{ "--d": -2 } as CSSProperties}>{copy.eyebrow}</p>
+            {adult ? (
+              <h1 id="dz-title" className="m-words">KI, Coding und Gaming in Heilbronn — für Kinder und Jugendliche.</h1>
+            ) : (
+              <h1 id="dz-title" className="m-words" aria-label="Finde etwas zum Bauen, Entdecken und Erfinden in Heilbronn.">
+                <span aria-hidden="true" style={{ "--w": 0 } as CSSProperties}>Finde etwas zum&nbsp;</span>
+                <span className="dz-rot" aria-hidden="true" style={{ "--w": 1 } as CSSProperties}>
+                  <span className="dz-rot__list">{ROTATING.map((wd, n) => <span key={n}>{wd}</span>)}</span>
+                </span>
+                <span aria-hidden="true" style={{ "--w": 2 } as CSSProperties}>&nbsp;in Heilbronn.</span>
+              </h1>
+            )}
+            <p className="dz-lede m-up" style={{ "--d": 1 } as CSSProperties}>{copy.lede}</p>
             <form className="dz-search m-up" style={{ "--d": 2 } as CSSProperties} role="search" onSubmit={e => { e.preventDefault(); resultsRef.current?.focus(); resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>
               <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" strokeWidth="2" /><path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
               <label htmlFor="dz-q" className="visually-hidden">Angebote durchsuchen</label>
@@ -161,10 +227,36 @@ export function Discovery() {
           </div>
         </section>
 
+        <section className="wrap dz-topics" aria-labelledby="dz-topics-title">
+          <div className="dz-board__head reveal">
+            <h2 id="dz-topics-title">{adult ? "Themenbereiche" : "Worum geht es?"}</h2>
+            <p className="muted">
+              {catalog.phase !== "ready"
+                ? "Themen werden geladen…"
+                : topics.length
+                  ? `${topics.length} von ${topicDefs.length} Themen gewählt.`
+                  : "Die Themenbereiche der Angebote. Mehrfachauswahl möglich."}
+            </p>
+          </div>
+          <div className="dz-topic-row reveal" role="group" aria-labelledby="dz-topics-title">
+            {topicDefs.map(t => (
+              <button key={t.id} type="button" className="chip chip--topic" aria-pressed={topics.includes(t.id)} onClick={() => toggleTopic(t.id)}>
+                {t.label.de}
+                <span className="chip__n">{catalog.phase === "ready" ? perTopic[t.id] : "…"}</span>
+              </button>
+            ))}
+            {topics.length ? (
+              <button type="button" className="dz-link" onClick={() => withTransition(() => dispatch({ type: "set-filters", patch: { topics: undefined } }))}>
+                Themen zurücksetzen
+              </button>
+            ) : null}
+          </div>
+        </section>
+
         <section className="wrap dz-board" aria-labelledby="dz-board-title">
           <div className="dz-board__head reveal">
-            <h2 id="dz-board-title">Was interessiert dich?</h2>
-            <p className="muted">{interests.length ? `${interests.length} gewählt. Die Sternkarte oben leuchtet mit.` : "Wähle beliebig viele. Oder keins, und stöbere einfach."}</p>
+            <h2 id="dz-board-title">{adult ? "Interessen des Kindes" : "Was interessiert dich?"}</h2>
+            <p className="muted">{catalog.phase !== "ready" ? "Interessen werden geladen…" : interests.length ? `${interests.length} gewählt.` : copy.board}</p>
           </div>
           <div className="dz-tiles" role="group" aria-labelledby="dz-board-title">
             {tiles.map((t, n) => {
@@ -185,6 +277,11 @@ export function Discovery() {
           </div>
         </section>
 
+        {adult ? (
+          <section className="wrap play" aria-label="Quiz und Rätsel">
+            <p className="status-line">Quiz und Rätsel liegen in der Kinder- und Jugendansicht. Antworten und gelöste Rätsel bleiben beim Wechseln erhalten.</p>
+          </section>
+        ) : (
         <PlaySection taxonomy={bundle?.taxonomy ?? null} quizAnswers={state.quizAnswers}
           completedPuzzleIds={state.completedPuzzleIds} selectedInterests={interests}
           onAnswer={(questionId, choiceId) => dispatch({ type: "set-quiz-answer", questionId, choiceId })}
@@ -194,6 +291,7 @@ export function Discovery() {
             setAnnounce(`${ids.length === 1 ? "Interesse" : "Interessen"} übernommen`);
             resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
           }} />
+        )}
 
         <section className="wrap dz-explore" aria-labelledby="dz-results-title">
           <div className="dz-controls panel reveal">
@@ -273,7 +371,7 @@ export function Discovery() {
                 <EventCard key={o.id} offer={o} index={Math.min(idx, 8)} saved={state.savedOfferIds.includes(o.id)}
                   provider={providerName(o.providerId, providers)}
                   matches={interests.filter(i => o.interests.includes(i))}
-                  reasons={reasonsFor.get(o.id) ?? []}
+                  reasons={reasonsFor.get(o.id) ?? []} adult={adult}
                   vtName={o.id === state.selectedOfferId ? undefined : nameFor(o.id, idx)}
                   onOpen={x => withTransition(() => dispatch({ type: "select-offer", id: x.id }))} onToggleSave={toggleSave} />
               ))}
@@ -304,7 +402,8 @@ export function Discovery() {
         <DetailSheet offer={selectedOffer} provider={providerName(selectedOffer.providerId, providers)}
           saved={state.savedOfferIds.includes(selectedOffer.id)} onSave={() => toggleSave(selectedOffer)}
           vtName={openIdx >= 0 ? nameFor(selectedOffer.id, openIdx) : undefined}
-          onShowAdult={() => withTransition(() => {
+          focusFallback={resultsRef}
+          onShowAdult={adult ? undefined : () => withTransition(() => {
             if (!state.savedOfferIds.includes(selectedOffer.id)) dispatch({ type: "toggle-saved", id: selectedOffer.id });
             dispatch({ type: "set-audience-mode", mode: "parent" });
             dispatch({ type: "select-offer", id: null });
@@ -314,7 +413,8 @@ export function Discovery() {
       ) : null}
       {shortlistTab && !selectedOffer ? (
         <ShortlistSheet offers={shortlist.offers} unavailableCount={shortlist.unavailableIds.length}
-          providers={providers} initialTab={shortlistTab}
+          providers={providers} initialTab={shortlistTab === "list" && adult ? "parent" : shortlistTab}
+          focusFallback={shortlistBtnRef}
           onOpenOffer={o => withTransition(() => { setShortlistTab(null); dispatch({ type: "select-offer", id: o.id }); })}
           onRemove={o => toggleSave(o)}
           onClose={() => withTransition(() => setShortlistTab(null))} />

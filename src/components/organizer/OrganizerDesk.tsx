@@ -6,7 +6,11 @@ import type { Offer, Taxonomy } from "@/shared/contracts";
 import type { ProviderSummary, SourceStatus } from "@/shared/api-contract";
 import { countReviewRows, validateReviewSession, type ReviewFieldPatch, type ReviewRow, type ReviewSession } from "@/shared/review";
 import { formatPrice } from "../atlas/format";
-import { AdminApiError, ServiceMissingError, approveRows, fetchProviders, fetchSession, fetchTaxonomy, fetchSourceStatuses, fetchScrapeRun, importFromSource, patchRow, startScrapeRun, uploadCsv, type ApproveResult, type ScrapeRun } from "./api";
+import {
+  AdminApiError, ServiceMissingError, approveRows, fetchAdminProviders, fetchProviders, fetchSession, fetchTaxonomy,
+  fetchSourceStatuses, fetchScrapeRun, importFromSource, patchRow, saveProvider, saveTopic, startScrapeRun, uploadCsv,
+  type AdminProviderView, type ApproveResult, type ProviderChange, type ScrapeRun, type TopicChange
+} from "./api";
 import "./organizer.css";
 
 const STATE_LABEL: Record<ReviewRow["state"], string> = {
@@ -96,6 +100,7 @@ export function OrganizerDesk() {
 
   // Resume the review after a reload. A missing or expired import is simply dropped.
   useEffect(() => {
+    if (!taxonomy) return;
     let alive = true;
     let importId: string | null = null;
     try { importId = sessionStorage.getItem(LAST_IMPORT_KEY); } catch { importId = null; }
@@ -291,7 +296,7 @@ export function OrganizerDesk() {
             ) : null}
           </>
         ) : (
-          <SourcesPanel providers={providers} taxonomy={taxonomy} statuses={statuses} scrape={scrape} watching={watchRunId !== null}
+          <SourcesPanel taxonomy={taxonomy} statuses={statuses} scrape={scrape} watching={watchRunId !== null}
             disabled={adminMissing || busy !== null || watchRunId !== null}
             onCheckRun={() => scrape && setWatchRunId(scrape.runId)}
             onReview={pid => run("source-review", async () => {
@@ -301,7 +306,8 @@ export function OrganizerDesk() {
               const r = await startScrapeRun(pid);
               setScrape({ runId: r.runId, status: "queued", results: [] }); setWatchRunId(r.runId);
               setNotice(`Lauf ${r.runId} gestartet (${r.status}).`);
-            })} notice={notice} error={error} />
+            })}
+            onTaxonomy={setTaxonomy} notice={notice} error={error} onError={setError} onNotice={setNotice} />
         )}
       </main>
     </div>
@@ -355,43 +361,263 @@ function RowEditor({ row, disabled, busy, onSave }: { row: ReviewRow; disabled: 
   );
 }
 
-function SourcesPanel({ providers, taxonomy, disabled, onScrape, onReview, statuses, scrape, watching, onCheckRun, notice, error }: {
-  providers: ProviderSummary[]; taxonomy: Taxonomy | null; disabled: boolean;
+function SourcesPanel({ taxonomy, disabled, onScrape, onReview, statuses, scrape, watching, onCheckRun, onTaxonomy, notice, error, onError, onNotice }: {
+  taxonomy: Taxonomy | null; disabled: boolean;
   statuses: SourceStatus[]; scrape: ScrapeRun | null; watching: boolean; onCheckRun: () => void;
   onReview: (providerId: string) => void;
-  onScrape: (providerId: string | "all") => void; notice: string | null; error: string | null;
+  onScrape: (providerId: string | "all") => void;
+  /** A saved theme change replaces the desk's taxonomy, so the review tab validates against it. */
+  onTaxonomy: (next: Taxonomy) => void;
+  notice: string | null; error: string | null;
+  onError: (message: string | null) => void;
+  onNotice: (message: string | null) => void;
 }) {
+  const [sources, setSources] = useState<AdminProviderView[] | null>(null);
+  const [busy, setBusy] = useState<string | null>(null);
+  const [editing, setEditing] = useState<string | null>(null);
+  const [adding, setAdding] = useState<"source" | "topic" | "interest" | null>(null);
+
+  const load = useCallback(() => {
+    fetchAdminProviders().then(setSources).catch(() => setSources(null));
+  }, []);
+  useEffect(() => { if (!disabled) load(); }, [disabled, load]);
+
+  const act = async (label: string, work: () => Promise<string>) => {
+    setBusy(label); onError(null); onNotice(null);
+    try { onNotice(await work()); }
+    catch (err) {
+      if (err instanceof ServiceMissingError) onError("Konfiguration ändern braucht den lokalen Review-Server (INTEREST_ATLAS_LOCAL_DESK=1).");
+      else onError(err instanceof AdminApiError ? err.message : "Unerwarteter Fehler.");
+    }
+    finally { setBusy(null); }
+  };
+
+  const saveSource = (change: ProviderChange) => act(`src:${change.id}`, async () => {
+    const { provider, created, note } = await saveProvider(change);
+    load(); setEditing(null); setAdding(null);
+    return `${provider.name} ${created ? "angelegt" : "gespeichert"}.${note ? ` ${note}` : ""}`;
+  });
+  const saveTax = (change: TopicChange, what: string) => act(`tax:${change.kind}:${change.id}`, async () => {
+    const next = await saveTopic(change);
+    onTaxonomy(next); setAdding(null); setEditing(null);
+    return `${what} gespeichert. Konfigurationsversion ${next.version}.`;
+  });
+
   return (
     <section className="org__sources" aria-labelledby="org-sources-title">
       <div className="org__session-head">
         <h2 id="org-sources-title">Quellen</h2>
         <button type="button" className="btn" disabled={disabled} onClick={() => onScrape("all")}>Alle Quellen aktualisieren</button>
+        <button type="button" className="btn" disabled={disabled} onClick={() => { setAdding(a => (a === "source" ? null : "source")); setEditing(null); }}>
+          Quelle hinzufügen
+        </button>
       </div>
       {error ? <p className="status-line" data-tone="bad" role="alert">{error}</p> : null}
       {notice ? <p className="status-line" data-tone="ok" role="status">{notice}</p> : null}
       {scrape ? <div className="panel" role="status"><p>Lauf {scrape.runId}: {scrape.status === "done" ? "beendet" : "läuft"}</p>
         {scrape.results.map(result => <p key={result.providerId}>{result.providerId}: {result.message}</p>)}
         {!watching && scrape.status !== "done" ? <button className="btn" onClick={onCheckRun}>Status erneut prüfen</button> : null}</div> : null}
-      {disabled ? <p className="muted">Quellen-Läufe brauchen den Review-Server (U-Aufgaben).</p> : null}
+      {disabled ? <p className="muted">Quellen und Themen ändern braucht den Review-Server. Starte die App lokal mit <code>INTEREST_ATLAS_LOCAL_DESK=1</code>.</p> : null}
+
+      {adding === "source" ? (
+        <SourceForm busy={busy === "src:"} disabled={disabled}
+          onCancel={() => setAdding(null)} onSave={saveSource} />
+      ) : null}
+
       <div className="org__provider-grid">
-        {providers.map(p => (
-          <article key={p.id} className="panel org-provider">
-            <h3>{p.name}</h3>
+        {(sources ?? []).map(p => (
+          <article key={p.id} className={`panel org-provider${p.enabled ? "" : " is-off"}`}>
+            <div className="org-provider__head">
+              <h3>{p.name}</h3>
+              <span className={p.enabled ? "tag tag--verified" : "tag tag--unknown"}>{p.enabled ? "aktiv" : "deaktiviert"}</span>
+            </div>
+            <p className="muted org-provider__meta">
+              <code>{p.id}</code> · {p.adapter === "implemented" ? "Adapter vorhanden" : "nur CSV-Import"}
+              {p.permissionStatus ? ` · Erlaubnis: ${p.permissionStatus}` : ""}
+            </p>
             {statuses.filter(s => s.providerId === p.id).map(s => <p key={s.providerId} className="muted">{s.message} {s.extractedCount} erfasst, {s.rejectedCount} nicht bereit. {s.lastSuccessfulImportAt ? `Datenstand: ${new Date(s.lastSuccessfulImportAt).toLocaleString("de-DE", { timeZone: "Europe/Berlin" })}` : "Noch kein erfolgreicher Abruf."}</p>)}
             {p.discoveryUrl ? <a href={p.discoveryUrl} target="_blank" rel="noreferrer">Quellseite öffnen</a> : <p className="muted">Keine Quellseite hinterlegt.</p>}
-            <button type="button" className="btn" disabled={disabled} onClick={() => onScrape(p.id)}>Aktualisieren</button>
-            <button type="button" className="btn" disabled={disabled} onClick={() => onReview(p.id)}>Änderungen prüfen</button>
+            {editing === p.id ? (
+              <SourceForm source={p} busy={busy === `src:${p.id}`} disabled={disabled}
+                onCancel={() => setEditing(null)} onSave={saveSource} />
+            ) : (
+              <div className="row">
+                <button type="button" className="btn" disabled={disabled} onClick={() => { setEditing(p.id); setAdding(null); }}>Bearbeiten</button>
+                <button type="button" className="btn" disabled={disabled || busy !== null}
+                  onClick={() => saveSource({ id: p.id, enabled: !p.enabled })}>
+                  {p.enabled ? "Deaktivieren" : "Aktivieren"}
+                </button>
+                <button type="button" className="btn" disabled={disabled || p.adapter !== "implemented"} onClick={() => onScrape(p.id)}
+                  title={p.adapter === "implemented" ? undefined : "Diese Quelle hat keinen Adapter; Daten kommen per CSV."}>
+                  Aktualisieren
+                </button>
+                <button type="button" className="btn" disabled={disabled || busy !== null || p.adapter !== "implemented"} onClick={() => onReview(p.id)}>Änderungen prüfen</button>
+              </div>
+            )}
           </article>
         ))}
       </div>
-      <h2>Themen & Interessen</h2>
+      {sources && !sources.length ? <p className="muted">Noch keine Quelle konfiguriert.</p> : null}
+      {!sources && !disabled ? <p className="muted">Quellen werden geladen…</p> : null}
+      <p className="muted org__hint">
+        Eine Quelle wird nie gelöscht, nur deaktiviert — so bleiben schon veröffentlichte Angebote gültig. Der erlaubte Host
+        einer bestehenden Quelle lässt sich hier nicht ändern, weil das den Scraping-Bereich erweitern würde. Eine neue Quelle
+        ist zunächst CSV-only: automatisches Aktualisieren braucht einen Adapter für die jeweilige Website.
+      </p>
+
+      <div className="org__session-head">
+        <h2>Themen &amp; Interessen</h2>
+        <button type="button" className="btn" disabled={disabled} onClick={() => { setAdding(a => (a === "topic" ? null : "topic")); setEditing(null); }}>Thema hinzufügen</button>
+        <button type="button" className="btn" disabled={disabled || !taxonomy?.topics.length} onClick={() => { setAdding(a => (a === "interest" ? null : "interest")); setEditing(null); }}>Interesse hinzufügen</button>
+      </div>
+      {adding === "topic" ? <TaxonomyForm kind="topic" busy={busy !== null} disabled={disabled} onCancel={() => setAdding(null)} onSave={saveTax} /> : null}
+      {adding === "interest" && taxonomy ? <TaxonomyForm kind="interest" topics={taxonomy.topics} busy={busy !== null} disabled={disabled} onCancel={() => setAdding(null)} onSave={saveTax} /> : null}
       {taxonomy ? (
         <div className="org__tax">
-          <div className="row">{taxonomy.topics.map(t => <span key={t.id} className={`tag${t.enabled ? "" : " tag--unknown"}`}>{t.label.de}{t.enabled ? "" : " (aus)"}</span>)}</div>
-          <div className="row">{taxonomy.interests.map(i => <span key={i.id} className={`tag${i.enabled ? "" : " tag--unknown"}`}>{i.label.de}{i.enabled ? "" : " (aus)"}</span>)}</div>
-          <p className="muted">Aktivieren/Deaktivieren liegt in der Konfiguration (Umang); diese Ansicht zeigt den Stand.</p>
+          <p className="muted">Konfigurationsversion {taxonomy.version}. Jede Änderung zählt sie hoch.</p>
+          <TaxList kind="topic" entries={taxonomy.topics.map(t => ({ id: t.id, label: t.label, enabled: t.enabled }))}
+            disabled={disabled} busy={busy} editing={editing} setEditing={setEditing} onSave={saveTax} />
+          <TaxList kind="interest" entries={taxonomy.interests.map(i => ({ id: i.id, label: i.label, enabled: i.enabled, topicIds: i.topicIds }))}
+            topics={taxonomy.topics} disabled={disabled} busy={busy} editing={editing} setEditing={setEditing} onSave={saveTax} />
         </div>
       ) : <p className="muted">Themen noch nicht geladen.</p>}
     </section>
+  );
+}
+
+const KIND_LABEL = { topic: "Thema", interest: "Interesse" } as const;
+
+interface TaxEntry { id: string; label: { de: string; en: string }; enabled: boolean; topicIds?: readonly string[] }
+
+function TaxList({ kind, entries, topics, disabled, busy, editing, setEditing, onSave }: {
+  kind: "topic" | "interest"; entries: TaxEntry[]; topics?: readonly { id: string; label: { de: string } }[];
+  disabled: boolean; busy: string | null; editing: string | null;
+  setEditing: (id: string | null) => void; onSave: (change: TopicChange, what: string) => void;
+}) {
+  return (
+    <div className="org-tax-list">
+      <h3>{kind === "topic" ? "Themen" : "Interessen"}</h3>
+      {entries.map(e => (
+        <div key={e.id} className={`org-tax-row${e.enabled ? "" : " is-off"}`}>
+          <div className="org-tax-row__text">
+            <strong>{e.label.de}</strong> <span className="muted">{e.label.en} · <code>{e.id}</code></span>
+            {e.topicIds?.length && topics ? (
+              <span className="muted"> · {e.topicIds.map(id => topics.find(t => t.id === id)?.label.de ?? id).join(", ")}</span>
+            ) : null}
+            {e.enabled ? null : <span className="tag tag--unknown">deaktiviert</span>}
+          </div>
+          <div className="row">
+            <button type="button" className="btn" disabled={disabled} onClick={() => setEditing(editing === `${kind}:${e.id}` ? null : `${kind}:${e.id}`)}>Bearbeiten</button>
+            <button type="button" className="btn" disabled={disabled || busy !== null}
+              onClick={() => onSave({ kind, id: e.id, enabled: !e.enabled }, `${KIND_LABEL[kind]} „${e.label.de}" ${e.enabled ? "deaktiviert" : "aktiviert"}`)}>
+              {e.enabled ? "Deaktivieren" : "Aktivieren"}
+            </button>
+          </div>
+          {editing === `${kind}:${e.id}` ? (
+            <TaxonomyForm kind={kind} entry={e} topics={topics as { id: string; label: { de: string } }[] | undefined}
+              busy={busy !== null} disabled={disabled} onCancel={() => setEditing(null)} onSave={onSave} />
+          ) : null}
+        </div>
+      ))}
+      {!entries.length ? <p className="muted">Noch keine Einträge.</p> : null}
+    </div>
+  );
+}
+
+/** Add or edit one theme/interest. The ID of an existing entry is never editable. */
+function TaxonomyForm({ kind, entry, topics, busy, disabled, onCancel, onSave }: {
+  kind: "topic" | "interest"; entry?: TaxEntry; topics?: readonly { id: string; label: { de: string } }[];
+  busy: boolean; disabled: boolean; onCancel: () => void; onSave: (change: TopicChange, what: string) => void;
+}) {
+  const [id, setId] = useState(entry?.id ?? "");
+  const [de, setDe] = useState(entry?.label.de ?? "");
+  const [en, setEn] = useState(entry?.label.en ?? "");
+  const [picked, setPicked] = useState<string[]>([...(entry?.topicIds ?? [])]);
+  const [local, setLocal] = useState<string | null>(null);
+
+  const submit = () => {
+    const trimmed = id.trim();
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(trimmed) || trimmed.length > 40) { setLocal("Die ID braucht Kleinbuchstaben, Zahlen und Bindestriche, höchstens 40 Zeichen."); return; }
+    if (!de.trim() || !en.trim()) { setLocal("Beide Bezeichnungen (de und en) sind nötig."); return; }
+    if (kind === "interest" && !picked.length) { setLocal("Wähle mindestens ein Thema."); return; }
+    setLocal(null);
+    const change: TopicChange = { kind, id: trimmed, label: { de: de.trim(), en: en.trim() } };
+    if (kind === "interest") change.topicIds = picked;
+    onSave(change, `${KIND_LABEL[kind]} „${de.trim()}"`);
+  };
+
+  return (
+    <div className="org-edit">
+      <label className="dz-field"><span>ID</span>
+        <input type="text" value={id} disabled={!!entry} onChange={e => setId(e.target.value)} placeholder="z-b-robotik" /></label>
+      <label className="dz-field"><span>Bezeichnung (de)</span>
+        <input type="text" value={de} onChange={e => setDe(e.target.value)} /></label>
+      <label className="dz-field"><span>Bezeichnung (en)</span>
+        <input type="text" value={en} onChange={e => setEn(e.target.value)} /></label>
+      {kind === "interest" && topics ? (
+        <fieldset className="org-edit__wide org-edit__fieldset">
+          <legend>Themen</legend>
+          {topics.map(t => (
+            <label key={t.id} className="dz-check">
+              <input type="checkbox" checked={picked.includes(t.id)}
+                onChange={e => setPicked(p => (e.target.checked ? [...p, t.id] : p.filter(x => x !== t.id)))} />
+              {t.label.de}
+            </label>
+          ))}
+        </fieldset>
+      ) : null}
+      {local ? <p className="status-line org-edit__wide" data-tone="bad" role="alert">{local}</p> : null}
+      <div className="row org-edit__actions">
+        <button type="button" className="btn btn--primary" disabled={disabled || busy} onClick={submit}>{busy ? "Wird gespeichert…" : "Speichern"}</button>
+        <button type="button" className="btn" onClick={onCancel}>Abbrechen</button>
+        {entry ? <span className="muted">Die ID bleibt, damit veröffentlichte Angebote weiter gültig sind.</span> : null}
+      </div>
+    </div>
+  );
+}
+
+/** Add or edit one source. An existing source keeps its ID and its allowed hosts. */
+function SourceForm({ source, busy, disabled, onCancel, onSave }: {
+  source?: AdminProviderView; busy: boolean; disabled: boolean;
+  onCancel: () => void; onSave: (change: ProviderChange) => void;
+}) {
+  const [id, setId] = useState(source?.id ?? "");
+  const [name, setName] = useState(source?.name ?? "");
+  const [url, setUrl] = useState(source?.discoveryUrl ?? "");
+  const [local, setLocal] = useState<string | null>(null);
+
+  const submit = () => {
+    const trimmed = id.trim();
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(trimmed) || trimmed.length > 40) { setLocal("Die ID braucht Kleinbuchstaben, Zahlen und Bindestriche, höchstens 40 Zeichen."); return; }
+    if (!name.trim() || name.length > 120) { setLocal("Der Name muss 1 bis 120 Zeichen lang sein."); return; }
+    let parsed: URL;
+    try { parsed = new URL(url.trim()); } catch { setLocal("Die Quellseite muss ein vollständiger https://-Link sein."); return; }
+    if (parsed.protocol !== "https:" || parsed.username || parsed.password || parsed.port) { setLocal("Nur ein einfacher https://-Link ohne Port und Anmeldedaten."); return; }
+    if (source?.allowedHosts.length && !source.allowedHosts.includes(parsed.hostname)) {
+      setLocal(`Der Link muss auf ${source.allowedHosts.join(" oder ")} bleiben.`); return;
+    }
+    setLocal(null);
+    onSave({ id: trimmed, name: name.trim(), discoveryUrl: parsed.toString() });
+  };
+
+  return (
+    <div className="org-edit panel">
+      <label className="dz-field"><span>ID</span>
+        <input type="text" value={id} disabled={!!source} onChange={e => setId(e.target.value)} placeholder="z-b-stadtbibliothek" /></label>
+      <label className="dz-field org-edit__wide"><span>Name</span>
+        <input type="text" value={name} onChange={e => setName(e.target.value)} /></label>
+      <label className="dz-field org-edit__wide"><span>Quellseite (https://)</span>
+        <input type="url" value={url} onChange={e => setUrl(e.target.value)} placeholder="https://" /></label>
+      {local ? <p className="status-line org-edit__wide" data-tone="bad" role="alert">{local}</p> : null}
+      <div className="row org-edit__actions">
+        <button type="button" className="btn btn--primary" disabled={disabled || busy} onClick={submit}>{busy ? "Wird gespeichert…" : "Speichern"}</button>
+        <button type="button" className="btn" onClick={onCancel}>Abbrechen</button>
+        <span className="muted">
+          {source
+            ? `Erlaubte Hosts bleiben: ${source.allowedHosts.join(", ") || "keine hinterlegt"}.`
+            : "Eine neue Quelle ist CSV-only; der Host wird aus dem Link übernommen."}
+        </span>
+      </div>
+    </div>
   );
 }
