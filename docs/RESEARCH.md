@@ -10,6 +10,8 @@ The supplied README describes its guidance as suggestions and invites discussion
 
 The user's latest direction is an overall interactive website with a distinctive atmosphere, modern animation/transitions and short puzzles/quizzes, with real upcoming data scraping. It supersedes the games-centered emphasis of the previous chat proposal. The user confirmed permission for the four institutions' public event/course pages; treat that as user-confirmed permission, not a pending blocker.
 
+The user subsequently supplied an alternative automation plan and asked to merge only the useful features. Consolidated plan revision 3 retains its shared ingestion core, CSV template, row preview/inline correction, selected valid bulk publication, simple source/theme controls and source-error recovery. It excludes inferred factual ages, mutable-title/date identities, unsupported judging/time-saving claims, automatic publication and first-day PDF/LLM/email/XLSX ingestion. See `TEAM_TASKS.md` and `IMPORT_WORKFLOW.md` for the exact assignments/behavior.
+
 ## Supplied references
 
 | Reference | Inspected content | Implication |

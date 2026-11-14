@@ -1,6 +1,6 @@
 # Whole-website experience and motion brief
 
-Follow [REQUIREMENTS.md](REQUIREMENTS.md) and plan revision 2. The product is an engaging learning/event discovery website, with optional short puzzles and quizzes integrated into the journey. Ishan owns the final art direction and all frontend code.
+Follow [REQUIREMENTS.md](REQUIREMENTS.md), consolidated plan revision 3 and [TEAM_TASKS.md](TEAM_TASKS.md). The product is an engaging learning/event discovery website with optional short puzzles/quizzes. Keep its useful maintainer features too: [IMPORT_WORKFLOW.md](IMPORT_WORKFLOW.md). Ishan owns all final art direction/frontend.
 
 ## Identity and meaningful interaction
 
@@ -18,7 +18,7 @@ Keep event facts readable and make the parent view calm and practical. The inter
 | Puzzle moment | One small relevant challenge; evaluate, explain, retry, skip and view related activities | Ready, attempted, helpful correction, completed |
 | Event details | Exact source-backed facts; open/close without losing filters; save/remove and show an adult | Reviewed source, unknown fields, full, cached/stale, clearly demo |
 | Parent view/shortlist | Practical summary, a few saved alternatives, provider details link and return to child view | Empty shortlist, unknown age/cost, outdated record, no booking for demo |
-| Local maintenance desk | Refresh/run status, source errors, new/changed/invalid records, review and expansion controls | Never run, running, needs review, reviewed, valid empty, failed, stale |
+| Local maintenance desk | Review/Upload plus Sources/Themes: source status, CSV template/preview, inline correction, selected valid publication and expansion controls | Running, needs review, ready-new/update, blocked/unchanged, published, valid empty, failed, stale |
 
 Users can always reach overview/search without a quiz or puzzle. A preference is not an aptitude diagnosis. Preserve selected event, filters and interests across detail and presentation changes. No permanent child profile is needed.
 
@@ -30,7 +30,13 @@ The quiz asks three short visual preference questions: which project to try, whi
 
 **Sequence puzzle:** repair or arrange a short instruction sequence, run it and see the result. A small path/robot may illustrate execution. Highlight each step, explain a failed attempt and support reset/retry. Provide move-left/move-right controls as alternatives to dragging. Evaluate only a fixed command vocabulary; no user-supplied code execution is required.
 
-Both share one lightweight shell and should take roughly 30-90 seconds. Ask whether the user enjoyed the activity before applying a suggested interest. Do not use puzzle performance to hide courses. A full game builder or classifier training lab is optional later.
+Both use one lightweight shell and should take roughly 30-90 seconds. Deliver one polished puzzle first; add the second after the public and maintenance journeys work. Ask whether the user enjoyed it before applying a suggested interest. Do not use performance to hide courses. A full game builder or classifier training lab is optional later.
+
+## Compact maintenance interaction
+
+CSV and source refresh lead to the same preview. Show counts, source evidence, row states and before/after facts. Inline editing sends an allowlisted patch to the server and displays revalidation. The publication action names the selected eligible count, not an unconditional "Publish all". A blocked row remains visible and unpublished after other rows are accepted. Distinguish validation status from the organizer's explicit approval.
+
+Template download, upload and source/theme maintenance should be understandable without code editing. A new source may need a compatible adapter. Keep this one organizer route, not a separate large administration product. Optional insight counts are clearly demo/session data.
 
 ## Motion specification
 

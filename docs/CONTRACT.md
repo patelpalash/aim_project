@@ -4,7 +4,7 @@
 
 Palash owns this contract. Ishan and Umang should propose a small example before changing it. Do not create parallel `Event`, `Course` and `Activity` models with incompatible fields.
 
-Plan revision 2 adds whole-website interaction and core live scraping. Follow [REQUIREMENTS.md](REQUIREMENTS.md), [EXPERIENCE.md](EXPERIENCE.md) and [SCRAPING_PLAN.md](SCRAPING_PLAN.md). The user has confirmed permission for the four named institutions' public course/event pages. The existing shared library is still contract v1; the extensions below are planned, not implemented by these documents.
+Consolidated plan revision 3 retains whole-website interaction/live scraping and adds CSV template, inline draft correction and selected valid bulk publication. Follow [REQUIREMENTS.md](REQUIREMENTS.md), [TEAM_TASKS.md](TEAM_TASKS.md), [EXPERIENCE.md](EXPERIENCE.md), [SCRAPING_PLAN.md](SCRAPING_PLAN.md) and [IMPORT_WORKFLOW.md](IMPORT_WORKFLOW.md). Permission for the four named public course/event sources is user-confirmed. The existing library remains contract v1; the extensions/routes below are specifications, not implemented services.
 
 ## Files and imports
 
@@ -75,8 +75,12 @@ For this day, use one public catalog read and client-side filtering. This keeps 
 | `GET /api/taxonomy` | None | Configured topic/interest IDs, labels and mappings, with a configuration version |
 | `POST /api/admin/scrape-runs` | `{ providerId: string | "all" }` for configured sources | HTTP 202 `{ runId: string, status: "queued" }` |
 | `GET /api/admin/scrape-runs/:runId` | None | Run status and per-provider outcomes/counts/errors; no raw HTML in the normal UI |
-| `POST /api/admin/imports/preview` | JSON `{ providerId: string, offers: unknown[] }` | `{ importId: string, preview: ImportPreview, expiresAt: string }` |
-| `POST /api/admin/imports/:importId/approve` | JSON `{ approve: true }` | `{ approved: true, publishedCount: number, catalogueVersion: number }` |
+| `POST /api/admin/imports/preview` | JSON `{ providerId: string, mode: "source" | "demo", offers: unknown[] }` | The same server-stored `ReviewSession`; the pure `ImportPreview` result may remain an internal summary |
+| `GET /api/admin/import-template` | None | UTF-8 CSV attachment with fixed headers and example/instructions |
+| `POST /api/admin/uploads` | Multipart CSV, configured `providerId`, `mode: "source" | "demo"` | Server-stored `ReviewSession`, as specified in the import workflow |
+| `GET /api/admin/imports/:importId` | None | Current `ReviewSession` with revision, rows, issues and counts |
+| `PATCH /api/admin/imports/:importId/rows/:rowId` | `{ revision: number, changes: allowlisted field patch }` | Revalidated session/row and incremented revision; public catalog unchanged |
+| `POST /api/admin/imports/:importId/approve` | JSON `{ approve: true, rowIds: string[], revision: number }` | `{ approved: true, publishedCount: number, blockedCount: number, unchangedCount: number, catalogueVersion: number }` |
 | `GET /api/admin/summary` | None | `{ mode: "demo", catalogueVersion: number, sourceStatuses: SourceStatus[], gaps: DemoGap[] }` |
 | `POST /api/admin/reset` | JSON `{ resetDemo: true }` | `{ reset: true, catalogueVersion: number }` |
 | `POST /api/admin/topics` | Validated topic definition | Saved configuration/version, preserving existing IDs |
@@ -84,7 +88,7 @@ For this day, use one public catalog read and client-side filtering. This keeps 
 
 Every route above is still proposed. Scrape execution belongs to a bounded local runner/worker outside visitor requests, with cached publication and polled status. Source refresh uses enabled configured provider IDs and exact allowed hosts, never an arbitrary public visitor URL. Adding/editing a source is an organizer operation and does not bypass hostname/input validation. Only the four user-authorized providers are initially enabled.
 
-Scraped candidates use the same preview/review/publication boundary as file imports. File upload is recovery, not a substitute for the requested live adapters. A scheduled backend refresh can be added after the live workflow is verified; this plan creates no desktop automation.
+Scraped candidates and CSV rows share one normalization/draft/edit/publication service. CSV is a simple nontechnical bulk-input path; it does not replace the required live adapters. Normalized JSON preview remains internal/recovery tooling. Add a scheduled backend refresh after the live workflow is verified; this plan creates no desktop automation.
 
 Use `mode: "demo"` while any synthetic records are included. Add a `reviewed` mode only for a catalog containing no synthetic records. Continue displaying per-record provenance even when modes are separated. The public offer route returns only approved, non-cancelled, not-ended records. Call `filterOffers` with an appropriate audience mode when selecting user results. If the API must serve all audience categories, filter publication/time separately so it does not accidentally remove parents or school data before the client can select it.
 
@@ -115,10 +119,10 @@ Use synthetic aggregates for the one-day gap demonstration. No public demand sub
 ## Server rules for imports
 
 1. Writable desk routes run only when an explicit local-demo setting is enabled; return 404 otherwise. Bind the demo to loopback. An adult-view switch is not admin authorization. Public hosting must disable these routes until proper access control and storage exist.
-2. Accept one JSON format. Cap uploads at 1 MB and 100 records for this prototype. Reject unknown provider IDs, wrong provider assignments, URLs outside the configured exact host allowlist and unsafe fields. The client must not supply an arbitrary URL for the server to fetch.
+2. Accept the fixed-column UTF-8 CSV upload and the existing normalized JSON preview format; no PDF/LLM/email/XLSX or custom header mapping is required. Cap uploads at 1 MB and 100 rows/records. Reject unknown providers, wrong provider assignments, source URLs outside exact allowed hosts and unsafe fields. The client cannot supply an arbitrary URL to fetch.
 3. Map to known `Offer` fields, set candidate review state to `pending`, validate and preview against the current catalog. Do not trust an uploaded `approved` state or reviewer timestamp. Return readable per-record failures.
 4. Store the preview and validated candidates server-side for a short period, such as 30 minutes. Approval accepts the import ID, not a second client-supplied replacement payload. Record the catalog version used for the preview.
-5. Reject approval with 409 if the catalog changed since preview. On approval, set the review timestamp for source records and atomically persist valid accepted records. Invalid rows remain rejected. A small file store is acceptable for a localhost demo; document its limitations.
+5. Inline edits update only server-stored draft candidates, preserve original evidence, increment session revision and rerun normalization/validation/differences. Reject stale edits/approval with 409 if session or catalog version changed. Approval explicitly identifies row IDs and publishes only selected eligible reviewed rows atomically, setting human review time for source records. Blocked rows remain unpublished; unchanged rows are skipped. A small local file store is sufficient for the localhost demo; document its limitations.
 6. Repeat approval returns its prior result rather than duplicating records. A repeated unchanged import yields no substantive change. A missing record or failed source read must never silently delete a published offer.
 7. Show source errors and old review timestamps honestly. No unattended auto-approval. Only describe a live adapter as working after an actual run has been inspected.
 

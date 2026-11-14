@@ -12,7 +12,7 @@ The PDF opens by describing its guidance as suggestions and its work packages as
 | R2 | Useful to children/adolescents and appealing to adults, p. 2; Package A p. 3 | Child/teen/adult presentation, short labels, simple language and practical parent view | Complete the same journey in each presentation without losing the selected event | Ishan |
 | R3 | Creative, appropriate presentation beyond a basic list/calendar, p. 2; Package C p. 4 | Coherent interactive interest scene, purposeful transitions and useful event explorer | Selections change real results; usable accessible overview remains available | Ishan + Palash |
 | R4 | Focus aim, experimenta, Haus der Familie and IPAI, p. 2 and pp. 8-9 | Four configured sources and provider-specific extraction | Record a successful check or an explicit unfinished source issue for each; do not invent missing offers | Umang |
-| R5 | Low maintenance, ideally manageable without IT expertise, p. 2; Package B p. 4 | Automated extraction into staged changes, readable errors, review/publish controls and cached data | Nontechnical teammate refreshes/reviews an update without editing code | Umang + Ishan |
+| R5 | Low maintenance, ideally manageable without IT expertise, p. 2; Package B p. 4 | Shared scraping/CSV pipeline, template, row statuses/inline correction, selected approval, readable errors and cached data | Nontechnical teammate refreshes a source and corrects/publishes valid selected CSV rows without code editing | Umang + Ishan |
 | R6 | Primary themes AI, coding and gaming, p. 2 | Source classification and filters for all three | Inspect tags, sample matching results and reasons; unrelated events do not fill gaps | Umang + Palash |
 | R7 | Easy extension to institutions and themes, p. 2; Package B p. 4 | Configurable source/theme definitions and simple edit/import controls; reusable adapter interface | Add a theme without rewriting UI; show how a provider using a supported format is configured | Palash + Umang + Ishan |
 | R8 | Overview and search, p. 2; Package D pp. 4-5 | Direct overview, text search, themes/age/date/type filters, plus optional interests/quiz/puzzles | Browse/search without playing; combined filters work on actual data | Palash + Ishan |
@@ -39,6 +39,7 @@ Do not displace required source/search/maintenance/accessibility work with a cha
 - User reports representative wants distinctive, interactive work, including games/quizzes.
 - Latest clarification: the whole website should have an engaging atmosphere and modern motion/transitions; puzzles and discovery must not be overshadowed by games.
 - User confirms permission to scrape the four institutions' public event/course pages. Permission is recorded as user-confirmed, not awaiting another approval.
+- Latest consolidation: retain the useful shared-pipeline, CSV template/preview/inline-edit/selected-publication and maintainer-control features from the supplied plan. Combine them with the engaging discovery experience; defer complex ingestion channels. Exact task IDs and owners are in `TEAM_TASKS.md`.
 
 These directions determine execution and creative emphasis while the PDF's functional scope remains intact. They do not establish that live adapters, interviews, user outcomes, legal compliance or deployment have already been achieved.
 

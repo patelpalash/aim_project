@@ -1,12 +1,12 @@
 # Paste into Umang's Claude session
 
-Help **Umang**, the **data/backend owner**, build the AIM Learning Guide with Palash and Ishan in **one day**. Repository: `patelpalash/aim_project`; working name: **Interest Atlas**. Follow **plan revision 2**, the current canonical scope.
+Help **Umang**, the **data/backend owner**, build the AIM Learning Guide with Palash and Ishan in **one day**. Repository: `patelpalash/aim_project`; working name: **Interest Atlas**. Follow **consolidated plan revision 3**, assigned task IDs **U1-U6** in `docs/TEAM_TASKS.md` and `docs/tasks/UMANG.md`.
 
-Read `AGENTS.md`, `docs/REQUIREMENTS.md`, `docs/PLAN.md`, `docs/SCRAPING_PLAN.md`, `docs/EXPERIENCE.md`, `docs/CONTRACT.md` and `CONTRIBUTING.md`. Follow the AIM challenge PDF under `reference/`, especially four-institution coverage, AI/coding/gaming, maintainability, expansion and child privacy.
+Read `AGENTS.md`, `docs/REQUIREMENTS.md`, `docs/PLAN.md`, `docs/TEAM_TASKS.md`, `docs/SCRAPING_PLAN.md`, `docs/IMPORT_WORKFLOW.md`, `docs/EXPERIENCE.md`, `docs/CONTRACT.md` and `CONTRIBUTING.md`. Follow the AIM PDF under `reference/`, especially four institutions, AI/coding/gaming, maintenance, expansion and child privacy.
 
 The user wants an overall engaging modern website, with motion and short optional puzzles/quizzes. **Scraping real upcoming events is core work. The user has confirmed permission for the four institutions' public event/course pages.** Do not leave permission pending or ask for the same approval again. Limit source fetching to that scope and configured public listing/detail resources.
 
-Own `src/server/`, `src/app/api/`, `data/` and scraper/service tests. **Ishan owns all design/frontend**, including the desk's appearance. Palash owns setup, shared behavior/schema/root tooling and integration. Reuse the common offer model and functions; coordinate date-only precision, age evidence and configurable taxonomy changes with Palash.
+Own `src/server/`, `src/app/api/`, `data/`, scraper/service tests and the CSV/template/draft-edit/publication service. **Ishan owns all design/frontend**. Palash owns setup/shared model/root tooling/integration. Reuse one offer model and one normalization/validation/review core for scraping and CSV. Coordinate date-only precision, age evidence, taxonomy and the shared review-session shape with Palash.
 
 Implement provider-specific adapters for **aim, experimenta, Haus der Familie and IPAI**, not just file upload. The latest direct probes returned HTTP 200 for all four seeds. aim exposes course-detail HTML; IPAI exposes dated detail links; Haus der Familie and experimenta's event listing need dynamic-data investigation. Inspect actual public responses/rendered records rather than inventing API endpoints. See the scraping plan for concrete entry points and parser traps.
 
@@ -16,7 +16,9 @@ Scrape separately from visitor browsing. Capture exact source URLs, retrieval ti
 
 One working adapter is the early milestone, not final coverage. Distinguish genuine no-qualifying-events, partial coverage, changed/broken layout and failed access. A zero-record response cannot silently erase the catalog. Preserve last good data, stable identities and source errors. External ticket-service hosts are not automatically in scope; do not follow cart/register/account actions.
 
-Stage normalized new/changed records with pending review. Store previews server-side, reject stale approval, set human review time only on review, publish atomically and make repeated imports/approval idempotent. JSON import is recovery, not a substitute for the requested live extraction. Keep write routes local until proper hosting controls exist; accept provider IDs, not arbitrary fetch URLs.
+Stage normalized new/changed records with pending review. Add the fixed CSV template/upload, row status/diffs, inline correction/revalidation, explicit selected approval and atomic storage. Reject stale session/catalog revisions; blocked rows cannot publish and unchanged rows are skipped. Preserve stable source/occurrence identity across changed titles/reschedules. JSON preview remains internal/recovery; CSV does not replace the four live adapters. Keep write routes local and accept provider IDs, not arbitrary fetch URLs.
+
+Create a clearly fictional 20-row CSV demo: 18 valid, two blocked. After one inline correction, publish 19 reviewed eligible rows and leave the unresolved row unpublished; re-import without duplicates. Supply a real source record through the same service too. Defer PDF/LLM/email/arbitrary-link/XLSX ingestion, custom column mapping and auto-publication. Unknown age/cost/date remains unknown; never turn "ab 10" into an invented 10-14 range.
 
 Demonstrate that a nontechnical maintainer can refresh, review an error/change and update themes/source configuration. A new website format may still need a new adapter; explain that honestly. Keep source evidence separate from public selected fields. No child accounts, raw searches, personal profiles or runtime LLM is required. Any gap counts are explicitly demo/session data.
 

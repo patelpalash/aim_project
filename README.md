@@ -16,13 +16,15 @@ A one-day project for **Palash + ChatGPT, Ishan + Claude and Umang + Claude**. F
 - [Final checks and demonstration](docs/DEMO_CHECKLIST.md)
 - [Original challenge files](reference/README.md)
 
-Agents begin with [AGENTS.md](AGENTS.md). Claude also has [CLAUDE.md](CLAUDE.md). Plan revision 2 replaces the earlier planning emphasis; use the current documents together.
+Agents begin with [AGENTS.md](AGENTS.md). Claude also has [CLAUDE.md](CLAUDE.md). **Consolidated plan revision 3** is the single merged plan. Read [the three-person execution board](docs/TEAM_TASKS.md) and [the shared CSV/import workflow](docs/IMPORT_WORKFLOW.md) alongside the existing requirement/experience/scraping documents.
 
 | Person | Assistant prompt | Main responsibility |
 | --- | --- | --- |
-| Palash | [ChatGPT prompt](docs/prompts/PALASH_CHATGPT.md) | App shell, shared state/quiz/puzzle logic, matching and integration |
-| Ishan | [Claude prompt](docs/prompts/ISHAN_CLAUDE.md) | All design/frontend, atmosphere, transitions and responsive interaction |
-| Umang | [Claude prompt](docs/prompts/UMANG_CLAUDE.md) | Four source adapters, actual upcoming records, APIs/cache and maintenance |
+| Palash | [ChatGPT prompt](docs/prompts/PALASH_CHATGPT.md), [task sheet P1-P5](docs/tasks/PALASH.md) | App shell, shared behavior/model, matching, integration and verification |
+| Ishan | [Claude prompt](docs/prompts/ISHAN_CLAUDE.md), [task sheet I1-I6](docs/tasks/ISHAN.md) | All design/frontend, motion, visitor journey and review/config controls |
+| Umang | [Claude prompt](docs/prompts/UMANG_CLAUDE.md), [task sheet U1-U6](docs/tasks/UMANG.md) | Four adapters, CSV intake, common review API, cache/storage and source evidence |
+
+Selected additions from the supplied plan: downloadable CSV template, row-level preview, inline corrections, selected valid bulk publication, simple source/theme controls and source-error recovery. Keep one ingestion core. PDF/LLM/email/arbitrary-link ingestion, XLSX parsing, automatic publication and heat maps are deferred. These workflow additions are specifications, not implemented endpoints or files yet.
 
 ## Implemented versus planned
 

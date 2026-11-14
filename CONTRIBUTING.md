@@ -19,7 +19,14 @@ git switch main
 git pull --ff-only origin main
 ```
 
-Preserve any local work before switching branches. Read `AGENTS.md`, then paste the matching prompt from `docs/prompts/` into the assistant. Claude also loads the root `CLAUDE.md` context. Use plan revision 2 and read `docs/REQUIREMENTS.md`, `docs/EXPERIENCE.md` and `docs/SCRAPING_PLAN.md`; the prior games-centered chat proposal is superseded.
+Preserve any local work before switching branches. Read `AGENTS.md`, then paste the matching prompt from `docs/prompts/` into the assistant. Claude also loads `CLAUDE.md`. Use consolidated plan revision 3, `docs/TEAM_TASKS.md`, your task sheet in `docs/tasks/` and the requirement/experience/scraping/import documents. Previous planning versions and the unselected parts of the alternative plan are superseded.
+
+If already on your role branch with a clean working tree, incorporate the new shared instructions without discarding work:
+
+```powershell
+git fetch origin
+git merge origin/main
+```
 
 They need their own GitHub access to this private repository. Their GitHub usernames were not supplied, and no invitations have been sent.
 
@@ -43,7 +50,7 @@ Each person pastes their matching prompt from `docs/prompts/` into their own ass
 | --- | --- |
 | `src/shared/**`, discovery/quiz/puzzle behavior, root package/lockfile/config and integration | Palash |
 | All UI/design, motion/transitions, puzzle interfaces, pages/layout, components/styles/artwork | Ishan |
-| Four source adapters/evidence, `src/server/**`, `src/app/api/**`, `data/**`, scraper/service tests | Umang |
+| Four adapters, CSV intake, common draft/edit/publication services, `src/server/**`, `src/app/api/**`, `data/**`, service tests | Umang |
 | Architecture/contract changes | Palash integrates after checking both consumers |
 
 Ishan owns all visual decisions, including the organizer desk. Umang owns its data/service behavior. Palash may fix integration issues without replacing Ishan's design direction. Route handlers under `src/app/api/` belong to Umang even though they share the `app` directory with UI pages.
@@ -62,3 +69,5 @@ Palash creates the minimal shell during H0-H1. Ishan can use that hour to choose
 Publishing the baseline does not send invitations, create issues or deploy the app. Every teammate must have access to the private repository. The first build milestone is the application shell described in the plan.
 
 The user has confirmed scraping permission for the initial four institutions' public course/event pages. Proceed within that scope; do not leave it pending. Follow the AIM PDF requirement map and keep direct overview/search, scalable configuration and child privacy in the implementation. All four source adapters remain target scope; a failed adapter must be recorded as remaining work.
+
+Use task IDs P1-P5, I1-I6 and U1-U6 from `docs/TEAM_TASKS.md` in handoffs. By H3 exchange a working catalog response and review-session example; by H7 source/CSV corrections should share one reviewed publication flow. Only selected valid reviewed rows publish. Blocked rows remain unpublished, and no mutable-title/date hash is used as the primary identity.

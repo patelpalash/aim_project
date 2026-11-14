@@ -1,6 +1,6 @@
 # Upcoming-event scraping and maintenance plan
 
-Plan revision 2, 14 November 2026. Scraping is a core workstream. Palash confirmed permission from the four institutions for public event/course information. Record this as **user-confirmed permission** and proceed within that scope. It is not a claim that this repository independently stores a written permission agreement or that any scraper has already been implemented.
+Consolidated plan revision 3, 14 November 2026. Scraping is core. Palash confirmed permission from the four institutions for public event/course information. Record it as **user-confirmed permission** and proceed within that scope. This is not a claim that the repository stores a written agreement or that adapters are implemented. The four adapters and CSV upload converge on [one shared draft/review workflow](IMPORT_WORKFLOW.md).
 
 ## Source inspection and adapter decisions
 
@@ -47,6 +47,8 @@ Use the simplest appropriate transport: ordinary HTTP plus scoped HTML parsing f
 7. Validate, detect stable-identity collisions and compare substantive changes. Stage new/changed records and rejected/uncertain rows.
 8. A maintainer reviews changes. Publication updates the cached catalog atomically. Fetch timestamps may refresh independently; human-review timestamps cannot be fabricated by a scraper.
 9. Record per-provider outcome and retain the last good published catalog if any source fails. Visitor browsing never waits for scraping.
+
+The same normalization/identity/validation/publication code is used for CSV rows. Source facts may be corrected in a server-stored draft with provenance and revalidation; the published record changes only after explicit selected approval. Rule-based topic tagging and maintainer-written simple copy are sufficient. Do not generate factual age/cost/date limits through an LLM, and do not auto-publish after a single clean source run.
 
 ## Meaning of upcoming and eligibility
 

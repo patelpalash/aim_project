@@ -8,4 +8,6 @@ The dates are fixed in November 2026 for reproducible tests. The tests use a fix
 
 `demo-import.json` contains one changed offer and one new offer. It demonstrates a review preview, without fetching or publishing anything. Missing offers in an import never imply deletion.
 
+Consolidated plan revision 3 also specifies a CSV template and a separate fictional 20-row upload demonstration in `docs/IMPORT_WORKFLOW.md`. Umang will create those artifacts and the parser during implementation. They are not part of the current fixture set, and no upload/edit/publication endpoint exists yet. Preserve that distinction in handoffs.
+
 Umang should replace or supplement samples with manually reviewed provider records only when the source supplies those facts. Unknown information stays null. Do not translate an unverified inference into a provider fact. Do not copy school-group activities into family results without evidence of individual access. Provider configuration does not grant authority to publish a record.

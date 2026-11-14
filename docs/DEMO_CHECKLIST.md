@@ -1,6 +1,6 @@
 # PDF acceptance checks and demonstration
 
-Plan revision 2. These checks apply to the application the team will build. Shared-library tests do not complete them. Use [REQUIREMENTS.md](REQUIREMENTS.md) for PDF page references and record actual evidence instead of assuming planned behavior works.
+Consolidated plan revision 3. These checks apply to the application the team will build. Shared-library tests do not complete them. Use [REQUIREMENTS.md](REQUIREMENTS.md) for PDF references, [TEAM_TASKS.md](TEAM_TASKS.md) for owners and [IMPORT_WORKFLOW.md](IMPORT_WORKFLOW.md) for row behavior. Record actual evidence rather than assuming planned features work.
 
 ## Acceptance checks
 
@@ -14,6 +14,10 @@ Plan revision 2. These checks apply to the application the team will build. Shar
 - [ ] R10: Parsing selects the current event's dates, handles repeated layout text and recurrence, and preserves date-only precision and Europe/Berlin display.
 - [ ] R5: A failed, malformed or empty scrape does not delete the last good catalog. A real empty source result is distinguished from failure.
 - [ ] R5: Repeat scrape/import/approval does not duplicate events; stale approval is rejected and reset is repeatable.
+- [ ] R5: CSV template download and fixed-column UTF-8 upload work, including quoted cells. Scraping and CSV share one normalization/draft/review service and catalog.
+- [ ] R5: Inline edits revalidate a server-stored draft and increment its revision; published events do not change before approval. Stale edit/publication is rejected.
+- [ ] R5: A clearly fictional 20-row CSV starts with 18 valid and two blocked rows. After one correction, 19 explicitly reviewed eligible rows can publish; the unresolved row remains unpublished.
+- [ ] R5/R10: Changed titles and reschedules preserve stable source/occurrence identity, and repeated import adds no duplicate. Unknown ages/costs remain unknown.
 - [ ] R5: A nontechnical teammate can refresh a source, understand an error/change and publish a reviewed update without editing code.
 - [ ] R7: A theme can be added through configuration/controls without rewriting components. Explain configuration versus a new website adapter.
 - [ ] R11: Child view cannot book in-app; the adult handoff is a practical view, not an identity/consent check. Demo fixtures never offer real registration.
@@ -21,22 +25,23 @@ Plan revision 2. These checks apply to the application the team will build. Shar
 - [ ] R13/R14: No child name/email/address/birth date/profile or remote preference/search payload is required. Reset clears in-memory state. No real-name leaderboard or daily-login pressure.
 - [ ] R15: Clean-clone install/start, type checking, relevant tests and production build pass using documented commands; actual contribution boundaries are recorded.
 - [ ] User direction: Interest, result, event-detail, shortlist and view transitions feel coherent and preserve context; decorative movement does not block actions.
-- [ ] User direction: Optional quiz has skip/back/editable results. Pattern/sequence puzzles evaluate real input, explain outcomes, support retry and lead back to relevant events.
+- [ ] User direction: Optional quiz has skip/back/editable results. At least one polished pattern/sequence puzzle evaluates real input, explains outcomes, supports retry and leads to related events. A second puzzle is added only after core flows work.
 - [ ] User direction: Phone/laptop, slow loading, empty results, source failures and cached status have been inspected in the running app.
 - [ ] Evidence: Synthetic offers, reviewed source records, cached snapshots and live refresh outcomes are distinguishable. No unmeasured educational/retention or compliance claims.
 - [ ] Operations: Writable desk routes are disabled in public configuration; local source refresh accepts configured providers only.
 - [ ] Fallback: A reviewed cached snapshot, with retrieval date, supports repeating the journey without internet. It is not described as a fresh fetch.
 
-## Approximately four-minute demonstration
+## Approximately five-minute demonstration
 
 | Time | Person | Actual screen/action | Point to explain |
 | --- | --- | --- | --- |
-| 0:00-0:35 | Palash | Show the interactive overview, direct search and four provider context | Families can discover relevant Heilbronn activities in one place; identify source/demo mode honestly. |
-| 0:35-1:30 | Ishan | Select an interest, show changing results, try a short puzzle or optional quiz | Interaction is woven through the website; preferences affect results and play never blocks access. |
-| 1:30-2:05 | Ishan | Open an event with a contextual transition, save it and show the parent view | Practical age/time/cost/source details remain clear; registration stays with the institution. |
-| 2:05-3:15 | Umang | Show real source run/status, inspect a staged change, approve and refresh results | Actual retrieval, validation and controlled maintenance; distinguish all four outcomes and cached/live status. |
-| 3:15-3:40 | Umang | Show source/theme configuration and, if built, the demo gap panel | Maintenance/expansion is understandable; a new site format may require an adapter. |
-| 3:40-4:00 | Palash | Return to discovery and name completed scope/remaining gaps | Connect the experience to PDF requirements without overstating completion. |
+| 0:00-0:30 | Palash | Interactive overview, direct search and provider context | Explain the family problem and actual source/demo mode. |
+| 0:30-1:45 | Ishan | Interest/vision-board selection, changing results, one puzzle or quiz | Show coherent motion and useful interaction; play never blocks activities. |
+| 1:45-2:30 | Ishan | Event-to-detail transition, shortlist and parent view | Explain practical/source facts and the institutional registration handoff. |
+| 2:30-3:15 | Umang | Real source run/status and staged change | Show actual source evidence, four-provider outcomes, controlled updates and cached/live distinction. |
+| 3:15-4:15 | Umang | CSV preview, one inline correction, selected publication, remaining blocked row | Demonstrate nontechnical maintenance and shared publication without inventing time-saving metrics. |
+| 4:15-4:40 | Umang | Sources/Themes control and optional demo gap panel | Explain configuration and supported adapters honestly. |
+| 4:40-5:00 | Palash | Return to discovery and name actual completed scope/gaps | Connect the experience and maintenance to requirements. |
 
 Use only screens that actually exist at rehearsal. If refresh fails, explain the failure and show the labeled cached fallback rather than simulating success. If a source or required feature is unfinished, name it. Optional passport/wish counts must be labeled as session/demo information, not research on real families.
 
