@@ -289,6 +289,7 @@ export function Discovery() {
       <footer className="wrap dz-foot reveal">
         <p>Interest Atlas zeigt Angebote von aim, experimenta, Haus der Familie und IPAI. Anmeldung immer direkt beim Anbieter.</p>
         <p>Deine Auswahl bleibt nur in diesem Tab. Kein Konto, keine Namen, nichts wird gesendet.</p>
+        <p><a href="/organizer">Organizer-Bereich</a> für Anbieter: CSV-Import, Review und Veröffentlichung.</p>
       </footer>
 
       <p className="visually-hidden" role="status" aria-live="polite">{announce}</p>
