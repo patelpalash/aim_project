@@ -14,6 +14,8 @@ Verified 14 November 2026. Plan revision 3 remains the product scope. This file 
 
 The current suite has **62 passing tests** and the production build passes. The browser/HTTP evidence for P1 proves only that the shell runs. The HTTP fixture server and fictional offers do not establish live source or backend behavior.
 
+Fresh-clone verification of code commit `eedb261` passed on Windows with Node.js `24.18.1` and npm `11.4.2`: `npm ci`, `npm run check` (62/62), `npm run build`, `npm run dev -- --port 3101` and `npm run start -- --port 3102`. Development and production returned HTTP 200 with the German shell; production returned 404 for an unknown route. Git remained clean after both server runs. Servers were stopped after verification. The original demo fixtures and challenge reference files are unchanged from the planning baseline.
+
 ## PDF evidence boundary
 
 - R6/R7/R8: shared configurable taxonomy, combined filters and matching are tested; real source classification and the final search/config UI remain open.

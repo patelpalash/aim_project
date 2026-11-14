@@ -87,7 +87,7 @@ Use the same `ReviewSession` shape for CSV and scraping. Validate the fixture wi
 
 ## Verification scope
 
-`npm run check` passes 62 tests, including original fixtures, new contracts, state/recommendation behavior, quiz/puzzle outcomes, a real React hook render, and the catalog loader against a local HTTP fixture server. `npm run build` passes. The HTTP test server is test infrastructure, not the production API or a real scraper. Final application and PDF acceptance checks remain in `DEMO_CHECKLIST.md`.
+`npm run check` passes 62 tests, including original fixtures, new contracts, state/recommendation behavior, quiz/puzzle outcomes, a real React hook render, and the catalog loader against a local HTTP fixture server. Fresh-clone install/check/build and development/production shell starts pass with a clean Git state; see `STATUS.md` for the verified code commit and runtime. The HTTP test server is test infrastructure, not the production API or a real scraper. Final application and PDF acceptance checks remain in `DEMO_CHECKLIST.md`.
 
 ## Boundaries still owned by teammates
 
