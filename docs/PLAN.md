@@ -108,4 +108,4 @@ Keep the writable organizer desk local until appropriate access control/storage 
 
 A clean clone starts using documented commands; the complete journey works at phone/laptop widths; interest/quiz/puzzle actions change actual state; all four source outcomes are evidenced; qualifying source-backed upcoming events reach results; a source change can be reviewed/published; configuration expansion is demonstrated; failures preserve the last good catalog; accessibility/privacy checks are recorded; and an explicitly cached snapshot supports a repeatable offline demonstration.
 
-The existing library is implemented. The website, live adapters, puzzle UI, review service and deployment remain to be built. Original synthetic offers remain labeled demo examples. Record final evidence in [DEMO_CHECKLIST.md](DEMO_CHECKLIST.md).
+The website, four adapters, puzzle/quiz UI and review service are now integrated; inspect [STATUS.md](STATUS.md) for verified progress and remaining acceptance. Original synthetic offers remain labeled demo examples alongside reviewed source records. No hosted deployment is claimed. Record final evidence in [DEMO_CHECKLIST.md](DEMO_CHECKLIST.md).

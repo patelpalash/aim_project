@@ -63,6 +63,7 @@ dispatch({ type: "set-audience-mode", mode: "parent" });
 dispatch({ type: "set-quiz-answer", questionId: "project", choiceId: "robot" });
 dispatch({ type: "set-quiz-answer", questionId: "project", choiceId: null }); // skip/remove
 dispatch({ type: "complete-puzzle", id: "sequence-path" });
+dispatch({ type: "reset-play" }); // clear answers/completions; retain filters, selection and shortlist
 dispatch({ type: "clear-filters" }); // keep selected/saved items and optional play progress
 dispatch({ type: "reset" }); // clear the whole visitor session
 ```

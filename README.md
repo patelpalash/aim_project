@@ -30,11 +30,11 @@ Selected additions from the supplied plan: downloadable CSV template, row-level 
 
 ## Implemented versus planned
 
-Implemented and integrated: Ishan's discovery/detail/map/shortlist/parent/quiz/puzzle frontend and organizer desk; Umang's four adapters, cached source evidence, public APIs, CSV/review/publication/refresh/configuration services; Palash's shared contracts/state and integration fixes. **112 checks and the production build pass.** The browser CSV correction/publication flow is verified. See [STATUS.md](docs/STATUS.md) and [Palash's current integration report](docs/coordination/PALASH.md) for remaining acceptance gaps and exact commits.
+Implemented and integrated: Ishan's discovery/detail/map/shortlist/parent/quiz/puzzle frontend, audience/topic controls and organizer maintenance forms; Umang's four adapters, reviewed baseline, public APIs, CSV/review/publication/refresh/configuration services; Palash's shared contracts/state and integration fixes. **118 checks and the production build pass.** The default catalog contains 17 reviewed real offers and eight explicitly fictional examples. Its status line counts both honestly. See [STATUS.md](docs/STATUS.md) and [Palash's current integration report](docs/coordination/PALASH.md) for remaining acceptance gaps and exact commits.
 
-Read-only source checks on 14 November 2026 returned public HTML for all four seed pages and inspected one follow-up page per provider. They informed the scraping plan. **They are not finished adapters, a real event dataset or proof of current child eligibility.**
+Initial read-only source probes informed the scraping plan. Implemented adapters and the later reviewed records now have separate evidence in `data/source-runs/` and `data/catalog/`. Source coverage remains partial where indicated; general adult IPAI records and unsupported online venues remain held.
 
-Still to finish: the remaining maintenance controls and accessibility fixes, full connected acceptance checks and any deployment. Source coverage can be partial; real candidates remain pending until reviewed. Original challenge files remain unmodified under `reference/`.
+Still to finish: re-review two held aim courses against the new `build-worlds`/`build-apps` interests, final connected/mobile/accessibility acceptance and any deployment. Adding an interest does not approve a course. Original challenge files and the eight demo fixtures remain unmodified.
 
 ## Run and check the bootstrap
 

@@ -19,7 +19,7 @@ Consolidated plan revision 3. These checks apply to the application the team wil
 - [x] R5: A clearly fictional 20-row CSV starts with 18 valid and two blocked rows. After one correction, 19 explicitly reviewed eligible rows can publish; the unresolved row remains unpublished. Evidence: browser upload/inline fix/selection/publication; API 27 offers, `aim-demo-csv-15` excluded. Screenshot: local `.local-analysis/evidence/csv-publication.jpg`.
 - [ ] R5/R10: Changed titles and reschedules preserve stable source/occurrence identity, and repeated import adds no duplicate. Unknown ages/costs remain unknown.
 - [ ] R5: A nontechnical teammate can refresh a source, understand an error/change and publish a reviewed update without editing code.
-- [ ] R7: A theme can be added through configuration/controls without rewriting components. Explain configuration versus a new website adapter.
+- [x] R7: A theme can be added through configuration/controls without rewriting components. Explain configuration versus a new website adapter. Evidence: two `POST /api/admin/topics` additions produced taxonomy v3, with Welten bauen and Apps bauen visible in both public discovery and organizer controls; new providers are explicitly CSV-only until an adapter exists.
 - [ ] R11: Child view cannot book in-app; the adult handoff is a practical view, not an identity/consent check. Demo fixtures never offer real registration.
 - [ ] R12: Keyboard/touch alternatives, clear labels, visible focus, contrast, larger text and reduced motion work across the actual journey.
 - [ ] R13/R14: No child name/email/address/birth date/profile or remote preference/search payload is required. Reset clears in-memory state. No real-name leaderboard or daily-login pressure.
@@ -46,5 +46,7 @@ Consolidated plan revision 3. These checks apply to the application the team wil
 Use only screens that actually exist at rehearsal. If refresh fails, explain the failure and show the labeled cached fallback rather than simulating success. If a source or required feature is unfinished, name it. Optional passport/wish counts must be labeled as session/demo information, not research on real families.
 
 ## Handover
+
+Current rehearsal baseline: 25 API records (17 reviewed real offers + eight labeled examples). Counts after a CSV demonstration will differ from the earlier eight-only verification. Reset restores this committed baseline. UMANG-003 keeps the mixed catalog with provenance-based wording; UMANG-004 adds two interests but leaves their held courses unpublished pending evidence review. Browser composition proof: [mixed catalog](evidence/mixed-catalog.jpg).
 
 Provide run/build/check commands, source/theme config, adapter/run evidence, reviewed snapshot provenance, known limitations, a reset path and each person's actual contribution. The source documents contain no separate final submission checklist or official working schedule; add organizer-specific submission instructions when supplied.
