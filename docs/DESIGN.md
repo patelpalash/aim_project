@@ -57,3 +57,37 @@ font size (≈200% text) and `prefers-reduced-motion: reduce`:
   robot animates in one step; nothing is left at `opacity: 0`.
 - Status changes (result counts, saving, publishing, puzzle feedback) are announced through
   `role="status"` live regions.
+
+## Follow-up slice: maintenance, topics, presentation, play navigation, dialog keys
+
+Five requested additions, all on the shared contracts and Umang's local desk routes.
+
+**Source and theme maintenance (`/organizer` → "Quellen & Themen").** Sources and themes are
+added, renamed, enabled and disabled through `POST /api/admin/providers` and
+`POST /api/admin/topics`. Rules the UI states rather than hides: an ID is never deleted, only
+disabled, so already published offers keep validating; an existing source keeps its allowed hosts,
+and a link off those hosts is refused with the reason; a newly added source is labelled CSV-only,
+because automatic refresh needs an adapter for that website. The configuration version is shown
+and visibly counts up with every change.
+
+**Direct topic filters.** The three configured topic areas (KI, Coding, Gaming) sit above the
+interest tiles as `filters.topics` chips, with a per-topic count and their own reset. Counts on
+the chips and on the interest tiles are computed inside the time window in effect, so the number
+matches the list that follows. Themes come from the loaded configuration only — never from the
+bundled seed — so a disabled or renamed theme is never shown.
+
+**Presentation switching (child / teen / adult).** The header switch dispatches only
+`set-audience-mode`. Interests, topics, filters, the shortlist and quiz answers all survive it,
+and the change is announced. The adult view changes wording, adds the venue and access line to
+each card, opens the shortlist on the parent tab, and keeps the quiz and puzzle in the child and
+teen views with a line saying where they are. The filter reset now clears filters only; the
+shortlist, the mode and the quiz have their own controls.
+
+**Quiz and puzzle navigation.** Back, re-answer, clear a single answer, "Antworten ändern" from
+the result screen, and one reset for quiz and puzzle together that leaves saved offers and filters
+untouched. The "already solved" note is tracked in the component, because the shared
+`completedPuzzleIds` only grows (see ISH-REQ-4).
+
+**Dialog keyboard.** `useDialog` (`src/components/atlas/use-dialog.ts`) moves focus into a sheet,
+keeps Tab and Shift+Tab inside it, closes on Esc, and returns focus to the opener — or to a named
+fallback when that element is gone, so focus never drops to the top of the document.

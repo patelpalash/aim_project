@@ -1,32 +1,28 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useRef, type RefObject } from "react";
 import type { Offer } from "@/shared/contracts";
 import { interestMeta, InterestIcon } from "./interests";
 import { ACCESS_LABEL, AVAILABILITY_LABEL, formatAge, formatPrice, formatStamp, formatWhen } from "./format";
+import { useDialog } from "./use-dialog";
 
-/** Event details as a side sheet (bottom sheet on phones). Focus moves in, Esc/Back close, focus returns. */
-export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName, provider }: {
+/** Event details as a side sheet (bottom sheet on phones). Focus moves in and stays in, Esc/Back close, focus returns. */
+export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName, provider, focusFallback }: {
   offer: Offer; provider: string; saved: boolean; onSave: () => void; onClose: () => void; onShowAdult?: () => void;
   /** When set, the browser morphs the card into this sheet; the CSS slide-in fallback is skipped. */
   vtName?: string;
+  /** Gets focus if the element that opened the sheet is gone by the time it closes. */
+  focusFallback?: RefObject<HTMLElement | null>;
 }) {
   const closeRef = useRef<HTMLButtonElement>(null);
-  const onCloseRef = useRef(onClose);
-  onCloseRef.current = onClose;
-  useEffect(() => {
-    const prev = document.activeElement as HTMLElement | null;
-    closeRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onCloseRef.current(); };
-    window.addEventListener("keydown", onKey);
-    return () => { window.removeEventListener("keydown", onKey); prev?.focus?.(); };
-  }, []);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useDialog(dialogRef, onClose, { initial: closeRef, fallback: focusFallback });
   const lead = offer.interests[0];
   const demo = offer.source.kind === "demo";
   return (
     <>
       <div className="sheet-scrim m-scrim" onClick={onClose} aria-hidden="true" />
-      <div className={vtName ? "sheet" : "sheet m-sheet"} role="dialog" aria-modal="true" aria-labelledby="sheet-title"
+      <div ref={dialogRef} tabIndex={-1} className={vtName ? "sheet" : "sheet m-sheet"} role="dialog" aria-modal="true" aria-labelledby="sheet-title"
         style={{ ["--a" as string]: lead ? interestMeta(lead).a : "var(--accent-a)", ["--b" as string]: lead ? interestMeta(lead).b : "var(--accent-b)", viewTransitionName: vtName }}>
         <div className="sheet__head">
           <button ref={closeRef} type="button" className="btn icon-btn" onClick={onClose} aria-label="Zurück zur Liste">←</button>

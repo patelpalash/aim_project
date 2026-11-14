@@ -6,9 +6,9 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted.
-- Last updated (UTC): 2026-11-14 17:55.
-- Current task/slice: I1-I6 implemented; verified against Umang's backend and fixed what that showed.
-- State: with `codex/umang-data` merged locally, both routes run on the real API: `/` loads the live catalogue and reports per-source import state; `/organizer` does upload -> inline correction -> selected publication against the real review service.
+- Last updated (UTC): 2026-11-14 18:05.
+- Current task/slice: I1-I6 plus a five-part follow-up slice from Ishan (configuration maintenance, topic filters, presentation switching, play navigation, dialog keyboard).
+- State: both routes run on the real API with `codex/umang-data` merged locally. The organizer can now add, edit, enable and disable sources and themes through your `/api/admin/providers` and `/api/admin/topics`; a new theme reaches the public page in the same session.
 - Based on `main` commit: `6629eca` (merged in `09c979b`).
 - Next independent task: none blocking. Available for rehearsal fixes and whatever Palash's integration finds.
 
@@ -17,6 +17,8 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 - ISH-REQ-1 → Umang: **closed, delivered.** `/api/offers`, `/api/taxonomy`, `/api/providers` verified from my pages. The fixture fallback stays as the 404 path only.
 - ISH-REQ-2 → Umang: **closed, delivered.** The admin routes work from `/organizer`. Note for everyone: they are local-only behind `INTEREST_ATLAS_LOCAL_DESK=1`; without it the desk correctly shows its "only locally enabled" state.
 - ISH-REQ-3 → Umang (small, not blocking): `sourceStatus.message` is English ("15 candidate(s) staged for human review"). The panel now writes its own German sentence from `extractedCount`/`rejectedCount`/`partialCoverage` and shows your message as secondary detail, so nothing is blocked — but a German message, or a localised pair, would let the raw text move up.
+
+- ISH-REQ-4 → Palash (small, not blocking): `discoveryReducer` has no way to undo `complete-puzzle`, and `reset` clears the whole session including the shortlist. Ishan asked for a full quiz/puzzle reset, so the desk now clears the quiz through `set-quiz-answer: null` and tracks the "solved" note in the component. An `uncomplete-puzzle` action, or a `reset-play` that clears `quizAnswers` and `completedPuzzleIds` only, would let the shared state follow the UI. Related: my filter reset now dispatches `clear-filters` rather than `reset`, so resetting filters no longer empties the shortlist.
 
 ## Replies to teammates
 
@@ -28,6 +30,13 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
   - New on the results page: a "Woher die Angebote kommen" panel that reports your `sourceStatuses` and `cache` per provider, naming partial coverage explicitly. See ISH-REQ-3.
 
 ## Ready slices
+
+- Follow-up slice (Ishan's five items), code SHAs `c52dc94` and `f0d4567` on `codex/ishan-design`.
+  - Paths: `src/components/organizer/{OrganizerDesk.tsx,api.ts,organizer.css}`, `src/components/atlas/{Discovery.tsx,PlaySection.tsx,EventCard.tsx,DetailSheet.tsx,ShortlistSheet.tsx,use-dialog.ts,discovery.css,play.css}`, docs/DESIGN.md.
+  - What it adds: source/theme add, edit, enable, disable through `POST /api/admin/providers` and `POST /api/admin/topics`; direct KI/Coding/Gaming filters over `filters.topics`; a child/teen/adult presentation switch that only dispatches `set-audience-mode`; quiz back/re-answer/clear plus a combined quiz+puzzle reset; and a shared `useDialog` focus trap for both sheets.
+  - Checks run: `npm run check` (62 tests on my branch, 106 with `origin/codex/umang-data` merged), `npm run build`, and 49 headless-Chromium assertions against your live server with `INTEREST_ATLAS_LOCAL_DESK=1` — all passing. Verified live: disable/enable a source, rename one and restore it, an off-host link refused with its reason, a new CSV-only source created, a theme disabled and re-enabled with the configuration version counting up, a new interest added and appearing as a tile on `/`, a malformed ID refused, Tab and Shift+Tab held inside both sheets, Esc returning focus to the opener, and no horizontal scroll at 360px on either route. Screenshots in project files `ishan-design/screens/v4-*.png`.
+  - Note for Umang: the browser run writes to `data/taxonomy.json` and `data/providers.json` through your routes, which is the point of the feature — two of your fixture tests assert the seed values, so after a live run `git checkout -- data/` restores them. Nothing in `data/` is committed from my branch.
+  - Known gaps: ISH-REQ-4 (shared puzzle completion cannot be undone); the map stays schematic until offers carry addresses.
 
 - I4, I5, I6 — code SHAs `ea38295` (quiz + robot-path puzzle over the shared evaluators), `a1826f2` (organizer desk at `/organizer`), `728d42f` (accessibility pass).
   - Paths: `src/components/atlas/{PlaySection.tsx,play.css}`, `src/components/organizer/{OrganizerDesk.tsx,api.ts,organizer.css}`, `src/app/organizer/page.tsx`, `src/styles/base.css`.

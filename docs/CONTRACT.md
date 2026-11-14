@@ -4,6 +4,8 @@
 
 Palash owns this contract. Ishan and Umang should propose a small example before changing it. Do not create parallel `Event`, `Course` and `Activity` models with incompatible fields.
 
+**Mixed-catalog decision (UMANG-003):** retain the eight labeled fixtures alongside reviewed records. `mode: demo` remains the existing broad mode whenever examples are present; clients must count per-record provenance instead of saying that the whole catalog is fictional. Current baseline: 17 approved source-backed offers plus eight examples. No new wire enum or automatic approval is introduced.
+
 Consolidated plan revision 3 retains whole-website interaction/live scraping and adds CSV template, inline draft correction and selected valid bulk publication. Follow [REQUIREMENTS.md](REQUIREMENTS.md), [TEAM_TASKS.md](TEAM_TASKS.md), [EXPERIENCE.md](EXPERIENCE.md), [SCRAPING_PLAN.md](SCRAPING_PLAN.md) and [IMPORT_WORKFLOW.md](IMPORT_WORKFLOW.md). Permission is user-confirmed. P2's compatible fields keep public `schemaVersion: 1`; actual shared module types are authoritative for wire names.
 
 ## Files and imports
@@ -153,4 +155,4 @@ Test fixture IDs intentionally cover a full event, unknown age/date/price, paren
 
 ## Adding another institution later
 
-Add a provider configuration, select a supported adapter/input format, map its records to the common contract and review them. A new website structure may need a new adapter. Provider IDs and taxonomy IDs already permit configured additions; the nontechnical controls and backing service still need implementation. Demonstrate a source/theme maintenance action without rewriting results components, as required by the PDF. Permission for the initial four sources is user-confirmed; a later unrelated institution has its own source context.
+Add a provider configuration, select a supported adapter/input format, map its records to the common contract and review them. A new website structure may need a new adapter. The organizer now exposes provider/topic/interest add/edit/enable controls over the local maintenance routes. New providers are CSV-only until an adapter exists. Taxonomy version 3 adds `build-worlds` and `build-apps` through those routes; source candidates still require evidence review before publication. Permission for the initial four sources is user-confirmed; a later unrelated institution has its own source context.

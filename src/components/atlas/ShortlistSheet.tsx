@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useMemo, useRef, useState } from "react";
-import type { CSSProperties } from "react";
+import { useMemo, useRef, useState } from "react";
+import type { CSSProperties, RefObject } from "react";
 import type { Offer } from "@/shared/contracts";
 import { buildParentHandoff } from "@/shared/catalog";
 import type { ProviderSummary } from "@/shared/api-contract";
 import { ACCESS_LABEL, AVAILABILITY_LABEL, formatAge, formatPrice, formatWhen, providerName } from "./format";
 import { interestMeta, InterestIcon } from "./interests";
+import { useDialog } from "./use-dialog";
 
 export interface ShortlistSheetProps {
   offers: Offer[];
@@ -18,6 +19,8 @@ export interface ShortlistSheetProps {
   onOpenOffer: (offer: Offer) => void;
   onRemove: (offer: Offer) => void;
   onClose: () => void;
+  /** Gets focus if the control that opened the sheet is gone by the time it closes. */
+  focusFallback?: RefObject<HTMLElement | null>;
 }
 
 /**
@@ -25,24 +28,17 @@ export interface ShortlistSheetProps {
  * The parent tab renders the shared `buildParentHandoff` summaries side by side: same data,
  * adult emphasis — dates, price, venue, access, source — and the honest demo/check-provider note.
  */
-export function ShortlistSheet({ offers, unavailableCount, providers, initialTab = "list", onOpenOffer, onRemove, onClose }: ShortlistSheetProps) {
+export function ShortlistSheet({ offers, unavailableCount, providers, initialTab = "list", onOpenOffer, onRemove, onClose, focusFallback }: ShortlistSheetProps) {
   const [tab, setTab] = useState<"list" | "parent">(initialTab);
   const closeRef = useRef<HTMLButtonElement>(null);
-  const onCloseRef = useRef(onClose);
-  onCloseRef.current = onClose;
-  useEffect(() => {
-    const prev = document.activeElement as HTMLElement | null;
-    closeRef.current?.focus();
-    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") onCloseRef.current(); };
-    window.addEventListener("keydown", onKey);
-    return () => { window.removeEventListener("keydown", onKey); prev?.focus?.(); };
-  }, []);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  useDialog(dialogRef, onClose, { initial: closeRef, fallback: focusFallback });
   const handoffs = useMemo(() => offers.map(o => ({ offer: o, handoff: buildParentHandoff(o, "de") })), [offers]);
 
   return (
     <>
       <div className="sheet-scrim m-scrim" onClick={onClose} aria-hidden="true" />
-      <div className="sheet m-sheet sl" role="dialog" aria-modal="true" aria-labelledby="sl-title">
+      <div ref={dialogRef} tabIndex={-1} className="sheet m-sheet sl" role="dialog" aria-modal="true" aria-labelledby="sl-title">
         <div className="sl__head">
           <button ref={closeRef} type="button" className="btn icon-btn" onClick={onClose} aria-label="Merkliste schließen">←</button>
           <h2 id="sl-title">Merkliste</h2>
