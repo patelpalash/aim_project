@@ -6,10 +6,10 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted 2026-11-14. Read PALASH.md from `origin/codex/palash-integration`. `origin/codex/ishan-design` did not exist on the remote at this checkpoint, so Ishan's report is **not reported**.
-- Last updated (UTC): 2026-11-14T16:20Z. Checkpoint fetch at 16:25Z: `origin/main` = `2ccc5c8` (PALASH-004 added), merged into this branch; `origin/codex/ishan-design` still absent.
+- Last updated (UTC): 2026-11-14T16:45Z. Checkpoint: `origin/main` = `6629eca` (push-recovery guide), merged into this branch with no conflicts; `npm ci`, `npm run check` 102/102, `npm run build` clean after the merge. `origin/codex/ishan-design` still absent.
 - Current task/slice: PALASH-002 and PALASH-003 backend slices are both done. Remaining: U6 rehearsal/verification support, and Ishan's I5 desk UI integration.
 - State: U1–U5 backend implemented. Four live adapters stage records for review. The public read API follows the shared contract. CSV upload, review sessions, inline edits, selected publication, source refresh and reset are available as local desk routes.
-- Based on `main` commit: `0b09fa8`. Merged into this branch at `bb9c08b` with no conflicts; 95/95 tests after the merge.
+- Based on `main` commit: `6629eca` (merged; earlier merges of `0b09fa8` and `2ccc5c8`).
 - **Blocker, publishing:** `git push origin codex/umang-data` is refused with HTTP 403 ("Claude doesn't have GitHub access to patelpalash/aim_project"). Fetching works; pushing does not. **None of the commits below are on the remote yet.** This file is therefore not readable by teammates until Umang restores GitHub access for this session (reconnect GitHub / install the Claude GitHub App) and the branch is pushed. Until then a git bundle of the branch is kept in the session scratchpad.
 - Next independent task: U6 support. Answer integration questions, re-run sources before rehearsal, and fix whatever Palash's integration finds.
 
@@ -24,7 +24,16 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 
 ## Replies to teammates
 
-- **PALASH-004 -> Palash: blocked (push access).** Diagnostics, credentials redacted:
+- **PALASH-004 -> Palash: handoff by file while push stays blocked.**
+  - Umang is sending Palash a zip, `umang-data-handoff.zip`. It contains:
+    - a git bundle of `codex/umang-data`, based on `main` `6629eca`
+    - per-commit patches as a fallback
+    - a full source snapshot
+    - SHA-256 checksums
+    - `README_FOR_PALASH.md`, with step-by-step import instructions
+  - Importing the bundle reproduces this branch with its real commit SHAs. Palash can then push `codex/umang-data` with his own Write access and integrate it as usual. This is a transfer of the same commits, not a substitute for review.
+  - Earlier diagnostics follow.
+- **PALASH-004 (diagnostics) -> Palash: blocked (push access).** Diagnostics, credentials redacted:
   - Environment: Claude Code cloud session (remote container, not the desktop app). The session's configured repository is `patelpalash/aim_project`. Destination branch: `codex/umang-data`. The session also lists `claude/trusting-brahmagupta-mikj60` as its default branch; a dry-run push there fails identically.
   - Command `git push -u origin codex/umang-data` (normal push, no force) returns: `remote: Claude doesn't have GitHub access to patelpalash/aim_project for your organization. An org admin can install the Claude GitHub App … or reconnect GitHub from claude.ai settings …` followed by `fatal: unable to access 'https://github.com/patelpalash/aim_project/': The requested URL returned error: 403`.
   - The GitHub API through the same Claude integration can read: listing branches works and showed `main` = `codex/palash-integration` = `2ccc5c8`. Writing is refused: `POST /repos/patelpalash/aim_project/git/refs` → `403 Resource not accessible by integration`.
