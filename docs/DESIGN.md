@@ -39,3 +39,21 @@ positions without changing the component's interface.
 
 Demo offers always show the demo tag and banner; unknown age/price/access stay "unbekannt" and
 are excluded by those filters with an explaining hint; no invented times, prices or places.
+
+## Accessibility pass (I6)
+
+Checked with headless Chromium at 360 / 390 / 768 / 1440 px on both routes, plus a 22px root
+font size (≈200% text) and `prefers-reduced-motion: reduce`:
+
+- No horizontal page scroll and no element overflowing the viewport at any of those widths, with
+  normal or enlarged text.
+- Skip link as the first tab stop on both routes (`.skip-link`), jumping to the results heading
+  and the organizer main region.
+- Every interactive control shows a focus ring (`--focus-ring`); the search field highlights its
+  whole pill via `:focus-within`.
+- Touch targets: 44px for the logo and, on coarse pointers, for the list/map and tab toggles;
+  card titles use a full-card hit area via `::after`.
+- Reduced motion: the rotating verb, reveals and card entrances resolve to their end state; the
+  robot animates in one step; nothing is left at `opacity: 0`.
+- Status changes (result counts, saving, publishing, puzzle feedback) are announced through
+  `role="status"` live regions.

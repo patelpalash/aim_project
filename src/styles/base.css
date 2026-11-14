@@ -80,13 +80,13 @@ a { color: var(--accent); text-underline-offset: 3px; }
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius-lg); box-shadow: var(--shadow-1); }
 
 /* Shared app chrome used by both the public pages and the organizer desk */
-.dz-logo { display: inline-flex; align-items: center; gap: var(--space-3); color: var(--ink); text-decoration: none; font: 800 var(--text-lg)/1 var(--font-display); letter-spacing: -0.02em; }
+.dz-logo { display: inline-flex; align-items: center; min-height: var(--touch); gap: var(--space-3); color: var(--ink); text-decoration: none; font: 800 var(--text-lg)/1 var(--font-display); letter-spacing: -0.02em; }
 .dz-logo__mark { width: 24px; height: 24px; border-radius: 8px; background: conic-gradient(from 210deg, #2f6bff, #8b5cf6, #f43f8e, #ff6a3d, #10b981, #2f6bff); }
 .dz-logo:hover .dz-logo__mark { animation: dz-spin 900ms var(--ease-out); }
 @keyframes dz-spin { to { transform: rotate(360deg); } }
 /* List / map view toggle */
 .dz-view { display: inline-flex; padding: 4px; gap: 4px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-pill); }
-.dz-view button { appearance: none; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; min-height: 36px; padding: 0 var(--space-4);
+.dz-view button { appearance: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; padding: 0 var(--space-4);
   border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--ink-soft); font: 600 var(--text-sm)/1 var(--font-body);
   transition: background var(--dur-tap), color var(--dur-tap), box-shadow var(--dur-tap); }
 .dz-view button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-1); }
@@ -94,3 +94,11 @@ a { color: var(--accent); text-underline-offset: 3px; }
 .dz-field select { min-height: var(--touch); min-width: 9.5rem; padding: 0 var(--space-3); border: 1.5px solid var(--line); border-radius: var(--radius-md);
   background: var(--surface); color: var(--ink); font: 400 var(--text-md)/1 var(--font-body); text-transform: none; letter-spacing: 0; transition: border-color 200ms; }
 .dz-field select:hover { border-color: var(--accent); }
+
+/* Touch pointers get the full 44px target on the compact toggles */
+@media (pointer: coarse) { .dz-view button { min-height: var(--touch); } }
+
+/* Skip link: first stop for keyboard users on every page */
+.skip-link { position: absolute; left: -9999px; top: 0; z-index: 60; padding: 12px 18px; border-radius: 0 0 var(--radius-md) 0;
+  background: var(--ink); color: var(--bg); font: 700 var(--text-sm)/1 var(--font-body); text-decoration: none; }
+.skip-link:focus { left: 0; }

@@ -9,6 +9,7 @@ import { getActiveInterests } from "@/shared/taxonomy";
 import { useDiscovery } from "@/shared/use-discovery";
 import type { DiscoverySort } from "@/shared/discovery";
 import { loadBundle, type BundleState } from "./catalog-data";
+import { SourceStatusPanel } from "./SourceStatus";
 import { WHEN_LABEL, whenPatch, type When } from "./dates";
 import { DetailSheet } from "./DetailSheet";
 import { EventCard } from "./EventCard";
@@ -123,6 +124,7 @@ export function Discovery() {
 
   return (
     <div className="dz">
+      <a className="skip-link" href="#dz-results-title">Zu den Angeboten springen</a>
       <header className={`dz-top${scrolled ? " is-scrolled" : ""}`}>
         <div className="wrap dz-top__in">
           <a className="dz-logo" href="/"><span className="dz-logo__mark" aria-hidden="true" />Interest Atlas</a>
@@ -247,6 +249,11 @@ export function Discovery() {
               <CatalogStatus catalog={catalog} onRetry={load} />
             </div>
           </div>
+
+          {catalog.phase === "ready" && catalog.bundle.catalog.sourceStatuses?.length ? (
+            <SourceStatusPanel statuses={catalog.bundle.catalog.sourceStatuses}
+              cache={catalog.bundle.catalog.cache ?? null} providers={providers} />
+          ) : null}
 
           {catalog.phase === "loading" ? (
             <div className="dz-grid" aria-busy="true" aria-label="Angebote werden geladen">

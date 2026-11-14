@@ -14,6 +14,7 @@ const STATE_LABEL: Record<ReviewRow["state"], string> = {
 };
 const STATE_TONE: Record<ReviewRow["state"], string> = { "ready-new": "ok", "ready-update": "ok", "needs-review": "warn", blocked: "bad", unchanged: "muted" };
 const AVAILABILITIES = ["available", "full", "cancelled", "unknown"] as const;
+const LAST_IMPORT_KEY = "atlas.organizer.importId";
 const AVAIL_LABEL: Record<string, string> = { available: "Plätze frei", full: "Ausgebucht", cancelled: "Abgesagt", unknown: "Unbekannt" };
 const selectableRow = (row: ReviewRow) => row.candidate !== null && row.state !== "blocked" && row.state !== "unchanged" && row.issues.length === 0;
 
@@ -89,7 +90,22 @@ export function OrganizerDesk() {
   const adoptSession = useCallback((next: ReviewSession, local: boolean) => {
     setSession(next); setLocalOnly(local); setApproveResult(null); setOpenRow(null);
     setSelected(prev => next.rows.filter(r => prev.includes(r.rowId) && selectableRow(r)).map(r => r.rowId));
+    // Remember the import for this tab only, so a reload resumes the same review.
+    try { if (local) sessionStorage.removeItem(LAST_IMPORT_KEY); else sessionStorage.setItem(LAST_IMPORT_KEY, next.importId); } catch { /* private mode */ }
   }, []);
+
+  // Resume the review after a reload. A missing or expired import is simply dropped.
+  useEffect(() => {
+    let alive = true;
+    let importId: string | null = null;
+    try { importId = sessionStorage.getItem(LAST_IMPORT_KEY); } catch { importId = null; }
+    if (!importId) return;
+    fetchSession(importId, taxonomy ?? undefined)
+      .then(next => { if (alive) { adoptSession(next, false); setNotice(`Import ${next.importId} fortgesetzt.`); } })
+      .catch(() => { try { sessionStorage.removeItem(LAST_IMPORT_KEY); } catch { /* ignore */ } });
+    return () => { alive = false; };
+    // Runs once the taxonomy is known so the session validates against the configured one.
+  }, [taxonomy, adoptSession]);
 
   const run = async (label: string, work: () => Promise<void>) => {
     setBusy(label); setError(null); setNotice(null);
@@ -118,6 +134,7 @@ export function OrganizerDesk() {
   const onApprove = () => session && run("approve", async () => {
     const result = await approveRows(session.importId, selected, session.revision);
     setNotice(null);
+    // Refresh first: adoptSession clears the previous result, so the new one is set afterwards.
     const next = await fetchSession(session.importId, taxonomy ?? undefined).catch(() => null);
     if (next) adoptSession(next, false);
     setApproveResult(result);
@@ -136,6 +153,7 @@ export function OrganizerDesk() {
 
   return (
     <div className="org">
+      <a className="skip-link" href="#org-main">Zum Inhalt springen</a>
       <header className="org__top">
         <div className="wrap org__top-in">
           <a className="dz-logo" href="/"><span className="dz-logo__mark" aria-hidden="true" />Interest Atlas</a>
@@ -147,12 +165,12 @@ export function OrganizerDesk() {
         </div>
       </header>
 
-      <main className="wrap org__main">
+      <main className="wrap org__main" id="org-main" tabIndex={-1}>
         {publicApiMissing ? <p className="status-line" data-tone="warn">Verbindung zur Konfiguration prüfen und die Seite erneut laden.</p> : null}
         {adminMissing ? (
           <div className="panel org__missing">
             <h2>Der Wartungsbereich ist nicht freigeschaltet.</h2>
-            <p className="muted">Die lokale Demo muss mit aktivierter Wartung gestartet werden. Die öffentliche Ansicht gibt keine Schreibrechte frei.</p>
+            <p className="muted">Upload, Korrektur und Veröffentlichen laufen über die /api/admin-Routen. Sie sind absichtlich nur lokal freigeschaltet: Starte die App mit <code>INTEREST_ATLAS_LOCAL_DESK=1</code>, sonst antworten sie mit 404. Ohne das Flag kannst du hier nur die Beispiel-Session ansehen.</p>
             <div className="row">
               <button type="button" className="btn" onClick={loadExample} disabled={busy !== null}>Beispiel-Session ansehen (Demo)</button>
               <button type="button" className="btn" onClick={() => setAdminMissing(false)}>Nochmal versuchen</button>
