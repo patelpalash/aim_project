@@ -9,7 +9,7 @@
 .org__upload { padding: var(--space-4); display: grid; gap: var(--space-3); }
 .org__upload h2 { font-size: var(--text-lg); }
 .org__upload-row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; }
-.org__upload-row .dz-field input[type="text"], .org__upload-row .dz-field select { min-width: 12rem; }
+.org__upload-row .dz-field input[type="text"], .org__upload-row .dz-field select { min-width: min(12rem, 100%); }
 .org__hint { font-size: var(--text-sm); }
 .org__result { padding: var(--space-4); border-color: rgb(11 122 75 / 0.4); display: grid; gap: var(--space-2); }
 .org__result h3 { font-size: var(--text-md); color: var(--status-ok); }

@@ -81,7 +81,7 @@
 .dz-when { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .dz-filters { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: end; }
 .dz-check { display: inline-flex; align-items: center; gap: var(--space-2); min-height: var(--touch); font-weight: 600; font-size: var(--text-sm); color: var(--ink-soft); }
-.dz-check input { width: 20px; height: 20px; accent-color: var(--accent); }
+.dz-check input { width: 24px; height: 24px; accent-color: var(--accent); }
 .dz-reset { margin-left: auto; }
 @media (max-width: 640px) { .dz-field { flex: 1 1 40%; } .dz-field select { min-width: 0; width: 100%; } .dz-reset { margin-left: 0; width: 100%; } }
 .dz-hint { font-size: var(--text-sm); color: var(--ink-soft); }
@@ -154,7 +154,13 @@
 /* Presentation switch (child/teen/adult) in the header. */
 .dz-mode { margin-left: auto; }
 .dz-top__in .dz-shortlist { margin-left: var(--space-3); }
-@media (max-width: 560px) { .dz-mode { order: 3; margin-left: 0; width: 100%; } }
+@media (max-width: 560px) {
+  /* The header is a single flex row on wide screens; on phones it has to wrap, or the
+     presentation switch runs past the right edge and cannot be reached at all. */
+  .dz-top__in { flex-wrap: wrap; row-gap: var(--space-2); padding-block: var(--space-2); }
+  .dz-mode { order: 3; margin-left: 0; width: 100%; }
+  .dz-top__in .dz-shortlist { margin-left: auto; }
+}
 
 /* Direct topic filters (AI / Coding / Gaming) above the interest tiles. */
 .dz-topics { padding-top: var(--space-6); }
