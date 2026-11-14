@@ -1,14 +1,22 @@
-/** Contract v1. Palash owns shared changes; Ishan and Umang consume these types. */
+/** Shared contract. P2 extensions are additive; legacy fixtures remain valid. */
 export const TOPICS = ["ai", "coding", "gaming"] as const;
 export const INTERESTS = ["build-games", "robots", "make-art", "solve-puzzles", "tell-stories"] as const;
 export const AUDIENCES = ["children", "teens", "families", "parents", "school-groups"] as const;
 export const FORMATS = ["workshop", "course", "event", "drop-in"] as const;
-export type Topic = typeof TOPICS[number];
-export type Interest = typeof INTERESTS[number];
+/** IDs are validated against taxonomy configuration at runtime. */
+export type Topic = string;
+export type Interest = string;
 export type Audience = typeof AUDIENCES[number];
 export type Format = typeof FORMATS[number];
 export type Locale = "de" | "en";
 export type LocalizedText = Record<Locale, string>;
+
+export interface TopicDefinition { id: Topic; label: LocalizedText; enabled: boolean }
+export interface InterestDefinition { id: Interest; label: LocalizedText; topicIds: Topic[]; enabled: boolean }
+export interface Taxonomy { version: number; topics: TopicDefinition[]; interests: InterestDefinition[] }
+export type AgeEvidenceKind = "range" | "minimum-only" | "maximum-only" | "all-ages" | "unknown";
+export type SchedulePrecision = "date-time" | "date-only" | "unknown";
+export type ScheduleStatus = "upcoming" | "ongoing" | "today" | "past" | "undated";
 
 export interface Offer {
   /** Stable occurrence ID, not a random ID generated on each import. */
@@ -25,9 +33,15 @@ export interface Offer {
   /** null means the provider has not supplied the information. */
   minAge: number | null;
   maxAge: number | null;
+  /** Omitted legacy evidence is a range only when both bounds are present. */
+  ageEvidence?: { kind: AgeEvidenceKind; text?: string };
   /** ISO 8601 with explicit UTC offset. Unknown dates are null. */
   startsAt: string | null;
   endsAt: string | null;
+  /** For date-only records timestamps stay null; never manufacture a time. */
+  schedulePrecision?: SchedulePrecision;
+  startDate?: string | null;
+  endDate?: string | null;
   timeZone: "Europe/Berlin";
   priceEur: number | null;
   venue: {
@@ -60,6 +74,7 @@ export interface SearchFilters {
   providerId?: string;
   audience?: "family" | "parent" | "school";
   stepFreeOnly?: boolean;
+  schedule?: "all" | "upcoming" | "ongoing" | "undated";
 }
 
 export interface Issue { path: string; message: string }

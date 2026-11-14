@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "providers": [
+    {
+      "id": "aim",
+      "name": "aim",
+      "discoveryUrl": "https://www.aim-akademie.org/kurse?kathaupt=18&suchesetzen=false&kfs_sonderrubrik=1277"
+    },
+    {
+      "id": "experimenta",
+      "name": "experimenta",
+      "discoveryUrl": "https://www.experimenta.science/lernen/"
+    },
+    {
+      "id": "haus-der-familie",
+      "name": "Haus der Familie",
+      "discoveryUrl": "https://hdf-hn.de/angebote/digitale-familienwerkstatt/"
+    },
+    {
+      "id": "ipai",
+      "name": "IPAI Foundation",
+      "discoveryUrl": "https://ipai-foundation.ai/#events"
+    }
+  ]
+}
