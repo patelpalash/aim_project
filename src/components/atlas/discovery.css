@@ -150,3 +150,18 @@
 .src__name { font: 700 var(--text-sm)/1.2 var(--font-display); }
 .src__detail { font-size: var(--text-xs); color: var(--ink-soft); }
 .src__raw { display: block; margin-top: 2px; color: var(--ink-faint); font-size: 0.92em; }
+
+/* Presentation switch (child/teen/adult) in the header. */
+.dz-mode { margin-left: auto; }
+.dz-top__in .dz-shortlist { margin-left: var(--space-3); }
+@media (max-width: 560px) { .dz-mode { order: 3; margin-left: 0; width: 100%; } }
+
+/* Direct topic filters (AI / Coding / Gaming) above the interest tiles. */
+.dz-topics { padding-top: var(--space-6); }
+.dz-topic-row { display: flex; flex-wrap: wrap; gap: var(--space-2); align-items: center; margin-top: var(--space-3); }
+.chip--topic { font-weight: 650; padding-inline: 16px; }
+.chip--topic .chip__n { margin-left: 8px; font-weight: 500; opacity: 0.7; font-variant-numeric: tabular-nums; }
+.chip--topic[aria-pressed="true"] .chip__n { opacity: 0.85; }
+
+/* Adult presentation adds the venue line to each card. */
+.event-card__venue { margin-top: 8px; color: var(--ink-faint); font-size: var(--text-sm); }

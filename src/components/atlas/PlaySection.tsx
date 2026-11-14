@@ -25,13 +25,33 @@ export interface PlaySectionProps {
 
 export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selectedInterests, onAnswer, onPuzzleDone, onApplyInterests }: PlaySectionProps) {
   const [open, setOpen] = useState<"quiz" | "puzzle" | null>(null);
+  /** Bumping this remounts quiz and puzzle, so a reset really clears the board and the step. */
+  const [round, setRound] = useState(0);
+  /**
+   * The shared `completedPuzzleIds` only ever grows (P3's reducer has no un-complete action), so
+   * the "solved" note is tracked here and cleared by the reset instead of claiming a stale state.
+   */
+  const [solved, setSolved] = useState(() => completedPuzzleIds.includes("sequence-path"));
   const puzzle = PUZZLES.find(p => p.kind === "sequence") as SequencePuzzle | undefined;
+  const started = Object.keys(quizAnswers).length > 0 || solved;
+
+  const resetPlay = () => {
+    QUIZ_QUESTIONS.forEach(q => { if (q.id in quizAnswers) onAnswer(q.id, null); });
+    setSolved(false);
+    setOpen(null);
+    setRound(r => r + 1);
+  };
+
   return (
     <section className="wrap play" aria-labelledby="play-title">
       <div className="dz-board__head reveal">
         <h2 id="play-title">Lust auf ein kurzes Spiel?</h2>
         <p className="muted">Zwei Minuten, freiwillig. Du kannst jederzeit einfach weiterstöbern.</p>
+        {started ? (
+          <button type="button" className="btn play__reset" onClick={resetPlay}>Quiz &amp; Rätsel zurücksetzen</button>
+        ) : null}
       </div>
+      <p className="visually-hidden" role="status" aria-live="polite">{round ? "Quiz und Rätsel zurückgesetzt. Deine gemerkten Angebote und Filter bleiben." : ""}</p>
       <div className="play__grid">
         <article className={`panel play-card reveal${open === "quiz" ? " is-open" : ""}`} style={{ "--d": 0 } as CSSProperties}>
           <header className="play-card__head">
@@ -46,7 +66,7 @@ export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selecte
               {open === "quiz" ? "Schließen" : Object.keys(quizAnswers).length ? "Weitermachen" : "Starten"}
             </button>
           </header>
-          {open === "quiz" ? <Quiz taxonomy={taxonomy} answers={quizAnswers} onAnswer={onAnswer} onApply={onApplyInterests} /> : null}
+          {open === "quiz" ? <Quiz key={`quiz-${round}`} taxonomy={taxonomy} answers={quizAnswers} onAnswer={onAnswer} onApply={onApplyInterests} /> : null}
         </article>
 
         <article className={`panel play-card reveal${open === "puzzle" ? " is-open" : ""}`} style={{ "--d": 1 } as CSSProperties}>
@@ -56,13 +76,16 @@ export function PlaySection({ taxonomy, quizAnswers, completedPuzzleIds, selecte
             </span>
             <div>
               <h3>{puzzle?.title.de ?? "Repariere den Weg"}</h3>
-              <p className="muted">Steuere den Roboter mit Befehlen ins Ziel.{completedPuzzleIds.includes("sequence-path") ? " Schon gelöst — gern nochmal!" : ""}</p>
+              <p className="muted">Steuere den Roboter mit Befehlen ins Ziel.{solved ? " Schon gelöst — gern nochmal!" : ""}</p>
             </div>
             <button type="button" className="btn" aria-expanded={open === "puzzle"} onClick={() => setOpen(o => (o === "puzzle" ? null : "puzzle"))}>
               {open === "puzzle" ? "Schließen" : "Spielen"}
             </button>
           </header>
-          {open === "puzzle" && puzzle ? <PathPuzzle puzzle={puzzle} selectedInterests={selectedInterests} onDone={onPuzzleDone} onApply={onApplyInterests} /> : null}
+          {open === "puzzle" && puzzle ? (
+            <PathPuzzle key={`pz-${round}`} puzzle={puzzle} selectedInterests={selectedInterests}
+              onDone={id => { setSolved(true); onPuzzleDone(id); }} onApply={onApplyInterests} />
+          ) : null}
         </article>
       </div>
     </section>
@@ -82,6 +105,7 @@ function Quiz({ taxonomy, answers, onAnswer, onApply }: {
   const firstOpen = QUIZ_QUESTIONS.findIndex(q => !(q.id in answers));
   const [step, setStep] = useState(firstOpen === -1 ? QUIZ_QUESTIONS.length : firstOpen);
   const done = step >= QUIZ_QUESTIONS.length;
+  const restart = () => { QUIZ_QUESTIONS.forEach(q => { if (q.id in answers) onAnswer(q.id, null); }); setStep(0); };
   const suggestions = useMemo(() => {
     try { return getQuizSuggestions(answers, taxonomy ?? undefined); } catch { return null; }
   }, [answers, taxonomy]);
@@ -109,21 +133,24 @@ function Quiz({ taxonomy, answers, onAnswer, onApply }: {
             </div>
             <div className="row" style={{ "--n": 2 } as CSSProperties}>
               <button type="button" className="btn btn--primary" onClick={() => onApply(suggestions.interestIds)}>Vorschläge übernehmen</button>
-              <button type="button" className="btn" onClick={() => { QUIZ_QUESTIONS.forEach(q => onAnswer(q.id, null)); setStep(0); }}>Nochmal</button>
+              <button type="button" className="btn" onClick={() => setStep(QUIZ_QUESTIONS.length - 1)}>Antworten ändern</button>
+              <button type="button" className="btn" onClick={restart}>Nochmal von vorn</button>
             </div>
           </>
         ) : (
           <div className="row" style={{ "--n": 1 } as CSSProperties}>
-            <button type="button" className="btn" onClick={() => { QUIZ_QUESTIONS.forEach(q => onAnswer(q.id, null)); setStep(0); }}>Nochmal</button>
+            <button type="button" className="btn" onClick={() => setStep(QUIZ_QUESTIONS.length - 1)}>Antworten ändern</button>
+            <button type="button" className="btn" onClick={restart}>Nochmal von vorn</button>
           </div>
         )}
       </div>
     );
   }
   const q = QUIZ_QUESTIONS[step]!;
+  const answered = q.id in answers;
   return (
     <div className="quiz" key={q.id}>
-      <p className="quiz__progress">Frage {step + 1} von {QUIZ_QUESTIONS.length}</p>
+      <p className="quiz__progress">Frage {step + 1} von {QUIZ_QUESTIONS.length}{answered ? " · schon beantwortet, du kannst sie ändern" : ""}</p>
       <h4 className="quiz__q m-up" style={{ "--d": 0 } as CSSProperties}>{q.label.de}</h4>
       <div className="quiz__choices">
         {q.choices.map((c, n) => (
@@ -134,7 +161,17 @@ function Quiz({ taxonomy, answers, onAnswer, onApply }: {
           </button>
         ))}
       </div>
-      <button type="button" className="dz-link quiz__skip" onClick={() => { if (q.id in answers) onAnswer(q.id, null); setStep(s => s + 1); }}>Überspringen</button>
+      <div className="row quiz__nav">
+        <button type="button" className="btn" disabled={step === 0} onClick={() => setStep(s => Math.max(0, s - 1))}>Zurück</button>
+        {answered ? (
+          <>
+            <button type="button" className="btn" onClick={() => onAnswer(q.id, null)}>Antwort löschen</button>
+            <button type="button" className="btn" onClick={() => setStep(s => s + 1)}>Weiter</button>
+          </>
+        ) : (
+          <button type="button" className="dz-link quiz__skip" onClick={() => setStep(s => s + 1)}>Überspringen</button>
+        )}
+      </div>
     </div>
   );
 }

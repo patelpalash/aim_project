@@ -75,6 +75,60 @@ export async function approveRows(importId: string, rowIds: string[], revision: 
   return result as ApproveResult;
 }
 
+/**
+ * Configuration maintenance (docs/CONTRACT.md: POST /api/admin/topics, /api/admin/providers).
+ * IDs are never deleted — a theme or source is disabled instead, so published offers keep
+ * validating. A new source is CSV-only until someone writes an adapter for its website.
+ */
+export interface AdminProviderView {
+  id: string; name: string; discoveryUrl: string; enabled: boolean; allowedHosts: string[];
+  importMode: string; adapter: "implemented" | "none"; permissionStatus: string | null; strategy: string | null;
+}
+
+function providerView(input: unknown): AdminProviderView {
+  const p = input as Partial<AdminProviderView>;
+  if (!p || typeof p.id !== "string" || typeof p.name !== "string" || typeof p.enabled !== "boolean")
+    throw new AdminApiError("Quellen-Antwort ungültig.");
+  return {
+    id: p.id, name: p.name, discoveryUrl: typeof p.discoveryUrl === "string" ? p.discoveryUrl : "",
+    enabled: p.enabled, allowedHosts: Array.isArray(p.allowedHosts) ? p.allowedHosts.filter((h): h is string => typeof h === "string") : [],
+    importMode: typeof p.importMode === "string" ? p.importMode : "csv-only",
+    adapter: p.adapter === "implemented" ? "implemented" : "none",
+    permissionStatus: typeof p.permissionStatus === "string" ? p.permissionStatus : null,
+    strategy: typeof p.strategy === "string" ? p.strategy : null
+  };
+}
+
+export async function fetchAdminProviders(): Promise<AdminProviderView[]> {
+  const body = await request("/api/admin/providers") as { providers?: unknown };
+  if (!Array.isArray(body?.providers)) throw new AdminApiError("Quellen-Antwort ungültig.");
+  return body.providers.map(providerView);
+}
+
+export interface ProviderChange { id: string; name?: string; discoveryUrl?: string; enabled?: boolean; allowedHosts?: string[] }
+export async function saveProvider(change: ProviderChange): Promise<{ provider: AdminProviderView; created: boolean; note: string }> {
+  const body = await request("/api/admin/providers", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(change)
+  }) as { provider?: unknown; created?: boolean; note?: string };
+  return { provider: providerView(body?.provider), created: body?.created === true, note: typeof body?.note === "string" ? body.note : "" };
+}
+
+export async function fetchAdminTaxonomy(): Promise<Taxonomy> {
+  const valid = validateTaxonomy(await request("/api/admin/topics"));
+  if (!valid.ok) throw new AdminApiError("Themen-Antwort ungültig.");
+  return valid.taxonomy;
+}
+
+export interface TopicChange { kind: "topic" | "interest"; id: string; label?: { de: string; en: string }; enabled?: boolean; topicIds?: string[] }
+export async function saveTopic(change: TopicChange): Promise<Taxonomy> {
+  const body = await request("/api/admin/topics", {
+    method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(change)
+  }) as { taxonomy?: unknown };
+  const valid = validateTaxonomy(body?.taxonomy);
+  if (!valid.ok) throw new AdminApiError("Gespeicherte Themen-Antwort ungültig.");
+  return valid.taxonomy;
+}
+
 export async function startScrapeRun(providerId: string | "all"): Promise<{ runId: string; status: string }> {
   const result = await request("/api/admin/scrape-runs", {
     method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ providerId })

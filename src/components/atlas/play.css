@@ -52,3 +52,12 @@
 .pz__slot.is-now { border-color: var(--accent); transform: scale(1.12); box-shadow: 0 0 0 3px rgb(31 94 255 / 0.18); }
 .pz__slot:disabled { opacity: 0.85; }
 .pz__msg { justify-self: start; }
+
+/* Reset control sits beside the section heading; wraps under it on phones. */
+.play__reset { margin-left: auto; }
+.play .dz-board__head { align-items: center; }
+@media (max-width: 560px) { .play__reset { margin-left: 0; } }
+
+/* Quiz navigation row: back / clear / next sit together under the choices. */
+.quiz__nav { margin-top: 12px; flex-wrap: wrap; align-items: center; gap: 8px; }
+.quiz__nav .quiz__skip { margin-top: 0; }
