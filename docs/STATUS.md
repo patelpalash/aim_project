@@ -22,6 +22,8 @@ The current suite has **118 passing tests** and the production build passes. The
 
 Earlier fictional CSV verification data was backed up locally before the reset endpoint restored the committed reviewed baseline. Runtime state remains ignored. A reset now returns the 17-real-plus-eight-demo baseline; it no longer means an eight-only catalog.
 
+Fresh GitHub clone `c566abe` passed `npm ci`, all 118 checks and the production build on Node.js 24.18.1. With no runtime catalog file, its production server returned the committed 25-offer baseline, taxonomy version 3 and four providers through the actual public endpoints; the disabled maintenance template returned 404. Git stayed clean after install/check/build/start (verification logs were moved to the integration workspace's ignored evidence directory). The temporary server was stopped after verification.
+
 ## Earlier verification
 
 The 112-check/CSV-count evidence below describes the earlier integrated baseline, before the reviewed real records were added. It is historical evidence, not the current public catalog count.
@@ -37,7 +39,7 @@ Additional running-app evidence: the organizer refreshed IPAI through its real c
 | Umang | Re-review Craft Your City and Code your Chat against source evidence and the two now-configured interests; update the review ledger/baseline only after approval (UMANG-004). |
 | Team | Reconcile source refreshes against recorded review decisions, retaining closed/in-progress, unsupported online and general-adult holds and honest page-cap/partial-coverage labels. |
 | Palash + Ishan | Finish connected mobile, reduced-motion and accessibility acceptance/rehearsal. Ishan reports 49 browser assertions and 360px checks for his follow-up; Palash has independently checked composition, configured interests, topic/mode preservation, reset and detail-dialog keyboard behavior, not the entire phone journey. |
-| Palash | Final clean-clone/demo handoff for the latest integrated baseline. There is no hosted deployment; writable maintenance stays local. |
+| Palash | Final demonstration rehearsal/handoff. The latest integrated clean-clone setup is verified above. There is no hosted deployment; writable maintenance stays local. |
 
 Discovery passport, a second puzzle and missing-opportunity wishes are optional P1 extensions after the core acceptance. An English UI and additional games are lower-priority extras, not implemented functionality.
 

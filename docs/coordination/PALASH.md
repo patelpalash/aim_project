@@ -6,11 +6,11 @@ Only this owner updates this file. Follow the published [collaboration protocol]
 ## Current report
 
 - Protocol adoption: adopted; protocol commit `87c9020b6b2b9d9a9750499bc7e4372f527c6ac7` is confirmed on `origin/main` and `origin/codex/palash-integration`. Read owner reports from their remote role branches at checkpoints; update only this owner's report. No direct agent connection or background watcher exists.
-- Last updated (UTC): 2026-11-14T18:38:43Z.
+- Last updated (UTC): 2026-11-14T18:43:26Z.
 - Current task/slice: P5 integration and running-app verification; P1-P4 are ready.
 - State: integrated Ishan `7aa6ae5d785f704c316dcfdebef91aa12f27fd1a` and Umang `97a1f490ef2efd365a301d5c99dd532e12a73b8e`. Checked code **`ad09f525bbc664b7af170200b913adb0dc5e7134`** adds accurate mixed-catalog wording, two configured interests, shared play reset and a separate full-session reset. Checks: 118/118 and production build pass. API baseline: 17 reviewed real offers plus eight labeled examples. Final acceptance remains in progress.
 - Based on `main` commit: `2cb81438473413b7c65817152899e853c310509d`, plus the integrated code above. This report is published separately so it can name the checked code commit.
-- Next independent task: support UMANG-004 re-review and finish connected PDF/mobile/accessibility acceptance and the latest-clone/demo handoff. No deployment, automatic agent wake-up or complete source coverage is claimed.
+- Next independent task: support UMANG-004 re-review and finish connected PDF/mobile/accessibility acceptance and demo rehearsal. Latest-clone verification is complete below. No deployment, automatic agent wake-up or complete source coverage is claimed.
 
 ## Requests to teammates
 
@@ -42,6 +42,7 @@ Only this owner updates this file. Follow the published [collaboration protocol]
 ## Ready slices and integration
 
 - **Current P5 code:** `ad09f525bbc664b7af170200b913adb0dc5e7134`, 118 checks/type validation and final production build passed. Actual configuration-route calls added the two interests; both UIs show them. API: 25 offers, 17 reviewed + eight fictional, mode demo. Browser proof and reset/dialog checks are described above. Existing fictional CSV runtime state was backed up locally before the normal reset endpoint restored the committed reviewed baseline; no runtime sessions/catalog files were committed.
+- **Latest clean-clone verification:** GitHub `main` at `c566abe` passed install, 118 checks and production build on Node 24.18.1. Fresh production (no runtime catalog) served 25 offers/17 real, taxonomy v3 and four providers; disabled maintenance template returned 404. Git stayed clean, and that temporary server was stopped. Decisions and evidence are on main; owner branch heads were still Ishan `7aa6ae5` and Umang `97a1f49` at the final fetch, with no new acknowledgement claimed.
 - **Earlier integrated CSV evidence (`c4b1ab0`):** fictional 20-row CSV: 18 ready/2 blocked; date correction -> revision 2, 19 ready/1 blocked; selected publication -> 19 published/1 blocked, public API 27 offers, blocked ID excluded. Draft editing left the public count at 8 before approval. Those counts preceded the new reviewed baseline. Screenshot: local `.local-analysis/evidence/csv-publication.jpg`. Local write handlers reject nonlocal/cross-site requests; disabled desk returns 404.
 - **Earlier fresh-clone/source verification (`c4f6deb`):** install, 112 checks and production build passed, Git remained clean, three public endpoints worked and disabled maintenance routes returned 404. Browser refreshed IPAI (`ipai-20261114T170352`, four blocked, none published), staged aim into common review (nine valid needing review/six blocked) and resumed it after reload. These are historical checks; the current 25-record mixed baseline and refreshed source snapshots supersede the former eight/27-only catalog state.
 
