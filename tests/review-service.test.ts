@@ -20,6 +20,7 @@ function sandbox(): Store {
   cpSync(new URL("../data/", import.meta.url), join(dir, "data"), { recursive: true });
   // Start from committed data only: drop local runtime state left by a dev server (git-ignored).
   rmSync(join(dir, "data", "catalog", "published-offers.json"), { force: true });
+  rmSync(join(dir, "data", "catalog", "reviewed-offers.json"), { force: true }); // start from an empty catalogue
   rmSync(join(dir, "data", "review-sessions"), { recursive: true, force: true });
   return { dataDir: join(dir, "data") };
 }

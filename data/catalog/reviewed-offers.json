@@ -1,0 +1,823 @@
+{
+  "catalogueVersion": 1,
+  "publishedAt": "2026-11-14T17:41:56.325Z",
+  "reviewer": "Umang (source review assisted by Claude)",
+  "offers": [
+    {
+      "id": "aim-262420pcb",
+      "providerId": "aim",
+      "externalId": "262420PCB",
+      "title": {
+        "de": "Kleine Computer, große Wirkung – Einführung in die Programmierung mit Mikrocontrollern (12–15 Jahre)",
+        "en": "Kleine Computer, große Wirkung – Einführung in die Programmierung mit Mikrocontrollern (12–15 Jahre)"
+      },
+      "summary": {
+        "de": "Wie bringt man ein kleines Licht zum Blinken? Wie merkt ein Computer, dass du einen Knopf gedrückt hast? Und wie kann ein kleines Messgerät dabei helfen, unser Wasser zu untersuchen?",
+        "en": "Wie bringt man ein kleines Licht zum Blinken? Wie merkt ein Computer, dass du einen Knopf gedrückt hast? Und wie kann ein kleines Messgerät dabei helfen, unser Wasser zu untersuchen?"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "robots"
+      ],
+      "audiences": [
+        "children",
+        "teens"
+      ],
+      "format": "course",
+      "minAge": 12,
+      "maxAge": 15,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "12–15 Jahre"
+      },
+      "startsAt": "2026-11-27T16:30:00+01:00",
+      "endsAt": "2026-12-11T18:00:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 0,
+      "venue": {
+        "name": "Bildungscampus",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://www.aim-akademie.org/kurse/kurs/Einfuehrung-in-die-Programmierung-mit-Mikrocontrollern-1215-Jahre/262420PCB",
+        "fetchedAt": "2026-11-14T17:38:08.841Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "aim-271430un",
+      "providerId": "aim",
+      "externalId": "271430UN",
+      "title": {
+        "de": "Spieleentwicklung mit Unity für Einsteiger (10–14 Jahre)",
+        "en": "Spieleentwicklung mit Unity für Einsteiger (10–14 Jahre)"
+      },
+      "summary": {
+        "de": "Entwickle dein eigenes Videospiel mit der Spiele-Engine aus Games wie Among Us oder Pokémon Go",
+        "en": "Entwickle dein eigenes Videospiel mit der Spiele-Engine aus Games wie Among Us oder Pokémon Go"
+      },
+      "topics": [
+        "gaming"
+      ],
+      "interests": [
+        "build-games"
+      ],
+      "audiences": [
+        "children",
+        "teens"
+      ],
+      "format": "workshop",
+      "minAge": 10,
+      "maxAge": 14,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "10–14 Jahre"
+      },
+      "startsAt": "2027-02-03T15:30:00+01:00",
+      "endsAt": "2027-02-03T19:30:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 0,
+      "venue": {
+        "name": "Hochschule Heilbronn, TechCampus",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://www.aim-akademie.org/kurse/kurs/Spieleentwicklung-mit-Unity-fuer-Einsteiger-1014-Jahre/271430UN",
+        "fetchedAt": "2026-11-14T17:38:10.557Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "aim-271420rk1",
+      "providerId": "aim",
+      "externalId": "271420RK1",
+      "title": {
+        "de": "Robotik zum Anfassen 1 – analoges Programmieren ganz ohne Bildschirm (7–10 Jahre)",
+        "en": "Robotik zum Anfassen 1 – analoges Programmieren ganz ohne Bildschirm (7–10 Jahre)"
+      },
+      "summary": {
+        "de": "Programmier-Abenteuer zum Anfassen: Mit kleinen Robotern spielerisch die Grundlagen entdecken",
+        "en": "Programmier-Abenteuer zum Anfassen: Mit kleinen Robotern spielerisch die Grundlagen entdecken"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "robots",
+        "solve-puzzles"
+      ],
+      "audiences": [
+        "children"
+      ],
+      "format": "course",
+      "minAge": 7,
+      "maxAge": 10,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "7–10 Jahre"
+      },
+      "startsAt": "2027-02-17T15:00:00+01:00",
+      "endsAt": "2027-03-03T16:30:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 0,
+      "venue": {
+        "name": "Bildungscampus",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-1-analoges-Programmieren-ganz-ohne-Bildschirm-710-Jahre/271420RK1",
+        "fetchedAt": "2026-11-14T17:38:13.816Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "aim-271420sc",
+      "providerId": "aim",
+      "externalId": "271420SC",
+      "title": {
+        "de": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)",
+        "en": "Visuelle Programmierung mit Scratch – Reise zum Planeten Mars (8–11 Jahre)"
+      },
+      "summary": {
+        "de": "Starte deine eigene Weltraummission und lerne, wie Programmieren geht!",
+        "en": "Starte deine eigene Weltraummission und lerne, wie Programmieren geht!"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "build-games",
+        "solve-puzzles",
+        "tell-stories"
+      ],
+      "audiences": [
+        "children"
+      ],
+      "format": "course",
+      "minAge": 8,
+      "maxAge": 11,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "8–11 Jahre"
+      },
+      "startsAt": "2027-02-23T16:30:00+01:00",
+      "endsAt": "2027-05-04T18:10:00+02:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 0,
+      "venue": {
+        "name": "Bildungscampus",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://www.aim-akademie.org/kurse/kurs/Visuelle-Programmierung-mit-Scratch-Reise-zum-Planeten-Mars-811-Jahre/271420SC",
+        "fetchedAt": "2026-11-14T17:38:15.411Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "aim-271420sg",
+      "providerId": "aim",
+      "externalId": "271420SG",
+      "title": {
+        "de": "Talking Plants – Programmiere deine Pflanze, bis sie spricht (12–16 Jahre)",
+        "en": "Talking Plants – Programmiere deine Pflanze, bis sie spricht (12–16 Jahre)"
+      },
+      "summary": {
+        "de": "Was wäre, wenn deine Pflanze plötzlich Nachrichten schicken könnte?",
+        "en": "Was wäre, wenn deine Pflanze plötzlich Nachrichten schicken könnte?"
+      },
+      "topics": [
+        "ai",
+        "coding"
+      ],
+      "interests": [
+        "robots",
+        "tell-stories"
+      ],
+      "audiences": [
+        "children",
+        "teens"
+      ],
+      "format": "workshop",
+      "minAge": 12,
+      "maxAge": 16,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "12–16 Jahre"
+      },
+      "startsAt": "2027-03-10T16:00:00+01:00",
+      "endsAt": "2027-03-10T19:15:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 0,
+      "venue": {
+        "name": "Bildungscampus",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "available",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://www.aim-akademie.org/kurse/kurs/Talking-Plants-Programmiere-deine-Pflanze-bis-sie-spricht-1216-Jahre/271420SG",
+        "fetchedAt": "2026-11-14T17:38:05.519Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "aim-271420rk2",
+      "providerId": "aim",
+      "externalId": "271420RK2",
+      "title": {
+        "de": "Robotik zum Anfassen 2 – vom analogen ins symbolbasierte Programmieren (7–10 Jahre)",
+        "en": "Robotik zum Anfassen 2 – vom analogen ins symbolbasierte Programmieren (7–10 Jahre)"
+      },
+      "summary": {
+        "de": "Programmier-Abenteuer zum Anfassen: Mit LEGO® Education kleine Roboter programmieren.",
+        "en": "Programmier-Abenteuer zum Anfassen: Mit LEGO® Education kleine Roboter programmieren."
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "robots"
+      ],
+      "audiences": [
+        "children"
+      ],
+      "format": "course",
+      "minAge": 7,
+      "maxAge": 10,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "7–10 Jahre"
+      },
+      "startsAt": "2027-04-07T15:00:00+02:00",
+      "endsAt": "2027-04-21T16:30:00+02:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 0,
+      "venue": {
+        "name": "Bildungscampus",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://www.aim-akademie.org/kurse/kurs/Robotik-zum-Anfassen-2vom-analogen-ins-symbolbasierte-Programmieren710-Jahre/271420RK2",
+        "fetchedAt": "2026-11-14T17:38:18.774Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "experimenta-15158-1796468400",
+      "providerId": "experimenta",
+      "externalId": "15158",
+      "title": {
+        "de": "First Lego League Challenge – Regionalwettbewerb Heilbronn",
+        "en": "First Lego League Challenge – Regionalwettbewerb Heilbronn"
+      },
+      "summary": {
+        "de": "Faszinierende Naturphänomene, neue Entdeckungen und innovative Forschungsmethoden: Unter dem Motto „BIOGLOW“ nimmt die First Lego League (FLL) Challenge in dieser Saison mit auf eine Reise durch die vielfältigen Ökosysteme unserer Erde.",
+        "en": "Faszinierende Naturphänomene, neue Entdeckungen und innovative Forschungsmethoden: Unter dem Motto „BIOGLOW“ nimmt die First Lego League (FLL) Challenge in dieser Saison mit auf eine Reise durch die vielfältigen Ökosysteme unserer Erde."
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "robots"
+      ],
+      "audiences": [
+        "teens"
+      ],
+      "format": "event",
+      "minAge": null,
+      "maxAge": null,
+      "ageEvidence": {
+        "kind": "unknown"
+      },
+      "startsAt": "2026-12-05T11:00:00+01:00",
+      "endsAt": "2026-12-05T17:00:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 0,
+      "venue": {
+        "name": "experimenta – experimenta Gebäude e2 (Hagenbucher Speicher), 5. OG, Kubus",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "unknown",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://www.experimenta.science/besuchen/veranstaltungskalender/first-lego-league-regionalwettbewerb-heilbronn/?termin=1796468400",
+        "fetchedAt": "2026-11-14T17:38:45.147Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "haus-der-familie-261h304002",
+      "providerId": "haus-der-familie",
+      "externalId": "261H304002",
+      "title": {
+        "de": "Programmieren Lernen - Scratch – Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+        "en": "Programmieren Lernen - Scratch – Für Kinder von 8 bis 12 Jahren ohne Begleitperson"
+      },
+      "summary": {
+        "de": "Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+        "en": "Für Kinder von 8 bis 12 Jahren ohne Begleitperson"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "solve-puzzles",
+        "tell-stories"
+      ],
+      "audiences": [
+        "children"
+      ],
+      "format": "workshop",
+      "minAge": 8,
+      "maxAge": 12,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "von 8 bis 12 Jahren"
+      },
+      "startsAt": "2026-11-28T12:30:00+01:00",
+      "endsAt": "2026-11-28T15:30:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 30,
+      "venue": {
+        "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://hdf-hn.de/kurs/programmieren-lernen-scratch-261H304002/",
+        "fetchedAt": "2026-11-14T17:39:06.266Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "haus-der-familie-261h207006",
+      "providerId": "haus-der-familie",
+      "externalId": "261H207006",
+      "title": {
+        "de": "Märchenhaft mit ScratchJunior eine Geschichte programmieren: Das mutige Tier – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Märchenhaft mit ScratchJunior eine Geschichte programmieren: Das mutige Tier – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "summary": {
+        "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "tell-stories"
+      ],
+      "audiences": [
+        "children",
+        "families"
+      ],
+      "format": "workshop",
+      "minAge": 4,
+      "maxAge": 7,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "4 bis 7 Jahre"
+      },
+      "startsAt": "2026-12-05T09:30:00+01:00",
+      "endsAt": "2026-12-05T11:30:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 10,
+      "venue": {
+        "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 3",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://hdf-hn.de/kurs/maerchenhaft-mit-scratchjunior-eine-geschichte-programmieren-das-mutige-tier-261H207006/",
+        "fetchedAt": "2026-11-14T17:39:07.647Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "haus-der-familie-261h207007",
+      "providerId": "haus-der-familie",
+      "externalId": "261H207007",
+      "title": {
+        "de": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "summary": {
+        "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "robots"
+      ],
+      "audiences": [
+        "children",
+        "families"
+      ],
+      "format": "course",
+      "minAge": 4,
+      "maxAge": 7,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "4 bis 7 Jahre"
+      },
+      "startsAt": "2027-01-16T10:00:00+01:00",
+      "endsAt": "2027-01-23T11:30:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 10,
+      "venue": {
+        "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207007/",
+        "fetchedAt": "2026-11-14T17:39:09.055Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "haus-der-familie-261h207016",
+      "providerId": "haus-der-familie",
+      "externalId": "261H207016",
+      "title": {
+        "de": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "summary": {
+        "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "robots"
+      ],
+      "audiences": [
+        "children",
+        "families"
+      ],
+      "format": "course",
+      "minAge": 4,
+      "maxAge": 7,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "4 bis 7 Jahre"
+      },
+      "startsAt": "2027-01-16T12:30:00+01:00",
+      "endsAt": "2027-01-23T14:00:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 10,
+      "venue": {
+        "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207016/",
+        "fetchedAt": "2026-11-14T17:39:10.485Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "haus-der-familie-261h207017",
+      "providerId": "haus-der-familie",
+      "externalId": "261H207017",
+      "title": {
+        "de": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Roboter - Verstehen, Programmieren, Entdecken - Stufe 2 – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "summary": {
+        "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "robots"
+      ],
+      "audiences": [
+        "children",
+        "families"
+      ],
+      "format": "course",
+      "minAge": 4,
+      "maxAge": 7,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "4 bis 7 Jahre"
+      },
+      "startsAt": "2027-01-16T14:30:00+01:00",
+      "endsAt": "2027-01-23T16:00:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 10,
+      "venue": {
+        "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://hdf-hn.de/kurs/roboter-verstehen-programmieren-entdecken-stufe-2-261H207017/",
+        "fetchedAt": "2026-11-14T17:39:11.971Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "haus-der-familie-261h207008",
+      "providerId": "haus-der-familie",
+      "externalId": "261H207008",
+      "title": {
+        "de": "Spielerisch mit ScratchJunior eine grünere, saubere Welt programmieren – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Spielerisch mit ScratchJunior eine grünere, saubere Welt programmieren – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "summary": {
+        "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "tell-stories"
+      ],
+      "audiences": [
+        "children",
+        "families"
+      ],
+      "format": "workshop",
+      "minAge": 4,
+      "maxAge": 7,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "4 bis 7 Jahre"
+      },
+      "startsAt": "2027-01-30T09:30:00+01:00",
+      "endsAt": "2027-01-30T11:30:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 10,
+      "venue": {
+        "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 5",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "available",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://hdf-hn.de/kurs/spielerisch-mit-scratchjunior-eine-gruenere-saubere-welt-programmieren-261H207008/",
+        "fetchedAt": "2026-11-14T17:39:13.441Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "haus-der-familie-261h305008",
+      "providerId": "haus-der-familie",
+      "externalId": "261H305008",
+      "title": {
+        "de": "KinderFerienBox: Wie funktionieren Roboter und wie werden sie programmiert? – Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+        "en": "KinderFerienBox: Wie funktionieren Roboter und wie werden sie programmiert? – Für Kinder von 6 bis 10 Jahren ohne Begleitperson"
+      },
+      "summary": {
+        "de": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson",
+        "en": "Für Kinder von 6 bis 10 Jahren ohne Begleitperson"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "robots",
+        "solve-puzzles"
+      ],
+      "audiences": [
+        "children"
+      ],
+      "format": "course",
+      "minAge": 6,
+      "maxAge": 10,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "von 6 bis 10 Jahren"
+      },
+      "startsAt": "2027-02-11T09:00:00+01:00",
+      "endsAt": "2027-02-12T12:30:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 60,
+      "venue": {
+        "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "available",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://hdf-hn.de/kurs/kinderferienbox-wie-funktionieren-roboter-und-wie-werden-sie-programmiert-261H305008/",
+        "fetchedAt": "2026-11-14T17:39:16.373Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "haus-der-familie-261h305006",
+      "providerId": "haus-der-familie",
+      "externalId": "261H305006",
+      "title": {
+        "de": "KinderFerienBox: Programmieren Lernen - Scratch – Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+        "en": "KinderFerienBox: Programmieren Lernen - Scratch – Für Kinder von 8 bis 12 Jahren ohne Begleitperson"
+      },
+      "summary": {
+        "de": "Für Kinder von 8 bis 12 Jahren ohne Begleitperson",
+        "en": "Für Kinder von 8 bis 12 Jahren ohne Begleitperson"
+      },
+      "topics": [
+        "coding"
+      ],
+      "interests": [
+        "solve-puzzles",
+        "tell-stories"
+      ],
+      "audiences": [
+        "children"
+      ],
+      "format": "workshop",
+      "minAge": 8,
+      "maxAge": 12,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "von 8 bis 12 Jahren"
+      },
+      "startsAt": "2027-02-13T10:00:00+01:00",
+      "endsAt": "2027-02-13T13:00:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 30,
+      "venue": {
+        "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 1",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "full",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://hdf-hn.de/kurs/kinderferienbox-programmieren-lernen-scratch-261H305006/",
+        "fetchedAt": "2026-11-14T17:39:17.764Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "haus-der-familie-261h207004",
+      "providerId": "haus-der-familie",
+      "externalId": "261H207004",
+      "title": {
+        "de": "Data Literacy for Kids: Von Bausteinen zum Balkendiagramm – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Data Literacy for Kids: Von Bausteinen zum Balkendiagramm – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "summary": {
+        "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "topics": [
+        "ai"
+      ],
+      "interests": [
+        "solve-puzzles"
+      ],
+      "audiences": [
+        "children",
+        "families"
+      ],
+      "format": "course",
+      "minAge": 4,
+      "maxAge": 7,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "4 bis 7 Jahre"
+      },
+      "startsAt": "2026-11-21T10:00:00+01:00",
+      "endsAt": "2026-11-22T12:00:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 10,
+      "venue": {
+        "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 8",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "unknown",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-von-bausteinen-zum-balkendiagramm-261H207004/",
+        "fetchedAt": "2026-11-14T17:39:04.916Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    },
+    {
+      "id": "haus-der-familie-272h207001",
+      "providerId": "haus-der-familie",
+      "externalId": "272H207001",
+      "title": {
+        "de": "Data Literacy for Kids: Trends und Anteile – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Data Literacy for Kids: Trends und Anteile – Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "summary": {
+        "de": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson",
+        "en": "Ein Workshop für Kinder (4 bis 7 Jahre) mit Begleitperson"
+      },
+      "topics": [
+        "ai"
+      ],
+      "interests": [
+        "solve-puzzles"
+      ],
+      "audiences": [
+        "children",
+        "families"
+      ],
+      "format": "course",
+      "minAge": 4,
+      "maxAge": 7,
+      "ageEvidence": {
+        "kind": "range",
+        "text": "4 bis 7 Jahre"
+      },
+      "startsAt": "2027-02-20T10:00:00+01:00",
+      "endsAt": "2027-02-21T12:00:00+01:00",
+      "schedulePrecision": "date-time",
+      "timeZone": "Europe/Berlin",
+      "priceEur": 10,
+      "venue": {
+        "name": "Heilbronn, Haus der Familie, Erich-Mendelsohn-Str. 1C, Raum 4",
+        "city": "Heilbronn",
+        "access": "unknown"
+      },
+      "availability": "available",
+      "reviewStatus": "approved",
+      "source": {
+        "kind": "verified",
+        "url": "https://hdf-hn.de/kurs/data-literacy-for-kids-trends-und-anteile-272H207001/",
+        "fetchedAt": "2026-11-14T17:39:14.995Z",
+        "verifiedAt": "2026-11-14T17:41:56.325Z"
+      }
+    }
+  ]
+}

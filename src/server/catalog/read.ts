@@ -32,8 +32,10 @@ const dataDir = () => pathToFileURL(`${join(process.cwd(), "data")}/`);
 
 export interface CatalogFiles {
   demo: URL;
-  /** Reviewed provider records written by the approval service (U4). */
+  /** Local runtime catalogue written by the approval service (U4); git-ignored. */
   published: URL;
+  /** Committed reviewed baseline used when no runtime catalogue exists (and restored by reset). */
+  reviewed?: URL;
   runs: URL;
   taxonomy: URL;
   providers: URL;
@@ -44,6 +46,7 @@ export const defaultFiles = (): CatalogFiles => {
   return {
     demo: new URL("demo-offers.json", DATA),
     published: new URL("catalog/published-offers.json", DATA),
+    reviewed: new URL("catalog/reviewed-offers.json", DATA),
     runs: new URL("source-runs/", DATA),
     taxonomy: new URL("taxonomy.json", DATA),
     providers: new URL("providers.json", DATA),
@@ -73,9 +76,18 @@ export function loadProviderSummaries(files: CatalogFiles = defaultFiles()): Pro
   return body;
 }
 
+interface StoredCatalog { catalogueVersion: number; publishedAt?: string | null; offers: unknown[]; source: "runtime" | "reviewed-baseline" | "none" }
+
+/** Runtime catalogue if present, else the committed reviewed baseline, else empty. */
+export function readStoredCatalog(files: CatalogFiles = defaultFiles()): StoredCatalog {
+  if (existsSync(files.published)) return { ...readJson<Omit<StoredCatalog, "source">>(files.published, { catalogueVersion: 0, offers: [] }), source: "runtime" };
+  if (files.reviewed && existsSync(files.reviewed)) return { ...readJson<Omit<StoredCatalog, "source">>(files.reviewed, { catalogueVersion: 0, offers: [] }), source: "reviewed-baseline" };
+  return { catalogueVersion: 0, publishedAt: null, offers: [], source: "none" };
+}
+
 /** Load demo + published records; anything that fails validation is dropped, never repaired silently. */
 export function loadCatalog(files: CatalogFiles = defaultFiles(), taxonomy = loadTaxonomy(files)) {
-  const published = readJson<{ catalogueVersion: number; publishedAt?: string; offers: unknown[] }>(files.published, { catalogueVersion: 0, offers: [] });
+  const published = readStoredCatalog(files);
   const offers: Offer[] = [];
   let dropped = 0;
   for (const raw of [...readJson<unknown[]>(files.demo, []), ...published.offers]) {
@@ -84,7 +96,7 @@ export function loadCatalog(files: CatalogFiles = defaultFiles(), taxonomy = loa
   }
   return {
     offers, dropped, catalogueVersion: published.catalogueVersion,
-    publishedAt: published.publishedAt ?? null, hasPublishedFile: existsSync(files.published),
+    publishedAt: published.publishedAt ?? null, hasPublishedFile: published.source !== "none",
     hasDemo: offers.some(o => o.source.kind === "demo"),
   };
 }
@@ -105,23 +117,36 @@ const RUN_STATUS: Record<ProviderRunResult["status"], SourceStatus["status"]> = 
 
 /** Per-provider status from the stored run files (no raw evidence, no candidate data). */
 export function sourceStatuses(files: CatalogFiles = defaultFiles(), providerIds = loadProviderSummaries(files).providers.map(p => p.id)): SourceStatus[] {
+  const published = readStoredCatalog(files).offers as Partial<Offer>[];
   return providerIds.map(providerId => {
+    // Human review time comes only from approved provider records (set at approval), never from a run.
+    const reviewed = published.filter(o => o?.providerId === providerId && o.reviewStatus === "approved" && o.source?.kind === "verified" && typeof o.source.verifiedAt === "string");
+    const lastReviewedAt = reviewed.map(o => o.source!.verifiedAt as string).sort().at(-1) ?? null;
     const latest = readJson<ProviderRunResult | null>(new URL(`${providerId}-latest.json`, files.runs), null);
     const attempt = readJson<(Partial<ProviderRunResult> & { finishedAt?: string }) | null>(new URL(`${providerId}-last-attempt.json`, files.runs), null);
     if (!latest && !attempt)
-      return { providerId, lastAttemptAt: null, lastSuccessfulImportAt: null, lastReviewedAt: null, status: "not-run",
+      return { providerId, lastAttemptAt: null, lastSuccessfulImportAt: null, lastReviewedAt, status: "not-run",
         message: "No source run recorded yet.", partialCoverage: false, extractedCount: 0, rejectedCount: 0 };
     const lastAttemptFailed = attempt?.status === "failed" && (!latest || (attempt.finishedAt ?? "") > latest.finishedAt);
     const current = lastAttemptFailed ? attempt! : latest!;
+    // Staged, publishable candidates that are not yet published unchanged still await review.
+    const byId = new Map(reviewed.map(o => [o.id, o]));
+    const staged = (latest?.candidates ?? []).filter(c => c.state !== "blocked" && c.timing !== "ended");
+    const awaiting = staged.filter(c => {
+      const p = byId.get(c.offer.id);
+      return !p || p.startsAt !== c.offer.startsAt || p.startDate !== c.offer.startDate || p.availability !== c.offer.availability || p.priceEur !== c.offer.priceEur || p.title?.de !== c.offer.title.de;
+    }).length;
+    const blocked = (latest?.candidates ?? []).filter(c => c.state === "blocked").length;
+    const reviewNote = latest ? ` Review: ${reviewed.length} published after human review; ${awaiting} staged record(s) not published (awaiting review or held at review); ${blocked} blocked.` : "";
     return {
       providerId,
       lastAttemptAt: (attempt?.finishedAt && (!latest || attempt.finishedAt > latest.finishedAt)) ? attempt.finishedAt : latest?.finishedAt ?? null,
       lastSuccessfulImportAt: latest?.finishedAt ?? null,
-      lastReviewedAt: null,
+      lastReviewedAt,
       status: RUN_STATUS[current.status ?? "not-run"],
-      message: lastAttemptFailed
+      message: (lastAttemptFailed
         ? `Latest refresh failed; showing the last good staged run. ${current.message ?? ""}`.trim()
-        : current.message ?? "",
+        : current.message ?? "") + reviewNote,
       partialCoverage: Boolean(current.partialCoverage),
       extractedCount: current.counts?.extracted ?? 0,
       rejectedCount: (current.counts?.blocked ?? 0) + (current.counts?.failed ?? 0),

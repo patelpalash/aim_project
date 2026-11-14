@@ -67,7 +67,7 @@ const INTEREST_RULES: { interest: Interest; re: RegExp }[] = [
   { interest: "robots", re: /robot|mikrocontroller|ESP32|sensor|calliope|arduino/i },
   { interest: "make-art", re: /\b(zeichnen|malen|musik|kunst)\b|klangdesign|bildgestaltung|digitale kunst/i },
   { interest: "solve-puzzles", re: /rätsel|knobel|problemlös|detektiv/i },
-  { interest: "tell-stories", re: /geschichten|storytelling|hörspiel|charakter/i },
+  { interest: "tell-stories", re: /geschichten|eine geschichte|märchen|trickfilm|storytelling|hörspiel|charakter/i },
 ];
 
 function collect<T>(text: string, rules: { re: RegExp }[], pick: (r: never) => T): RuleHit<T>[] {
