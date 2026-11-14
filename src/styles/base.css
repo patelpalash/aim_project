@@ -85,8 +85,10 @@ a { color: var(--accent); text-underline-offset: 3px; }
 .dz-logo:hover .dz-logo__mark { animation: dz-spin 900ms var(--ease-out); }
 @keyframes dz-spin { to { transform: rotate(360deg); } }
 /* List / map view toggle */
-.dz-view { display: inline-flex; padding: 4px; gap: 4px; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--radius-pill); }
-.dz-view button { appearance: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 40px; padding: 0 var(--space-4);
+.dz-view { display: inline-flex; flex-wrap: wrap; max-width: 100%; padding: 4px; gap: 4px; background: var(--surface-2);
+  border: 1px solid var(--line); border-radius: var(--radius-pill); }
+.dz-view button { appearance: none; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+  flex: 1 1 auto; min-width: 0; min-height: 40px; padding: 0 clamp(10px, 2.5vw, var(--space-4));
   border: 0; border-radius: var(--radius-pill); background: transparent; color: var(--ink-soft); font: 600 var(--text-sm)/1 var(--font-body);
   transition: background var(--dur-tap), color var(--dur-tap), box-shadow var(--dur-tap); }
 .dz-view button[aria-pressed="true"] { background: var(--surface); color: var(--ink); box-shadow: var(--shadow-1); }

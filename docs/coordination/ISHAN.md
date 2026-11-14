@@ -6,11 +6,41 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted.
-- Last updated (UTC): 2026-11-14 18:05.
-- Current task/slice: I1-I6 plus a five-part follow-up slice from Ishan (configuration maintenance, topic filters, presentation switching, play navigation, dialog keyboard).
-- State: both routes run on the real API with `codex/umang-data` merged locally. The organizer can now add, edit, enable and disable sources and themes through your `/api/admin/providers` and `/api/admin/topics`; a new theme reaches the public page in the same session.
-- Based on `main` commit: `6629eca` (merged in `09c979b`).
-- Next independent task: none blocking. Available for rehearsal fixes and whatever Palash's integration finds.
+- Last updated (UTC): 2026-11-14 19:55.
+- Current task/slice: final frontend acceptance and rehearsal fixes on the integrated baseline.
+- State: `origin/main` at `5511647` fast-forwarded my branch — my follow-up through `7aa6ae5` is already integrated, and Palash's mixed-catalog wording, `reset-play`, full-session reset, source-refresh polling and review staging are all present and were exercised, not replaced. Acceptance code SHA: **`c072a22`**. `npm ci`, `npm run check` (123/123) and `npm run build` pass on Node 24.22.3.
+- Based on `main` commit: `5511647`.
+- Next independent task: none blocking. Available for rehearsal fixes.
+
+## Acceptance evidence (code `c072a22`)
+
+100 assertions against the running production server (`npm run start -- --port 3100`, `INTEREST_ATLAS_LOCAL_DESK=1` only while testing maintenance), all passing. Scripts are throwaway; what they asserted:
+
+- **Layout (35):** `/` and `/organizer` at 360, 390, 768, 1024 and 1440px — no horizontal overflow, and every interactive control inside the viewport and at least 24x24px (a card title is exempt because its `::after` gives it the whole card; verified by clicking the card's corners, not by reading CSS). 200% text (32px root) at 360px on both routes. `prefers-reduced-motion: reduce`: nothing left transparent.
+- **Discovery (12):** the status line read `19 geprüfte Angebote · 8 Demo-Beispiele (erfunden)`, matching `/api/offers` provenance counts exactly. Topic + query (20 → 8), topic + provider (20 → 8) and topic + age (8 → 4) narrow together; an interest tile stays combined with a topic and the active-filter count showed 3. The unknown-value hint appears, and every card's Demo/Geprüft label matched its record's `source.kind`.
+- **Presentation (12):** switching Kinder → Jugendliche → Erwachsene and back preserved the selected interest, the selected topic, the shortlist count and the ability to reopen the same activity.
+- **Dialogs (11):** detail and shortlist sheets both move focus in, contain Tab and Shift+Tab over 45 presses each, close on Escape and restore focus to their opener. PALASH-005's specific leak (Shift+Tab from the parent shortlist tab reaching the background Organizer link) is contained.
+- **Play (16):** quiz skip, Back after a skip, re-answering a question and clearing one answer. The puzzle's open slot rejects a turn with "Das Ziel ist noch nicht erreicht", the retry clears board and message, and `forward` is accepted. Play reset (shared `reset-play`) kept shortlist, interests and topics while clearing the quiz and the solved note, and the note stayed cleared across a mode switch. The separate `Sitzung zurücksetzen` cleared shortlist, interests, topics and returned to the child view.
+- **Organizer (26):** fictional `data/demo-upload.csv` → 18 ready / 2 blocked with the reason shown (`line 8.date: date required`); upload published nothing (27 before, 27 after); a date correction revalidated server-side to 19 ready at revision 2 and still published nothing; publishing the selection reported `19 veröffentlicht · 1 blockiert geblieben · 0 unverändert` and the public API grew by exactly 19, with all 27 earlier records still present and the blocked row's title absent from the catalogue; reload resumed the import. Source and theme controls: disable/enable a source, the configured-versus-implemented distinction, a theme disabled (configuration version 3 → 4) and confirmed gone from public discovery, a CSV-only source added through the form with the adapter note, and a malformed ID refused with its reason.
+- **Baseline restored:** after each publication test, `POST /api/admin/reset {"resetDemo": true}` plus `git checkout -- data/` returned the committed baseline — 27 offers (19 reviewed + 8 labelled examples), taxonomy version 3 with 7 interests and four providers. Nothing under `data/` is committed from this branch.
+- Screenshots in project files `ishan-design/screens/v5-*.png`: 200% text on both routes, reduced motion, puzzle wrong/retry/solved, after session reset, organizer upload/published/config.
+
+## Fixed in this slice
+
+Three layout defects that only the running app at real sizes showed, all in `c072a22`:
+
+1. The presentation switch ran past the right edge at 360px and 390px and could not be reached at all, because the header row did not wrap and the page has no horizontal scroll. The header now wraps on phones and the switch takes its own row.
+2. Segment groups (`.dz-view`: presentation switch, list/map toggle, organizer tabs) could not shrink; they now wrap, cap at 100% width and use fluid padding.
+3. The organizer's upload fields had a fixed `min-width: 12rem`, wider than a 360px phone at 200% text — the page overflowed by 106px. Now `min(12rem, 100%)`.
+
+Also raised the "Nur stufenlos" checkbox to the 24px WCAG 2.2 minimum target size.
+
+## Remaining issues
+
+- Not a frontend defect, for the record: re-uploading the same fictional CSV after publishing returns its rows as `unchanged` rather than ready, which is correct, so a publication test needs the reset between runs.
+- IPAI's `lastReviewedAt` stays null while its general-adult rows are held, and aim remains `partial`. Both are honest states shown in the source panel, not UI bugs.
+- The city map stays schematic until offers carry addresses or coordinates.
+- No hosted deployment; writable maintenance stays local behind `INTEREST_ATLAS_LOCAL_DESK=1`.
 
 ## Requests to teammates
 
