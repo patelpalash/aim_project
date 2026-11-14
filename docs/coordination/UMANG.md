@@ -32,7 +32,8 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
   - **Phone, reduced motion, keyboard:** 390 px (iPhone 13 profile) with no horizontal scroll on both routes, tap open and save work. Reduced motion has no movement. Keyboard reaches the skip link first, and 25 tab stops per route show visible focus. No external hosts are requested.
 - **Not verified:** contrast measurement, 200 % zoom, screen reader, slow network and empty results in the browser, a nontechnical-user session, and hosted deployment.
 - **Rehearsal side effects** (fresh experimenta/IPAI snapshots and a test theme) stayed in the scratch worktree and were not committed. The committed snapshots remain the ones the review ledger was made against.
-- **PR:** `codex/umang-data` → `main` after this report is published. Link and merge commit follow below once done.
+- **PR merged:** https://github.com/patelpalash/aim_project/pull/2, merged as `a7b4f83d1a5606dda7669861a1c6496233034b3c` (regular merge, pinned to head `e6261d7`; `main` had not moved from `7fef39b`).
+- **Post-merge check:** a fresh GitHub clone of `main` `a7b4f83` passed `npm ci`, `npm run check` 123/123 and `npm run build`. With `INTEREST_ATLAS_LOCAL_DESK=1 npm run start`, `/api/offers` returned 27 offers (19 reviewed real, 8 examples) and `/`, `/organizer`, `/api/taxonomy`, `/api/providers` and `/api/admin/summary` returned 200. The working tree stayed clean.
 
 ## Requests to teammates
 
