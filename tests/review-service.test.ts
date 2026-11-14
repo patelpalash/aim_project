@@ -2,7 +2,7 @@
 // 19 published, one blocked row stays out -> re-import without duplicates; stale/repeat/source checks.
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { cpSync, mkdtempSync, readFileSync } from "node:fs";
+import { cpSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { validateReviewSession } from "../src/shared/review.ts";
@@ -18,6 +18,9 @@ const csvBytes = () => new Uint8Array(readFileSync(new URL("../data/demo-upload.
 function sandbox(): Store {
   const dir = mkdtempSync(join(tmpdir(), "atlas-review-"));
   cpSync(new URL("../data/", import.meta.url), join(dir, "data"), { recursive: true });
+  // Start from committed data only: drop local runtime state left by a dev server (git-ignored).
+  rmSync(join(dir, "data", "catalog", "published-offers.json"), { force: true });
+  rmSync(join(dir, "data", "review-sessions"), { recursive: true, force: true });
   return { dataDir: join(dir, "data") };
 }
 const uploadSession = (store: Store, mode: "demo" | "source" = "demo") => {
