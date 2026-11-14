@@ -16,6 +16,8 @@ Continue independently using the agreed shared contracts and clearly labeled exa
 
 The repository is the common communication channel. Separate Claude and Codex sessions do not gain a direct connection, automatic wake-up or continuous background monitoring from this document. The protocol works while each session is running, can access GitHub and actively checks updates. A paused/offline session needs its owner to resume it. No scheduler, messaging bridge or background process is installed by these rules.
 
+If a Claude connection returns `403 Resource not accessible by integration` when creating a branch, follow [GitHub push recovery](GITHUB_PUSH_RECOVERY.md). Preserve existing work and correct the integration's repository/write authorization; do not treat collaborator membership or an attempted push as proof that its credential can publish.
+
 ## Read updates at checkpoints
 
 At session start, before a dependent slice, after publishing a slice and before declaring a dependency blocked:
