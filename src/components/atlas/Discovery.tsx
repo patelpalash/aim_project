@@ -13,6 +13,7 @@ import { WHEN_LABEL, whenPatch, type When } from "./dates";
 import { DetailSheet } from "./DetailSheet";
 import { EventCard } from "./EventCard";
 import { MapView } from "./MapView";
+import { ShortlistSheet } from "./ShortlistSheet";
 import { interestMeta, InterestIcon } from "./interests";
 import { providerName } from "./format";
 import { flyBetween, supportsViewTransitions, useCountUp, useScrollReveal, withTransition } from "./motion";
@@ -48,6 +49,7 @@ export function Discovery() {
 
   const [pulse, setPulse] = useState<Interest | null>(null);
   const [view, setView] = useState<"list" | "map">("list");
+  const [shortlistTab, setShortlistTab] = useState<"list" | "parent" | null>(null);
   const [bump, setBump] = useState(0);
   const [announce, setAnnounce] = useState("");
   const [scrolled, setScrolled] = useState(false);
@@ -123,11 +125,12 @@ export function Discovery() {
       <header className={`dz-top${scrolled ? " is-scrolled" : ""}`}>
         <div className="wrap dz-top__in">
           <a className="dz-logo" href="/"><span className="dz-logo__mark" aria-hidden="true" />Interest Atlas</a>
-          <span className="dz-shortlist" aria-label={`${savedCount} gemerkt`}>
+          <button type="button" className="dz-shortlist" aria-label={`Merkliste öffnen, ${savedCount} gemerkt`}
+            onClick={() => withTransition(() => setShortlistTab("list"))}>
             <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.3-9.2C1.3 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.9 3.5 4.5 7.3C19.5 16.4 12 21 12 21z" fill={savedCount ? "#ff6b8a" : "none"} stroke={savedCount ? "#ff6b8a" : "currentColor"} strokeWidth="2" /></svg>
             <span ref={counterRef} key={bump} className={bump ? "dz-shortlist__n m-bump" : "dz-shortlist__n"}>{savedCount}</span>
             <span aria-hidden="true">gemerkt</span>
-          </span>
+          </button>
         </div>
       </header>
 
@@ -282,7 +285,20 @@ export function Discovery() {
         <DetailSheet offer={selectedOffer} provider={providerName(selectedOffer.providerId, providers)}
           saved={state.savedOfferIds.includes(selectedOffer.id)} onSave={() => toggleSave(selectedOffer)}
           vtName={openIdx >= 0 ? nameFor(selectedOffer.id, openIdx) : undefined}
+          onShowAdult={() => withTransition(() => {
+            if (!state.savedOfferIds.includes(selectedOffer.id)) dispatch({ type: "toggle-saved", id: selectedOffer.id });
+            dispatch({ type: "set-audience-mode", mode: "parent" });
+            dispatch({ type: "select-offer", id: null });
+            setShortlistTab("parent");
+          })}
           onClose={() => withTransition(() => dispatch({ type: "select-offer", id: null }))} />
+      ) : null}
+      {shortlistTab && !selectedOffer ? (
+        <ShortlistSheet offers={shortlist.offers} unavailableCount={shortlist.unavailableIds.length}
+          providers={providers} initialTab={shortlistTab}
+          onOpenOffer={o => withTransition(() => { setShortlistTab(null); dispatch({ type: "select-offer", id: o.id }); })}
+          onRemove={o => toggleSave(o)}
+          onClose={() => withTransition(() => setShortlistTab(null))} />
       ) : null}
     </div>
   );
