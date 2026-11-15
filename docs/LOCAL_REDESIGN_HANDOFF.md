@@ -1,5 +1,7 @@
 # Local Interest Atlas redesign
 
+**Current continuation:** the parent/admin/language/logo/scale implementation has progressed beyond the original redesign. Use [Ishan's small finishing pass](prompts/ISHAN_FINISHING_PASS.md) and the top of STATUS; the earlier larger prompt is superseded for execution.
+
 The redesign was developed locally on `codex/local-atlas-redesign`, based on Ishan's `f76de4c`. On 15 November the user explicitly authorized publishing this version to main so teammates can fetch it, superseding the earlier local-only instruction. Publication uses `codex/atlas-redesign-handoff` and the normal PR/integration workflow. The original shared working tree is preserved. The next implementation is assigned through [Ishan's five-part prompt](prompts/ISHAN_NEXT_ITERATION.md).
 
 ## Preview

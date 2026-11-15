@@ -1,5 +1,13 @@
 # Implementation status and handoff
 
+## Parent/admin/language integration follow-up
+
+Palash took over the five-part continuation at the user's request. Implemented: separate full family-event parent list and direct provider links; public catalogue loading independent of locale, explicit language-choice protection and in-dialog DE/EN controls; visible Admin entry, current connection/summary, runtime desk gating, review-ID resume, localized stale-review recovery and revision/selection-bound publication confirmation; new logo/favicon; wider desktop layout/larger animated world. Backend source adapters, evidence, data contracts and access guards are preserved.
+
+Checkpoints: `0e59058`, `7205dd5`, `78292f7`, followed by the in-dialog language/interaction fixes. `npm run check` passed all 132 tests and TypeScript; production build passed. Parent browser evidence: 25 family events, 19 direct source actions, no child hero/games, working DE/EN and save. Isolated admin evidence: CSV API upload yielded 18 ready/2 blocked; review resumed in the UI; publication stayed disabled before confirmation; DE/EN preserved selection/confirmation; publishing one selected row showed 1 published/2 blocked and catalogue v3. Isolated catalogue increased 27→28 while the normal preview stayed at 27, and both blocked IDs remained absent.
+
+Remaining work is [Ishan's small finishing pass](prompts/ISHAN_FINISHING_PASS.md), chiefly the native CSV file picker (extension file-URL permission blocked automation), visual judgement at more widths, translation-copy review and broader accessibility checks. No hosted admin/deployment or new scraping outcome is claimed. Earlier requests below are retained as historical context, not an instruction to rebuild finished work.
+
 ## 15 November redesign publication and next owner
 
 The interactive redesign at `20c4e62`, including the earlier `166f6b8` and `51ef1a6`, is prepared for main through `codex/atlas-redesign-handoff`. It includes Ishan's language commits `71f18df`/`f76de4c`, the cream/forest/orange frontend, working topic island, five event-taster types, persistent Skip and source handoff. Production build/TypeScript and the documented targeted browser checks passed; see [redesign handoff](LOCAL_REDESIGN_HANDOFF.md) and [QA](../design-qa.md). Cached source coverage limitations remain unchanged; no hosted deployment is claimed.

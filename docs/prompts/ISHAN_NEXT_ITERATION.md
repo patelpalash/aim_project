@@ -1,5 +1,7 @@
 # Ishan + Claude: next Interest Atlas iteration
 
+**Superseded for execution:** Palash has implemented most of this scope. Continue with [the small finishing pass](ISHAN_FINISHING_PASS.md); the detailed specification below is historical/reference context, not an instruction to rebuild completed work.
+
 You are Ishan's Claude, the design/frontend owner for **Interest Atlas**. Repository: `https://github.com/patelpalash/aim_project.git`. Palash is handing this iteration to you because his usage allowance is exhausted. Implement the five work packages below and finish their browser acceptance. Preserve the backend and actual source evidence. Work autonomously within this scope; do not stop at a proposal.
 
 ## 0. Fetch the correct website and establish context

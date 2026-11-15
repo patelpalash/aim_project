@@ -9,6 +9,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 img, svg { max-width: 100%; }
+.brand-logo{display:inline-flex;align-items:center;gap:11px;text-decoration:none;color:var(--ink);font:800 25px/1.1 var(--font-display);letter-spacing:-.035em;flex-shrink:0}.brand-logo img{flex:none;width:44px;height:44px}.brand-logo small{display:block;font:600 10px/1.4 var(--font-body);letter-spacing:.06em;color:var(--ink-soft);margin-top:6px}@media(max-width:640px){.brand-logo{font-size:20px;gap:9px}.brand-logo img{width:37px;height:37px}.brand-logo small{font-size:9px}}
 h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 800; line-height: 1.08; margin: 0; text-wrap: balance; letter-spacing: -0.025em; }
 h1 { font-size: var(--text-3xl); }
 h2 { font-size: var(--text-2xl); font-weight: 800; }
@@ -24,6 +25,7 @@ a { color: var(--accent); text-underline-offset: 3px; }
 .row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
 .eyebrow { font: 700 var(--text-xs)/1 var(--font-body); letter-spacing: 0.16em; text-transform: uppercase; color: var(--accent); }
 .muted { color: var(--ink-soft); }
+.source-language-note{font-size:11px;line-height:1.6;color:var(--ink-soft)}
 .visually-hidden { position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
 
 /* Buttons */

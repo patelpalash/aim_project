@@ -8,8 +8,9 @@ import { countReviewRows, validateReviewSession, type ReviewFieldPatch, type Rev
 import { pick } from "@/shared/i18n";
 import { availabilityLabel, formatPrice, formatStamp } from "../atlas/format";
 import { LanguageSwitch, useLocale, type Translate } from "../i18n";
+import { BrandLogo } from "../BrandLogo";
 import {
-  AdminApiError, ServiceMissingError, approveRows, fetchAdminProviders, fetchProviders, fetchSession, fetchTaxonomy,
+  AdminApiError, ServiceMissingError, approveRows, fetchAdminProviders, fetchAdminSummary, fetchProviders, fetchSession, fetchTaxonomy,
   fetchSourceStatuses, fetchScrapeRun, importFromSource, patchRow, saveProvider, saveTopic, startScrapeRun, uploadCsv,
   type AdminProviderView, type ApproveResult, type ProviderChange, type ScrapeRun, type TopicChange
 } from "./api";
@@ -27,13 +28,19 @@ const selectableRow = (row: ReviewRow) => row.candidate !== null && row.state !=
  * system. While Umang's /api/admin routes return 404, the desk says so and can only show the
  * contract example session read-only; nothing is ever faked as published.
  */
-export function OrganizerDesk() {
+export function OrganizerDesk({ enabled }: { enabled: boolean }) {
   const { locale, t } = useLocale();
+  const say = (de: string, en: string) => locale === "de" ? de : en;
+  const translatorRef = useRef(t);
+  translatorRef.current = t;
   const [tab, setTab] = useState<"review" | "sources">("review");
   const [providers, setProviders] = useState<ProviderSummary[]>([]);
   const [taxonomy, setTaxonomy] = useState<Taxonomy | null>(null);
   const [publicApiMissing, setPublicApiMissing] = useState(false);
-  const [adminMissing, setAdminMissing] = useState(false);
+  const [adminMissing, setAdminMissing] = useState(!enabled);
+  const [summary, setSummary] = useState<{ catalogueVersion: number; publishedRealCount: number } | null>(null);
+  const [reviewToken, setReviewToken] = useState<string | null>(null);
+  const [resumeId, setResumeId] = useState("");
   const [session, setSession] = useState<ReviewSession | null>(null);
   const [localOnly, setLocalOnly] = useState(false);
   const [providerId, setProviderId] = useState("");
@@ -48,6 +55,12 @@ export function OrganizerDesk() {
   const [scrape, setScrape] = useState<ScrapeRun | null>(null);
   const [watchRunId, setWatchRunId] = useState<string | null>(null);
   const fileRef = useRef<HTMLInputElement>(null);
+  const approvalToken = session && selected.length ? `${session.importId}:${session.revision}:${[...selected].sort().join(",")}` : "";
+  const reviewConfirmed = !!approvalToken && reviewToken === approvalToken;
+  const checkConnection = useCallback(() => {
+    fetchAdminSummary().then(next => { setSummary(next); setAdminMissing(false); }).catch(err => { setAdminMissing(true); if (!(err instanceof ServiceMissingError)) setError(translatorRef.current("org.checkConnection")); });
+  }, []);
+  useEffect(() => { if (enabled) checkConnection(); }, [enabled, checkConnection]);
 
   useEffect(() => {
     let alive = true;
@@ -92,6 +105,7 @@ export function OrganizerDesk() {
   }, [watchRunId, taxonomy, t]);
 
   const adoptSession = useCallback((next: ReviewSession, local: boolean) => {
+    setReviewToken(null);
     setSession(next); setLocalOnly(local); setApproveResult(null); setOpenRow(null);
     setSelected(prev => next.rows.filter(r => prev.includes(r.rowId) && selectableRow(r)).map(r => r.rowId));
     // Remember the import for this tab only, so a reload resumes the same review.
@@ -106,18 +120,18 @@ export function OrganizerDesk() {
     try { importId = sessionStorage.getItem(LAST_IMPORT_KEY); } catch { importId = null; }
     if (!importId) return;
     fetchSession(importId, taxonomy ?? undefined)
-      .then(next => { if (alive) { adoptSession(next, false); setNotice(t("org.resumed", { id: next.importId })); } })
+      .then(next => { if (alive) { adoptSession(next, false); setNotice(translatorRef.current("org.resumed", { id: next.importId })); } })
       .catch(() => { try { sessionStorage.removeItem(LAST_IMPORT_KEY); } catch { /* ignore */ } });
     return () => { alive = false; };
     // Runs once the taxonomy is known so the session validates against the configured one.
-  }, [taxonomy, adoptSession, t]);
+  }, [taxonomy, adoptSession]);
 
   const run = async (label: string, work: () => Promise<void>) => {
     setBusy(label); setError(null); setNotice(null);
     try { await work(); }
     catch (err) {
       if (err instanceof ServiceMissingError) { setAdminMissing(true); setError(null); }
-      else setError(err instanceof AdminApiError ? err.message : t("org.unexpected"));
+      else setError(err instanceof AdminApiError && err.status === 409 ? say("Die Prüfung wurde inzwischen geändert. Laden Sie die aktuelle Prüfung neu und wählen Sie die Zeilen erneut.", "This review has changed. Reload the current review and select the rows again.") : err instanceof AdminApiError ? err.message : t("org.unexpected"));
     }
     finally { setBusy(null); }
   };
@@ -137,12 +151,14 @@ export function OrganizerDesk() {
   });
 
   const onApprove = () => session && run("approve", async () => {
+    if (!reviewConfirmed) return;
     const result = await approveRows(session.importId, selected, session.revision);
     setNotice(null);
     // Refresh first: adoptSession clears the previous result, so the new one is set afterwards.
     const next = await fetchSession(session.importId, taxonomy ?? undefined).catch(() => null);
     if (next) adoptSession(next, false);
     setApproveResult(result);
+    checkConnection();
   });
 
   const loadExample = () => run("example", async () => {
@@ -161,7 +177,7 @@ export function OrganizerDesk() {
       <a className="skip-link" href="#org-main">{t("org.skip")}</a>
       <header className="org__top">
         <div className="wrap org__top-in">
-          <a className="dz-logo" href="/"><span className="dz-logo__mark" aria-hidden="true" />Interest Atlas</a>
+          <BrandLogo />
           <span className="tag">{t("org.badge")}</span>
           <div className="dz-view" role="group" aria-label={t("org.areaLabel")}>
             <button type="button" aria-pressed={tab === "review"} onClick={() => setTab("review")}>{t("org.tabReview")}</button>
@@ -172,6 +188,10 @@ export function OrganizerDesk() {
       </header>
 
       <main className="wrap org__main" id="org-main" tabIndex={-1}>
+        <section className="org-welcome"><div><p>{say("INTEREST ATLAS · VERWALTUNG", "INTEREST ATLAS · ADMIN")}</p><h1>{say("Aus Quellen werden gute Entdeckungen.", "Turn source information into great discoveries.")}</h1><span>{say("Importieren, prüfen und gezielt veröffentlichen. Ein gemeinsamer Katalog für Kinder und Eltern.", "Import, review and publish your selection. One shared catalogue for children and parents.")}</span></div><a className="btn" href="/" target="_blank" rel="noopener noreferrer">{say("Öffentlichen Katalog öffnen ↗", "Open public catalogue ↗")}</a></section>
+        <div className="org-connection" role="status"><strong>{adminMissing ? say("Lokale Verwaltung deaktiviert", "Local admin disabled") : summary ? say("Mit dem Katalog verbunden", "Connected to the catalogue") : say("Verbindung wird geprüft…", "Checking connection…")}</strong>{summary && !adminMissing ? <span>{summary.publishedRealCount} {say("geprüfte echte Angebote", "reviewed real activities")} · {say("Katalogversion", "catalogue version")} {summary.catalogueVersion}</span> : <span>{say("Schreibzugriff nur lokal und nach ausdrücklicher Prüfung.", "Local writes only, with explicit review before publication.")}</span>}</div>
+        <ol className="org-workflow"><li><b>1</b>{say("Quelle / CSV auswählen", "Choose source / CSV")}</li><li><b>2</b>{say("Zeilen prüfen & korrigieren", "Review & correct rows")}</li><li><b>3</b>{say("Auswahl veröffentlichen", "Publish your selection")}</li></ol>
+        {!adminMissing ? <form className="org-resume" onSubmit={e => { e.preventDefault(); void run("resume", async () => { adoptSession(await fetchSession(resumeId.trim(), taxonomy ?? undefined), false); setNotice(t("org.resumed", { id: resumeId.trim() })); }); }}><label>{say("Vorhandene Prüfung öffnen", "Resume an existing review")}<input type="text" value={resumeId} onChange={e => setResumeId(e.target.value)} placeholder={say("Prüfungs-ID", "Review ID")} required maxLength={36} /></label><button type="submit" className="btn" disabled={busy !== null || !resumeId.trim()}>{say("Prüfung laden", "Load review")}</button></form> : null}
         {publicApiMissing ? <p className="status-line" data-tone="warn">{t("org.checkConnection")}</p> : null}
         {adminMissing ? (
           <div className="panel org__missing">
@@ -179,7 +199,7 @@ export function OrganizerDesk() {
             <p className="muted">{t("org.missingBodyPre")}<code>INTEREST_ATLAS_LOCAL_DESK=1</code>{t("org.missingBodyPost")}</p>
             <div className="row">
               <button type="button" className="btn" onClick={loadExample} disabled={busy !== null}>{t("org.viewExample")}</button>
-              <button type="button" className="btn" onClick={() => setAdminMissing(false)}>{t("org.retry")}</button>
+              <button type="button" className="btn" onClick={checkConnection}>{t("org.retry")}</button>
             </div>
           </div>
         ) : null}
@@ -201,7 +221,7 @@ export function OrganizerDesk() {
                 <a className="btn" href="/api/admin/import-template" download>{t("org.template")}</a>
                 <input ref={fileRef} type="file" accept=".csv,text/csv" className="visually-hidden" id="org-file"
                   onChange={e => { const f = e.target.files?.[0]; if (f) onUpload(f); e.target.value = ""; }} />
-                <button type="button" className="btn btn--primary" disabled={!providerId || busy !== null} onClick={() => fileRef.current?.click()}>
+                <button type="button" className="btn btn--primary" disabled={adminMissing || !providerId || busy !== null} onClick={() => fileRef.current?.click()}>
                   {busy === "upload" ? t("org.checking") : t("org.upload")}
                 </button>
               </div>
@@ -279,12 +299,13 @@ export function OrganizerDesk() {
                     {t("org.selectedOf", { n: selected.length, total: readyIds.length })}
                     {counts?.blocked ? t("org.blockedNote", { n: counts.blocked }) : ""}
                   </p>
+                  <label className="org-review-confirm"><input type="checkbox" checked={reviewConfirmed} disabled={localOnly || !selected.length || busy !== null} onChange={e => setReviewToken(e.target.checked ? approvalToken : null)} /><span>{say("Ich habe die ausgewählten Zeilen und ihre Quellen geprüft. Nur diese Auswahl veröffentlichen.", "I reviewed the selected rows and their sources. Publish only this selection.")}</span></label>
                   <div className="row">
                     <button type="button" className="btn" disabled={localOnly || !readyIds.length}
                       onClick={() => setSelected(s => (s.length === readyIds.length ? [] : readyIds))}>
                       {t(selected.length === readyIds.length && readyIds.length ? "org.clearSelection" : "org.selectAllReady")}
                     </button>
-                    <button type="button" className="btn btn--primary" disabled={localOnly || !selected.length || busy !== null} onClick={onApprove}>
+                    <button type="button" className="btn btn--primary" disabled={localOnly || !selected.length || busy !== null || !reviewConfirmed} onClick={onApprove}>
                       {busy === "approve" ? t("org.publishing") : t("org.publishSelected", { n: selected.length })}
                     </button>
                   </div>

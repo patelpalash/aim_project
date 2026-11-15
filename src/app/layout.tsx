@@ -11,6 +11,7 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakart
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 export const metadata: Metadata = {
+  other: { google: "notranslate" },
   title: "Interest Atlas",
   description: "Lernangebote in Heilbronn entdecken: KI, Coding und Gaming für Familien. — Discover learning activities in Heilbronn: AI, coding and gaming for families."
 };
