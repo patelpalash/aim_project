@@ -22,6 +22,7 @@ export async function loadCatalog(options: { fetchImpl?: typeof fetch; signal?: 
   if (options.signal?.aborted) throw new DOMException("Catalog load cancelled", "AbortError");
   const controller = new AbortController();
   let timedOut = false;
+  let completed = false;
   const abort = () => controller.abort();
   options.signal?.addEventListener("abort", abort, { once: true });
   const timer = setTimeout(() => { timedOut = true; controller.abort(); }, timeoutMs);
@@ -42,6 +43,7 @@ export async function loadCatalog(options: { fetchImpl?: typeof fetch; signal?: 
     if (!providers.ok) throw new CatalogLoadError("invalid-providers", "Provider response is invalid");
     if (catalog.catalog.offers.some(offer => !providers.providers.some(provider => provider.id === offer.providerId)))
       throw new CatalogLoadError("invalid-catalog", "Catalog refers to an unknown provider");
+    completed = true;
     return { catalog: catalog.catalog, taxonomy: taxonomy.taxonomy, providers: providers.providers };
   } catch (error) {
     if (timedOut) throw new CatalogLoadError("timeout", "Catalog request timed out");
@@ -51,7 +53,7 @@ export async function loadCatalog(options: { fetchImpl?: typeof fetch; signal?: 
   } finally {
     clearTimeout(timer);
     options.signal?.removeEventListener("abort", abort);
-    controller.abort();
+    if (!completed) controller.abort();
   }
 }
 

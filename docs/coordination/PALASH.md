@@ -5,6 +5,13 @@ Only this owner updates this file. Follow the published [collaboration protocol]
 
 ## Current report
 
+### Parent/admin continuation completed here
+
+- User reassigned most of the five follow-up packages to Palash because Ishan also had little allowance. Code checkpoints `0e59058`, `7205dd5`, `78292f7`, `c551862` implement the parent catalogue, locale/overlay fixes, logo/favicon, larger world and existing-admin integration/review confirmation. The successful catalogue-read cleanup was also corrected to avoid aborting completed responses.
+- `npm run check` passed 132 tests and TypeScript during integration; subsequent UI fixes passed production compilation/TypeScript. Parent browser checks showed 25 rows, 19 direct source links, saved state and in-dialog DE/EN without closing the event or showing games.
+- In a separate temporary data worktree: CSV API intake staged 18 ready/2 blocked; browser review resumed by ID; review confirmation controlled publication and survived DE/EN; exactly one selected demo row was published, with two still blocked. Isolated catalogue 28, normal catalogue unchanged at 27. No teammate data or actual provider facts were altered.
+- New bounded handoff: `docs/prompts/ISHAN_FINISHING_PASS.md`. Native file-picker automation was blocked by extension file-URL access, so that manual picker check and broader visual/accessibility/copy review remain. Do not restart the superseded five-part assignment. No session acknowledgement is claimed.
+
 ### 15 November redesign handoff
 
 - The user authorized publishing the current website to main and assigned the next five UI/workflow fixes to Ishan's Claude. This supersedes the earlier local-only instruction for this publication.
