@@ -10,6 +10,7 @@ import { accessLabel, availabilityLabel, formatAge, formatPrice, formatWhen, pro
 import { interestMeta, InterestIcon } from "./interests";
 import { useDialog } from "./use-dialog";
 import { useLocale } from "../i18n";
+import { useSheetMotion } from "./motion";
 
 export interface ShortlistSheetProps {
   offers: Offer[];
@@ -35,15 +36,16 @@ export function ShortlistSheet({ offers, unavailableCount, providers, initialTab
   const [tab, setTab] = useState<"list" | "parent">(initialTab);
   const closeRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
-  useDialog(dialogRef, onClose, { initial: closeRef, fallback: focusFallback });
+  const sheetMotion = useSheetMotion(onClose);
+  useDialog(dialogRef, sheetMotion.close, { initial: closeRef, fallback: focusFallback });
   const handoffs = useMemo(() => offers.map(o => ({ offer: o, handoff: buildParentHandoff(o, locale) })), [offers, locale]);
 
   return (
     <>
-      <div className="sheet-scrim m-scrim" onClick={onClose} aria-hidden="true" />
-      <div ref={dialogRef} tabIndex={-1} className="sheet m-sheet sl" role="dialog" aria-modal="true" aria-labelledby="sl-title">
+      <div className={`sheet-scrim m-scrim${sheetMotion.closing ? " is-closing" : ""}`} onClick={sheetMotion.close} aria-hidden="true" />
+      <div ref={dialogRef} tabIndex={-1} className={`sheet m-sheet sl${sheetMotion.closing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-labelledby="sl-title">
         <div className="sl__head">
-          <button ref={closeRef} type="button" className="btn icon-btn" onClick={onClose} aria-label={t("sl.close")}>←</button>
+          <button ref={closeRef} type="button" className="btn icon-btn" onClick={sheetMotion.close} aria-label={t("sl.close")}>←</button>
           <h2 id="sl-title">{t("sl.title")}</h2>
           <div className="dz-view" role="group" aria-label={t("dz.presentation")}>
             <button type="button" aria-pressed={tab === "list"} onClick={() => setTab("list")}>{t("sl.tabYou")}</button>

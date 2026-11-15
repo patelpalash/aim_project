@@ -24,4 +24,14 @@ R1/R4/R6/R8: combined source catalogue, four provider identities, AI/coding/gami
 
 ## Limits
 
-The mobile screenshot API timed out; the mobile DOM measurements and sorting interaction succeeded, but a mobile visual capture is not claimed. A screen-reader/contrast audit and every viewport/level combination were not repeated. City placement and both difficulties were checked by the pure evaluators and production type checking; the city UI has not had a complete browser playthrough. Source freshness and current ticket availability are provider-owned; opening the source page is not a reservation.
+The mobile screenshot API timed out in the first pass; mobile DOM measurements and interactions succeeded, but a mobile visual capture is not claimed. A screen-reader/contrast audit and every viewport/level combination were not repeated. Source freshness and current ticket availability are provider-owned; opening the source page is not a reservation.
+
+## Follow-up: game behaviour and motion
+
+The user reported games not working properly and requested animation plus an always-available Skip. Inspection found success/source navigation before route playback finished, a fixed-distance bridge crossing, moving click targets caused by stacked entrance/smooth-scroll animations, and Skip outside the visible part of a long game.
+
+Changes: completion follows the last animation; timelines cancel on reset/skip/unmount; robot/rocket motion uses transforms with correct shortest turns and current-command highlighting; Stop preserves the editable command queue; bridge movement scales to the board width and the next available brick is selected automatically; shapes animate between boxes; city homes show whether a park is adjacent and animate their check. Game controls and sheets fade in without translated hit targets. Sheets lock background scrolling and fade out before unmounting. Filters/results transition separately from modal changes. Search keystrokes update immediately. Footer Skip remains visible and keyboard focus goes to event facts.
+
+Observed in the browser: complete robot and five-block coding playback, correct final north orientation, reset/stop/skip, level change, four-brick bridge placement and post-crossing experimenta tab, six-shape sorting success, and a complete city build followed by the exact aim course tab. At 390×844 CSS pixels, the document width was 390 and footer Skip was 362 px wide at y=743–785, within the viewport. Mobile skip exposed event facts and keyboard Escape restored body scrolling. Source links remain available throughout. New proof: `.local-analysis/games-motion-shapes.jpg`.
+
+Checks are limited to the changed behaviour: one new command-to-animation trace regression, TypeScript, final production build and these browser interactions. The full existing suite was not repeated.

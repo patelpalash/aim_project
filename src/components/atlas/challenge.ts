@@ -33,16 +33,18 @@ export function routeBoard(harder: boolean, coding: boolean): RouteBoard {
     ? { size: 5, start: { x: 0, y: 4, direction: 0 }, goal: [4, 0], rocks: [10, 17, 7, 8], limit: coding ? 6 : 16, loop: coding }
     : { size: 4, start: { x: 0, y: 3, direction: 1 }, goal: [3, 0], rocks: [5, 10], limit: coding ? 5 : 14, loop: coding };
 }
-export interface RunResult { trace: Pose[]; solved: boolean; reason: "goal" | "edge" | "rock" | "short" | "loop" | "limit" }
+export interface RunResult { trace: Pose[]; commandIndices: number[]; solved: boolean; reason: "goal" | "edge" | "rock" | "short" | "loop" | "limit" }
 export function runRoute(board: RouteBoard, commands: readonly Command[]): RunResult {
   let pose = { ...board.start };
   const trace = [pose];
-  const fail = (reason: RunResult["reason"]): RunResult => ({ trace, solved: false, reason });
+  const commandIndices = [-1];
+  const fail = (reason: RunResult["reason"]): RunResult => ({ trace, commandIndices, solved: false, reason });
   if (commands.length > board.limit) return fail("limit");
-  for (const command of commands) {
+  for (const [index, command] of commands.entries()) {
     if (command === "left" || command === "right") {
       pose = { ...pose, direction: (pose.direction + (command === "left" ? 3 : 1)) % 4 };
       trace.push(pose);
+      commandIndices.push(index);
     } else {
       for (let n = 0; n < (command === "repeat" ? 2 : 1); n++) {
         const [dx, dy] = [[0, -1], [1, 0], [0, 1], [-1, 0]][pose.direction];
@@ -51,12 +53,13 @@ export function runRoute(board: RouteBoard, commands: readonly Command[]): RunRe
         if (board.rocks.includes(next.y * board.size + next.x)) return fail("rock");
         pose = next;
         trace.push(pose);
+        commandIndices.push(index);
       }
     }
   }
   if (pose.x !== board.goal[0] || pose.y !== board.goal[1]) return fail("short");
   if (board.loop && !commands.includes("repeat")) return fail("loop");
-  return { trace, solved: true, reason: "goal" };
+  return { trace, commandIndices, solved: true, reason: "goal" };
 }
 
 export interface Brick { row: number; start: number; length: number }

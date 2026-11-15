@@ -7,15 +7,48 @@ export function prefersReducedMotion(): boolean {
   return typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 }
 
-type VTDocument = Document & { startViewTransition?: (cb: () => void) => unknown };
+interface AtlasTransition { skipTransition: () => void; finished: Promise<void>; ready: Promise<void>; updateCallbackDone: Promise<void> }
+type VTDocument = Document & { startViewTransition?: (cb: () => void) => AtlasTransition };
+let activeTransition: AtlasTransition | null = null;
+let pendingUpdate: (() => void) | null = null;
 export function supportsViewTransitions(): boolean {
   return typeof document !== "undefined" && typeof (document as VTDocument).startViewTransition === "function" && !prefersReducedMotion();
 }
 
 /** Run a state update as a View Transition so named elements glide between layouts. Falls back to a plain update. */
 export function withTransition(update: () => void): void {
-  if (!supportsViewTransitions()) { update(); return; }
-  (document as VTDocument).startViewTransition!(() => flushSync(update));
+  // Rapid filter / open / close clicks must commit in order, even during a snapshot.
+  pendingUpdate?.();
+  activeTransition?.skipTransition();
+  if (!supportsViewTransitions()) { pendingUpdate = null; activeTransition = null; update(); return; }
+  let committed = false;
+  const apply = () => { if (committed) return; committed = true; flushSync(update); };
+  pendingUpdate = apply;
+  try {
+    const transition = (document as VTDocument).startViewTransition!(apply);
+    activeTransition = transition;
+    transition.ready.catch(() => undefined);
+    transition.updateCallbackDone.catch(() => undefined);
+    transition.finished.catch(() => undefined).finally(() => {
+      if (activeTransition === transition) { activeTransition = null; pendingUpdate = null; }
+    });
+  } catch { apply(); activeTransition = null; pendingUpdate = null; }
+}
+
+/** Short exit animation, with an immediate reduced-motion path and unmount cleanup. */
+export function useSheetMotion(onClose: () => void) {
+  const [closing, setClosing] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const latest = useRef(onClose);
+  latest.current = onClose;
+  useEffect(() => () => { if (timer.current) clearTimeout(timer.current); }, []);
+  const close = () => {
+    if (timer.current) return;
+    if (prefersReducedMotion()) { latest.current(); return; }
+    setClosing(true);
+    timer.current = setTimeout(() => latest.current(), 180);
+  };
+  return { closing, close };
 }
 
 /** Marks .reveal elements with data-in (an attribute React re-renders leave alone) elements as they scroll into view. Content stays visible if this never runs. */

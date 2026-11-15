@@ -135,6 +135,7 @@ export function Discovery() {
   }, [results.total, catalog.phase, t]);
 
   const patch = (p: Partial<SearchFilters>) => withTransition(() => dispatch({ type: "set-filters", patch: p }));
+  const browseEvents = () => document.getElementById("atlas-events")?.scrollIntoView({ behavior: prefersReducedMotion() ? "instant" : "smooth", block: "start" });
   const toggleInterest = (i: Interest) => {
     setPulse(interests.includes(i) ? null : i);
     withTransition(() => dispatch({ type: "toggle-interest", id: i }));
@@ -176,7 +177,6 @@ export function Discovery() {
   });
   const savedCount = shortlist.offers.length + shortlist.unavailableIds.length;
   const nameFor = (id: string, idx: number) => (vt && idx < MAX_NAMED ? `offer-${id.replace(/[^a-zA-Z0-9_-]/g, "_")}` : undefined);
-  const openIdx = selectedOffer ? results.matches.findIndex(o => o.id === selectedOffer.id) : -1;
   // Keep reviewed activities prominent; explicit date/title sorts still retain their exact order.
   const displayOffers = state.sort === "recommended" ? [...results.matches].sort((a, b) => Number(a.source.kind === "demo") - Number(b.source.kind === "demo")) : results.matches;
 
@@ -187,11 +187,11 @@ export function Discovery() {
         <div className="wrap dz-top__in">
           <a className="dz-logo" href="/" aria-label="Interest Atlas"><Compass size={35} weight="duotone" /><span>Interest Atlas<small>HEILBRONN, VOLLER IDEEN.</small></span></a>
           <nav className="atlas-nav" aria-label={say("Hauptnavigation", "Main navigation")}>
-            <a className="is-active" href="#atlas-events">{say("Entdecken", "Discover")}</a>
+            <a className="is-active" href="#atlas-events" onClick={e => { e.preventDefault(); browseEvents(); }}>{say("Entdecken", "Discover")}</a>
             <button type="button" onClick={() => { setMode("parent"); setShortlistTab("parent"); }}><Users size={19} />{say("Für Eltern", "For parents")}</button>
           </nav>
           <LanguageSwitch />
-          <button ref={shortlistBtnRef} type="button" className="dz-shortlist" aria-label={t("dz.shortlistOpen", { n: savedCount })} onClick={() => withTransition(() => setShortlistTab("list"))}>
+          <button ref={shortlistBtnRef} type="button" className="dz-shortlist" aria-label={t("dz.shortlistOpen", { n: savedCount })} onClick={() => setShortlistTab("list")}>
             <BookmarkSimple size={21} weight={savedCount ? "fill" : "regular"} />
             <span className="saved-word">{say("Merkliste", "Saved")}</span><span ref={counterRef} key={bump} className={bump ? "dz-shortlist__n m-bump" : "dz-shortlist__n"}>{savedCount}</span>
           </button>
@@ -206,10 +206,10 @@ export function Discovery() {
             <p>{say("Roboter bauen, Spiele erfinden, KI verstehen. Finde Kurse und Events in Heilbronn, die dich neugierig machen.", "Build robots, invent games, understand AI. Find courses and events in Heilbronn that spark your curiosity.")}</p>
             <form className="atlas-search" role="search" onSubmit={e => { e.preventDefault(); resultsRef.current?.focus(); resultsRef.current?.scrollIntoView({ behavior: prefersReducedMotion() ? "instant" : "smooth", block: "start" }); }}>
               <MagnifyingGlass size={23} aria-hidden="true" /><label className="visually-hidden" htmlFor="dz-q">{t("dz.searchLabel")}</label>
-              <input id="dz-q" type="search" value={query} onChange={e => patch({ query: e.target.value || undefined })} placeholder={say("Was möchtest du entdecken?", "What would you like to discover?")} autoComplete="off" />
+              <input id="dz-q" type="search" value={query} onChange={e => dispatch({ type: "set-filters", patch: { query: e.target.value || undefined } })} placeholder={say("Was möchtest du entdecken?", "What would you like to discover?")} autoComplete="off" />
               <button className="btn btn--primary" type="submit">{t("dz.searchSubmit")}<ArrowRight size={18} /></button>
             </form>
-            <a className="atlas-browse" href="#atlas-events">{say("Direkt zu allen Angeboten", "Browse all activities")}<ArrowRight size={17} /></a>
+            <a className="atlas-browse" href="#atlas-events" onClick={e => { e.preventDefault(); browseEvents(); }}>{say("Direkt zu allen Angeboten", "Browse all activities")}<ArrowRight size={17} /></a>
           </div>
           <div className="atlas-world-scene">
             <Image src="/art/atlas-world.png" alt={say("Eine fantasievolle Themeninsel mit Roboterwerkstatt, Bausteinen und Coding-Gewächshaus", "An imaginary interest island with a robot workshop, building blocks and a coding greenhouse")} width={1536} height={1024} priority sizes="(max-width: 580px) 85vw, (max-width: 1320px) 50vw, 640px" />
@@ -314,7 +314,7 @@ export function Discovery() {
             </div>
           ) : view === "map" ? (
             <MapView offers={results.matches} providerNameOf={id => providerName(id, providers)}
-              onOpen={o => withTransition(() => dispatch({ type: "select-offer", id: o.id }))} />
+              onOpen={o => dispatch({ type: "select-offer", id: o.id })} />
           ) : results.matches.length ? (
             <div className="dz-grid">
               {displayOffers.map((o, idx) => (
@@ -323,7 +323,7 @@ export function Discovery() {
                   matches={interests.filter(i => o.interests.includes(i))}
                   reasons={reasonsFor.get(o.id) ?? []} adult={adult}
                   vtName={o.id === state.selectedOfferId ? undefined : nameFor(o.id, idx)}
-                  onOpen={x => withTransition(() => dispatch({ type: "select-offer", id: x.id }))} onToggleSave={toggleSave} />
+                  onOpen={x => dispatch({ type: "select-offer", id: x.id })} onToggleSave={toggleSave} />
               ))}
             </div>
           ) : (
@@ -371,23 +371,22 @@ export function Discovery() {
       {selectedOffer ? (
         <DetailSheet key={selectedOffer.id} offer={selectedOffer} provider={providerName(selectedOffer.providerId, providers)}
           saved={state.savedOfferIds.includes(selectedOffer.id)} onSave={() => toggleSave(selectedOffer)}
-          vtName={openIdx >= 0 ? nameFor(selectedOffer.id, openIdx) : undefined}
           focusFallback={resultsRef}
-          onShowAdult={adult ? undefined : () => withTransition(() => {
+          onShowAdult={adult ? undefined : () => {
             if (!state.savedOfferIds.includes(selectedOffer.id)) dispatch({ type: "toggle-saved", id: selectedOffer.id });
             dispatch({ type: "set-audience-mode", mode: "parent" });
             dispatch({ type: "select-offer", id: null });
             setShortlistTab("parent");
-          })}
-          onClose={() => withTransition(() => dispatch({ type: "select-offer", id: null }))} />
+          }}
+          onClose={() => dispatch({ type: "select-offer", id: null })} />
       ) : null}
       {shortlistTab && !selectedOffer ? (
         <ShortlistSheet offers={shortlist.offers} unavailableCount={shortlist.unavailableIds.length}
           providers={providers} initialTab={shortlistTab === "list" && adult ? "parent" : shortlistTab}
           focusFallback={shortlistBtnRef}
-          onOpenOffer={o => withTransition(() => { setShortlistTab(null); dispatch({ type: "select-offer", id: o.id }); })}
+          onOpenOffer={o => { setShortlistTab(null); dispatch({ type: "select-offer", id: o.id }); }}
           onRemove={o => toggleSave(o)}
-          onClose={() => withTransition(() => setShortlistTab(null))} />
+          onClose={() => setShortlistTab(null)} />
       ) : null}
     </div>
   );

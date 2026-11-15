@@ -27,7 +27,7 @@ The bridge, route and sorting games have two levels. All games have hints and re
 
 ## Source handoff
 
-Successful evaluation calls `window.open` during the user's final click, before route-animation timers. It opens the exact approved real event source URL in a new tab, once per mounted event detail. The same URL remains available in the detail footer and beside the game without solving anything. A fallback link remains if popups are blocked. Booking and availability are handled by the provider, with an adult reminder and full/cancelled notices; there is no in-app ticket purchase or child registration. Fictional and unreviewed records never get this handoff.
+Success is reported only after the final game animation finishes. It then opens the exact approved real event source URL in a new tab, once per mounted event detail. The same URL remains available in the detail footer and beside the game without solving anything. Some browsers can block an opening after playback; the visible source link remains the fallback. Booking and availability are handled by the provider, with an adult reminder and full/cancelled notices; there is no in-app ticket purchase or child registration. Fictional and unreviewed records never get this handoff.
 
 Visitor game state stays in memory. Backend adapters, APIs, stored data, shared contracts and review services are unchanged. Cached source coverage limitations are still displayed; this work did not run a fresh scrape.
 
@@ -38,3 +38,9 @@ Visitor game state stays in memory. Backend adapters, APIs, stored data, shared 
 The browser verified the real LEGO handoff to experimenta, a complete robot run, coding-loop success feedback, shape sorting, save, reset and keyboard close. See `design-qa.md` for visual evidence and limits. Do not treat the earlier main-branch accessibility checklist as proof of every redesigned game at every viewport.
 
 If continuing: keep changes local, use focused verification for actual new changes, and save a local checkpoint at substantial handoffs. The agent cannot read the user's five-hour quota percentage.
+
+## Motion and game follow-up
+
+The 15 November follow-up fixes premature success/source navigation, inaccurate click targets while entrance animations move, and an off-screen Skip control. Event games use cancellable playback, highlighted command steps, a visible Stop action for routes, reset, staggered-joint brick placement with remaining-supply selection, flying shape tiles and a city check animation. Reset/skip/close/level change cancel pending completion. Skip is available in the fixed detail footer as well as beside difficulty options, and moves focus to event facts. Background scrolling is locked during a sheet and restored on close.
+
+Search typing commits immediately. Filters/results use interruptible View Transitions; sheets use stable fade entrances and short exits so interactive controls do not move away from a click. Discovery links scroll smoothly, while programmatic focusing and game control targeting remain stable. Reduced motion bypasses playback delays and decorative movement. No runtime dependency was added for these changes.

@@ -34,6 +34,15 @@ test("robot movement detects edges, rocks, incomplete routes and code limits", (
   assert.deepEqual(easy.start, { x: 0, y: 3, direction: 1 });
 });
 
+test("route playback maps both loop moves to one command and records the final turn", () => {
+  const result = runRoute(routeBoard(false, true), ["repeat", "forward", "left", "repeat", "forward"]);
+  assert.equal(result.solved, true);
+  assert.equal(result.trace.length, result.commandIndices.length);
+  assert.deepEqual(result.commandIndices, [-1, 0, 0, 1, 2, 3, 3, 4]);
+  assert.equal(result.trace[4].direction, 0);
+  assert.equal(result.trace.at(-1)!.direction, 0);
+});
+
 test("bridge placement prevents overlaps, overhangs and unlimited bricks", () => {
   const placed: Brick[] = [{ row: 0, start: 0, length: 4 }];
   assert.equal(canPlaceBrick(placed, { row: 0, start: 3, length: 2 }, 6, bridgeStock(false)), false);

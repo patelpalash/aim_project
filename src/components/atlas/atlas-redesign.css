@@ -97,4 +97,74 @@
 .detail-quick-facts{display:flex;flex-wrap:wrap;gap:8px;font-size:12px;color:#405f48}.detail-quick-facts>span{background:#f1eedf;border-radius:7px;padding:7px 10px}.atlas-world .sheet__foot{flex-wrap:wrap}.atlas-world .sheet__foot .btn{font-size:12px;min-height:44px;padding-inline:13px}
 @media(min-width:801px){.atlas-hero{padding-block:6px}.atlas-hero h1{font-size:43px;margin-block:10px 12px}.atlas-hero__copy{padding-block:5px}.atlas-world-scene{max-width:410px}.atlas-hero__copy>p:not(.atlas-eyebrow){font-size:14px}.atlas-search{margin-top:13px}.atlas-interest-section{padding-block:15px}.atlas-interests{flex-wrap:nowrap;overflow-x:auto;padding-bottom:5px}.atlas-interest{flex-shrink:0}.atlas-world .dz-controls{margin-bottom:15px;padding-block:10px}.atlas-world .src{margin-bottom:14px}.atlas-collection-heading{margin-bottom:12px}}
 @media(max-width:580px){.route-board{max-width:224px}.sort-bin{padding:9px}.shape-token{min-width:44px;min-height:44px}.city-plot,.city-fixed{min-height:76px}.city-board{gap:5px;padding:8px}.city-palette button{font-size:10px}.command-palette button{font-size:10px;padding-inline:7px}.brick-board{gap:3px;grid-template-rows:repeat(2,49px)}.bridge-stage{padding-inline:8px}.brick-studs i{width:9px;height:9px}.placed-brick{padding-inline:4px}.mission-topline{letter-spacing:.04em}.mission-topline>span:last-child{white-space:nowrap}.mission-level button{min-height:44px}.atlas-world .sheet__foot .btn{font-size:11px;padding-inline:11px}}
-@media(prefers-reduced-motion:reduce){.atlas-world *,.atlas-world *::before,.atlas-world *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.atlas-card:hover,.world-label:hover,.atlas-interest:hover{transform:none}.bridge-won .bridge-crossing>svg:first-child{margin-left:auto;margin-right:18px}}
+/* Motion revision: clear movement, persistent escape and no background scroll jump. */
+.atlas-world{--ease-atlas:cubic-bezier(.22,1,.36,1);--ease-play:cubic-bezier(.2,.75,.3,1)}
+.atlas-world .sheet{grid-template-rows:auto minmax(0,1fr) auto}
+.atlas-world .m-sheet{animation:atlas-panel-in 280ms ease both}.atlas-world .sheet.is-closing{animation:atlas-panel-out 180ms ease both;pointer-events:none}.atlas-world .sheet-scrim.is-closing{animation:atlas-panel-out 180ms ease both}
+@keyframes atlas-panel-in{from{opacity:0;filter:blur(2px)}to{opacity:1;filter:none}}@keyframes atlas-panel-out{to{opacity:0}}
+.atlas-world .sheet__body.m-cascade>*{animation-name:m-fade;animation-duration:260ms;animation-delay:0ms}
+.atlas-world .sl__list,.atlas-world .sl__parent{animation:m-fade 240ms ease both}
+.atlas-world .sheet__body{overscroll-behavior:contain;scrollbar-gutter:stable;scroll-padding-block:18px}
+.atlas-world .sheet__body>div:has(.event-mission){animation:m-fade 220ms ease both}
+.atlas-world .sheet__foot{z-index:5;gap:8px;box-shadow:0 -8px 22px -16px #133d324d}
+.atlas-world .sheet-skip{background:#e8eddb;border-color:#bdc9a8;color:#204f36;order:-1}
+.event-facts-heading{font-size:17px;scroll-margin-top:16px;outline-offset:5px}
+.mission-level{position:sticky;top:-1px;z-index:3;background:#f1f0ddf5;padding-block:5px;border-radius:10px}
+.mission-level button{transition:background 180ms,color 180ms,transform 180ms}
+.hands-on-game,.event-mission .mission-content{animation:m-fade 220ms ease both}
+@keyframes game-appear{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.route-stage{scroll-margin-block:18px;transition:border-color 240ms,box-shadow 240ms}
+.route-stage.is-running{border-color:#79986b;box-shadow:0 0 0 3px #79986b25}
+.route-stage.is-complete{border-color:#4b7a3d;background:#e3ecd3}
+.route-stage.has-error{animation:game-nudge 260ms ease}
+.route-character{left:0;top:0;will-change:transform;transition:transform 300ms var(--ease-play);border:0;background:transparent;border-radius:0}
+.route-driver{position:relative;width:86%;height:86%;display:grid;place-items:center;background:#f4b176;border:3px solid #fdfaf0;border-radius:12px;transition:transform 280ms var(--ease-play);box-shadow:0 3px 5px #26442e30}
+.route-character .route-facing{right:calc(50% - 7px);top:-6px;background:#fff2cf;border-radius:4px}
+.route-cell.visited{box-shadow:inset 0 0 0 3px #f6d56d70}.route-cell:has(svg){position:relative}
+.route-stage.is-complete .route-driver{animation:game-hop 500ms ease}
+@keyframes game-hop{0%,100%{scale:1}45%{scale:1.12;translate:0 -4px}}
+.program-blocks button{transition:background 180ms,border-color 180ms,box-shadow 180ms,translate 180ms}
+.program-blocks button[aria-current=step]{opacity:1;background:#234f37;color:#fff7d6;border-color:#234f37;box-shadow:0 3px 0 #163b2a;translate:0 -3px}
+.hands-on-game .program-blocks button:disabled{opacity:.8}
+.brick-slot.is-preview{background:#f2d591;border-color:#b9772d;box-shadow:inset 0 0 0 1px #ce9b4f}
+.hands-on-game .brick-board button:disabled,.hands-on-game .shape-token:disabled,.hands-on-game .city-plot:disabled{opacity:1}
+.bridge-crossing{position:relative;display:block;height:44px;margin-bottom:2px}
+.bridge-crossing>svg:first-child{position:absolute;left:6px;top:8px;transition:left 1250ms cubic-bezier(.4,0,.2,1)}
+.bridge-crossing>svg:last-child{position:absolute;right:4px;top:8px}
+.bridge-testing .bridge-crossing>svg:first-child,.bridge-won .bridge-crossing>svg:first-child{left:calc(100% - 38px);animation:none;transform:none}
+.bridge-stage.has-error .brick-board{animation:game-nudge 280ms ease}
+.brick-board .placed-brick{animation:brick-place 280ms var(--ease-atlas)}
+.sort-bins{position:relative;isolation:isolate}.shape-token{z-index:1;will-change:transform}
+.sort-bin{overflow:visible}.shape-token.needs-move{animation:game-nudge 280ms ease}
+.sorting-game.is-checking .sort-bins::after{content:"";pointer-events:none;position:absolute;inset:0;background:linear-gradient(transparent,#6b9c4d55,transparent);height:30%;border-radius:10px;animation:game-scan 850ms ease both;z-index:2}
+@keyframes game-scan{from{transform:translateY(0)}to{transform:translateY(230%)}}
+.city-fixed{position:relative;transition:background 280ms,color 280ms,box-shadow 280ms}
+.city-fixed.has-park{background:#e1edcd;color:#315a30;box-shadow:inset 0 0 0 1px #98bc7b}
+.house-check{position:absolute;right:5px;top:4px;border-radius:50%;background:#356238;color:#fff;font-size:10px;width:17px;height:17px;display:grid;place-items:center;animation:game-appear 220ms}
+.city-piece{display:grid;place-items:center;animation:brick-place 320ms var(--ease-atlas)}.city-plot svg{animation:none}
+.city-board.is-checking .city-fixed{animation:city-check 900ms ease}.city-board.is-checking .city-fixed:nth-child(3){animation-delay:100ms}.city-board.is-checking .city-fixed:nth-child(9){animation-delay:200ms}.city-board.is-checking .city-fixed:nth-child(7){animation-delay:300ms}
+@keyframes city-check{50%{box-shadow:inset 0 0 0 3px #547b44;scale:1.03}}
+@keyframes game-nudge{0%,100%{translate:0}25%{translate:-3px}65%{translate:3px}}
+.mission-victory{position:relative;overflow:hidden}.mission-victory>svg{animation:game-hop 500ms ease}
+.event-mission.is-solved .game-result{color:#2c6235}
+.victory-sparkles{position:absolute;inset:0;pointer-events:none;overflow:hidden}.victory-sparkles i{position:absolute;left:calc(8% + var(--spark)*10%);top:8px;width:6px;height:6px;border-radius:2px;background:#c86d27;animation:atlas-spark 950ms ease-out both;animation-delay:calc(var(--spark)*35ms)}
+.victory-sparkles i:nth-child(2n){background:#799c4e}.victory-sparkles i:nth-child(3n){background:#b7a34b}
+@keyframes atlas-spark{0%{opacity:0;transform:translateY(28px) rotate(0deg)}20%{opacity:.85}100%{opacity:0;transform:translateY(-15px) rotate(150deg)}}
+.atlas-card{animation-duration:420ms;animation-timing-function:var(--ease-atlas);transition:transform 250ms var(--ease-atlas),box-shadow 250ms,border-color 250ms}
+.atlas-world :is(.btn,.atlas-interest,.world-label,.dz-mode button,.dz-view button,.atlas-card__save){transition:background 200ms,border-color 200ms,color 200ms,box-shadow 200ms,transform 200ms var(--ease-atlas)}
+.atlas-world :is(.btn,.atlas-interest,.world-label,.atlas-card__save):active{transform:scale(.97)}
+.atlas-card__save[aria-pressed=true] svg{animation:atlas-bookmark 320ms var(--ease-atlas)}
+@keyframes atlas-bookmark{50%{scale:1.2;rotate:-8deg}}
+.atlas-world-scene>img{animation:atlas-arrive 750ms var(--ease-atlas) both}
+.world-label{animation:atlas-label-in 600ms var(--ease-atlas) both;animation-delay:250ms}.world-label--1{animation-delay:360ms}.world-label--2{animation-delay:470ms}
+@keyframes atlas-label-in{from{opacity:0;translate:0 8px}to{opacity:1;translate:0}}
+.atlas-world .dz-grid,.atlas-world .atlas-map,.atlas-world .dz-empty{view-transition-name:atlas-results}
+.atlas-world .dz-results-head{view-transition-name:atlas-count}
+::view-transition-group(*){animation-duration:360ms;animation-timing-function:cubic-bezier(.22,1,.36,1)}
+::view-transition-old(*),::view-transition-new(*){height:auto}
+::view-transition-old(atlas-results){animation:atlas-results-out 180ms ease both}
+::view-transition-new(atlas-results){animation:atlas-results-in 300ms cubic-bezier(.22,1,.36,1) both}
+@keyframes atlas-results-out{to{opacity:0;translate:0 -5px}}
+@keyframes atlas-results-in{from{opacity:0;translate:0 9px}to{opacity:1;translate:0}}
+@media(max-width:580px){.atlas-world .sheet__foot{display:grid;grid-template-columns:1fr 1fr;padding:10px 14px;gap:7px}.atlas-world .sheet__foot .btn{min-height:42px;font-size:11px}.atlas-world .sheet__foot .sheet-skip{grid-column:1/-1}.mission-level .mission-skip{margin-left:auto}.route-board{max-width:230px}.route-driver{border-width:2px;border-radius:9px}.route-driver>svg:first-child{width:25px}.atlas-world .sheet__head{min-height:73px;padding:14px}.atlas-world .sheet__body{padding-inline:14px;padding-top:40px}}
+@media(prefers-reduced-motion:reduce){html:has(.atlas-world){scroll-behavior:auto}.atlas-world *,.atlas-world *::before,.atlas-world *::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}.atlas-card:hover,.world-label:hover,.atlas-interest:hover{transform:none}.victory-sparkles{display:none}::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none!important}}
