@@ -1,6 +1,7 @@
 // Hosted demo admin: password mode, signed cookie, same-origin writes, temporary storage, local mode unchanged.
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { randomBytes } from "node:crypto";
 import { deskGate, deskMode, issueToken, login, logout, sessionStatus, verifyToken } from "../src/server/admin-auth.ts";
 import { dataRoot, TEMP_DATA_DIR } from "../src/server/data-root.ts";
 import * as http from "../src/server/review/http.ts";
@@ -16,7 +17,9 @@ function withEnv(env: Partial<Record<(typeof KEYS)[number], string>>, fn: () => 
     }
   };
 }
-const PW = "demo-password-123";
+// Generated per run so no credential-like literal lives in the repository.
+const PW = randomBytes(12).toString("base64url");
+const OTHER = randomBytes(12).toString("base64url");
 const req = (path: string, init: RequestInit & { headers?: Record<string, string> } = {}) =>
   new Request(`https://atlas.example${path}`, { ...init, headers: { host: "atlas.example", ...(init.headers ?? {}) } });
 const cookieFor = (password = PW) => ({ cookie: `ia_admin=${issueToken(password)}` });
@@ -25,7 +28,7 @@ test("tokens verify, expire and reject tampering or another password", () => {
   const now = Date.now();
   const token = issueToken(PW, now);
   assert.equal(verifyToken(token, PW, now), true);
-  assert.equal(verifyToken(token, "other-password", now), false);
+  assert.equal(verifyToken(token, OTHER, now), false);
   assert.equal(verifyToken(token, PW, now + 9 * 3600_000), false);
   assert.equal(verifyToken(`${token.slice(0, -2)}xx`, PW, now), false);
   assert.equal(verifyToken(undefined, PW, now), false);
@@ -52,7 +55,7 @@ test("password mode: reads and writes need the cookie; writes must be same-origi
   assert.equal(noCookie?.status, 401);
   assert.equal(deskGate(undefined, false)?.status, 401);
   assert.equal(deskGate(req("/api/admin/summary", { headers: { cookie: "ia_admin=v1.123.forged-signature-value" } }), false)?.status, 401);
-  assert.equal(deskGate(req("/api/admin/summary", { headers: cookieFor("wrong-password-1") }), false)?.status, 401);
+  assert.equal(deskGate(req("/api/admin/summary", { headers: cookieFor(OTHER) }), false)?.status, 401);
   assert.equal(deskGate(req("/api/admin/summary", { headers: cookieFor() }), false), null);
   assert.equal(deskGate(req("/api/admin/imports", { method: "POST", headers: { ...cookieFor(), origin: "https://atlas.example" } }), true), null);
   assert.equal(deskGate(req("/api/admin/imports", { method: "POST", headers: { ...cookieFor(), origin: "https://evil.example" } }), true)?.status, 403);
@@ -62,7 +65,7 @@ test("password mode: reads and writes need the cookie; writes must be same-origi
 test("login: wrong password 401, right password sets a signed HttpOnly cookie; logout clears it", withEnv({ INTEREST_ATLAS_ADMIN_PASSWORD: PW }, async () => {
   const post = (password: string, headers: Record<string, string> = {}) =>
     login(req("/api/admin/login", { method: "POST", body: JSON.stringify({ password }), headers: { "content-type": "application/json", origin: "https://atlas.example", ...headers } }));
-  const bad = await post("not-the-password");
+  const bad = await post(OTHER);
   assert.equal(bad.status, 401);
   assert.equal(bad.headers.get("set-cookie"), null);
   assert.equal((await post(PW, { origin: "https://evil.example" })).status, 403);
