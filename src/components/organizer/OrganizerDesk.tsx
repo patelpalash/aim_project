@@ -40,6 +40,7 @@ export function OrganizerDesk({ enabled }: { enabled: boolean }) {
   const [adminMissing, setAdminMissing] = useState(!enabled);
   const [summary, setSummary] = useState<{ catalogueVersion: number; publishedRealCount: number } | null>(null);
   const [reviewToken, setReviewToken] = useState<string | null>(null);
+  const [resumeId, setResumeId] = useState("");
   const [session, setSession] = useState<ReviewSession | null>(null);
   const [localOnly, setLocalOnly] = useState(false);
   const [providerId, setProviderId] = useState("");
@@ -190,6 +191,7 @@ export function OrganizerDesk({ enabled }: { enabled: boolean }) {
         <section className="org-welcome"><div><p>{say("INTEREST ATLAS · VERWALTUNG", "INTEREST ATLAS · ADMIN")}</p><h1>{say("Aus Quellen werden gute Entdeckungen.", "Turn source information into great discoveries.")}</h1><span>{say("Importieren, prüfen und gezielt veröffentlichen. Ein gemeinsamer Katalog für Kinder und Eltern.", "Import, review and publish your selection. One shared catalogue for children and parents.")}</span></div><a className="btn" href="/" target="_blank" rel="noopener noreferrer">{say("Öffentlichen Katalog öffnen ↗", "Open public catalogue ↗")}</a></section>
         <div className="org-connection" role="status"><strong>{adminMissing ? say("Lokale Verwaltung deaktiviert", "Local admin disabled") : summary ? say("Mit dem Katalog verbunden", "Connected to the catalogue") : say("Verbindung wird geprüft…", "Checking connection…")}</strong>{summary && !adminMissing ? <span>{summary.publishedRealCount} {say("geprüfte echte Angebote", "reviewed real activities")} · {say("Katalogversion", "catalogue version")} {summary.catalogueVersion}</span> : <span>{say("Schreibzugriff nur lokal und nach ausdrücklicher Prüfung.", "Local writes only, with explicit review before publication.")}</span>}</div>
         <ol className="org-workflow"><li><b>1</b>{say("Quelle / CSV auswählen", "Choose source / CSV")}</li><li><b>2</b>{say("Zeilen prüfen & korrigieren", "Review & correct rows")}</li><li><b>3</b>{say("Auswahl veröffentlichen", "Publish your selection")}</li></ol>
+        {!adminMissing ? <form className="org-resume" onSubmit={e => { e.preventDefault(); void run("resume", async () => { adoptSession(await fetchSession(resumeId.trim(), taxonomy ?? undefined), false); setNotice(t("org.resumed", { id: resumeId.trim() })); }); }}><label>{say("Vorhandene Prüfung öffnen", "Resume an existing review")}<input type="text" value={resumeId} onChange={e => setResumeId(e.target.value)} placeholder={say("Prüfungs-ID", "Review ID")} required maxLength={36} /></label><button type="submit" className="btn" disabled={busy !== null || !resumeId.trim()}>{say("Prüfung laden", "Load review")}</button></form> : null}
         {publicApiMissing ? <p className="status-line" data-tone="warn">{t("org.checkConnection")}</p> : null}
         {adminMissing ? (
           <div className="panel org__missing">

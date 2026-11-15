@@ -29,6 +29,7 @@ export function EventCard({ offer, saved = false, onOpen, onToggleSave, index = 
         <p className="atlas-card__when"><CalendarBlank size={17} />{formatWhen(offer, locale)}</p>
         <h3><button type="button" className="atlas-card__open" onClick={() => onOpen?.(offer)}>{title}</button></h3>
         <div className="atlas-card__facts"><span>{formatAge(offer, locale)}</span><span>{formatPrice(offer, locale)}</span></div>
+        {locale === "en" && !demo && offer.title.de === offer.title.en ? <p className="source-language-note">Provider text in German</p> : null}
         {adult ? <p className="atlas-card__venue"><MapPin size={16} />{offer.venue.name}, {offer.venue.city}</p> : null}
         {reasons.length > 0 && matches.length > 0 ? <p className="atlas-card__reason">{reasons.join(" · ")}</p> : null}
         <div className="atlas-card__tags"><span className={`tag ${demo ? "tag--demo" : "tag--verified"}`}>{t(demo ? "tag.demo" : "tag.verified")}</span>{offer.availability === "full" ? <span className="tag tag--full">{t("tag.full")}</span> : null}{offer.availability === "unknown" ? <span className="tag tag--unknown">{t("tag.placesUnknown")}</span> : null}</div>

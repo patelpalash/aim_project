@@ -54,6 +54,7 @@ export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName
         <div className="sheet__body m-cascade">
           <p className="event-card__when" style={{ ["--n" as string]: 0 }}>{formatWhen(offer, locale)}</p>
           <h2 id="sheet-title" style={{ fontSize: "var(--text-xl)", ["--n" as string]: 1 }}>{pick(offer.title, locale)}</h2>
+          {locale === "en" && offer.source.kind === "verified" && offer.title.de === offer.title.en ? <p className="source-language-note">Original provider text in German. Interface controls use your selected language.</p> : null}
           <p className="muted" style={{ ["--n" as string]: 2 }}>{pick(offer.summary, locale)}</p>
           <div className="detail-quick-facts"><span>{formatAge(offer, locale)}</span><span>{formatPrice(offer, locale)}</span><span>{availabilityLabel(offer.availability, locale)}</span></div>
           {allowGame ? <div><EventChallenge offer={offer} saved={saved} onSave={onSave} open={playing} onOpen={() => setPlaying(true)} onSkip={skipGame} /></div> : null}

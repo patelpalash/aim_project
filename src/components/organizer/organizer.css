@@ -72,3 +72,4 @@
 .org-edit__fieldset { border: 1px solid var(--line); border-radius: var(--radius-sm); padding: 10px 12px;
   display: flex; flex-wrap: wrap; gap: 10px 16px; align-items: center; }
 .org-edit__fieldset legend { padding-inline: 6px; color: var(--ink-faint); font-size: var(--text-sm); }
+.org-resume{display:flex;align-items:end;gap:12px;padding:16px;border:1px solid var(--line);border-radius:12px;background:var(--surface)}.org-resume label{display:grid;gap:7px;font-size:12px;font-weight:650;flex:1}.org-resume input{min-height:44px;background:var(--surface);border:1px solid var(--line-strong);border-radius:8px;padding:10px;color:var(--ink);font:400 14px var(--font-body);width:100%}.org-resume .btn{font-size:12px;min-height:44px}@media(max-width:600px){.org-resume{align-items:stretch;flex-direction:column}}
