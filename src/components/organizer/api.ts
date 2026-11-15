@@ -44,6 +44,12 @@ function toSession(input: unknown, taxonomy?: Taxonomy): ReviewSession {
   return valid.session;
 }
 
+export async function fetchAdminSummary(): Promise<{ catalogueVersion: number; publishedRealCount: number }> {
+  const result = await request("/api/admin/summary");
+  if (!isRecord(result) || typeof result.catalogueVersion !== "number" || typeof result.publishedRealCount !== "number") throw new AdminApiError("Invalid admin summary");
+  return { catalogueVersion: result.catalogueVersion, publishedRealCount: result.publishedRealCount };
+}
+
 export async function fetchProviders(): Promise<ProviderSummary[]> {
   const valid = validateProvidersResponse(await request("/api/providers"));
   if (!valid.ok) throw new AdminApiError("Anbieter-Antwort ungültig. / Invalid providers response.");

@@ -227,6 +227,7 @@ export function Discovery() {
           </button>
         </div>
       </header>
+      <div className="mobile-shortcuts"><button type="button" onClick={() => setMode("parent")}>{say("Für Eltern & Familien", "For parents & families")}</button><a href="/organizer">{say("Verwaltung", "Admin")}</a></div>
 
       <main>
         <section className="atlas-hero wrap" aria-labelledby="dz-title">
