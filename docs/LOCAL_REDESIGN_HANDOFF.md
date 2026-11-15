@@ -1,6 +1,6 @@
 # Local Interest Atlas redesign
 
-This is a local checkpoint on `codex/local-atlas-redesign`, based on Ishan's `f76de4c`. The shared checkout and GitHub have not been changed. Do not push without a new user instruction.
+The redesign was developed locally on `codex/local-atlas-redesign`, based on Ishan's `f76de4c`. On 15 November the user explicitly authorized publishing this version to main so teammates can fetch it, superseding the earlier local-only instruction. Publication uses `codex/atlas-redesign-handoff` and the normal PR/integration workflow. The original shared working tree is preserved. The next implementation is assigned through [Ishan's five-part prompt](prompts/ISHAN_NEXT_ITERATION.md).
 
 ## Preview
 
@@ -37,7 +37,7 @@ Visitor game state stays in memory. Backend adapters, APIs, stored data, shared 
 
 The browser verified the real LEGO handoff to experimenta, a complete robot run, coding-loop success feedback, shape sorting, save, reset and keyboard close. See `design-qa.md` for visual evidence and limits. Do not treat the earlier main-branch accessibility checklist as proof of every redesigned game at every viewport.
 
-If continuing: keep changes local, use focused verification for actual new changes, and save a local checkpoint at substantial handoffs. The agent cannot read the user's five-hour quota percentage.
+If continuing: use the role branch/PR workflow, focused verification for actual new changes and saved checkpoints at substantial handoffs. The agent cannot read the user's five-hour quota percentage. The original local-only restriction was lifted explicitly for this publication.
 
 ## Motion and game follow-up
 

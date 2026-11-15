@@ -6,6 +6,8 @@ A one-day project for **Palash + ChatGPT, Ishan + Claude and Umang + Claude**. F
 
 ## Start here
 
+- **[Ishan's next iteration: scale/hero, language, admin, parent UI and logo](docs/prompts/ISHAN_NEXT_ITERATION.md)** — latest user continuation after the interactive redesign.
+- [Redesign implementation and handoff](docs/LOCAL_REDESIGN_HANDOFF.md), [visual/browser evidence and limits](design-qa.md)
 - [AIM PDF requirements and acceptance map](docs/REQUIREMENTS.md)
 - [Revised one-day plan and task split](docs/PLAN.md)
 - [Whole-website interactions and motion](docs/EXPERIENCE.md)

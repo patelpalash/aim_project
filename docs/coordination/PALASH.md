@@ -5,6 +5,17 @@ Only this owner updates this file. Follow the published [collaboration protocol]
 
 ## Current report
 
+### 15 November redesign handoff
+
+- The user authorized publishing the current website to main and assigned the next five UI/workflow fixes to Ishan's Claude. This supersedes the earlier local-only instruction for this publication.
+- Code checkpoints: `166f6b8` (redesign and event games), `51ef1a6` (playback/Skip/transitions), `20c4e62` (larger animated world). Publication branch: `codex/atlas-redesign-handoff`, preserving the existing shared checkout and owner branches. Main ancestry was checked against `334c5e2` before publication.
+- Ready handoff: `docs/prompts/ISHAN_NEXT_ITERATION.md`, linked from README/AGENTS/STATUS, covers whole-page scale/hero, locale reliability, completion of the existing organizer, separate parent event list and new logo. These five items remain to be implemented by Ishan; this report is not his acknowledgement.
+- Evidence: production builds/TypeScript and documented focused browser checks passed. Read-only admin inspection returned 200 for `/organizer` and the enabled summary, with 19 real records. No new live scrape, full admin write rehearsal or hosted deployment is claimed. Final publication check is recorded with the integration handoff.
+- Final publication check: `npm run check` passed route types, TypeScript and 132/132 tests. The production build already passed at `20c4e62`; subsequent changes are handoff documents only.
+- Adoption: Ishan fetches main into his role branch at a clean checkpoint and follows the new prompt. No message has been sent to his session and Git cannot wake it.
+
+### Earlier integration report
+
 - Protocol adoption: adopted; protocol commit `87c9020b6b2b9d9a9750499bc7e4372f527c6ac7` is confirmed on `origin/main` and `origin/codex/palash-integration`. Read owner reports from their remote role branches at checkpoints; update only this owner's report. No direct agent connection or background watcher exists.
 - Last updated (UTC): 2026-11-14T19:11:36Z.
 - Current task/slice: P5 integration and running-app verification; P1-P4 are ready.

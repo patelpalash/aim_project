@@ -1,5 +1,15 @@
 # Implementation status and handoff
 
+## 15 November redesign publication and next owner
+
+The interactive redesign at `20c4e62`, including the earlier `166f6b8` and `51ef1a6`, is prepared for main through `codex/atlas-redesign-handoff`. It includes Ishan's language commits `71f18df`/`f76de4c`, the cream/forest/orange frontend, working topic island, five event-taster types, persistent Skip and source handoff. Production build/TypeScript and the documented targeted browser checks passed; see [redesign handoff](LOCAL_REDESIGN_HANDOFF.md) and [QA](../design-qa.md). Cached source coverage limitations remain unchanged; no hosted deployment is claimed.
+
+The user explicitly authorized publishing this version, superseding the earlier local-only instruction. Ishan's next work is [this five-part prompt](prompts/ISHAN_NEXT_ITERATION.md): improve whole-page scale and hero; fix DE/EN behaviour; complete/administer the existing organizer journey; build a simple separate parent list; replace the logo. These are remaining work, not claims about the published baseline. The organizer already exists: `/organizer` and the enabled local `/api/admin/summary` returned HTTP 200, with 19 real records in the summary; this read-only inspection did not re-test publication writes.
+
+Publication validation: `npm run check` passed route generation, TypeScript and **132/132 tests** on this redesign; the preceding production build at `20c4e62` also passed. Only handoff documentation changed after that build.
+
+The sections below record earlier integration/rehearsal evidence, not proof that the five new requests are complete.
+
 Final integration and demo rehearsal: 14 November 2026. Plan revision 3 remains the product scope. This file distinguishes implemented and verified behaviour from what is still open.
 
 **Temporary integration owner:** Umang + Claude ran this final integration and rehearsal because Palash's Codex session hit its usage limit. Ownership is unchanged: Ishan owns all design/frontend, Palash owns shared contracts/root tooling and `main` integration, Umang owns `src/server/`, `src/app/api/` and `data/`.
