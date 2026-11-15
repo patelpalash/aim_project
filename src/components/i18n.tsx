@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
 import type { ReactNode } from "react";
 import type { Locale } from "@/shared/contracts";
 import { DEFAULT_LOCALE, LOCALE_NAME, LOCALES, isLocale } from "@/shared/i18n";
@@ -26,8 +26,10 @@ function format(template: string, vars?: Record<string, string | number>): strin
  */
 export function LocaleProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(DEFAULT_LOCALE);
+  const explicitlyChosen = useRef(false);
 
   useEffect(() => {
+    if (explicitlyChosen.current) return;
     let stored: string | null = null;
     try { stored = window.localStorage.getItem(STORAGE_KEY); } catch { stored = null; }
     if (isLocale(stored)) { setLocaleState(stored); return; }
@@ -38,6 +40,8 @@ export function LocaleProvider({ children }: { children: ReactNode }) {
   useEffect(() => { document.documentElement.lang = locale; }, [locale]);
 
   const setLocale = useCallback((next: Locale) => {
+    explicitlyChosen.current = true;
+    document.documentElement.lang = next;
     setLocaleState(next);
     try { window.localStorage.setItem(STORAGE_KEY, next); } catch { /* a blocked store only loses the preference */ }
   }, []);

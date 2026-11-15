@@ -17,6 +17,8 @@ import { EventCard } from "./EventCard";
 import { MapView } from "./MapView";
 import { PlaySection } from "./PlaySection";
 import { ShortlistSheet } from "./ShortlistSheet";
+import { BrandLogo } from "../BrandLogo";
+import { ParentDiscovery } from "./ParentDiscovery";
 import { HeroWorld } from "./HeroWorld";
 import { providerName } from "./format";
 import { LanguageSwitch, useLocale } from "../i18n";
@@ -71,12 +73,14 @@ export function Discovery() {
   const counterRef = useRef<HTMLSpanElement>(null);
   const shortlistBtnRef = useRef<HTMLButtonElement>(null);
 
+  const localeRef = useRef(locale);
+  localeRef.current = locale;
   const load = useCallback(() => {
     const ctl = new AbortController();
     setCatalog({ phase: "loading" });
-    loadBundle(ctl.signal, undefined, locale).then(setCatalog).catch(() => undefined);
+    loadBundle(ctl.signal, undefined, localeRef.current).then(next => { if (!ctl.signal.aborted) setCatalog(next); }).catch(() => undefined);
     return () => ctl.abort();
-  }, [locale]);
+  }, []);
   useEffect(() => load(), [load]);
   useEffect(() => {
     setVt(supportsViewTransitions());
@@ -181,15 +185,40 @@ export function Discovery() {
   // Keep reviewed activities prominent; explicit date/title sorts still retain their exact order.
   const displayOffers = state.sort === "recommended" ? [...results.matches].sort((a, b) => Number(a.source.kind === "demo") - Number(b.source.kind === "demo")) : results.matches;
 
+  const dialogs = (<>
+      {selectedOffer ? (
+        <DetailSheet key={selectedOffer.id} offer={selectedOffer} allowGame={!adult} provider={providerName(selectedOffer.providerId, providers)}
+          saved={state.savedOfferIds.includes(selectedOffer.id)} onSave={() => toggleSave(selectedOffer)}
+          focusFallback={resultsRef}
+          onShowAdult={adult ? undefined : () => {
+            if (!state.savedOfferIds.includes(selectedOffer.id)) dispatch({ type: "toggle-saved", id: selectedOffer.id });
+            dispatch({ type: "set-audience-mode", mode: "parent" });
+            dispatch({ type: "select-offer", id: null });
+            setShortlistTab("parent");
+          }}
+          onClose={() => dispatch({ type: "select-offer", id: null })} />
+      ) : null}
+      {shortlistTab && !selectedOffer ? (
+        <ShortlistSheet offers={shortlist.offers} unavailableCount={shortlist.unavailableIds.length}
+          providers={providers} initialTab={shortlistTab === "list" && adult ? "parent" : shortlistTab}
+          focusFallback={shortlistBtnRef}
+          onOpenOffer={o => { setShortlistTab(null); dispatch({ type: "select-offer", id: o.id }); }}
+          onRemove={o => toggleSave(o)}
+          onClose={() => setShortlistTab(null)} />
+      ) : null}
+  </>);
+  if (adult) return <ParentDiscovery offers={results.matches} providers={providers} filters={state.filters} when={when} savedIds={state.savedOfferIds} catalog={catalog} onPatch={p => dispatch({ type: "set-filters", patch: p })} onBack={() => setMode("child")} onOpen={o => dispatch({ type: "select-offer", id: o.id })} onSave={toggleSave} onShortlist={() => setShortlistTab("parent")} onReset={resetAll} onRetry={load} resultsRef={resultsRef}>{dialogs}</ParentDiscovery>;
+
   return (
     <div className="dz atlas-world" data-audience={mode}>
       <a className="skip-link" href="#dz-results-title">{t("dz.skip")}</a>
       <header className={`dz-top${scrolled ? " is-scrolled" : ""}`}>
         <div className="wrap dz-top__in">
-          <a className="dz-logo" href="/" aria-label="Interest Atlas"><Compass size={35} weight="duotone" /><span>Interest Atlas<small>HEILBRONN, VOLLER IDEEN.</small></span></a>
+          <BrandLogo />
           <nav className="atlas-nav" aria-label={say("Hauptnavigation", "Main navigation")}>
             <a className="is-active" href="#atlas-events" onClick={e => { e.preventDefault(); browseEvents(); }}>{say("Entdecken", "Discover")}</a>
-            <button type="button" onClick={() => { setMode("parent"); setShortlistTab("parent"); }}><Users size={19} />{say("Für Eltern", "For parents")}</button>
+            <button type="button" onClick={() => setMode("parent")}><Users size={19} />{say("Für Eltern", "For parents")}</button>
+            <a href="/organizer">{say("Verwaltung", "Admin")}</a>
           </nav>
           <LanguageSwitch />
           <button ref={shortlistBtnRef} type="button" className="dz-shortlist" aria-label={t("dz.shortlistOpen", { n: savedCount })} onClick={() => setShortlistTab("list")}>
@@ -363,26 +392,7 @@ export function Discovery() {
       </footer>
 
       <p className="visually-hidden" role="status" aria-live="polite">{announce}</p>
-      {selectedOffer ? (
-        <DetailSheet key={selectedOffer.id} offer={selectedOffer} provider={providerName(selectedOffer.providerId, providers)}
-          saved={state.savedOfferIds.includes(selectedOffer.id)} onSave={() => toggleSave(selectedOffer)}
-          focusFallback={resultsRef}
-          onShowAdult={adult ? undefined : () => {
-            if (!state.savedOfferIds.includes(selectedOffer.id)) dispatch({ type: "toggle-saved", id: selectedOffer.id });
-            dispatch({ type: "set-audience-mode", mode: "parent" });
-            dispatch({ type: "select-offer", id: null });
-            setShortlistTab("parent");
-          }}
-          onClose={() => dispatch({ type: "select-offer", id: null })} />
-      ) : null}
-      {shortlistTab && !selectedOffer ? (
-        <ShortlistSheet offers={shortlist.offers} unavailableCount={shortlist.unavailableIds.length}
-          providers={providers} initialTab={shortlistTab === "list" && adult ? "parent" : shortlistTab}
-          focusFallback={shortlistBtnRef}
-          onOpenOffer={o => { setShortlistTab(null); dispatch({ type: "select-offer", id: o.id }); }}
-          onRemove={o => toggleSave(o)}
-          onClose={() => setShortlistTab(null)} />
-      ) : null}
+      {dialogs}
     </div>
   );
 }

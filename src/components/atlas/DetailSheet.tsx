@@ -14,12 +14,13 @@ import { prefersReducedMotion, useSheetMotion } from "./motion";
 import { useLocale } from "../i18n";
 
 /** Event details as a side sheet (bottom sheet on phones). Focus moves in and stays in, Esc/Back close, focus returns. */
-export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName, provider, focusFallback }: {
+export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName, provider, focusFallback, allowGame = true }: {
   offer: Offer; provider: string; saved: boolean; onSave: () => void; onClose: () => void; onShowAdult?: () => void;
   /** When set, the browser morphs the card into this sheet; the CSS slide-in fallback is skipped. */
   vtName?: string;
   /** Gets focus if the element that opened the sheet is gone by the time it closes. */
   focusFallback?: RefObject<HTMLElement | null>;
+  allowGame?: boolean;
 }) {
   const { locale, t } = useLocale();
   const closeRef = useRef<HTMLButtonElement>(null);
@@ -32,7 +33,7 @@ export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName
   const lead = offer.interests[0];
   const demo = offer.source.kind === "demo";
   const eventUrl = eventPageUrl(offer);
-  const hasGame = challengeFor(offer) !== null;
+  const hasGame = allowGame && challengeFor(offer) !== null;
   const skipGame = () => {
     setPlaying(false);
     requestAnimationFrame(() => {
@@ -55,7 +56,7 @@ export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName
           <h2 id="sheet-title" style={{ fontSize: "var(--text-xl)", ["--n" as string]: 1 }}>{pick(offer.title, locale)}</h2>
           <p className="muted" style={{ ["--n" as string]: 2 }}>{pick(offer.summary, locale)}</p>
           <div className="detail-quick-facts"><span>{formatAge(offer, locale)}</span><span>{formatPrice(offer, locale)}</span><span>{availabilityLabel(offer.availability, locale)}</span></div>
-          <div><EventChallenge offer={offer} saved={saved} onSave={onSave} open={playing} onOpen={() => setPlaying(true)} onSkip={skipGame} /></div>
+          {allowGame ? <div><EventChallenge offer={offer} saved={saved} onSave={onSave} open={playing} onOpen={() => setPlaying(true)} onSkip={skipGame} /></div> : null}
           <h3 ref={factsRef} tabIndex={-1} className="event-facts-heading">{locale === "de" ? "Alles zum Event" : "Your event details"}</h3>
           <dl className="facts" style={{ ["--n" as string]: 3 }}>
             <dt>{t("facts.when")}</dt><dd>{formatWhen(offer, locale)}</dd>
