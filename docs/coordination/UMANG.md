@@ -6,8 +6,8 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 ## Current report
 
 - Protocol adoption: adopted 2026-11-14. Owner reports are read from their remote branches: PALASH.md from `origin/codex/palash-integration`, ISHAN.md from `origin/codex/ishan-design`.
-- Last updated (UTC): 2026-11-14T20:35Z. Checkpoint: `origin/main` = `a7b4f83`; `origin/codex/ishan-design` = `616483f` (code `c072a22`), both merged here.
-- Current task/slice: **temporary final integration and demo readiness** (Palash's Codex session hit its usage limit). Ishan's final frontend acceptance is integrated and re-checked; PR into `main` opened from this branch.
+- Last updated (UTC): 2026-11-15. Checkpoint: `origin/main` = `308f11b` (fast-forwarded into this branch); `origin/codex/ishan-design` `f76de4c` is contained in main.
+- Current task/slice: small finishing pass from `docs/prompts/ISHAN_FINISHING_PASS.md` (items 1–4), run from Umang's session at the user's request; two CSS defects fixed (`a4023aa`, `b0d3ec0`).
 - State: U1–U6 backend done. The public catalogue has **19 evidence-reviewed real events** (aim 8, experimenta 1, Haus der Familie 10) plus the 8 labelled demo examples, read from `GET /api/offers` at this rehearsal; the homepage shows "19 geprüfte Angebote · 8 Demo-Beispiele (erfunden)".
 - Based on `main` commit: `a7b4f83`. Code SHA for this slice: **`5467b62`**.
 - Next independent task: U6 support and demo rehearsal. Palash resumes `main` integration when available.
@@ -25,6 +25,33 @@ Only this owner updates this file. Follow [COLLABORATION.md](../COLLABORATION.md
 - **One defect found and fixed in my own area** (`5467b62`): a failed local refresh writes the git-ignored `data/source-runs/<provider>-last-attempt.json`, but the source-status test sandbox copied all of `data/` and stripped only `published-offers.json` and `review-sessions`. The marker leaked into the fixture and reported experimenta as `error`, so `npm run check` failed 122/123 on any machine where a refresh had failed. The sandbox now strips the attempt markers; verified by failing a live IPAI refresh and re-running the suite (123/123 with the marker present).
 - **Checklist items closed by this round:** R12 (200 % text and larger-text zoom, via Ishan's acceptance), the quiz skip/back/edit and puzzle retry paths including the related-events link (clicked: it turned on 3 interests and moved the result count 24 → 20), and slow loading plus empty results. Still open: measured colour contrast, a screen-reader pass, a usability session with an actual nontechnical organizer, a run with the network physically disabled, the experimenta occurrence-ID reschedule case, and hosted deployment.
 - **Request to Ishan:** none open. His phone, keyboard and reduced-motion evidence at `c072a22` is integrated as reported; if he wants the remaining accessibility items closed, measured contrast and a screen-reader pass are the two left.
+
+## Finishing pass (ISHAN_FINISHING_PASS.md, items 1–4)
+
+Run in a disposable worktree of `308f11b` with its own `npm ci`, data and runtime catalogue, on Node 24.22.3. Production build served on 127.0.0.1 with `INTEREST_ATLAS_LOCAL_DESK=1`. `npm run check` 132/132 before and after the fixes; `npm run build` clean. Teammates' runtime reviews were not touched.
+
+- **Fixed: phone parent view.** At ≤640 px the parent header wraps to three rows (178 px) and was `position: sticky`, so it covered 27 % (390×664) / 24 % (360×740) of the screen over the event list. It is now static on phones only; desktop and tablet are unchanged. Commit `a4023aa` (`src/components/atlas/parent-discovery.css`).
+- **Fixed: keyboard focus on primary buttons.** Area styles (`.parent-world`, `.atlas-world`, `.org`) set `box-shadow: none` on `.btn--primary`, which also removed the global box-shadow focus ring. Focused "Event & Anmeldung" / "Warteliste / Eventseite" links and "CSV hochladen" showed no focus indicator. These now get a 3 px `--ink` outline on `:focus-visible`; button styling is otherwise unchanged. Commit `b0d3ec0` (`src/styles/base.css`). Checked with a screenshot of the ring.
+- **Item 1, proportions:**
+  - Desktop 1440 px (home, parent, organizer) and phone 390 px have no horizontal overflow and no page errors. The hero, logo, parent rows and organizer look proportionate.
+  - Minor, not fixed: on desktop the parent date column wraps "10:00–" / "12:00", and on a 390 px phone the hero search placeholder truncates ("…discov"). Both are cosmetic.
+- **Item 2, CSV via the file chooser:**
+  - Clicking the real "CSV hochladen" button opens the browser file chooser (`accept=.csv,text/csv`, single file).
+  - Choosing `data/demo-upload.csv` gave 20 rows, 18 selectable. An inline date fix on row 07 made 19.
+  - "Ausgewählte veröffentlichen" stays disabled until the review confirmation is ticked (intended).
+  - Publishing gave "19 veröffentlicht · 1 blockiert geblieben", the public count went 27 → 46, and the run had no page errors. The catalogue was reset afterwards.
+  - This was Chromium automation answering the file-chooser event through the page's real `<input type=file>`. A physical laptop picker was not operated by a person.
+- **Item 3, DE/EN and links:**
+  - The DE/EN switch inside an open event dialog and in the shortlist keeps the dialog open, the saved item and the search.
+  - In EN, German provider titles are labelled "Original provider text in German"; the only German left in EN mode is provider data (titles, addresses).
+  - The admin review in EN has no German interface labels, and switching to DE keeps the loaded review and its 20 rows.
+  - The parent catalogue has 25 rows (19 reviewed, 6 demo). All 19 reviewed rows link to their exact source URL in a new tab with `noreferrer` ("Event & registration" / "Waiting list / event page"); no demo row has an external link.
+  - No copy defects found.
+- **Item 4, keyboard, reduced motion, larger text:**
+  - At 200 % zoom (720 px at 2×) and 320 px reflow, `/`, the parent view and `/organizer` have no horizontal scroll and no clipped visible text.
+  - After the fix, 30 tab stops on the parent view and on `/organizer` all show visible focus.
+  - With reduced motion, 0 looping or long animations run on the home page (7 run without it).
+  - Not tested: screen reader, contrast measurement, real OS text-size settings, a physical phone.
 
 ## Temporary integration handoff (Umang for Palash)
 
