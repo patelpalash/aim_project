@@ -17,15 +17,19 @@ import { EventCard } from "./EventCard";
 import { MapView } from "./MapView";
 import { PlaySection } from "./PlaySection";
 import { ShortlistSheet } from "./ShortlistSheet";
-import { interestMeta, InterestIcon } from "./interests";
+import Image from "next/image";
 import { providerName } from "./format";
 import { LanguageSwitch, useLocale } from "../i18n";
 import { flyBetween, supportsViewTransitions, useCountUp, useScrollReveal, withTransition } from "./motion";
 import "./discovery.css";
+import { ArrowRight, BookmarkSimple, Compass, MagnifyingGlass, MapPin, SlidersHorizontal, Sparkle, Users } from "@phosphor-icons/react";
+import { AtlasIcon } from "./AtlasIcon";
+import { prefersReducedMotion } from "./motion";
+import "./atlas-redesign.css";
 
 const SORTS: readonly DiscoverySort[] = ["recommended", "soonest", "title"];
 const PRICE_OPTIONS = ["", "0", "10", "25"] as const;
-const AGES = Array.from({ length: 11 }, (_, i) => i + 7); // 7–17: the target audience is 7+
+const AGES = Array.from({ length: 15 }, (_, i) => i + 3);
 const PROVIDERS = ["aim", "experimenta", "Haus der Familie", "IPAI"];
 /** Presentation modes. Switching one only changes wording and emphasis, never the selection. */
 const MODES: readonly AudienceMode[] = ["child", "teen", "parent"];
@@ -46,10 +50,13 @@ function whenOf(filters: { schedule?: string; dateFrom?: string; dateTo?: string
  */
 export function Discovery() {
   const { locale, t } = useLocale();
+  const say = (de: string, en: string) => locale === "de" ? de : en;
   const [catalog, setCatalog] = useState<BundleState>({ phase: "loading" });
   const bundle = catalog.phase === "ready" ? catalog.bundle : null;
   const offers = useMemo(() => bundle?.catalog.offers ?? [], [bundle]);
   const { state, dispatch, results, selectedOffer, shortlist } = useDiscovery(offers);
+
+  useEffect(() => { dispatch({ type: "set-filters", patch: whenPatch("all") }); }, [dispatch]);
 
   const [pulse, setPulse] = useState<Interest | null>(null);
   const [view, setView] = useState<"list" | "map">("list");
@@ -99,8 +106,8 @@ export function Discovery() {
    * at all made them promise more offers than the page then displayed.
    */
   const timeWindow = useMemo(() => ({
-    schedule: state.filters.schedule, dateFrom: state.filters.dateFrom, dateTo: state.filters.dateTo
-  }), [state.filters.schedule, state.filters.dateFrom, state.filters.dateTo]);
+    schedule: state.filters.schedule, dateFrom: state.filters.dateFrom, dateTo: state.filters.dateTo, audience: state.filters.audience
+  }), [state.filters.schedule, state.filters.dateFrom, state.filters.dateTo, state.filters.audience]);
   const perTopic = useMemo(() => Object.fromEntries(topicDefs.map(t => {
     try { return [t.id, filterOffers(offers, { ...timeWindow, topics: [t.id] }).length]; } catch { return [t.id, 0]; }
   })) as Record<string, number>, [offers, topicDefs, timeWindow]);
@@ -119,7 +126,7 @@ export function Discovery() {
   const query = state.filters.query ?? "";
   const shownCount = useCountUp(results.total);
   const activeCount = [query.trim(), interests.length, topics.length, state.filters.age !== undefined, state.filters.providerId,
-    state.filters.maxPriceEur !== undefined, state.filters.format, state.filters.stepFreeOnly, when !== "soon"].filter(Boolean).length;
+    state.filters.maxPriceEur !== undefined, state.filters.format, state.filters.stepFreeOnly, when !== "all", state.filters.audience !== "family"].filter(Boolean).length;
 
   useEffect(() => {
     if (catalog.phase !== "ready") return;
@@ -157,10 +164,12 @@ export function Discovery() {
    */
   const resetAll = () => withTransition(() => {
     dispatch({ type: "clear-filters" });
+    dispatch({ type: "set-filters", patch: whenPatch("all") });
     setAnnounce(t("say.filtersReset"));
   });
   const resetSession = () => withTransition(() => {
     dispatch({ type: "reset" });
+    dispatch({ type: "set-filters", patch: whenPatch("all") });
     setShortlistTab(null); setPulse(null); setView("list"); setBump(0);
     setPlaySession(value => value + 1);
     setAnnounce(t("say.sessionReset"));
@@ -168,132 +177,77 @@ export function Discovery() {
   const savedCount = shortlist.offers.length + shortlist.unavailableIds.length;
   const nameFor = (id: string, idx: number) => (vt && idx < MAX_NAMED ? `offer-${id.replace(/[^a-zA-Z0-9_-]/g, "_")}` : undefined);
   const openIdx = selectedOffer ? results.matches.findIndex(o => o.id === selectedOffer.id) : -1;
+  // Keep reviewed activities prominent; explicit date/title sorts still retain their exact order.
+  const displayOffers = state.sort === "recommended" ? [...results.matches].sort((a, b) => Number(a.source.kind === "demo") - Number(b.source.kind === "demo")) : results.matches;
 
   return (
-    <div className="dz">
+    <div className="dz atlas-world" data-audience={mode}>
       <a className="skip-link" href="#dz-results-title">{t("dz.skip")}</a>
       <header className={`dz-top${scrolled ? " is-scrolled" : ""}`}>
         <div className="wrap dz-top__in">
-          <a className="dz-logo" href="/"><span className="dz-logo__mark" aria-hidden="true" />Interest Atlas</a>
-          <div className="dz-view dz-mode" role="group" aria-label={t("dz.presentation")}>
-            {MODES.map(m => (
-              <button key={m} type="button" aria-pressed={mode === m} onClick={() => setMode(m)}>{t(`mode.${m}`)}</button>
-            ))}
-          </div>
+          <a className="dz-logo" href="/" aria-label="Interest Atlas"><Compass size={35} weight="duotone" /><span>Interest Atlas<small>HEILBRONN, VOLLER IDEEN.</small></span></a>
+          <nav className="atlas-nav" aria-label={say("Hauptnavigation", "Main navigation")}>
+            <a className="is-active" href="#atlas-events">{say("Entdecken", "Discover")}</a>
+            <button type="button" onClick={() => { setMode("parent"); setShortlistTab("parent"); }}><Users size={19} />{say("Für Eltern", "For parents")}</button>
+          </nav>
           <LanguageSwitch />
-          <button ref={shortlistBtnRef} type="button" className="dz-shortlist" aria-label={t("dz.shortlistOpen", { n: savedCount })}
-            onClick={() => withTransition(() => setShortlistTab("list"))}>
-            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.3-9.2C1.3 8 3.6 4.5 7.2 4.5c2 0 3.6 1.1 4.8 2.8 1.2-1.7 2.8-2.8 4.8-2.8 3.6 0 5.9 3.5 4.5 7.3C19.5 16.4 12 21 12 21z" fill={savedCount ? "#ff6b8a" : "none"} stroke={savedCount ? "#ff6b8a" : "currentColor"} strokeWidth="2" /></svg>
-            <span ref={counterRef} key={bump} className={bump ? "dz-shortlist__n m-bump" : "dz-shortlist__n"}>{savedCount}</span>
-            <span aria-hidden="true">{t("dz.saved")}</span>
+          <button ref={shortlistBtnRef} type="button" className="dz-shortlist" aria-label={t("dz.shortlistOpen", { n: savedCount })} onClick={() => withTransition(() => setShortlistTab("list"))}>
+            <BookmarkSimple size={21} weight={savedCount ? "fill" : "regular"} />
+            <span className="saved-word">{say("Merkliste", "Saved")}</span><span ref={counterRef} key={bump} className={bump ? "dz-shortlist__n m-bump" : "dz-shortlist__n"}>{savedCount}</span>
           </button>
         </div>
       </header>
 
       <main>
-        <section className="dz-hero" aria-labelledby="dz-title">
-          <div className="wrap dz-hero__in">
-            <p className="eyebrow m-up" style={{ "--d": -2 } as CSSProperties}>{t(`copy.${mode}.eyebrow`)}</p>
-            {adult ? (
-              <h1 id="dz-title" className="m-words">{t("dz.titleAdult")}</h1>
-            ) : (
-              <h1 id="dz-title" className="m-words" aria-label={t("dz.titleAria")}>
-                <span aria-hidden="true" style={{ "--w": 0 } as CSSProperties}>{t("dz.titlePre")}&nbsp;</span>
-                <span className="dz-rot" aria-hidden="true" style={{ "--w": 1 } as CSSProperties}>
-                  {/* The last word repeats the first so the rotation loops without a jump. */}
-                  <span className="dz-rot__list">{([1, 2, 3, 1] as const).map((w, n) => <span key={n}>{t(`dz.rot.${w}`)}</span>)}</span>
-                </span>
-                <span aria-hidden="true" style={{ "--w": 2 } as CSSProperties}>{t("dz.titlePost")}</span>
-              </h1>
-            )}
-            <p className="dz-lede m-up" style={{ "--d": 1 } as CSSProperties}>{t(`copy.${mode}.lede`)}</p>
-            <form className="dz-search m-up" style={{ "--d": 2 } as CSSProperties} role="search" onSubmit={e => { e.preventDefault(); resultsRef.current?.focus(); resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }); }}>
-              <svg width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" strokeWidth="2" /><path d="m20 20-3.5-3.5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" /></svg>
-              <label htmlFor="dz-q" className="visually-hidden">{t("dz.searchLabel")}</label>
-              <input id="dz-q" type="search" value={query} onChange={e => patch({ query: e.target.value || undefined })} placeholder={t("dz.searchPlaceholder")} autoComplete="off" />
-              <button type="submit" className="btn btn--primary">{t("dz.searchSubmit")}</button>
+        <section className="atlas-hero wrap" aria-labelledby="dz-title">
+          <div className="atlas-hero__copy">
+            <p className="atlas-eyebrow"><MapPin size={16} weight="fill" />{say("KLEINE IDEEN. ECHTE ABENTEUER.", "LITTLE IDEAS. REAL ADVENTURES.")}</p>
+            <h1 id="dz-title">{adult ? say("Gemeinsam Neues", "Discover something") : say("Dein nächstes", "Your next")}<br /><em>{adult ? say("entdecken.", "new together.") : say("Abenteuer.", "adventure.")}</em></h1>
+            <p>{say("Roboter bauen, Spiele erfinden, KI verstehen. Finde Kurse und Events in Heilbronn, die dich neugierig machen.", "Build robots, invent games, understand AI. Find courses and events in Heilbronn that spark your curiosity.")}</p>
+            <form className="atlas-search" role="search" onSubmit={e => { e.preventDefault(); resultsRef.current?.focus(); resultsRef.current?.scrollIntoView({ behavior: prefersReducedMotion() ? "instant" : "smooth", block: "start" }); }}>
+              <MagnifyingGlass size={23} aria-hidden="true" /><label className="visually-hidden" htmlFor="dz-q">{t("dz.searchLabel")}</label>
+              <input id="dz-q" type="search" value={query} onChange={e => patch({ query: e.target.value || undefined })} placeholder={say("Was möchtest du entdecken?", "What would you like to discover?")} autoComplete="off" />
+              <button className="btn btn--primary" type="submit">{t("dz.searchSubmit")}<ArrowRight size={18} /></button>
             </form>
-            <ul className="dz-providers m-up" style={{ "--d": 3 } as CSSProperties} aria-label={t("dz.providers")}>
-              {PROVIDERS.map(p => <li key={p}>{p}</li>)}
-            </ul>
+            <a className="atlas-browse" href="#atlas-events">{say("Direkt zu allen Angeboten", "Browse all activities")}<ArrowRight size={17} /></a>
+          </div>
+          <div className="atlas-world-scene">
+            <Image src="/art/atlas-world.png" alt={say("Eine fantasievolle Themeninsel mit Roboterwerkstatt, Bausteinen und Coding-Gewächshaus", "An imaginary interest island with a robot workshop, building blocks and a coding greenhouse")} width={1536} height={1024} priority sizes="(max-width: 580px) 85vw, (max-width: 1320px) 50vw, 640px" />
+            <div className="atlas-world-labels" role="group" aria-label={say("Themen auf der Insel", "Island topics")}>
+              {topicDefs.map((topic, index) => <button key={topic.id} type="button" className={`world-label world-label--${index % 3}`} aria-pressed={topics.includes(topic.id)} onClick={() => { toggleTopic(topic.id); }}><AtlasIcon interest={topic.id === "coding" ? "build-apps" : topic.id === "gaming" ? "build-games" : "robots"} size={20} />{pick(topic.label, locale)}<ArrowRight size={15} /></button>)}
+            </div>
+            <p className="atlas-scene-note">{say("Deine Themenwelt · keine Landkarte", "Your interest world · not a map")}</p>
+          </div>
+        </section>
+        <div className="atlas-sources wrap"><span>{say("VIELE ORTE. EINE ENTDECKUNGSREISE.", "MANY PLACES. ONE ADVENTURE.")}</span><ul aria-label={t("dz.providers")}>{PROVIDERS.map(p => <li key={p}>{p}</li>)}</ul><span>{say("Ohne Konto. Einfach loslegen.", "No account. Just explore.")}</span></div>
+
+        <section className="wrap atlas-interest-section" aria-labelledby="dz-board-title">
+          <div className="atlas-interest-heading"><h2 id="dz-board-title">{say("Worauf hast du Lust?", "What sounds like you?")}</h2><p>{say("Wähle ein Interesse. Oder entdecke einfach alles.", "Pick an interest. Or explore everything.")}</p></div>
+          <div className="atlas-interests" role="group" aria-labelledby="dz-board-title">
+            {tiles.map(tile => <button key={tile.id} type="button" className="atlas-interest" aria-pressed={interests.includes(tile.id)} onClick={() => toggleInterest(tile.id)}><AtlasIcon interest={tile.id} size={24} /><span>{pick(tile.label, locale)}</span><small>{perInterest[tile.id] ?? 0}</small></button>)}
+            {catalog.phase === "loading" ? <p className="muted">{t("dz.interestsLoading")}</p> : null}
+            {interests.length ? <button type="button" className="dz-link" onClick={() => patch({ interests: undefined })}>{say("Alle Interessen", "All interests")}</button> : null}
           </div>
         </section>
 
-        <section className="wrap dz-topics" aria-labelledby="dz-topics-title">
-          <div className="dz-board__head reveal">
-            <h2 id="dz-topics-title">{t(adult ? "dz.topicsTitleAdult" : "dz.topicsTitle")}</h2>
-            <p className="muted">
-              {catalog.phase !== "ready"
-                ? t("dz.topicsLoading")
-                : topics.length
-                  ? t("dz.topicsChosen", { n: topics.length, m: topicDefs.length })
-                  : t("dz.topicsHint")}
-            </p>
-          </div>
-          <div className="dz-topic-row reveal" role="group" aria-labelledby="dz-topics-title">
-            {topicDefs.map(topic => (
-              <button key={topic.id} type="button" className="chip chip--topic" aria-pressed={topics.includes(topic.id)} onClick={() => toggleTopic(topic.id)}>
-                {pick(topic.label, locale)}
-                <span className="chip__n">{catalog.phase === "ready" ? perTopic[topic.id] : "…"}</span>
-              </button>
-            ))}
-            {topics.length ? (
-              <button type="button" className="dz-link" onClick={() => withTransition(() => dispatch({ type: "set-filters", patch: { topics: undefined } }))}>
-                {t("dz.topicsReset")}
-              </button>
-            ) : null}
-          </div>
-        </section>
-
-        <section className="wrap dz-board" aria-labelledby="dz-board-title">
-          <div className="dz-board__head reveal">
-            <h2 id="dz-board-title">{t(adult ? "dz.boardTitleAdult" : "dz.boardTitle")}</h2>
-            <p className="muted">{catalog.phase !== "ready" ? t("dz.interestsLoading") : interests.length ? t("dz.interestsChosen", { n: interests.length }) : t(`copy.${mode}.board`)}</p>
-          </div>
-          <div className="dz-tiles" role="group" aria-labelledby="dz-board-title">
-            {tiles.map((tile, n) => {
-              const meta = interestMeta(tile.id, pick(tile.label, locale), t);
-              const on = interests.includes(tile.id);
-              return (
-                <button key={tile.id} type="button" aria-pressed={on} className={`dz-tile reveal${on ? " is-on" : ""}`}
-                  style={{ "--a": meta.a, "--b": meta.b, "--d": n } as CSSProperties}
-                  onClick={() => toggleInterest(tile.id)}>
-                  <span className={`dz-tile__orb${pulse === tile.id ? " m-glow" : ""}`} onAnimationEnd={() => setPulse(null)}><InterestIcon interest={tile.id} size={30} /></span>
-                  <span className="dz-tile__label">{meta.label}</span>
-                  <span className="dz-tile__hint">{meta.hint}</span>
-                  <span className="dz-tile__count">{catalog.phase === "ready" ? t(perInterest[tile.id] === 1 ? "offers.one" : "offers.many", { n: perInterest[tile.id] ?? 0 }) : "…"}</span>
-                  <span className="dz-tile__check" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 16 16"><path d="m3 8.5 3.2 3L13 4.5" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
-                </button>
-              );
-            })}
-          </div>
-        </section>
-
-        {adult ? (
-          <section className="wrap play" aria-label={t("play.sectionLabel")}>
-            <p className="status-line">{t("play.adultNote")}</p>
-          </section>
-        ) : (
-        <PlaySection key={playSession} taxonomy={bundle?.taxonomy ?? null} quizAnswers={state.quizAnswers}
-          completedPuzzleIds={state.completedPuzzleIds} selectedInterests={interests}
-          onAnswer={(questionId, choiceId) => dispatch({ type: "set-quiz-answer", questionId, choiceId })}
-          onPuzzleDone={id => dispatch({ type: "complete-puzzle", id })}
-          onResetPlay={() => dispatch({ type: "reset-play" })}
-          onApplyInterests={ids => {
-            withTransition(() => { for (const id of ids) if (!interests.includes(id)) dispatch({ type: "toggle-interest", id }); });
-            setAnnounce(t(ids.length === 1 ? "say.interestApplied" : "say.interestsApplied"));
-            resultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-          }} />
-        )}
-
-        <section className="wrap dz-explore" aria-labelledby="dz-results-title">
-          <div className="dz-controls panel reveal">
-            <div className="dz-when" role="group" aria-label={t("filters.when")}>
+        <section id="atlas-events" className="wrap dz-explore" aria-labelledby="dz-results-title">
+          <div className="atlas-collection-heading"><div><p className="atlas-eyebrow">{say("DEINE STADT KANN MEHR", "THERE’S MORE TO YOUR CITY")}</p><h2>{say("Was möchtest du als Nächstes erleben?", "What will you try next?")}</h2></div><div className="dz-view dz-mode" role="group" aria-label={t("dz.presentation")}>{MODES.map(m => <button key={m} type="button" aria-pressed={mode === m} onClick={() => setMode(m)}>{t(`mode.${m}`)}</button>)}</div></div>
+          <div className="dz-controls panel">
+            <div className="atlas-filter-top"><span className="atlas-filter-label"><SlidersHorizontal size={19} />{say("Deine Auswahl", "Your selection")}</span><div className="dz-when" role="group" aria-label={t("filters.when")}>
               {WHENS.map(w => (
                 <button key={w} type="button" className="chip" aria-pressed={when === w} onClick={() => patch(whenPatch(w))}>{t(`when.${w}`)}</button>
               ))}
             </div>
+            </div>
+            <div className="atlas-topic-filters" role="group" aria-label={say("Themen filtern", "Filter by topic")}>
+              {topicDefs.map(topic => <button type="button" key={topic.id} className="chip" aria-pressed={topics.includes(topic.id)} onClick={() => toggleTopic(topic.id)}>{pick(topic.label, locale)}<small>{perTopic[topic.id] ?? 0}</small></button>)}
+            </div>
+            <details className="atlas-more-filters"><summary>{say("Alter, Anbieter, Kosten & mehr", "Age, provider, cost & more")}{activeCount ? ` (${activeCount})` : ""}</summary>
             <div className="dz-filters">
+              <label className="dz-field"><span>{say("Zielgruppe", "Who is it for?")}</span>
+                <select value={state.filters.audience ?? ""} onChange={e => patch({ audience: (e.target.value || undefined) as SearchFilters["audience"] })}>
+                  <option value="family">{say("Kinder & Familien", "Children & families")}</option><option value="">{say("Alle Zielgruppen", "Everyone")}</option><option value="parent">{say("Nur Elternangebote", "Parent activities")}</option><option value="school">{say("Nur Schulgruppen", "School groups")}</option>
+                </select></label>
               <label className="dz-field"><span>{t("filters.age")}</span>
                 <select value={state.filters.age ?? ""} onChange={e => { const v = e.target.value; patch({ age: v ? Number(v) : undefined }); }}>
                   <option value="">{t("filters.any")}</option>{AGES.map(a => <option key={a} value={a}>{t("filters.years", { n: a })}</option>)}
@@ -319,6 +273,7 @@ export function Discovery() {
               <label className="dz-check"><input type="checkbox" checked={state.filters.stepFreeOnly ?? false} onChange={e => { const v = e.target.checked; patch({ stepFreeOnly: v || undefined }); }} /> {t("filters.stepFree")}</label>
               <button type="button" className="btn dz-reset" onClick={resetAll} disabled={!activeCount}>{t("filters.reset")}{activeCount ? ` (${activeCount})` : ""}</button>
             </div>
+            </details>
             {(state.filters.age !== undefined || state.filters.maxPriceEur !== undefined || state.filters.stepFreeOnly) ? <p className="dz-hint">{t("filters.hint")}</p> : null}
           </div>
 
@@ -362,7 +317,7 @@ export function Discovery() {
               onOpen={o => withTransition(() => dispatch({ type: "select-offer", id: o.id }))} />
           ) : results.matches.length ? (
             <div className="dz-grid">
-              {results.matches.map((o, idx) => (
+              {displayOffers.map((o, idx) => (
                 <EventCard key={o.id} offer={o} index={Math.min(idx, 8)} saved={state.savedOfferIds.includes(o.id)}
                   provider={providerName(o.providerId, providers)}
                   matches={interests.filter(i => o.interests.includes(i))}
@@ -384,6 +339,25 @@ export function Discovery() {
             </div>
           )}
         </section>
+        <details className="wrap atlas-play-more"><summary><Sparkle size={23} weight="duotone" /><span>{say("Noch keine Idee? Finde heraus, was dir Spaß macht.", "Not sure yet? Find out what you enjoy.")}</span><ArrowRight size={20} /></summary>
+        {adult ? (
+          <section className="wrap play" aria-label={t("play.sectionLabel")}>
+            <p className="status-line">{t("play.adultNote")}</p>
+          </section>
+        ) : (
+        <PlaySection key={playSession} taxonomy={bundle?.taxonomy ?? null} quizAnswers={state.quizAnswers}
+          completedPuzzleIds={state.completedPuzzleIds} selectedInterests={interests}
+          onAnswer={(questionId, choiceId) => dispatch({ type: "set-quiz-answer", questionId, choiceId })}
+          onPuzzleDone={id => dispatch({ type: "complete-puzzle", id })}
+          onResetPlay={() => dispatch({ type: "reset-play" })}
+          onApplyInterests={ids => {
+            withTransition(() => { for (const id of ids) if (!interests.includes(id)) dispatch({ type: "toggle-interest", id }); });
+            setAnnounce(t(ids.length === 1 ? "say.interestApplied" : "say.interestsApplied"));
+            resultsRef.current?.scrollIntoView({ behavior: prefersReducedMotion() ? "instant" : "smooth", block: "start" });
+          }} />
+        )}
+
+        </details>
       </main>
 
       <footer className="wrap dz-foot reveal">
@@ -395,7 +369,7 @@ export function Discovery() {
 
       <p className="visually-hidden" role="status" aria-live="polite">{announce}</p>
       {selectedOffer ? (
-        <DetailSheet offer={selectedOffer} provider={providerName(selectedOffer.providerId, providers)}
+        <DetailSheet key={selectedOffer.id} offer={selectedOffer} provider={providerName(selectedOffer.providerId, providers)}
           saved={state.savedOfferIds.includes(selectedOffer.id)} onSave={() => toggleSave(selectedOffer)}
           vtName={openIdx >= 0 ? nameFor(selectedOffer.id, openIdx) : undefined}
           focusFallback={resultsRef}

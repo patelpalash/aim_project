@@ -3,9 +3,13 @@
 import { useRef, type RefObject } from "react";
 import type { Offer } from "@/shared/contracts";
 import { pick } from "@/shared/i18n";
-import { interestMeta, InterestIcon } from "./interests";
+import { interestMeta } from "./interests";
 import { accessLabel, availabilityLabel, formatAge, formatPrice, formatStamp, formatWhen } from "./format";
 import { useDialog } from "./use-dialog";
+import { EventChallenge } from "./EventChallenge";
+import { AtlasIcon } from "./AtlasIcon";
+import { ArrowLeft, ArrowUpRight } from "@phosphor-icons/react";
+import { eventPageUrl } from "./challenge";
 import { useLocale } from "../i18n";
 
 /** Event details as a side sheet (bottom sheet on phones). Focus moves in and stays in, Esc/Back close, focus returns. */
@@ -22,20 +26,23 @@ export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName
   useDialog(dialogRef, onClose, { initial: closeRef, fallback: focusFallback });
   const lead = offer.interests[0];
   const demo = offer.source.kind === "demo";
+  const eventUrl = eventPageUrl(offer);
   return (
     <>
       <div className="sheet-scrim m-scrim" onClick={onClose} aria-hidden="true" />
       <div ref={dialogRef} tabIndex={-1} className={vtName ? "sheet" : "sheet m-sheet"} role="dialog" aria-modal="true" aria-labelledby="sheet-title"
         style={{ ["--a" as string]: lead ? interestMeta(lead).a : "var(--accent-a)", ["--b" as string]: lead ? interestMeta(lead).b : "var(--accent-b)", viewTransitionName: vtName }}>
         <div className="sheet__head">
-          <button ref={closeRef} type="button" className="btn icon-btn" onClick={onClose} aria-label={t("sheet.back")}>←</button>
+          <button ref={closeRef} type="button" className="btn icon-btn" onClick={onClose} aria-label={t("sheet.back")}><ArrowLeft size={22} /></button>
           {demo ? <span className="tag tag--demo">{t("tag.demoOffer")}</span> : <span className="tag tag--verified">{t("tag.verifiedSource")}</span>}
-          {lead ? <span className="sheet__icon" aria-hidden="true"><InterestIcon interest={lead} size={36} /></span> : null}
+          {lead ? <span className="sheet__icon" aria-hidden="true"><AtlasIcon interest={lead} size={36} /></span> : null}
         </div>
         <div className="sheet__body m-cascade">
           <p className="event-card__when" style={{ ["--n" as string]: 0 }}>{formatWhen(offer, locale)}</p>
           <h2 id="sheet-title" style={{ fontSize: "var(--text-xl)", ["--n" as string]: 1 }}>{pick(offer.title, locale)}</h2>
           <p className="muted" style={{ ["--n" as string]: 2 }}>{pick(offer.summary, locale)}</p>
+          <div className="detail-quick-facts"><span>{formatAge(offer, locale)}</span><span>{formatPrice(offer, locale)}</span><span>{availabilityLabel(offer.availability, locale)}</span></div>
+          <EventChallenge offer={offer} saved={saved} onSave={onSave} />
           <dl className="facts" style={{ ["--n" as string]: 3 }}>
             <dt>{t("facts.when")}</dt><dd>{formatWhen(offer, locale)}</dd>
             <dt>{t("facts.age")}</dt><dd>{formatAge(offer, locale)}</dd>
@@ -52,7 +59,8 @@ export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName
         </div>
         <div className="sheet__foot">
           <button type="button" className="btn" aria-pressed={saved} onClick={onSave}>{t(saved ? "sheet.saved" : "sheet.save")}</button>
-          {onShowAdult ? <button type="button" className="btn btn--primary" onClick={onShowAdult}>{t("sheet.showAdult")}</button> : null}
+          {onShowAdult ? <button type="button" className="btn" onClick={onShowAdult}>{t("sheet.showAdult")}</button> : null}
+          {eventUrl ? <a className="btn btn--primary" href={eventUrl} target="_blank" rel="noopener noreferrer">{locale === "de" ? "Zur Eventseite" : "Event website"}<ArrowUpRight size={18} /></a> : null}
         </div>
       </div>
     </>

@@ -15,9 +15,9 @@ export const metadata: Metadata = {
   description: "Lernangebote in Heilbronn entdecken: KI, Coding und Gaming für Familien. — Discover learning activities in Heilbronn: AI, coding and gaming for families."
 };
 
-export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover", themeColor: "#ffffff" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, viewportFit: "cover", themeColor: "#fbf7ef" };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
   // `lang` starts at the source language and is set to the visitor's choice by LocaleProvider.
-  return <html lang="de" className={`${jakarta.variable} ${inter.variable}`}><body><LocaleProvider>{children}</LocaleProvider></body></html>;
+  return <html lang="de" translate="no" className={`${jakarta.variable} ${inter.variable}`}><body><LocaleProvider>{children}</LocaleProvider></body></html>;
 }
