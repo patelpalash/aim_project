@@ -11,7 +11,7 @@ import { AtlasIcon } from "./AtlasIcon";
 import { ArrowLeft, ArrowUpRight, SkipForward } from "@phosphor-icons/react";
 import { challengeFor, eventPageUrl } from "./challenge";
 import { prefersReducedMotion, useSheetMotion } from "./motion";
-import { useLocale } from "../i18n";
+import { LanguageSwitch, useLocale } from "../i18n";
 
 /** Event details as a side sheet (bottom sheet on phones). Focus moves in and stays in, Esc/Back close, focus returns. */
 export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName, provider, focusFallback, allowGame = true }: {
@@ -49,6 +49,7 @@ export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName
         <div className="sheet__head">
           <button ref={closeRef} type="button" className="btn icon-btn" onClick={close} aria-label={t("sheet.back")}><ArrowLeft size={22} /></button>
           {demo ? <span className="tag tag--demo">{t("tag.demoOffer")}</span> : <span className="tag tag--verified">{t("tag.verifiedSource")}</span>}
+          <LanguageSwitch />
           {lead ? <span className="sheet__icon" aria-hidden="true"><AtlasIcon interest={lead} size={36} /></span> : null}
         </div>
         <div className="sheet__body m-cascade">

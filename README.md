@@ -6,6 +6,7 @@ A one-day project for **Palash + ChatGPT, Ishan + Claude and Umang + Claude**. F
 
 ## Start here
 
+- **[Ishan's small finishing pass](docs/prompts/ISHAN_FINISHING_PASS.md)** — parent/admin/language/logo/scale work is now implemented; only bounded visual/manual checks remain.
 - **[Ishan's next iteration: scale/hero, language, admin, parent UI and logo](docs/prompts/ISHAN_NEXT_ITERATION.md)** — latest user continuation after the interactive redesign.
 - [Redesign implementation and handoff](docs/LOCAL_REDESIGN_HANDOFF.md), [visual/browser evidence and limits](design-qa.md)
 - [AIM PDF requirements and acceptance map](docs/REQUIREMENTS.md)

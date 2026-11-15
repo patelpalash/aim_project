@@ -1,5 +1,13 @@
 # Local redesign QA — 15 November 2026
 
+## Parent and organizer integration
+
+The parent mode now renders a separate practical list: 25 family activities, 19 exact reviewed provider links, no child hero and no event games. Save and DE/EN were exercised. The implementation keeps filters/session in the same discovery owner; locale switching no longer triggers its catalogue-loading effect. Language controls were added inside modal sheets so switching does not click the backdrop behind them. Logo/favicon and parent/admin branding are consistent. Desktop content/world limits increased to 1840/840 px.
+
+Admin verification used a separate temporary worktree/data catalogue on port 3004. CSV intake through the HTTP API staged 18 ready and 2 blocked rows. The UI loaded that session by ID, showed disabled blocked-row checkboxes, required explicit review confirmation before enabling Publish, preserved confirmation through DE/EN, and published one chosen row. It then showed 1 published, 2 blocked and version 3. The isolated catalogue had 28 offers, its blocked IDs were absent, and normal port 3002 remained at 27 offers. Native browser file upload was blocked by the extension's file-URL setting; that picker needs a manual check. No access setting was changed.
+
+Validation: 132 tests/TypeScript passed, and production builds passed. The new parent/admin views still need broader screen-reader, measured-contrast, larger-text and multi-width judgement checks. Local proofs: `.local-analysis/parent-integration.jpg`, `.local-analysis/admin-publication.jpg`.
+
 Scope: the selected first design direction, adapted to the user's event-first requirement, plus topic-related hands-on games. This is local preview evidence, not a claim of deployment or full accessibility certification.
 
 ## Design reference and result

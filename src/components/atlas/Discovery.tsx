@@ -153,10 +153,10 @@ export function Discovery() {
    * Presentation switch (child/teen/adult). It dispatches only `set-audience-mode`, so interests,
    * topics, filters, the shortlist and quiz answers all stay exactly as they were.
    */
-  const setMode = (next: AudienceMode) => withTransition(() => {
+  const setMode = (next: AudienceMode) => {
     dispatch({ type: "set-audience-mode", mode: next });
     setAnnounce(t("say.mode", { mode: t(`mode.${next}`) }));
-  });
+  };
   const toggleSave = (o: Offer, from?: HTMLElement) => {
     const adding = !state.savedOfferIds.includes(o.id);
     dispatch({ type: "toggle-saved", id: o.id });

@@ -9,7 +9,7 @@ import { pick } from "@/shared/i18n";
 import { accessLabel, availabilityLabel, formatAge, formatPrice, formatWhen, providerName } from "./format";
 import { interestMeta, InterestIcon } from "./interests";
 import { useDialog } from "./use-dialog";
-import { useLocale } from "../i18n";
+import { LanguageSwitch, useLocale } from "../i18n";
 import { useSheetMotion } from "./motion";
 
 export interface ShortlistSheetProps {
@@ -47,6 +47,7 @@ export function ShortlistSheet({ offers, unavailableCount, providers, initialTab
         <div className="sl__head">
           <button ref={closeRef} type="button" className="btn icon-btn" onClick={sheetMotion.close} aria-label={t("sl.close")}>←</button>
           <h2 id="sl-title">{t("sl.title")}</h2>
+          <LanguageSwitch />
           <div className="dz-view" role="group" aria-label={t("dz.presentation")}>
             <button type="button" aria-pressed={tab === "list"} onClick={() => setTab("list")}>{t("sl.tabYou")}</button>
             <button type="button" aria-pressed={tab === "parent"} onClick={() => setTab("parent")}>{t("sl.tabParent")}</button>

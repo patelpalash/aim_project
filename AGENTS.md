@@ -10,7 +10,7 @@ The team is **Palash + ChatGPT, Ishan + Claude, Umang + Claude**. The working co
 
 ## Read in this order
 
-**15 November continuation:** after the entry-point reading, Ishan must read [the next-iteration prompt](docs/prompts/ISHAN_NEXT_ITERATION.md): larger proportions/hero, reliable language switching, completion of the existing organizer workflow, a separate practical parent list and a new logo. These are pending user requests, not completed features. The current animated redesign and working event tasters are the baseline to preserve.
+**15 November continuation:** Palash implemented the practical parent catalogue, locale-loading fix, integrated organizer/review confirmation, larger hero and new logo. Ishan must read [the small finishing pass](docs/prompts/ISHAN_FINISHING_PASS.md) instead of restarting the earlier five-part assignment. The current implementation and event tasters are the baseline to preserve; see STATUS/QA for actual evidence and remaining manual checks.
 
 1. `README.md` and `docs/REQUIREMENTS.md`: state and PDF requirement map.
 2. `docs/PLAN.md` and `docs/TEAM_TASKS.md`: canonical merged scope, assigned task IDs and checkpoints.
