@@ -17,7 +17,7 @@ import { EventCard } from "./EventCard";
 import { MapView } from "./MapView";
 import { PlaySection } from "./PlaySection";
 import { ShortlistSheet } from "./ShortlistSheet";
-import Image from "next/image";
+import { HeroWorld } from "./HeroWorld";
 import { providerName } from "./format";
 import { LanguageSwitch, useLocale } from "../i18n";
 import { flyBetween, supportsViewTransitions, useCountUp, useScrollReveal, withTransition } from "./motion";
@@ -26,6 +26,7 @@ import { ArrowRight, BookmarkSimple, Compass, MagnifyingGlass, MapPin, SlidersHo
 import { AtlasIcon } from "./AtlasIcon";
 import { prefersReducedMotion } from "./motion";
 import "./atlas-redesign.css";
+import "./hero-world.css";
 
 const SORTS: readonly DiscoverySort[] = ["recommended", "soonest", "title"];
 const PRICE_OPTIONS = ["", "0", "10", "25"] as const;
@@ -211,13 +212,7 @@ export function Discovery() {
             </form>
             <a className="atlas-browse" href="#atlas-events" onClick={e => { e.preventDefault(); browseEvents(); }}>{say("Direkt zu allen Angeboten", "Browse all activities")}<ArrowRight size={17} /></a>
           </div>
-          <div className="atlas-world-scene">
-            <Image src="/art/atlas-world.png" alt={say("Eine fantasievolle Themeninsel mit Roboterwerkstatt, Bausteinen und Coding-Gewächshaus", "An imaginary interest island with a robot workshop, building blocks and a coding greenhouse")} width={1536} height={1024} priority sizes="(max-width: 580px) 85vw, (max-width: 1320px) 50vw, 640px" />
-            <div className="atlas-world-labels" role="group" aria-label={say("Themen auf der Insel", "Island topics")}>
-              {topicDefs.map((topic, index) => <button key={topic.id} type="button" className={`world-label world-label--${index % 3}`} aria-pressed={topics.includes(topic.id)} onClick={() => { toggleTopic(topic.id); }}><AtlasIcon interest={topic.id === "coding" ? "build-apps" : topic.id === "gaming" ? "build-games" : "robots"} size={20} />{pick(topic.label, locale)}<ArrowRight size={15} /></button>)}
-            </div>
-            <p className="atlas-scene-note">{say("Deine Themenwelt · keine Landkarte", "Your interest world · not a map")}</p>
-          </div>
+          <HeroWorld topics={topicDefs} selected={topics} counts={perTopic} matchCount={results.total} loading={catalog.phase === "loading"} onChoose={toggleTopic} onBrowse={browseEvents} />
         </section>
         <div className="atlas-sources wrap"><span>{say("VIELE ORTE. EINE ENTDECKUNGSREISE.", "MANY PLACES. ONE ADVENTURE.")}</span><ul aria-label={t("dz.providers")}>{PROVIDERS.map(p => <li key={p}>{p}</li>)}</ul><span>{say("Ohne Konto. Einfach loslegen.", "No account. Just explore.")}</span></div>
 

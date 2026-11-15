@@ -35,3 +35,11 @@ Changes: completion follows the last animation; timelines cancel on reset/skip/u
 Observed in the browser: complete robot and five-block coding playback, correct final north orientation, reset/stop/skip, level change, four-brick bridge placement and post-crossing experimenta tab, six-shape sorting success, and a complete city build followed by the exact aim course tab. At 390×844 CSS pixels, the document width was 390 and footer Skip was 362 px wide at y=743–785, within the viewport. Mobile skip exposed event facts and keyboard Escape restored body scrolling. Source links remain available throughout. New proof: `.local-analysis/games-motion-shapes.jpg`.
 
 Checks are limited to the changed behaviour: one new command-to-animation trace regression, TypeScript, final production build and these browser interactions. The full existing suite was not repeated.
+
+## Larger layout and animated world
+
+The user's small-scale homepage screenshot is the reference for this adjustment. The existing cream/forest/orange design is preserved while increasing the desktop content, illustration, text and control sizes. Measured before/after limits: content 1320 → 1600 px, headline 43 → 66 px, world 410 → 680 px on wide screens. The wider 17:10 scene viewport keeps its inner art canvas at 3:2 to avoid distortion.
+
+The island now has independently moving elements: a generated courier cutout patrols the island and travels to a selected workshop, a gear rotates, lights animate and the scene gently responds to mouse position. Topic buttons filter actual catalogue results and the match count leads to them. Pause and reduced motion are supported. In Chrome, selecting Coding produced 20 event cards and an arrived rover; Pause became pressed. This is a layered interactive illustration, not a 3D simulation. Data remains the same reviewed/cached catalogue.
+
+Final responsive check: at a 390 px CSS viewport, document width was 371 px with a scrollbar and all three scene controls were 47 px tall, with left/right edges between 20 and 361 px. Gaming selection produced five cards; the scene's match-count button scrolled to the five-offer catalogue. No new unit tests or full-suite runs were needed for this visual slice; production build and TypeScript passed. Final screenshot: `.local-analysis/hero-world-final.jpg`.
