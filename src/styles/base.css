@@ -43,6 +43,8 @@ a { color: var(--accent); text-underline-offset: 3px; }
 .btn:active { transform: translateY(0) scale(0.97); transition-duration: 60ms; }
 .btn--primary { border-color: transparent; color: #fff; background: var(--accent-a); box-shadow: 0 10px 26px -10px rgb(31 94 255 / 0.7); }
 .btn--primary:hover { border-color: transparent; background: #1951db; box-shadow: 0 16px 36px -12px rgb(31 94 255 / 0.8); }
+/* Area styles set box-shadow:none on primary buttons, which removed the box-shadow focus ring; an outline keeps keyboard focus visible. */
+.btn--primary:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
 .btn--primary::after { content: ""; position: absolute; inset: 0 auto 0 0; width: 40%; background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.35), transparent); transform: translateX(-120%) skewX(-20deg); }
 .btn--primary:hover::after { animation: m-sheen 800ms var(--ease-out); }
 .btn[disabled], .btn[aria-disabled="true"] { cursor: not-allowed; opacity: 0.45; transform: none; box-shadow: none; }
