@@ -3,7 +3,7 @@ import { getBerlinDate } from "@/shared/schedule";
 
 /** Time shortcuts. Local YYYY-MM-DD bounds cover the whole Berlin day (shared schedule rules). */
 export type When = "soon" | "today" | "weekend" | "all";
-export const WHEN_LABEL: Record<When, string> = { soon: "Demnächst", today: "Heute", weekend: "Dieses Wochenende", all: "Alle, auch ohne Datum" };
+export const WHENS: readonly When[] = ["soon", "today", "weekend", "all"];
 
 function addDays(day: string, n: number): string {
   const [y, m, d] = day.split("-").map(Number);

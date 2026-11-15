@@ -38,7 +38,12 @@ export function useDialog<T extends HTMLElement>(
     const dialog = ref.current;
     const previous = document.activeElement as HTMLElement | null;
     const target = initialRef.current?.current ?? (dialog ? focusable(dialog)[0] : null);
-    target?.focus();
+    target?.focus({ preventScroll: true });
+    const overflow = document.body.style.overflow;
+    const paddingRight = document.body.style.paddingRight;
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    document.body.style.overflow = "hidden";
+    if (scrollbarWidth > 0) document.body.style.paddingRight = `${scrollbarWidth}px`;
 
     const onKey = (event: KeyboardEvent) => {
       if (event.key === "Escape") { event.stopPropagation(); closeRef.current(); return; }
@@ -56,8 +61,10 @@ export function useDialog<T extends HTMLElement>(
     document.addEventListener("keydown", onKey, true);
     return () => {
       document.removeEventListener("keydown", onKey, true);
+      document.body.style.overflow = overflow;
+      document.body.style.paddingRight = paddingRight;
       const back = previous && previous.isConnected ? previous : fallbackRef.current?.current ?? null;
-      back?.focus?.();
+      back?.focus?.({ preventScroll: true });
     };
     // The dialog mounts and unmounts with the open state, so this runs once per opening.
   }, [ref]);

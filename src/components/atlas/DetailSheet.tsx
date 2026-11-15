@@ -1,10 +1,17 @@
 "use client";
 
-import { useRef, type RefObject } from "react";
+import { useRef, useState, type RefObject } from "react";
 import type { Offer } from "@/shared/contracts";
-import { interestMeta, InterestIcon } from "./interests";
-import { ACCESS_LABEL, AVAILABILITY_LABEL, formatAge, formatPrice, formatStamp, formatWhen } from "./format";
+import { pick } from "@/shared/i18n";
+import { interestMeta } from "./interests";
+import { accessLabel, availabilityLabel, formatAge, formatPrice, formatStamp, formatWhen } from "./format";
 import { useDialog } from "./use-dialog";
+import { EventChallenge } from "./EventChallenge";
+import { AtlasIcon } from "./AtlasIcon";
+import { ArrowLeft, ArrowUpRight, SkipForward } from "@phosphor-icons/react";
+import { challengeFor, eventPageUrl } from "./challenge";
+import { prefersReducedMotion, useSheetMotion } from "./motion";
+import { useLocale } from "../i18n";
 
 /** Event details as a side sheet (bottom sheet on phones). Focus moves in and stays in, Esc/Back close, focus returns. */
 export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName, provider, focusFallback }: {
@@ -14,42 +21,61 @@ export function DetailSheet({ offer, saved, onSave, onClose, onShowAdult, vtName
   /** Gets focus if the element that opened the sheet is gone by the time it closes. */
   focusFallback?: RefObject<HTMLElement | null>;
 }) {
+  const { locale, t } = useLocale();
   const closeRef = useRef<HTMLButtonElement>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
-  useDialog(dialogRef, onClose, { initial: closeRef, fallback: focusFallback });
+  const factsRef = useRef<HTMLHeadingElement>(null);
+  const [playing, setPlaying] = useState(true);
+  const sheetMotion = useSheetMotion(onClose);
+  const close = () => { setPlaying(false); sheetMotion.close(); };
+  useDialog(dialogRef, close, { initial: closeRef, fallback: focusFallback });
   const lead = offer.interests[0];
   const demo = offer.source.kind === "demo";
+  const eventUrl = eventPageUrl(offer);
+  const hasGame = challengeFor(offer) !== null;
+  const skipGame = () => {
+    setPlaying(false);
+    requestAnimationFrame(() => {
+      factsRef.current?.scrollIntoView({ behavior: prefersReducedMotion() ? "instant" : "smooth", block: "start" });
+      factsRef.current?.focus({ preventScroll: true });
+    });
+  };
   return (
     <>
-      <div className="sheet-scrim m-scrim" onClick={onClose} aria-hidden="true" />
-      <div ref={dialogRef} tabIndex={-1} className={vtName ? "sheet" : "sheet m-sheet"} role="dialog" aria-modal="true" aria-labelledby="sheet-title"
+      <div className={`sheet-scrim m-scrim${sheetMotion.closing ? " is-closing" : ""}`} onClick={close} aria-hidden="true" />
+      <div ref={dialogRef} tabIndex={-1} className={`sheet m-sheet${sheetMotion.closing ? " is-closing" : ""}`} role="dialog" aria-modal="true" aria-labelledby="sheet-title"
         style={{ ["--a" as string]: lead ? interestMeta(lead).a : "var(--accent-a)", ["--b" as string]: lead ? interestMeta(lead).b : "var(--accent-b)", viewTransitionName: vtName }}>
         <div className="sheet__head">
-          <button ref={closeRef} type="button" className="btn icon-btn" onClick={onClose} aria-label="Zurück zur Liste">←</button>
-          {demo ? <span className="tag tag--demo">Demo-Angebot</span> : <span className="tag tag--verified">Geprüfte Quelle</span>}
-          {lead ? <span className="sheet__icon" aria-hidden="true"><InterestIcon interest={lead} size={36} /></span> : null}
+          <button ref={closeRef} type="button" className="btn icon-btn" onClick={close} aria-label={t("sheet.back")}><ArrowLeft size={22} /></button>
+          {demo ? <span className="tag tag--demo">{t("tag.demoOffer")}</span> : <span className="tag tag--verified">{t("tag.verifiedSource")}</span>}
+          {lead ? <span className="sheet__icon" aria-hidden="true"><AtlasIcon interest={lead} size={36} /></span> : null}
         </div>
         <div className="sheet__body m-cascade">
-          <p className="event-card__when" style={{ ["--n" as string]: 0 }}>{formatWhen(offer)}</p>
-          <h2 id="sheet-title" style={{ fontSize: "var(--text-xl)", ["--n" as string]: 1 }}>{offer.title.de}</h2>
-          <p className="muted" style={{ ["--n" as string]: 2 }}>{offer.summary.de}</p>
+          <p className="event-card__when" style={{ ["--n" as string]: 0 }}>{formatWhen(offer, locale)}</p>
+          <h2 id="sheet-title" style={{ fontSize: "var(--text-xl)", ["--n" as string]: 1 }}>{pick(offer.title, locale)}</h2>
+          <p className="muted" style={{ ["--n" as string]: 2 }}>{pick(offer.summary, locale)}</p>
+          <div className="detail-quick-facts"><span>{formatAge(offer, locale)}</span><span>{formatPrice(offer, locale)}</span><span>{availabilityLabel(offer.availability, locale)}</span></div>
+          <div><EventChallenge offer={offer} saved={saved} onSave={onSave} open={playing} onOpen={() => setPlaying(true)} onSkip={skipGame} /></div>
+          <h3 ref={factsRef} tabIndex={-1} className="event-facts-heading">{locale === "de" ? "Alles zum Event" : "Your event details"}</h3>
           <dl className="facts" style={{ ["--n" as string]: 3 }}>
-            <dt>Wann</dt><dd>{formatWhen(offer)}</dd>
-            <dt>Alter</dt><dd>{formatAge(offer)}</dd>
-            <dt>Kosten</dt><dd>{formatPrice(offer)}</dd>
-            <dt>Plätze</dt><dd>{AVAILABILITY_LABEL[offer.availability]}</dd>
-            <dt>Ort</dt><dd>{offer.venue.name}, {offer.venue.city}</dd>
-            <dt>Zugang</dt><dd>{ACCESS_LABEL[offer.venue.access]}</dd>
-            <dt>Anbieter</dt><dd>{provider}</dd>
-            <dt>Quelle</dt>
-            <dd>{demo ? "Erfundenes Beispiel, keine echte Veranstaltung" : offer.source.url
-              ? <a href={offer.source.url} target="_blank" rel="noreferrer">Seite beim Anbieter</a> : "Keine Quellseite"}</dd>
-            {!demo && offer.source.verifiedAt ? <><dt>Geprüft</dt><dd>{formatStamp(offer.source.verifiedAt)}</dd></> : null}
+            <dt>{t("facts.when")}</dt><dd>{formatWhen(offer, locale)}</dd>
+            <dt>{t("facts.age")}</dt><dd>{formatAge(offer, locale)}</dd>
+            <dt>{t("facts.cost")}</dt><dd>{formatPrice(offer, locale)}</dd>
+            <dt>{t("facts.places")}</dt><dd>{availabilityLabel(offer.availability, locale)}</dd>
+            <dt>{t("facts.venue")}</dt><dd>{offer.venue.name}, {offer.venue.city}</dd>
+            <dt>{t("facts.access")}</dt><dd>{accessLabel(offer.venue.access, locale)}</dd>
+            <dt>{t("facts.provider")}</dt><dd>{provider}</dd>
+            <dt>{t("facts.source")}</dt>
+            <dd>{demo ? t("source.demo") : offer.source.url
+              ? <a href={offer.source.url} target="_blank" rel="noreferrer">{t("source.page")}</a> : t("source.none")}</dd>
+            {!demo && offer.source.verifiedAt ? <><dt>{t("facts.reviewed")}</dt><dd>{formatStamp(offer.source.verifiedAt, locale)}</dd></> : null}
           </dl>
         </div>
         <div className="sheet__foot">
-          <button type="button" className="btn" aria-pressed={saved} onClick={onSave}>{saved ? "♥ Gemerkt" : "♡ Merken"}</button>
-          {onShowAdult ? <button type="button" className="btn btn--primary" onClick={onShowAdult}>Erwachsenen zeigen</button> : null}
+          {hasGame && playing ? <button type="button" className="btn sheet-skip" onClick={skipGame}><SkipForward size={18} />{locale === "de" ? "Spiel überspringen" : "Skip game"}</button> : null}
+          <button type="button" className="btn" aria-pressed={saved} onClick={onSave}>{t(saved ? "sheet.saved" : "sheet.save")}</button>
+          {onShowAdult ? <button type="button" className="btn" onClick={onShowAdult}>{t("sheet.showAdult")}</button> : null}
+          {eventUrl ? <a className="btn btn--primary" href={eventUrl} target="_blank" rel="noopener noreferrer">{locale === "de" ? "Zur Eventseite" : "Event website"}<ArrowUpRight size={18} /></a> : null}
         </div>
       </div>
     </>

@@ -2,10 +2,12 @@
 
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { CSSProperties } from "react";
-import type { Offer, Taxonomy } from "@/shared/contracts";
+import type { Locale, Offer, Taxonomy } from "@/shared/contracts";
 import type { ProviderSummary, SourceStatus } from "@/shared/api-contract";
 import { countReviewRows, validateReviewSession, type ReviewFieldPatch, type ReviewRow, type ReviewSession } from "@/shared/review";
-import { formatPrice } from "../atlas/format";
+import { pick } from "@/shared/i18n";
+import { availabilityLabel, formatPrice, formatStamp } from "../atlas/format";
+import { LanguageSwitch, useLocale, type Translate } from "../i18n";
 import {
   AdminApiError, ServiceMissingError, approveRows, fetchAdminProviders, fetchProviders, fetchSession, fetchTaxonomy,
   fetchSourceStatuses, fetchScrapeRun, importFromSource, patchRow, saveProvider, saveTopic, startScrapeRun, uploadCsv,
@@ -13,13 +15,10 @@ import {
 } from "./api";
 import "./organizer.css";
 
-const STATE_LABEL: Record<ReviewRow["state"], string> = {
-  "ready-new": "Bereit (neu)", "ready-update": "Bereit (Update)", "needs-review": "Prüfen", blocked: "Blockiert", unchanged: "Unverändert"
-};
+const STATES: readonly ReviewRow["state"][] = ["ready-new", "ready-update", "needs-review", "blocked", "unchanged"];
 const STATE_TONE: Record<ReviewRow["state"], string> = { "ready-new": "ok", "ready-update": "ok", "needs-review": "warn", blocked: "bad", unchanged: "muted" };
 const AVAILABILITIES = ["available", "full", "cancelled", "unknown"] as const;
 const LAST_IMPORT_KEY = "atlas.organizer.importId";
-const AVAIL_LABEL: Record<string, string> = { available: "Plätze frei", full: "Ausgebucht", cancelled: "Abgesagt", unknown: "Unbekannt" };
 const selectableRow = (row: ReviewRow) => row.candidate !== null && row.state !== "blocked" && row.state !== "unchanged" && row.issues.length === 0;
 
 /**
@@ -29,6 +28,7 @@ const selectableRow = (row: ReviewRow) => row.candidate !== null && row.state !=
  * contract example session read-only; nothing is ever faked as published.
  */
 export function OrganizerDesk() {
+  const { locale, t } = useLocale();
   const [tab, setTab] = useState<"review" | "sources">("review");
   const [providers, setProviders] = useState<ProviderSummary[]>([]);
   const [taxonomy, setTaxonomy] = useState<Taxonomy | null>(null);
@@ -59,7 +59,7 @@ export function OrganizerDesk() {
         const nextStatuses = await fetchSourceStatuses(t);
         if (alive) setStatuses(nextStatuses);
       } catch {
-        if (alive) { setPublicApiMissing(true); setError("Konfiguration oder Quellenstatus konnten nicht geladen werden. Bitte erneut laden."); }
+        if (alive) { setPublicApiMissing(true); setError(t("org.configFailed")); }
       }
     })();
     return () => { alive = false; };
@@ -76,20 +76,20 @@ export function OrganizerDesk() {
         if (!alive) return;
         setScrape(next);
         if (next.status === "done") {
-          setNotice("Quellenlauf beendet. Änderungen bleiben bis zu deiner Prüfung unveröffentlicht.");
+          setNotice(t("org.runFinished"));
           const nextStatuses = await fetchSourceStatuses(taxonomy ?? undefined);
           if (alive) { setStatuses(nextStatuses); setWatchRunId(null); }
         } else if (Date.now() >= deadline) {
           setWatchRunId(null);
-          setNotice("Der Lauf dauert noch an. Du kannst seinen Status erneut prüfen.");
+          setNotice(t("org.runOngoing"));
         } else timer = setTimeout(poll, 1000);
       } catch (err) {
-        if (alive) { setWatchRunId(null); setError(err instanceof Error ? err.message : "Quellenstatus konnte nicht geladen werden."); }
+        if (alive) { setWatchRunId(null); setError(err instanceof Error ? err.message : t("org.runStatusFailed")); }
       }
     };
     void poll();
     return () => { alive = false; clearTimeout(timer); };
-  }, [watchRunId, taxonomy]);
+  }, [watchRunId, taxonomy, t]);
 
   const adoptSession = useCallback((next: ReviewSession, local: boolean) => {
     setSession(next); setLocalOnly(local); setApproveResult(null); setOpenRow(null);
@@ -106,18 +106,18 @@ export function OrganizerDesk() {
     try { importId = sessionStorage.getItem(LAST_IMPORT_KEY); } catch { importId = null; }
     if (!importId) return;
     fetchSession(importId, taxonomy ?? undefined)
-      .then(next => { if (alive) { adoptSession(next, false); setNotice(`Import ${next.importId} fortgesetzt.`); } })
+      .then(next => { if (alive) { adoptSession(next, false); setNotice(t("org.resumed", { id: next.importId })); } })
       .catch(() => { try { sessionStorage.removeItem(LAST_IMPORT_KEY); } catch { /* ignore */ } });
     return () => { alive = false; };
     // Runs once the taxonomy is known so the session validates against the configured one.
-  }, [taxonomy, adoptSession]);
+  }, [taxonomy, adoptSession, t]);
 
   const run = async (label: string, work: () => Promise<void>) => {
     setBusy(label); setError(null); setNotice(null);
     try { await work(); }
     catch (err) {
       if (err instanceof ServiceMissingError) { setAdminMissing(true); setError(null); }
-      else setError(err instanceof AdminApiError ? err.message : "Unerwarteter Fehler.");
+      else setError(err instanceof AdminApiError ? err.message : t("org.unexpected"));
     }
     finally { setBusy(null); }
   };
@@ -125,7 +125,7 @@ export function OrganizerDesk() {
   const onUpload = (file: File) => run("upload", async () => {
     const next = await uploadCsv(file, providerId, mode, taxonomy ?? undefined);
     adoptSession(next, false);
-    setNotice(`Import ${next.importId} geladen: ${next.rows.length} Zeilen.`);
+    setNotice(t("org.loaded", { id: next.importId, n: next.rows.length }));
   });
 
   const onReload = () => session && run("reload", async () => adoptSession(await fetchSession(session.importId, taxonomy ?? undefined), false));
@@ -133,7 +133,7 @@ export function OrganizerDesk() {
   const onPatch = (row: ReviewRow, changes: ReviewFieldPatch) => session && run(`patch:${row.rowId}`, async () => {
     const next = await patchRow(session.importId, row.rowId, session.revision, changes, taxonomy ?? undefined);
     adoptSession(next, false);
-    setNotice("Zeile gespeichert und neu geprüft.");
+    setNotice(t("org.rowSaved"));
   });
 
   const onApprove = () => session && run("approve", async () => {
@@ -148,9 +148,9 @@ export function OrganizerDesk() {
   const loadExample = () => run("example", async () => {
     const raw = await import("../../../examples/review-session.json");
     const valid = validateReviewSession(raw.default ?? raw, taxonomy ?? undefined);
-    if (!valid.ok) throw new AdminApiError("Beispiel-Session ist ungültig.");
+    if (!valid.ok) throw new AdminApiError(t("org.exampleInvalid"));
     adoptSession(valid.session, true);
-    setNotice("Beispiel-Session aus docs/CONTRACT.md geladen — nur zum Ansehen, ohne Server.");
+    setNotice(t("org.exampleLoaded"));
   });
 
   const counts = useMemo(() => (session ? countReviewRows(session.rows) : null), [session]);
@@ -158,27 +158,28 @@ export function OrganizerDesk() {
 
   return (
     <div className="org">
-      <a className="skip-link" href="#org-main">Zum Inhalt springen</a>
+      <a className="skip-link" href="#org-main">{t("org.skip")}</a>
       <header className="org__top">
         <div className="wrap org__top-in">
           <a className="dz-logo" href="/"><span className="dz-logo__mark" aria-hidden="true" />Interest Atlas</a>
-          <span className="tag">Organizer-Bereich</span>
-          <div className="dz-view" role="group" aria-label="Bereich">
-            <button type="button" aria-pressed={tab === "review"} onClick={() => setTab("review")}>Import & Review</button>
-            <button type="button" aria-pressed={tab === "sources"} onClick={() => setTab("sources")}>Quellen & Themen</button>
+          <span className="tag">{t("org.badge")}</span>
+          <div className="dz-view" role="group" aria-label={t("org.areaLabel")}>
+            <button type="button" aria-pressed={tab === "review"} onClick={() => setTab("review")}>{t("org.tabReview")}</button>
+            <button type="button" aria-pressed={tab === "sources"} onClick={() => setTab("sources")}>{t("org.tabSources")}</button>
           </div>
+          <LanguageSwitch />
         </div>
       </header>
 
       <main className="wrap org__main" id="org-main" tabIndex={-1}>
-        {publicApiMissing ? <p className="status-line" data-tone="warn">Verbindung zur Konfiguration prüfen und die Seite erneut laden.</p> : null}
+        {publicApiMissing ? <p className="status-line" data-tone="warn">{t("org.checkConnection")}</p> : null}
         {adminMissing ? (
           <div className="panel org__missing">
-            <h2>Der Wartungsbereich ist nicht freigeschaltet.</h2>
-            <p className="muted">Upload, Korrektur und Veröffentlichen laufen über die /api/admin-Routen. Sie sind absichtlich nur lokal freigeschaltet: Starte die App mit <code>INTEREST_ATLAS_LOCAL_DESK=1</code>, sonst antworten sie mit 404. Ohne das Flag kannst du hier nur die Beispiel-Session ansehen.</p>
+            <h2>{t("org.missingTitle")}</h2>
+            <p className="muted">{t("org.missingBodyPre")}<code>INTEREST_ATLAS_LOCAL_DESK=1</code>{t("org.missingBodyPost")}</p>
             <div className="row">
-              <button type="button" className="btn" onClick={loadExample} disabled={busy !== null}>Beispiel-Session ansehen (Demo)</button>
-              <button type="button" className="btn" onClick={() => setAdminMissing(false)}>Nochmal versuchen</button>
+              <button type="button" className="btn" onClick={loadExample} disabled={busy !== null}>{t("org.viewExample")}</button>
+              <button type="button" className="btn" onClick={() => setAdminMissing(false)}>{t("org.retry")}</button>
             </div>
           </div>
         ) : null}
@@ -186,75 +187,77 @@ export function OrganizerDesk() {
         {tab === "review" ? (
           <>
             <section className="panel org__upload" aria-labelledby="org-upload-title">
-              <h2 id="org-upload-title">CSV-Import</h2>
+              <h2 id="org-upload-title">{t("org.uploadTitle")}</h2>
               <div className="org__upload-row">
-                <label className="dz-field"><span>Anbieter</span>
+                <label className="dz-field"><span>{t("org.provider")}</span>
                   <select value={providerId} onChange={e => setProviderId(e.target.value)}>
                     {providers.map(p => <option key={p.id} value={p.id}>{p.name}</option>)}
                   </select></label>
-                <label className="dz-field"><span>Modus</span>
+                <label className="dz-field"><span>{t("org.mode")}</span>
                   <select value={mode} onChange={e => setMode(e.target.value as "demo" | "source")}>
-                    <option value="demo">Demo (erfundene Beispiele)</option>
-                    <option value="source">Quelle (echte Daten)</option>
+                    <option value="demo">{t("org.modeDemo")}</option>
+                    <option value="source">{t("org.modeSource")}</option>
                   </select></label>
-                <a className="btn" href="/api/admin/import-template" download>CSV-Vorlage laden</a>
+                <a className="btn" href="/api/admin/import-template" download>{t("org.template")}</a>
                 <input ref={fileRef} type="file" accept=".csv,text/csv" className="visually-hidden" id="org-file"
                   onChange={e => { const f = e.target.files?.[0]; if (f) onUpload(f); e.target.value = ""; }} />
                 <button type="button" className="btn btn--primary" disabled={!providerId || busy !== null} onClick={() => fileRef.current?.click()}>
-                  {busy === "upload" ? "Wird geprüft…" : "CSV hochladen"}
+                  {busy === "upload" ? t("org.checking") : t("org.upload")}
                 </button>
               </div>
-              <p className="muted org__hint">Hochladen erzeugt nur eine Vorschau. Veröffentlicht wird erst nach deiner Auswahl, und blockierte Zeilen nie.</p>
+              <p className="muted org__hint">{t("org.uploadHint")}</p>
             </section>
 
             {error ? <p className="status-line" data-tone="bad" role="alert">{error}</p> : null}
             {notice ? <p className="status-line" data-tone="ok" role="status">{notice}</p> : null}
             {approveResult ? (
               <div className="panel org__result" role="status">
-                <h3>Veröffentlichung abgeschlossen</h3>
-                <p><strong>{approveResult.publishedCount}</strong> veröffentlicht · <strong>{approveResult.blockedCount}</strong> blockiert geblieben · <strong>{approveResult.unchangedCount}</strong> unverändert · Katalogversion {approveResult.catalogueVersion}</p>
+                <h3>{t("org.publishedTitle")}</h3>
+                <p>{t("org.publishedLine", { published: approveResult.publishedCount, blocked: approveResult.blockedCount,
+                  unchanged: approveResult.unchangedCount, version: approveResult.catalogueVersion })}</p>
               </div>
             ) : null}
 
             {session ? (
               <section className="org__session" aria-labelledby="org-session-title">
                 <div className="org__session-head">
-                  <h2 id="org-session-title">Import {session.importId}</h2>
-                  <span className={session.mode === "demo" ? "tag tag--demo" : "tag tag--verified"}>{session.mode === "demo" ? "Demo-Daten" : "Quelldaten"}</span>
-                  <span className="tag">Revision {session.revision}</span>
-                  {localOnly ? <span className="tag tag--stale">Nur Ansicht, ohne Server</span> : (
-                    <button type="button" className="dz-link" onClick={onReload} disabled={busy !== null}>Neu laden</button>
+                  <h2 id="org-session-title">{t("org.importHead", { id: session.importId })}</h2>
+                  <span className={session.mode === "demo" ? "tag tag--demo" : "tag tag--verified"}>{t(session.mode === "demo" ? "org.demoData" : "org.sourceData")}</span>
+                  <span className="tag">{t("org.revision", { n: session.revision })}</span>
+                  {localOnly ? <span className="tag tag--stale">{t("org.viewOnly")}</span> : (
+                    <button type="button" className="dz-link" onClick={onReload} disabled={busy !== null}>{t("org.reload")}</button>
                   )}
                 </div>
                 {counts ? (
                   <div className="row org__counts">
-                    {(Object.keys(STATE_LABEL) as ReviewRow["state"][]).map(s => (
-                      <span key={s} className="org-count" data-tone={STATE_TONE[s]}>{counts[s]} {STATE_LABEL[s]}</span>
+                    {STATES.map(s => (
+                      <span key={s} className="org-count" data-tone={STATE_TONE[s]}>{counts[s]} {t(`state.${s}`)}</span>
                     ))}
                   </div>
                 ) : null}
                 <div className="org__rows">
                   {session.rows.map((row, n) => {
-                    const title = row.candidate?.title.de || (row.draft as { title?: { de?: string } } | undefined)?.title?.de || "(ohne Titel)";
+                    const title = (row.candidate ? pick(row.candidate.title, locale) : "")
+                      || (row.draft as { title?: { de?: string } } | undefined)?.title?.de || t("org.noTitle");
                     const selectable = selectableRow(row) && !localOnly;
                     return (
                       <article key={row.rowId} className={`org-row panel${openRow === row.rowId ? " is-open" : ""}`} style={{ "--i": Math.min(n, 10) } as CSSProperties}>
                         <div className="org-row__line">
                           <input type="checkbox" id={`sel-${row.rowId}`} checked={selected.includes(row.rowId)} disabled={!selectable}
                             onChange={e => setSelected(s => (e.target.checked ? [...s, row.rowId] : s.filter(x => x !== row.rowId)))}
-                            aria-label={`${title} geprüft, zum Veröffentlichen auswählen`} />
-                          <span className="org-row__state" data-tone={STATE_TONE[row.state]}>{STATE_LABEL[row.state]}</span>
+                            aria-label={t("org.selectRow", { title })} />
+                          <span className="org-row__state" data-tone={STATE_TONE[row.state]}>{t(`state.${row.state}`)}</span>
                           <div className="org-row__title">
                             <h3>{title}</h3>
                             <p className="muted">
                               {row.rowId}
-                              {row.candidate ? ` · ${formatPrice(row.candidate)}` : ""}
-                              {row.changedFields.length ? ` · geändert: ${row.changedFields.join(", ")}` : ""}
+                              {row.candidate ? ` · ${formatPrice(row.candidate, locale)}` : ""}
+                              {row.changedFields.length ? t("org.changed", { fields: row.changedFields.join(", ") }) : ""}
                             </p>
                           </div>
                           <button type="button" className="btn" aria-expanded={openRow === row.rowId}
                             onClick={() => setOpenRow(o => (o === row.rowId ? null : row.rowId))}>
-                            {openRow === row.rowId ? "Zuklappen" : "Prüfen & korrigieren"}
+                            {t(openRow === row.rowId ? "org.collapse" : "org.reviewFix")}
                           </button>
                         </div>
                         {row.issues.length ? (
@@ -264,7 +267,7 @@ export function OrganizerDesk() {
                         ) : null}
                         {session.notes?.[row.rowId]?.length ? <ul className="org-row__issues">{session.notes[row.rowId]!.map((note, i) => <li key={i}>{note}</li>)}</ul> : null}
                         {openRow === row.rowId ? (
-                          <RowEditor row={row} disabled={localOnly || busy !== null} busy={busy === `patch:${row.rowId}`}
+                          <RowEditor row={row} locale={locale} t={t} disabled={localOnly || busy !== null} busy={busy === `patch:${row.rowId}`}
                             onSave={changes => onPatch(row, changes)} />
                         ) : null}
                       </article>
@@ -273,30 +276,30 @@ export function OrganizerDesk() {
                 </div>
                 <div className="org__publish panel">
                   <p>
-                    <strong>{selected.length}</strong> von {readyIds.length} gültigen Zeilen ausgewählt. Wähle nur Zeilen, die du inhaltlich geprüft hast.
-                    {counts?.blocked ? ` ${counts.blocked} blockierte Zeilen können nicht veröffentlicht werden.` : ""}
+                    {t("org.selectedOf", { n: selected.length, total: readyIds.length })}
+                    {counts?.blocked ? t("org.blockedNote", { n: counts.blocked }) : ""}
                   </p>
                   <div className="row">
                     <button type="button" className="btn" disabled={localOnly || !readyIds.length}
                       onClick={() => setSelected(s => (s.length === readyIds.length ? [] : readyIds))}>
-                      {selected.length === readyIds.length && readyIds.length ? "Auswahl leeren" : "Alle bereiten auswählen"}
+                      {t(selected.length === readyIds.length && readyIds.length ? "org.clearSelection" : "org.selectAllReady")}
                     </button>
                     <button type="button" className="btn btn--primary" disabled={localOnly || !selected.length || busy !== null} onClick={onApprove}>
-                      {busy === "approve" ? "Wird veröffentlicht…" : `Ausgewählte veröffentlichen (${selected.length})`}
+                      {busy === "approve" ? t("org.publishing") : t("org.publishSelected", { n: selected.length })}
                     </button>
                   </div>
-                  {localOnly ? <p className="muted">Veröffentlichen braucht den Review-Server; diese Beispiel-Session ist nur zum Ansehen.</p> : null}
+                  {localOnly ? <p className="muted">{t("org.publishNeedsServer")}</p> : null}
                 </div>
               </section>
             ) : !adminMissing ? (
               <div className="org__empty panel">
-                <h3>Noch kein Import geladen.</h3>
-                <p className="muted">Lade die CSV-Vorlage, fülle sie aus und lade sie hoch. Du bekommst eine Vorschau mit Status je Zeile, bevor irgendetwas veröffentlicht wird.</p>
+                <h3>{t("org.emptyTitle")}</h3>
+                <p className="muted">{t("org.emptyBody")}</p>
               </div>
             ) : null}
           </>
         ) : (
-          <SourcesPanel taxonomy={taxonomy} statuses={statuses} scrape={scrape} watching={watchRunId !== null}
+          <SourcesPanel taxonomy={taxonomy} locale={locale} t={t} statuses={statuses} scrape={scrape} watching={watchRunId !== null}
             disabled={adminMissing || busy !== null || watchRunId !== null}
             onCheckRun={() => scrape && setWatchRunId(scrape.runId)}
             onReview={pid => run("source-review", async () => {
@@ -305,7 +308,7 @@ export function OrganizerDesk() {
             onScrape={pid => run("scrape", async () => {
               const r = await startScrapeRun(pid);
               setScrape({ runId: r.runId, status: "queued", results: [] }); setWatchRunId(r.runId);
-              setNotice(`Lauf ${r.runId} gestartet (${r.status}).`);
+              setNotice(t("org.runStarted", { id: r.runId, status: r.status }));
             })}
             onTaxonomy={setTaxonomy} notice={notice} error={error} onError={setError} onNotice={setNotice} />
         )}
@@ -314,7 +317,9 @@ export function OrganizerDesk() {
   );
 }
 
-function RowEditor({ row, disabled, busy, onSave }: { row: ReviewRow; disabled: boolean; busy: boolean; onSave: (changes: ReviewFieldPatch) => void }) {
+function RowEditor({ row, locale, t, disabled, busy, onSave }: {
+  row: ReviewRow; locale: Locale; t: Translate; disabled: boolean; busy: boolean; onSave: (changes: ReviewFieldPatch) => void;
+}) {
   const c = row.candidate;
   const draft = (row.draft ?? {}) as { title?: { de?: string }; priceEur?: number | null };
   const [title, setTitle] = useState(c?.title.de ?? draft.title?.de ?? "");
@@ -337,32 +342,32 @@ function RowEditor({ row, disabled, busy, onSave }: { row: ReviewRow; disabled: 
 
   return (
     <div className="org-edit">
-      <label className="dz-field org-edit__wide"><span>Titel (de)</span>
+      <label className="dz-field org-edit__wide"><span>{t("org.editTitle")}</span>
         <input type="text" value={title} onChange={e => setTitle(e.target.value)} /></label>
-      <label className="dz-field"><span>Preis €</span>
-        <input type="number" min="0" step="0.5" value={price} onChange={e => setPrice(e.target.value === "" ? "" : Number(e.target.value))} placeholder="unbekannt" /></label>
-      <label className="dz-field"><span>Alter ab</span>
-        <input type="number" min="0" max="25" value={minAge} onChange={e => setMinAge(e.target.value === "" ? "" : Number(e.target.value))} placeholder="unbekannt" /></label>
-      <label className="dz-field"><span>Alter bis</span>
-        <input type="number" min="0" max="25" value={maxAge} onChange={e => setMaxAge(e.target.value === "" ? "" : Number(e.target.value))} placeholder="unbekannt" /></label>
-      <label className="dz-field"><span>Datum</span>
+      <label className="dz-field"><span>{t("org.editPrice")}</span>
+        <input type="number" min="0" step="0.5" value={price} onChange={e => setPrice(e.target.value === "" ? "" : Number(e.target.value))} placeholder={t("org.unknownPlaceholder")} /></label>
+      <label className="dz-field"><span>{t("org.editMinAge")}</span>
+        <input type="number" min="0" max="25" value={minAge} onChange={e => setMinAge(e.target.value === "" ? "" : Number(e.target.value))} placeholder={t("org.unknownPlaceholder")} /></label>
+      <label className="dz-field"><span>{t("org.editMaxAge")}</span>
+        <input type="number" min="0" max="25" value={maxAge} onChange={e => setMaxAge(e.target.value === "" ? "" : Number(e.target.value))} placeholder={t("org.unknownPlaceholder")} /></label>
+      <label className="dz-field"><span>{t("org.editDate")}</span>
         <input type="date" value={startDate} onChange={e => setStartDate(e.target.value)} /></label>
-      <label className="dz-field"><span>Plätze</span>
+      <label className="dz-field"><span>{t("org.editPlaces")}</span>
         <select value={availability} onChange={e => setAvailability(e.target.value as Offer["availability"])}>
-          {AVAILABILITIES.map(a => <option key={a} value={a}>{AVAIL_LABEL[a]}</option>)}
+          {AVAILABILITIES.map(a => <option key={a} value={a}>{availabilityLabel(a, locale)}</option>)}
         </select></label>
       <div className="row org-edit__actions">
         <button type="button" className="btn btn--primary" onClick={save} disabled={disabled}>
-          {busy ? "Wird geprüft…" : "Speichern & neu prüfen"}
+          {t(busy ? "org.checking" : "org.saveRecheck")}
         </button>
-        {disabled && !busy ? <span className="muted">Braucht den Review-Server.</span> : <span className="muted">Der Server prüft die Zeile erneut; nichts wird dabei veröffentlicht.</span>}
+        {disabled && !busy ? <span className="muted">{t("org.needsServer")}</span> : <span className="muted">{t("org.recheckNote")}</span>}
       </div>
     </div>
   );
 }
 
-function SourcesPanel({ taxonomy, disabled, onScrape, onReview, statuses, scrape, watching, onCheckRun, onTaxonomy, notice, error, onError, onNotice }: {
-  taxonomy: Taxonomy | null; disabled: boolean;
+function SourcesPanel({ taxonomy, locale, t, disabled, onScrape, onReview, statuses, scrape, watching, onCheckRun, onTaxonomy, notice, error, onError, onNotice }: {
+  taxonomy: Taxonomy | null; locale: Locale; t: Translate; disabled: boolean;
   statuses: SourceStatus[]; scrape: ScrapeRun | null; watching: boolean; onCheckRun: () => void;
   onReview: (providerId: string) => void;
   onScrape: (providerId: string | "all") => void;
@@ -386,8 +391,8 @@ function SourcesPanel({ taxonomy, disabled, onScrape, onReview, statuses, scrape
     setBusy(label); onError(null); onNotice(null);
     try { onNotice(await work()); }
     catch (err) {
-      if (err instanceof ServiceMissingError) onError("Konfiguration ändern braucht den lokalen Review-Server (INTEREST_ATLAS_LOCAL_DESK=1).");
-      else onError(err instanceof AdminApiError ? err.message : "Unerwarteter Fehler.");
+      if (err instanceof ServiceMissingError) onError(t("org.configNeedsServer"));
+      else onError(err instanceof AdminApiError ? err.message : t("org.unexpected"));
     }
     finally { setBusy(null); }
   };
@@ -395,32 +400,32 @@ function SourcesPanel({ taxonomy, disabled, onScrape, onReview, statuses, scrape
   const saveSource = (change: ProviderChange) => act(`src:${change.id}`, async () => {
     const { provider, created, note } = await saveProvider(change);
     load(); setEditing(null); setAdding(null);
-    return `${provider.name} ${created ? "angelegt" : "gespeichert"}.${note ? ` ${note}` : ""}`;
+    return `${t(created ? "org.sourceCreated" : "org.sourceSaved", { name: provider.name })}${note ? ` ${note}` : ""}`;
   });
   const saveTax = (change: TopicChange, what: string) => act(`tax:${change.kind}:${change.id}`, async () => {
     const next = await saveTopic(change);
     onTaxonomy(next); setAdding(null); setEditing(null);
-    return `${what} gespeichert. Konfigurationsversion ${next.version}.`;
+    return t("org.taxSaved", { what, version: next.version });
   });
 
   return (
     <section className="org__sources" aria-labelledby="org-sources-title">
       <div className="org__session-head">
-        <h2 id="org-sources-title">Quellen</h2>
-        <button type="button" className="btn" disabled={disabled} onClick={() => onScrape("all")}>Alle Quellen aktualisieren</button>
+        <h2 id="org-sources-title">{t("org.sourcesTitle")}</h2>
+        <button type="button" className="btn" disabled={disabled} onClick={() => onScrape("all")}>{t("org.refreshAll")}</button>
         <button type="button" className="btn" disabled={disabled} onClick={() => { setAdding(a => (a === "source" ? null : "source")); setEditing(null); }}>
-          Quelle hinzufügen
+          {t("org.addSource")}
         </button>
       </div>
       {error ? <p className="status-line" data-tone="bad" role="alert">{error}</p> : null}
       {notice ? <p className="status-line" data-tone="ok" role="status">{notice}</p> : null}
-      {scrape ? <div className="panel" role="status"><p>Lauf {scrape.runId}: {scrape.status === "done" ? "beendet" : "läuft"}</p>
+      {scrape ? <div className="panel" role="status"><p>{t("org.runLine", { id: scrape.runId, state: t(scrape.status === "done" ? "org.runDone" : "org.runRunning") })}</p>
         {scrape.results.map(result => <p key={result.providerId}>{result.providerId}: {result.message}</p>)}
-        {!watching && scrape.status !== "done" ? <button className="btn" onClick={onCheckRun}>Status erneut prüfen</button> : null}</div> : null}
-      {disabled ? <p className="muted">Quellen und Themen ändern braucht den Review-Server. Starte die App lokal mit <code>INTEREST_ATLAS_LOCAL_DESK=1</code>.</p> : null}
+        {!watching && scrape.status !== "done" ? <button className="btn" onClick={onCheckRun}>{t("org.checkStatus")}</button> : null}</div> : null}
+      {disabled ? <p className="muted">{t("org.sourcesNeedServerPre")}<code>INTEREST_ATLAS_LOCAL_DESK=1</code>.</p> : null}
 
       {adding === "source" ? (
-        <SourceForm busy={busy === "src:"} disabled={disabled}
+        <SourceForm t={t} busy={busy === "src:"} disabled={disabled}
           onCancel={() => setAdding(null)} onSave={saveSource} />
       ) : null}
 
@@ -429,104 +434,107 @@ function SourcesPanel({ taxonomy, disabled, onScrape, onReview, statuses, scrape
           <article key={p.id} className={`panel org-provider${p.enabled ? "" : " is-off"}`}>
             <div className="org-provider__head">
               <h3>{p.name}</h3>
-              <span className={p.enabled ? "tag tag--verified" : "tag tag--unknown"}>{p.enabled ? "aktiv" : "deaktiviert"}</span>
+              <span className={p.enabled ? "tag tag--verified" : "tag tag--unknown"}>{t(p.enabled ? "org.active" : "org.disabled")}</span>
             </div>
             <p className="muted org-provider__meta">
-              <code>{p.id}</code> · {p.adapter === "implemented" ? "Adapter vorhanden" : "nur CSV-Import"}
-              {p.permissionStatus ? ` · Erlaubnis: ${p.permissionStatus}` : ""}
+              <code>{p.id}</code> · {t(p.adapter === "implemented" ? "org.adapterYes" : "org.adapterNo")}
+              {p.permissionStatus ? t("org.permission", { status: p.permissionStatus }) : ""}
             </p>
-            {statuses.filter(s => s.providerId === p.id).map(s => <p key={s.providerId} className="muted">{s.message} {s.extractedCount} erfasst, {s.rejectedCount} nicht bereit. {s.lastSuccessfulImportAt ? `Datenstand: ${new Date(s.lastSuccessfulImportAt).toLocaleString("de-DE", { timeZone: "Europe/Berlin" })}` : "Noch kein erfolgreicher Abruf."}</p>)}
-            {p.discoveryUrl ? <a href={p.discoveryUrl} target="_blank" rel="noreferrer">Quellseite öffnen</a> : <p className="muted">Keine Quellseite hinterlegt.</p>}
+            {statuses.filter(s => s.providerId === p.id).map(s => (
+              <p key={s.providerId} className="muted">
+                {s.message} {t("org.sourceCounts", { n: s.extractedCount, rejected: s.rejectedCount })}{" "}
+                {s.lastSuccessfulImportAt
+                  ? t("org.dataAsOf", { stamp: formatStamp(s.lastSuccessfulImportAt, locale) ?? "" })
+                  : t("org.noSuccessfulRun")}
+              </p>
+            ))}
+            {p.discoveryUrl ? <a href={p.discoveryUrl} target="_blank" rel="noreferrer">{t("org.openSourcePage")}</a> : <p className="muted">{t("org.noSourcePage")}</p>}
             {editing === p.id ? (
-              <SourceForm source={p} busy={busy === `src:${p.id}`} disabled={disabled}
+              <SourceForm source={p} t={t} busy={busy === `src:${p.id}`} disabled={disabled}
                 onCancel={() => setEditing(null)} onSave={saveSource} />
             ) : (
               <div className="row">
-                <button type="button" className="btn" disabled={disabled} onClick={() => { setEditing(p.id); setAdding(null); }}>Bearbeiten</button>
+                <button type="button" className="btn" disabled={disabled} onClick={() => { setEditing(p.id); setAdding(null); }}>{t("org.edit")}</button>
                 <button type="button" className="btn" disabled={disabled || busy !== null}
                   onClick={() => saveSource({ id: p.id, enabled: !p.enabled })}>
-                  {p.enabled ? "Deaktivieren" : "Aktivieren"}
+                  {t(p.enabled ? "org.deactivate" : "org.activate")}
                 </button>
                 <button type="button" className="btn" disabled={disabled || p.adapter !== "implemented"} onClick={() => onScrape(p.id)}
-                  title={p.adapter === "implemented" ? undefined : "Diese Quelle hat keinen Adapter; Daten kommen per CSV."}>
-                  Aktualisieren
+                  title={p.adapter === "implemented" ? undefined : t("org.noAdapterTitle")}>
+                  {t("org.refresh")}
                 </button>
-                <button type="button" className="btn" disabled={disabled || busy !== null || p.adapter !== "implemented"} onClick={() => onReview(p.id)}>Änderungen prüfen</button>
+                <button type="button" className="btn" disabled={disabled || busy !== null || p.adapter !== "implemented"} onClick={() => onReview(p.id)}>{t("org.reviewChanges")}</button>
               </div>
             )}
           </article>
         ))}
       </div>
-      {sources && !sources.length ? <p className="muted">Noch keine Quelle konfiguriert.</p> : null}
-      {!sources && !disabled ? <p className="muted">Quellen werden geladen…</p> : null}
-      <p className="muted org__hint">
-        Eine Quelle wird nie gelöscht, nur deaktiviert — so bleiben schon veröffentlichte Angebote gültig. Der erlaubte Host
-        einer bestehenden Quelle lässt sich hier nicht ändern, weil das den Scraping-Bereich erweitern würde. Eine neue Quelle
-        ist zunächst CSV-only: automatisches Aktualisieren braucht einen Adapter für die jeweilige Website.
-      </p>
+      {sources && !sources.length ? <p className="muted">{t("org.noSources")}</p> : null}
+      {!sources && !disabled ? <p className="muted">{t("org.loadingSources")}</p> : null}
+      <p className="muted org__hint">{t("org.sourcesRules")}</p>
 
       <div className="org__session-head">
-        <h2>Themen &amp; Interessen</h2>
-        <button type="button" className="btn" disabled={disabled} onClick={() => { setAdding(a => (a === "topic" ? null : "topic")); setEditing(null); }}>Thema hinzufügen</button>
-        <button type="button" className="btn" disabled={disabled || !taxonomy?.topics.length} onClick={() => { setAdding(a => (a === "interest" ? null : "interest")); setEditing(null); }}>Interesse hinzufügen</button>
+        <h2>{t("org.taxTitle")}</h2>
+        <button type="button" className="btn" disabled={disabled} onClick={() => { setAdding(a => (a === "topic" ? null : "topic")); setEditing(null); }}>{t("org.addTopic")}</button>
+        <button type="button" className="btn" disabled={disabled || !taxonomy?.topics.length} onClick={() => { setAdding(a => (a === "interest" ? null : "interest")); setEditing(null); }}>{t("org.addInterest")}</button>
       </div>
-      {adding === "topic" ? <TaxonomyForm kind="topic" busy={busy !== null} disabled={disabled} onCancel={() => setAdding(null)} onSave={saveTax} /> : null}
-      {adding === "interest" && taxonomy ? <TaxonomyForm kind="interest" topics={taxonomy.topics} busy={busy !== null} disabled={disabled} onCancel={() => setAdding(null)} onSave={saveTax} /> : null}
+      {adding === "topic" ? <TaxonomyForm kind="topic" locale={locale} t={t} busy={busy !== null} disabled={disabled} onCancel={() => setAdding(null)} onSave={saveTax} /> : null}
+      {adding === "interest" && taxonomy ? <TaxonomyForm kind="interest" locale={locale} t={t} topics={taxonomy.topics} busy={busy !== null} disabled={disabled} onCancel={() => setAdding(null)} onSave={saveTax} /> : null}
       {taxonomy ? (
         <div className="org__tax">
-          <p className="muted">Konfigurationsversion {taxonomy.version}. Jede Änderung zählt sie hoch.</p>
-          <TaxList kind="topic" entries={taxonomy.topics.map(t => ({ id: t.id, label: t.label, enabled: t.enabled }))}
+          <p className="muted">{t("org.configVersion", { n: taxonomy.version })}</p>
+          <TaxList kind="topic" locale={locale} t={t} entries={taxonomy.topics.map(topic => ({ id: topic.id, label: topic.label, enabled: topic.enabled }))}
             disabled={disabled} busy={busy} editing={editing} setEditing={setEditing} onSave={saveTax} />
-          <TaxList kind="interest" entries={taxonomy.interests.map(i => ({ id: i.id, label: i.label, enabled: i.enabled, topicIds: i.topicIds }))}
+          <TaxList kind="interest" locale={locale} t={t} entries={taxonomy.interests.map(i => ({ id: i.id, label: i.label, enabled: i.enabled, topicIds: i.topicIds }))}
             topics={taxonomy.topics} disabled={disabled} busy={busy} editing={editing} setEditing={setEditing} onSave={saveTax} />
         </div>
-      ) : <p className="muted">Themen noch nicht geladen.</p>}
+      ) : <p className="muted">{t("org.topicsNotLoaded")}</p>}
     </section>
   );
 }
 
-const KIND_LABEL = { topic: "Thema", interest: "Interesse" } as const;
-
 interface TaxEntry { id: string; label: { de: string; en: string }; enabled: boolean; topicIds?: readonly string[] }
+type TaxTopic = { id: string; label: { de: string; en: string } };
 
-function TaxList({ kind, entries, topics, disabled, busy, editing, setEditing, onSave }: {
-  kind: "topic" | "interest"; entries: TaxEntry[]; topics?: readonly { id: string; label: { de: string } }[];
+function TaxList({ kind, locale, t, entries, topics, disabled, busy, editing, setEditing, onSave }: {
+  kind: "topic" | "interest"; locale: Locale; t: Translate; entries: TaxEntry[]; topics?: readonly TaxTopic[];
   disabled: boolean; busy: string | null; editing: string | null;
   setEditing: (id: string | null) => void; onSave: (change: TopicChange, what: string) => void;
 }) {
   return (
     <div className="org-tax-list">
-      <h3>{kind === "topic" ? "Themen" : "Interessen"}</h3>
+      <h3>{t(kind === "topic" ? "org.topics" : "org.interests")}</h3>
       {entries.map(e => (
         <div key={e.id} className={`org-tax-row${e.enabled ? "" : " is-off"}`}>
           <div className="org-tax-row__text">
-            <strong>{e.label.de}</strong> <span className="muted">{e.label.en} · <code>{e.id}</code></span>
+            <strong>{pick(e.label, locale)}</strong> <span className="muted">{locale === "en" ? e.label.de : e.label.en} · <code>{e.id}</code></span>
             {e.topicIds?.length && topics ? (
-              <span className="muted"> · {e.topicIds.map(id => topics.find(t => t.id === id)?.label.de ?? id).join(", ")}</span>
+              <span className="muted"> · {e.topicIds.map(id => { const found = topics.find(topic => topic.id === id); return found ? pick(found.label, locale) : id; }).join(", ")}</span>
             ) : null}
-            {e.enabled ? null : <span className="tag tag--unknown">deaktiviert</span>}
+            {e.enabled ? null : <span className="tag tag--unknown">{t("org.disabled")}</span>}
           </div>
           <div className="row">
-            <button type="button" className="btn" disabled={disabled} onClick={() => setEditing(editing === `${kind}:${e.id}` ? null : `${kind}:${e.id}`)}>Bearbeiten</button>
+            <button type="button" className="btn" disabled={disabled} onClick={() => setEditing(editing === `${kind}:${e.id}` ? null : `${kind}:${e.id}`)}>{t("org.edit")}</button>
             <button type="button" className="btn" disabled={disabled || busy !== null}
-              onClick={() => onSave({ kind, id: e.id, enabled: !e.enabled }, `${KIND_LABEL[kind]} „${e.label.de}" ${e.enabled ? "deaktiviert" : "aktiviert"}`)}>
-              {e.enabled ? "Deaktivieren" : "Aktivieren"}
+              onClick={() => onSave({ kind, id: e.id, enabled: !e.enabled },
+                t(e.enabled ? "org.taxDeactivated" : "org.taxActivated", { kind: t(`kind.${kind}`), label: pick(e.label, locale) }))}>
+              {t(e.enabled ? "org.deactivate" : "org.activate")}
             </button>
           </div>
           {editing === `${kind}:${e.id}` ? (
-            <TaxonomyForm kind={kind} entry={e} topics={topics as { id: string; label: { de: string } }[] | undefined}
+            <TaxonomyForm kind={kind} locale={locale} t={t} entry={e} topics={topics}
               busy={busy !== null} disabled={disabled} onCancel={() => setEditing(null)} onSave={onSave} />
           ) : null}
         </div>
       ))}
-      {!entries.length ? <p className="muted">Noch keine Einträge.</p> : null}
+      {!entries.length ? <p className="muted">{t("org.noEntries")}</p> : null}
     </div>
   );
 }
 
 /** Add or edit one theme/interest. The ID of an existing entry is never editable. */
-function TaxonomyForm({ kind, entry, topics, busy, disabled, onCancel, onSave }: {
-  kind: "topic" | "interest"; entry?: TaxEntry; topics?: readonly { id: string; label: { de: string } }[];
+function TaxonomyForm({ kind, locale, t, entry, topics, busy, disabled, onCancel, onSave }: {
+  kind: "topic" | "interest"; locale: Locale; t: Translate; entry?: TaxEntry; topics?: readonly TaxTopic[];
   busy: boolean; disabled: boolean; onCancel: () => void; onSave: (change: TopicChange, what: string) => void;
 }) {
   const [id, setId] = useState(entry?.id ?? "");
@@ -537,48 +545,48 @@ function TaxonomyForm({ kind, entry, topics, busy, disabled, onCancel, onSave }:
 
   const submit = () => {
     const trimmed = id.trim();
-    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(trimmed) || trimmed.length > 40) { setLocal("Die ID braucht Kleinbuchstaben, Zahlen und Bindestriche, höchstens 40 Zeichen."); return; }
-    if (!de.trim() || !en.trim()) { setLocal("Beide Bezeichnungen (de und en) sind nötig."); return; }
-    if (kind === "interest" && !picked.length) { setLocal("Wähle mindestens ein Thema."); return; }
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(trimmed) || trimmed.length > 40) { setLocal(t("org.idRule")); return; }
+    if (!de.trim() || !en.trim()) { setLocal(t("org.bothLabels")); return; }
+    if (kind === "interest" && !picked.length) { setLocal(t("org.pickTopic")); return; }
     setLocal(null);
     const change: TopicChange = { kind, id: trimmed, label: { de: de.trim(), en: en.trim() } };
     if (kind === "interest") change.topicIds = picked;
-    onSave(change, `${KIND_LABEL[kind]} „${de.trim()}"`);
+    onSave(change, t("org.taxNamed", { kind: t(`kind.${kind}`), label: (locale === "en" ? en : de).trim() }));
   };
 
   return (
     <div className="org-edit">
-      <label className="dz-field"><span>ID</span>
+      <label className="dz-field"><span>{t("org.idLabel")}</span>
         <input type="text" value={id} disabled={!!entry} onChange={e => setId(e.target.value)} placeholder="z-b-robotik" /></label>
-      <label className="dz-field"><span>Bezeichnung (de)</span>
+      <label className="dz-field"><span>{t("org.labelDe")}</span>
         <input type="text" value={de} onChange={e => setDe(e.target.value)} /></label>
-      <label className="dz-field"><span>Bezeichnung (en)</span>
+      <label className="dz-field"><span>{t("org.labelEn")}</span>
         <input type="text" value={en} onChange={e => setEn(e.target.value)} /></label>
       {kind === "interest" && topics ? (
         <fieldset className="org-edit__wide org-edit__fieldset">
-          <legend>Themen</legend>
-          {topics.map(t => (
-            <label key={t.id} className="dz-check">
-              <input type="checkbox" checked={picked.includes(t.id)}
-                onChange={e => setPicked(p => (e.target.checked ? [...p, t.id] : p.filter(x => x !== t.id)))} />
-              {t.label.de}
+          <legend>{t("org.topics")}</legend>
+          {topics.map(topic => (
+            <label key={topic.id} className="dz-check">
+              <input type="checkbox" checked={picked.includes(topic.id)}
+                onChange={e => setPicked(p => (e.target.checked ? [...p, topic.id] : p.filter(x => x !== topic.id)))} />
+              {pick(topic.label, locale)}
             </label>
           ))}
         </fieldset>
       ) : null}
       {local ? <p className="status-line org-edit__wide" data-tone="bad" role="alert">{local}</p> : null}
       <div className="row org-edit__actions">
-        <button type="button" className="btn btn--primary" disabled={disabled || busy} onClick={submit}>{busy ? "Wird gespeichert…" : "Speichern"}</button>
-        <button type="button" className="btn" onClick={onCancel}>Abbrechen</button>
-        {entry ? <span className="muted">Die ID bleibt, damit veröffentlichte Angebote weiter gültig sind.</span> : null}
+        <button type="button" className="btn btn--primary" disabled={disabled || busy} onClick={submit}>{t(busy ? "org.saving" : "org.save")}</button>
+        <button type="button" className="btn" onClick={onCancel}>{t("org.cancel")}</button>
+        {entry ? <span className="muted">{t("org.idKept")}</span> : null}
       </div>
     </div>
   );
 }
 
 /** Add or edit one source. An existing source keeps its ID and its allowed hosts. */
-function SourceForm({ source, busy, disabled, onCancel, onSave }: {
-  source?: AdminProviderView; busy: boolean; disabled: boolean;
+function SourceForm({ source, t, busy, disabled, onCancel, onSave }: {
+  source?: AdminProviderView; t: Translate; busy: boolean; disabled: boolean;
   onCancel: () => void; onSave: (change: ProviderChange) => void;
 }) {
   const [id, setId] = useState(source?.id ?? "");
@@ -588,13 +596,13 @@ function SourceForm({ source, busy, disabled, onCancel, onSave }: {
 
   const submit = () => {
     const trimmed = id.trim();
-    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(trimmed) || trimmed.length > 40) { setLocal("Die ID braucht Kleinbuchstaben, Zahlen und Bindestriche, höchstens 40 Zeichen."); return; }
-    if (!name.trim() || name.length > 120) { setLocal("Der Name muss 1 bis 120 Zeichen lang sein."); return; }
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(trimmed) || trimmed.length > 40) { setLocal(t("org.idRule")); return; }
+    if (!name.trim() || name.length > 120) { setLocal(t("org.nameRule")); return; }
     let parsed: URL;
-    try { parsed = new URL(url.trim()); } catch { setLocal("Die Quellseite muss ein vollständiger https://-Link sein."); return; }
-    if (parsed.protocol !== "https:" || parsed.username || parsed.password || parsed.port) { setLocal("Nur ein einfacher https://-Link ohne Port und Anmeldedaten."); return; }
+    try { parsed = new URL(url.trim()); } catch { setLocal(t("org.urlRule")); return; }
+    if (parsed.protocol !== "https:" || parsed.username || parsed.password || parsed.port) { setLocal(t("org.urlSimple")); return; }
     if (source?.allowedHosts.length && !source.allowedHosts.includes(parsed.hostname)) {
-      setLocal(`Der Link muss auf ${source.allowedHosts.join(" oder ")} bleiben.`); return;
+      setLocal(t("org.hostStay", { hosts: source.allowedHosts.join(", ") })); return;
     }
     setLocal(null);
     onSave({ id: trimmed, name: name.trim(), discoveryUrl: parsed.toString() });
@@ -602,20 +610,20 @@ function SourceForm({ source, busy, disabled, onCancel, onSave }: {
 
   return (
     <div className="org-edit panel">
-      <label className="dz-field"><span>ID</span>
+      <label className="dz-field"><span>{t("org.idLabel")}</span>
         <input type="text" value={id} disabled={!!source} onChange={e => setId(e.target.value)} placeholder="z-b-stadtbibliothek" /></label>
-      <label className="dz-field org-edit__wide"><span>Name</span>
+      <label className="dz-field org-edit__wide"><span>{t("org.name")}</span>
         <input type="text" value={name} onChange={e => setName(e.target.value)} /></label>
-      <label className="dz-field org-edit__wide"><span>Quellseite (https://)</span>
+      <label className="dz-field org-edit__wide"><span>{t("org.sourcePage")}</span>
         <input type="url" value={url} onChange={e => setUrl(e.target.value)} placeholder="https://" /></label>
       {local ? <p className="status-line org-edit__wide" data-tone="bad" role="alert">{local}</p> : null}
       <div className="row org-edit__actions">
-        <button type="button" className="btn btn--primary" disabled={disabled || busy} onClick={submit}>{busy ? "Wird gespeichert…" : "Speichern"}</button>
-        <button type="button" className="btn" onClick={onCancel}>Abbrechen</button>
+        <button type="button" className="btn btn--primary" disabled={disabled || busy} onClick={submit}>{t(busy ? "org.saving" : "org.save")}</button>
+        <button type="button" className="btn" onClick={onCancel}>{t("org.cancel")}</button>
         <span className="muted">
           {source
-            ? `Erlaubte Hosts bleiben: ${source.allowedHosts.join(", ") || "keine hinterlegt"}.`
-            : "Eine neue Quelle ist CSV-only; der Host wird aus dem Link übernommen."}
+            ? t("org.hostsKept", { hosts: source.allowedHosts.join(", ") || t("org.noHosts") })
+            : t("org.newSourceNote")}
         </span>
       </div>
     </div>

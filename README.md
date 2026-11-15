@@ -6,6 +6,8 @@ A one-day project for **Palash + ChatGPT, Ishan + Claude and Umang + Claude**. F
 
 ## Start here
 
+- **[Ishan's next iteration: scale/hero, language, admin, parent UI and logo](docs/prompts/ISHAN_NEXT_ITERATION.md)** — latest user continuation after the interactive redesign.
+- [Redesign implementation and handoff](docs/LOCAL_REDESIGN_HANDOFF.md), [visual/browser evidence and limits](design-qa.md)
 - [AIM PDF requirements and acceptance map](docs/REQUIREMENTS.md)
 - [Revised one-day plan and task split](docs/PLAN.md)
 - [Whole-website interactions and motion](docs/EXPERIENCE.md)
@@ -27,6 +29,10 @@ Agents begin with [AGENTS.md](AGENTS.md). Claude also has [CLAUDE.md](CLAUDE.md)
 | Umang | [Claude prompt](docs/prompts/UMANG_CLAUDE.md), [task sheet U1-U6](docs/tasks/UMANG.md) | Four adapters, CSV intake, common review API, cache/storage and source evidence |
 
 Selected additions from the supplied plan: downloadable CSV template, row-level preview, inline corrections, selected valid bulk publication, simple source/theme controls and source-error recovery. Keep one ingestion core. The CSV/review services and UI are integrated; remaining controls and acceptance gaps are listed in `docs/STATUS.md`. PDF/LLM/email/arbitrary-link ingestion, XLSX parsing, automatic publication and heat maps are deferred.
+
+## Languages
+
+The interface is available in German and English. A DE/EN switch sits in the header of both `/` and `/organizer`; the choice is stored in that browser only and also sets `<html lang>`. German is the source language, so anything without an English translation appears in German rather than as a placeholder. Interface copy lives in `src/components/strings.ts`; record content (offer titles, summaries, taxonomy labels, quiz and puzzle text) is bilingual in the shared contracts and read with `pick()` from `src/shared/i18n.ts`. Status messages produced by a source run stay German by design and are shown as extra detail under a translated status line.
 
 ## Implemented versus planned
 

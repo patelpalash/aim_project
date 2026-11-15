@@ -3,8 +3,10 @@
 import { useMemo, useState } from "react";
 import type { CSSProperties } from "react";
 import type { Offer } from "@/shared/contracts";
+import { pick } from "@/shared/i18n";
 import { interestMeta, InterestIcon } from "./interests";
 import { formatWhen } from "./format";
+import { useLocale } from "../i18n";
 
 /**
  * City map view (clean studio revision). The catalog has venue names but no coordinates, so the
@@ -28,6 +30,7 @@ export interface MapViewProps {
 }
 
 export function MapView({ offers, providerNameOf, onOpen }: MapViewProps) {
+  const { locale, t } = useLocale();
   const [hot, setHot] = useState<string | null>(null);
   const pins = useMemo(() => {
     const perProvider = new Map<string, number>();
@@ -45,8 +48,8 @@ export function MapView({ offers, providerNameOf, onOpen }: MapViewProps) {
   return (
     <div className="map">
       <div className="map__side">
-        <h3>{offers.length === 1 ? "1 Angebot auf der Karte" : `${offers.length} Angebote auf der Karte`}</h3>
-        <p className="map__note">Schematische Karte: Die Position zeigt den Anbieter, nicht die genaue Adresse.</p>
+        <h3>{offers.length === 1 ? t("map.countOne") : t("map.countMany", { n: offers.length })}</h3>
+        <p className="map__note">{t("map.note")}</p>
         {pins.map(({ offer }, i) => {
           const meta = interestMeta(offer.interests[0] ?? "robots");
           return (
@@ -56,13 +59,13 @@ export function MapView({ offers, providerNameOf, onOpen }: MapViewProps) {
               onFocus={() => setHot(offer.id)} onClick={() => onOpen(offer)}>
               <span className="map-row__orb" aria-hidden="true">{offer.interests[0] ? <InterestIcon interest={offer.interests[0]} size={24} /> : null}</span>
               <span>
-                <h4>{offer.title.de}</h4>
-                <p>{providerNameOf(offer.providerId)} · {formatWhen(offer)}</p>
+                <h4>{pick(offer.title, locale)}</h4>
+                <p>{providerNameOf(offer.providerId)} · {formatWhen(offer, locale)}</p>
               </span>
             </button>
           );
         })}
-        {!offers.length ? <p className="muted">Keine Treffer. Ändere die Filter, um Angebote auf der Karte zu sehen.</p> : null}
+        {!offers.length ? <p className="muted">{t("map.empty")}</p> : null}
       </div>
       <div className="map__canvas">
         <svg viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
@@ -78,15 +81,15 @@ export function MapView({ offers, providerNameOf, onOpen }: MapViewProps) {
           <rect x="5" y="50" width="13" height="11" rx="1.5" fill="#d7e8d4" />
           <rect x="85" y="56" width="11" height="16" rx="1.5" fill="#d7e8d4" />
         </svg>
-        <span className="map__label" style={{ left: "8%", top: "7%" }}>Bildungscampus</span>
-        <span className="map__label" style={{ left: "62%", top: "54%" }}>Neckar</span>
-        <span className="map__label" style={{ left: "12%", top: "88%" }}>Innenstadt</span>
+        <span className="map__label" style={{ left: "8%", top: "7%" }}>{t("map.campus")}</span>
+        <span className="map__label" style={{ left: "62%", top: "54%" }}>{t("map.neckar")}</span>
+        <span className="map__label" style={{ left: "12%", top: "88%" }}>{t("map.downtown")}</span>
         {pins.map(({ offer, x, y }, i) => {
           const meta = interestMeta(offer.interests[0] ?? "robots");
           return (
             <button key={offer.id} type="button" className={`map-pin${hot === offer.id ? " is-hot" : ""}`}
               style={{ left: `${x}%`, top: `${y}%`, "--i": Math.min(i, 8), "--a": meta.a, "--b": meta.b } as CSSProperties}
-              aria-label={`${offer.title.de}, ${providerNameOf(offer.providerId)}`}
+              aria-label={`${pick(offer.title, locale)}, ${providerNameOf(offer.providerId)}`}
               onMouseEnter={() => setHot(offer.id)} onMouseLeave={() => setHot(h => (h === offer.id ? null : h))}
               onFocus={() => setHot(offer.id)} onClick={() => onOpen(offer)}>
               {offer.interests[0] ? <InterestIcon interest={offer.interests[0]} size={18} /> : null}
@@ -95,8 +98,8 @@ export function MapView({ offers, providerNameOf, onOpen }: MapViewProps) {
         })}
         {hotPin ? (
           <div className="map__pop" aria-hidden="true">
-            <h4>{hotPin.offer.title.de}</h4>
-            <p>{providerNameOf(hotPin.offer.providerId)} · {formatWhen(hotPin.offer)}</p>
+            <h4>{pick(hotPin.offer.title, locale)}</h4>
+            <p>{providerNameOf(hotPin.offer.providerId)} · {formatWhen(hotPin.offer, locale)}</p>
             <p>{hotPin.offer.venue.name}, {hotPin.offer.venue.city}</p>
           </div>
         ) : null}

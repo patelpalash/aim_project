@@ -25,7 +25,7 @@ async function request(url: string, init?: RequestInit): Promise<unknown> {
   // 405/409/501 with an HTML error page. None of those are real review errors.
   const json = (response.headers.get("content-type") ?? "").includes("json");
   let payload: unknown;
-  try { payload = json ? await response.json() : null; } catch { throw new AdminApiError("Antwort ist kein gültiges JSON.", response.status); }
+  try { payload = json ? await response.json() : null; } catch { throw new AdminApiError("Antwort ist kein gültiges JSON. / Response is not valid JSON.", response.status); }
   const envelope = isRecord(payload) && isRecord(payload.error) ? payload.error : null;
   if ((response.status === 404 && (!json || envelope?.code === "DESK_DISABLED" || envelope?.message === "Not available.")) ||
       ([405, 409, 501].includes(response.status) && !json)) throw new ServiceMissingError();
@@ -46,13 +46,13 @@ function toSession(input: unknown, taxonomy?: Taxonomy): ReviewSession {
 
 export async function fetchProviders(): Promise<ProviderSummary[]> {
   const valid = validateProvidersResponse(await request("/api/providers"));
-  if (!valid.ok) throw new AdminApiError("Anbieter-Antwort ungültig.");
+  if (!valid.ok) throw new AdminApiError("Anbieter-Antwort ungültig. / Invalid providers response.");
   return [...valid.providers];
 }
 
 export async function fetchTaxonomy(): Promise<Taxonomy> {
   const valid = validateTaxonomy(await request("/api/taxonomy"));
-  if (!valid.ok) throw new AdminApiError("Themen-Antwort ungültig.");
+  if (!valid.ok) throw new AdminApiError("Themen-Antwort ungültig. / Invalid taxonomy response.");
   return valid.taxonomy;
 }
 
@@ -79,7 +79,7 @@ export async function approveRows(importId: string, rowIds: string[], revision: 
   const result = await request(`/api/admin/imports/${encodeURIComponent(importId)}/approve`, {
     method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ approve: true, rowIds, revision })
   }) as Partial<ApproveResult>;
-  if (result?.approved !== true || !Number.isFinite(result.publishedCount)) throw new AdminApiError("Veröffentlichen-Antwort ungültig.");
+  if (result?.approved !== true || !Number.isFinite(result.publishedCount)) throw new AdminApiError("Veröffentlichen-Antwort ungültig. / Invalid publication response.");
   return result as ApproveResult;
 }
 
@@ -96,7 +96,7 @@ export interface AdminProviderView {
 function providerView(input: unknown): AdminProviderView {
   const p = input as Partial<AdminProviderView>;
   if (!p || typeof p.id !== "string" || typeof p.name !== "string" || typeof p.enabled !== "boolean")
-    throw new AdminApiError("Quellen-Antwort ungültig.");
+    throw new AdminApiError("Quellen-Antwort ungültig. / Invalid sources response.");
   return {
     id: p.id, name: p.name, discoveryUrl: typeof p.discoveryUrl === "string" ? p.discoveryUrl : "",
     enabled: p.enabled, allowedHosts: Array.isArray(p.allowedHosts) ? p.allowedHosts.filter((h): h is string => typeof h === "string") : [],
@@ -109,7 +109,7 @@ function providerView(input: unknown): AdminProviderView {
 
 export async function fetchAdminProviders(): Promise<AdminProviderView[]> {
   const body = await request("/api/admin/providers") as { providers?: unknown };
-  if (!Array.isArray(body?.providers)) throw new AdminApiError("Quellen-Antwort ungültig.");
+  if (!Array.isArray(body?.providers)) throw new AdminApiError("Quellen-Antwort ungültig. / Invalid sources response.");
   return body.providers.map(providerView);
 }
 
@@ -123,7 +123,7 @@ export async function saveProvider(change: ProviderChange): Promise<{ provider: 
 
 export async function fetchAdminTaxonomy(): Promise<Taxonomy> {
   const valid = validateTaxonomy(await request("/api/admin/topics"));
-  if (!valid.ok) throw new AdminApiError("Themen-Antwort ungültig.");
+  if (!valid.ok) throw new AdminApiError("Themen-Antwort ungültig. / Invalid taxonomy response.");
   return valid.taxonomy;
 }
 
@@ -133,7 +133,7 @@ export async function saveTopic(change: TopicChange): Promise<Taxonomy> {
     method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(change)
   }) as { taxonomy?: unknown };
   const valid = validateTaxonomy(body?.taxonomy);
-  if (!valid.ok) throw new AdminApiError("Gespeicherte Themen-Antwort ungültig.");
+  if (!valid.ok) throw new AdminApiError("Gespeicherte Themen-Antwort ungültig. / Invalid saved-taxonomy response.");
   return valid.taxonomy;
 }
 
@@ -141,7 +141,7 @@ export async function startScrapeRun(providerId: string | "all"): Promise<{ runI
   const result = await request("/api/admin/scrape-runs", {
     method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ providerId })
   }) as { runId?: string; status?: string };
-  if (!result?.runId) throw new AdminApiError("Scrape-Antwort ungültig.");
+  if (!result?.runId) throw new AdminApiError("Scrape-Antwort ungültig. / Invalid scrape response.");
   return { runId: result.runId, status: result.status ?? "queued" };
 }
 
@@ -154,7 +154,7 @@ export async function fetchScrapeRun(runId: string): Promise<ScrapeRun> {
   const value = await request(`/api/admin/scrape-runs/${encodeURIComponent(runId)}`);
   if (!isRecord(value) || value.runId !== runId || !["queued", "running", "done"].includes(String(value.status)) ||
       !Array.isArray(value.results) || value.results.some(r => !isRecord(r) || typeof r.providerId !== "string" || typeof r.status !== "string" || typeof r.message !== "string"))
-    throw new AdminApiError("Quellenstatus ist ungültig.");
+    throw new AdminApiError("Quellenstatus ist ungültig. / Invalid source status.");
   return value as unknown as ScrapeRun;
 }
 export async function importFromSource(providerId: string, taxonomy?: Taxonomy): Promise<ReviewSession> {
@@ -164,6 +164,6 @@ export async function importFromSource(providerId: string, taxonomy?: Taxonomy):
 }
 export async function fetchSourceStatuses(taxonomy?: Taxonomy): Promise<SourceStatus[]> {
   const parsed = validateCatalogResponse(await request("/api/offers"), taxonomy);
-  if (!parsed.ok) throw new AdminApiError("Katalogstatus ist ungültig.");
+  if (!parsed.ok) throw new AdminApiError("Katalogstatus ist ungültig. / Invalid catalogue status.");
   return parsed.catalog.sourceStatuses ?? [];
 }
