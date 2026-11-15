@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { OrganizerDesk } from "@/components/organizer/OrganizerDesk";
+import { deskMode } from "@/server/admin-auth";
 
 export const metadata: Metadata = {
   title: "Organizer · Interest Atlas",
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 export const dynamic = "force-dynamic";
 
 export default function OrganizerPage() {
-  return <OrganizerDesk enabled={process.env.INTEREST_ATLAS_LOCAL_DESK === "1"} />;
+  return <OrganizerDesk enabled={deskMode() !== "disabled"} />;
 }

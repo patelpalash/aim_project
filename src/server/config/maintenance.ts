@@ -13,13 +13,14 @@ import type { Issue, Taxonomy } from "../../shared/contracts.ts";
 import { validateTaxonomy } from "../../shared/taxonomy.ts";
 import { validateProvidersResponse } from "../../shared/api-contract.ts";
 import type { ProviderConfig } from "../scraping/providers.ts";
+import { dataRoot } from "../data-root.ts";
 
 export class ConfigChangeError extends Error {
   readonly issues: Issue[];
   constructor(message: string, issues: Issue[] = []) { super(message); this.issues = issues; }
 }
 
-const dataDir = (dir?: string) => dir ?? join(/*turbopackIgnore: true*/ process.cwd(), "data");
+const dataDir = (dir?: string) => dir ?? dataRoot();
 function writeAtomic(file: string, body: unknown) {
   const tmp = `${file}.${process.pid}.tmp`;
   writeFileSync(/*turbopackIgnore: true*/ tmp, `${JSON.stringify(body, null, 2)}\n`, "utf8");

@@ -20,6 +20,7 @@ import {
 } from "../../shared/review.ts";
 import { loadProviders, isAllowedUrl } from "../scraping/providers.ts";
 import type { Candidate } from "../scraping/types.ts";
+import { dataRoot } from "../data-root.ts";
 import { berlinLocalToIso, berlinParts } from "../scraping/berlin-time.ts";
 
 export const SESSION_TTL_MS = 30 * 60_000;
@@ -32,7 +33,7 @@ export class ReviewError extends Error {
 }
 
 export interface Store { dataDir: string }
-export const defaultStore = (): Store => ({ dataDir: join(/*turbopackIgnore: true*/ process.cwd(), "data") });
+export const defaultStore = (): Store => ({ dataDir: dataRoot() });
 const paths = (s: Store) => ({
   published: join(s.dataDir, "catalog", "published-offers.json"),
   reviewed: join(s.dataDir, "catalog", "reviewed-offers.json"),

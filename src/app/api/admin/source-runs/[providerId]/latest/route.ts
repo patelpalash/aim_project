@@ -3,5 +3,5 @@ import { getLatestSourceRun } from "../../../../../../server/catalog/read.ts";
 
 export async function GET(_request: Request, context: { params: Promise<{ providerId: string }> }): Promise<Response> {
   const { providerId } = await context.params;
-  return getLatestSourceRun(providerId);
+  return getLatestSourceRun(providerId, undefined, _request);
 }

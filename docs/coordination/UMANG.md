@@ -246,3 +246,12 @@ Latest live run, 14 Nov 2026, 180-day window:
 | IPAI | needs-review | 4 | 0 | 4 |
 
 Details: [UMANG_U1.md](../handoffs/UMANG_U1.md) and [UMANG_U2.md](../handoffs/UMANG_U2.md).
+
+## Hosted demo admin (2026-11-15)
+
+User request: admin panel was disabled on Vercel (`DESK_DISABLED` by design). Chosen option: password-protected demo.
+- New desk mode `password` via `INTEREST_ATLAS_ADMIN_PASSWORD` (>= 8 chars): `/api/admin/login|logout|session`, signed HttpOnly cookie, same-origin writes; local mode (`INTEREST_ATLAS_LOCAL_DESK=1`) unchanged; default still 404.
+- On Vercel the data root is a temporary `/tmp` copy of `data/` (`src/server/data-root.ts`); changes reset on redeploy; scrape runs return 409 there.
+- Organizer UI: sign-in form, sign-out, temporary-data notice, refresh buttons disabled with explanation in hosted mode (Ishan: please review wording/styling).
+- Evidence: `tests/admin-auth.test.ts` (8 tests), `npm run check` 140/140, `npm run build` clean; local `next start` with `VERCEL=1` + password: login, CSV upload, blocked row refused, eligible row published (public offers 27 -> 28), committed `data/` untouched, cross-site write 403, sign-out -> 401.
+- Action for the deployer: set `INTEREST_ATLAS_ADMIN_PASSWORD` in Vercel project settings and redeploy.

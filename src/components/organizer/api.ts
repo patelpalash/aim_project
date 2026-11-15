@@ -12,6 +12,8 @@ import { isRecord } from "../../shared/validation.ts";
  * Shared catalog/review validators keep client and service payloads aligned.
  */
 export class ServiceMissingError extends Error { constructor() { super("Review service not available yet"); this.name = "ServiceMissingError"; } }
+/** The hosted demo desk needs the shared admin password first. */
+export class LoginRequiredError extends Error { constructor() { super("Login required"); this.name = "LoginRequiredError"; } }
 export class AdminApiError extends Error {
   readonly status?: number;
   constructor(message: string, status?: number) { super(message); this.name = "AdminApiError"; this.status = status; }
@@ -27,6 +29,7 @@ async function request(url: string, init?: RequestInit): Promise<unknown> {
   let payload: unknown;
   try { payload = json ? await response.json() : null; } catch { throw new AdminApiError("Antwort ist kein gültiges JSON. / Response is not valid JSON.", response.status); }
   const envelope = isRecord(payload) && isRecord(payload.error) ? payload.error : null;
+  if (response.status === 401 && envelope?.code === "LOGIN_REQUIRED") throw new LoginRequiredError();
   if ((response.status === 404 && (!json || envelope?.code === "DESK_DISABLED" || envelope?.message === "Not available.")) ||
       ([405, 409, 501].includes(response.status) && !json)) throw new ServiceMissingError();
   if (!response.ok) {
@@ -172,4 +175,24 @@ export async function fetchSourceStatuses(taxonomy?: Taxonomy): Promise<SourceSt
   const parsed = validateCatalogResponse(await request("/api/offers"), taxonomy);
   if (!parsed.ok) throw new AdminApiError("Katalogstatus ist ungültig. / Invalid catalogue status.");
   return parsed.catalog.sourceStatuses ?? [];
+}
+
+export interface DeskSession { mode: "local" | "password" | "disabled"; authenticated: boolean; storage: "files" | "temporary"; sourceRefresh: boolean }
+export async function fetchDeskSession(): Promise<DeskSession | null> {
+  try {
+    const r = await fetch("/api/admin/session", { headers: { Accept: "application/json" }, credentials: "same-origin", cache: "no-store" });
+    if (!r.ok) return null;
+    const b = await r.json() as Partial<DeskSession>;
+    return b && (b.mode === "local" || b.mode === "password" || b.mode === "disabled")
+      ? { mode: b.mode, authenticated: !!b.authenticated, storage: b.storage === "temporary" ? "temporary" : "files", sourceRefresh: b.sourceRefresh !== false } : null;
+  } catch { return null; }
+}
+export async function signIn(password: string): Promise<boolean> {
+  const r = await fetch("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, credentials: "same-origin", body: JSON.stringify({ password }) });
+  if (r.ok) return true;
+  if (r.status === 401) return false;
+  throw new AdminApiError(`Fehler ${r.status}`, r.status);
+}
+export async function signOut(): Promise<void> {
+  await fetch("/api/admin/logout", { method: "POST", credentials: "same-origin" }).catch(() => undefined);
 }
