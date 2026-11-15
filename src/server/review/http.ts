@@ -6,7 +6,9 @@
 import { randomUUID } from "node:crypto";
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
-import { loadCatalog as loadStoredCatalog, loadTaxonomy, localDeskEnabled, publicOffers, sourceStatuses } from "../catalog/read.ts";
+import { loadCatalog as loadStoredCatalog, loadTaxonomy, publicOffers, sourceStatuses } from "../catalog/read.ts";
+import { deskGate } from "../admin-auth.ts";
+import { dataRoot } from "../data-root.ts";
 import { changeProvider, changeTaxonomy, ConfigChangeError, providerViews, readDemoGapSeeds } from "../config/maintenance.ts";
 import { ADAPTERS } from "../scraping/adapters/index.ts";
 import { runProvider, saveRun } from "../scraping/runner.ts";
@@ -18,21 +20,14 @@ const json = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), { status, headers: { "content-type": "application/json; charset=utf-8", "cache-control": "no-store" } });
 const fail = (status: number, code: string, message: string, issues: unknown[] = []) => json({ error: { code, message, issues } }, status);
 
-/** Local writes also reject cross-site browser requests; a parent-view switch grants no access. */
-function localWrite(request: Request): boolean {
-  try {
-    const url = new URL(request.url);
-    const local = (host: string) => ["localhost", "127.0.0.1", "[::1]"].includes(host);
-    const destination = new URL(`${url.protocol}//${request.headers.get("host") ?? url.host}`);
-    if (!local(url.hostname) || !local(destination.hostname) || destination.username || destination.password) return false;
-    if (request.headers.get("sec-fetch-site") === "cross-site") return false;
-    const origin = request.headers.get("origin");
-    return !origin || origin === destination.origin;
-  } catch { return false; }
-}
+/**
+ * Every desk route goes through `deskGate` (see admin-auth.ts): 404 when the desk is disabled,
+ * a login in password mode, and same-origin (local mode: localhost) checks for writes.
+ */
 async function desk(fn: () => Promise<Response> | Response, request?: Request): Promise<Response> {
-  if (!localDeskEnabled()) return fail(404, "DESK_DISABLED", "Not available.");
-  if (request && !localWrite(request)) return fail(403, "LOCAL_ONLY", "Maintenance writes require a same-origin localhost request.");
+  const write = !!request && request.method !== "GET" && request.method !== "HEAD";
+  const blocked = deskGate(request, write);
+  if (blocked) return blocked;
   try { return await fn(); }
   catch (error) {
     if (error instanceof ReviewError) return fail(error.status, error.code, error.message, error.issues);
@@ -44,9 +39,9 @@ async function body(request: Request): Promise<unknown> {
   try { return await request.json(); } catch { throw new ReviewError(400, "MALFORMED", "Expected a JSON body."); }
 }
 
-export const getImportTemplate = () => desk(() => new Response(`﻿${CSV_TEMPLATE}`, {
+export const getImportTemplate = (request?: Request) => desk(() => new Response(`﻿${CSV_TEMPLATE}`, {
   headers: { "content-type": "text/csv; charset=utf-8", "content-disposition": "attachment; filename=\"interest-atlas-vorlage.csv\"", "cache-control": "no-store" },
-}));
+}), request);
 
 /** Multipart: file (CSV), providerId, mode=source|demo. */
 export const postUpload = (request: Request) => desk(async () => {
@@ -74,14 +69,14 @@ export const postImportFromSource = (request: Request) => desk(async () => {
   const input = await body(request) as { providerId?: unknown };
   const providerId = typeof input?.providerId === "string" ? input.providerId : "";
   if (!/^[a-z0-9-]{1,40}$/.test(providerId)) return fail(400, "MALFORMED", "providerId required.");
-  const file = join(process.cwd(), "data", "source-runs", `${providerId}-latest.json`);
-  if (!existsSync(file)) return fail(404, "NOT_FOUND", "No stored source run for this provider; refresh it first.");
-  const run = JSON.parse(readFileSync(file, "utf8")) as ProviderRunResult;
+  const file = join(/*turbopackIgnore: true*/ dataRoot(), "source-runs", `${providerId}-latest.json`);
+  if (!existsSync(/*turbopackIgnore: true*/ file)) return fail(404, "NOT_FOUND", "No stored source run for this provider; refresh it first.");
+  const run = JSON.parse(readFileSync(/*turbopackIgnore: true*/ file, "utf8")) as ProviderRunResult;
   if (!run.candidates.length) return fail(400, "EMPTY_RUN", "The last run staged no candidates.");
   return json(createSession({ providerId, mode: "source", drafts: draftsFromCandidates(run.candidates.slice(0, 100)), taxonomy: loadTaxonomy() }), 201);
 }, request);
 
-export const getImport = (importId: string) => desk(() => json(getSession(importId)));
+export const getImport = (importId: string, request?: Request) => desk(() => json(getSession(importId)), request);
 
 export const patchImportRow = (request: Request, importId: string, rowId: string) =>
   desk(async () => json(patchRow(importId, rowId, await body(request), { taxonomy: loadTaxonomy() })), request);
@@ -101,6 +96,8 @@ const runs = new Map<string, RunState>();
 let active: string | null = null;
 
 export const postScrapeRun = (request: Request) => desk(async () => {
+  // Serverless platforms stop work after the response, so a background scrape would never finish there.
+  if (process.env.VERCEL === "1") return fail(409, "REFRESH_LOCAL_ONLY", "Quellen-Aktualisierung läuft nur lokal; in der gehosteten Demo bitte gespeicherte Läufe prüfen. / Source refresh runs locally only; in the hosted demo, review the stored runs.");
   const input = await body(request) as { providerId?: unknown };
   const requested = typeof input?.providerId === "string" ? input.providerId : "";
   const providerIds = requested === "all" ? Object.keys(ADAPTERS) : ADAPTERS[requested] ? [requested] : [];
@@ -127,10 +124,10 @@ export const postScrapeRun = (request: Request) => desk(async () => {
   return json({ runId: state.runId, status: "queued" }, 202);
 }, request);
 
-export const getScrapeRun = (runId: string) => desk(() => {
+export const getScrapeRun = (runId: string, request?: Request) => desk(() => {
   const state = runs.get(runId);
   return state ? json(state) : fail(404, "NOT_FOUND", "Unknown run (runs are kept in memory until the server restarts).");
-});
+}, request);
 
 // ---- U5: summary and configuration maintenance (themes, sources).
 
@@ -145,7 +142,7 @@ async function config(fn: () => Promise<Response> | Response, request?: Request)
 }
 
 /** Desk overview: catalogue version, per-source status and the synthetic demo gap panel. */
-export const getSummary = () => desk(() => {
+export const getSummary = (request?: Request) => desk(() => {
   const taxonomy = loadTaxonomy();
   const stored = loadStoredCatalog(undefined, taxonomy);
   const visible = publicOffers(stored.offers, new Date());
@@ -164,12 +161,12 @@ export const getSummary = () => desk(() => {
     gaps,
     gapsNote: "Example requests are invented demo numbers (data/demo-gap-requests.json), not measured demand.",
   });
-});
+}, request);
 
-export const getTopics = () => config(() => json(loadTaxonomy()));
+export const getTopics = (request?: Request) => config(() => json(loadTaxonomy()), request);
 export const postTopic = (request: Request) => config(async () => json({ taxonomy: changeTaxonomy(await body(request)) }), request);
 
-export const getAdminProviders = () => config(() => json({ providers: providerViews(Object.keys(ADAPTERS)) }));
+export const getAdminProviders = (request?: Request) => config(() => json({ providers: providerViews(Object.keys(ADAPTERS)) }), request);
 export const postAdminProvider = (request: Request) => config(async () => {
   const result = changeProvider(await body(request));
   const provider = { ...result.provider, adapter: ADAPTERS[result.provider.id] ? "implemented" : "none" };

@@ -122,3 +122,12 @@ PowerShell: `npm ci; npm run build; $env:INTEREST_ATLAS_LOCAL_DESK = "1"; npm ru
 - Reset the demo to the committed reviewed baseline (local desk only): `curl -X POST -H "content-type: application/json" -d "{\"resetDemo\":true}" http://127.0.0.1:3000/api/admin/reset`. There is no reset button in the desk UI.
 - `npm run dev` starts the development server on the same port. `npm run check` regenerates route types, type-checks and runs the 123 tests.
 - No AI API key, database or hosted deployment is required. Runtime state (`data/catalog/published-offers.json`, `data/review-sessions/`) is git-ignored; source refreshes and theme/source edits write tracked files under `data/`, so review `git status` before committing after a demo.
+
+### Hosted demo admin (password-protected)
+
+To use `/organizer` on a hosted deployment (e.g. Vercel), set `INTEREST_ATLAS_ADMIN_PASSWORD` (at least 8 characters) in the hosting project's environment variables and redeploy. Never commit the password or share it in chat.
+
+- Organizers sign in at `/organizer` with that shared password; the browser gets a signed, HttpOnly, SameSite=Strict cookie valid for 8 hours. "Sign out" clears it. Wrong passwords are slowed down; writes must come from the same site.
+- On Vercel (`VERCEL=1`) the file system is read-only, so the desk works on a temporary copy of `data/` in `/tmp`. Uploads, publications and theme/source edits are **temporary**: they reset on the next deployment or instance restart and are not shared between server instances. The desk shows this notice.
+- Source refresh (scraping) is local-only in the hosted demo (`409 REFRESH_LOCAL_ONLY`); stored source runs can still be reviewed.
+- This is a demo safeguard with one shared password, not individual accounts or production authentication. Without the variable (and without `INTEREST_ATLAS_LOCAL_DESK=1`) every maintenance route stays 404.

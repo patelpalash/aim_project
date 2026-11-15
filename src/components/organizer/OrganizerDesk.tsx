@@ -10,7 +10,7 @@ import { availabilityLabel, formatPrice, formatStamp } from "../atlas/format";
 import { LanguageSwitch, useLocale, type Translate } from "../i18n";
 import { BrandLogo } from "../BrandLogo";
 import {
-  AdminApiError, ServiceMissingError, approveRows, fetchAdminProviders, fetchAdminSummary, fetchProviders, fetchSession, fetchTaxonomy,
+  AdminApiError, LoginRequiredError, ServiceMissingError, approveRows, fetchDeskSession, signIn, signOut, type DeskSession, fetchAdminProviders, fetchAdminSummary, fetchProviders, fetchSession, fetchTaxonomy,
   fetchSourceStatuses, fetchScrapeRun, importFromSource, patchRow, saveProvider, saveTopic, startScrapeRun, uploadCsv,
   type AdminProviderView, type ApproveResult, type ProviderChange, type ScrapeRun, type TopicChange
 } from "./api";
@@ -38,6 +38,10 @@ export function OrganizerDesk({ enabled }: { enabled: boolean }) {
   const [taxonomy, setTaxonomy] = useState<Taxonomy | null>(null);
   const [publicApiMissing, setPublicApiMissing] = useState(false);
   const [adminMissing, setAdminMissing] = useState(!enabled);
+  const [deskSession, setDeskSession] = useState<DeskSession | null>(null);
+  const [needsLogin, setNeedsLogin] = useState(false);
+  const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState<string | null>(null);
   const [summary, setSummary] = useState<{ catalogueVersion: number; publishedRealCount: number } | null>(null);
   const [reviewToken, setReviewToken] = useState<string | null>(null);
   const [resumeId, setResumeId] = useState("");
@@ -58,7 +62,12 @@ export function OrganizerDesk({ enabled }: { enabled: boolean }) {
   const approvalToken = session && selected.length ? `${session.importId}:${session.revision}:${[...selected].sort().join(",")}` : "";
   const reviewConfirmed = !!approvalToken && reviewToken === approvalToken;
   const checkConnection = useCallback(() => {
-    fetchAdminSummary().then(next => { setSummary(next); setAdminMissing(false); }).catch(err => { setAdminMissing(true); if (!(err instanceof ServiceMissingError)) setError(translatorRef.current("org.checkConnection")); });
+    fetchDeskSession().then(setDeskSession);
+    fetchAdminSummary().then(next => { setSummary(next); setAdminMissing(false); setNeedsLogin(false); }).catch(err => {
+      setAdminMissing(true);
+      if (err instanceof LoginRequiredError) { setNeedsLogin(true); return; }
+      if (!(err instanceof ServiceMissingError)) setError(translatorRef.current("org.checkConnection"));
+    });
   }, []);
   useEffect(() => { if (enabled) checkConnection(); }, [enabled, checkConnection]);
 
@@ -130,7 +139,8 @@ export function OrganizerDesk({ enabled }: { enabled: boolean }) {
     setBusy(label); setError(null); setNotice(null);
     try { await work(); }
     catch (err) {
-      if (err instanceof ServiceMissingError) { setAdminMissing(true); setError(null); }
+      if (err instanceof LoginRequiredError) { setAdminMissing(true); setNeedsLogin(true); setError(null); }
+      else if (err instanceof ServiceMissingError) { setAdminMissing(true); setError(null); }
       else setError(err instanceof AdminApiError && err.status === 409 ? say("Die Prüfung wurde inzwischen geändert. Laden Sie die aktuelle Prüfung neu und wählen Sie die Zeilen erneut.", "This review has changed. Reload the current review and select the rows again.") : err instanceof AdminApiError ? err.message : t("org.unexpected"));
     }
     finally { setBusy(null); }
@@ -184,16 +194,37 @@ export function OrganizerDesk({ enabled }: { enabled: boolean }) {
             <button type="button" aria-pressed={tab === "sources"} onClick={() => setTab("sources")}>{t("org.tabSources")}</button>
           </div>
           <LanguageSwitch />
+          {deskSession?.mode === "password" && !needsLogin && !adminMissing ? (
+            <button type="button" className="btn" onClick={() => { void signOut().then(() => { setSummary(null); setSession(null); setAdminMissing(true); setNeedsLogin(true); }); }}>{say("Abmelden", "Sign out")}</button>
+          ) : null}
         </div>
       </header>
 
       <main className="wrap org__main" id="org-main" tabIndex={-1}>
         <section className="org-welcome"><div><p>{say("INTEREST ATLAS · VERWALTUNG", "INTEREST ATLAS · ADMIN")}</p><h1>{say("Aus Quellen werden gute Entdeckungen.", "Turn source information into great discoveries.")}</h1><span>{say("Importieren, prüfen und gezielt veröffentlichen. Ein gemeinsamer Katalog für Kinder und Eltern.", "Import, review and publish your selection. One shared catalogue for children and parents.")}</span></div><a className="btn" href="/" target="_blank" rel="noopener noreferrer">{say("Öffentlichen Katalog öffnen ↗", "Open public catalogue ↗")}</a></section>
-        <div className="org-connection" role="status"><strong>{adminMissing ? say("Lokale Verwaltung deaktiviert", "Local admin disabled") : summary ? say("Mit dem Katalog verbunden", "Connected to the catalogue") : say("Verbindung wird geprüft…", "Checking connection…")}</strong>{summary && !adminMissing ? <span>{summary.publishedRealCount} {say("geprüfte echte Angebote", "reviewed real activities")} · {say("Katalogversion", "catalogue version")} {summary.catalogueVersion}</span> : <span>{say("Schreibzugriff nur lokal und nach ausdrücklicher Prüfung.", "Local writes only, with explicit review before publication.")}</span>}</div>
+        <div className="org-connection" role="status"><strong>{needsLogin ? say("Anmeldung erforderlich", "Sign-in required") : adminMissing ? say("Lokale Verwaltung deaktiviert", "Local admin disabled") : summary ? say("Mit dem Katalog verbunden", "Connected to the catalogue") : say("Verbindung wird geprüft…", "Checking connection…")}</strong>{summary && !adminMissing ? <span>{summary.publishedRealCount} {say("geprüfte echte Angebote", "reviewed real activities")} · {say("Katalogversion", "catalogue version")} {summary.catalogueVersion}</span> : <span>{deskSession?.mode === "password" ? say("Passwortgeschützt; Veröffentlichung nur nach ausdrücklicher Prüfung.", "Password protected; publication only after explicit review.") : say("Schreibzugriff nur lokal und nach ausdrücklicher Prüfung.", "Local writes only, with explicit review before publication.")}</span>}</div>
         <ol className="org-workflow"><li><b>1</b>{say("Quelle / CSV auswählen", "Choose source / CSV")}</li><li><b>2</b>{say("Zeilen prüfen & korrigieren", "Review & correct rows")}</li><li><b>3</b>{say("Auswahl veröffentlichen", "Publish your selection")}</li></ol>
         {!adminMissing ? <form className="org-resume" onSubmit={e => { e.preventDefault(); void run("resume", async () => { adoptSession(await fetchSession(resumeId.trim(), taxonomy ?? undefined), false); setNotice(t("org.resumed", { id: resumeId.trim() })); }); }}><label>{say("Vorhandene Prüfung öffnen", "Resume an existing review")}<input type="text" value={resumeId} onChange={e => setResumeId(e.target.value)} placeholder={say("Prüfungs-ID", "Review ID")} required maxLength={36} /></label><button type="submit" className="btn" disabled={busy !== null || !resumeId.trim()}>{say("Prüfung laden", "Load review")}</button></form> : null}
         {publicApiMissing ? <p className="status-line" data-tone="warn">{t("org.checkConnection")}</p> : null}
-        {adminMissing ? (
+        {!adminMissing && deskSession?.storage === "temporary" ? (
+          <p className="status-line" data-tone="warn" role="note">{say(
+            "Gehostete Demo: Änderungen (Uploads, Veröffentlichungen, Themen) sind vorübergehend und werden beim nächsten Neustart oder Deployment zurückgesetzt.",
+            "Hosted demo: changes (uploads, publications, topics) are temporary and reset on the next restart or deployment.")}</p>
+        ) : null}
+        {needsLogin ? (
+          <form className="panel org__missing" onSubmit={e => {
+            e.preventDefault(); setLoginError(null);
+            void signIn(password).then(ok => { if (ok) { setPassword(""); checkConnection(); } else setLoginError(say("Falsches Passwort.", "Wrong password.")); })
+              .catch(() => setLoginError(say("Anmeldung gerade nicht möglich.", "Sign-in is not available right now.")));
+          }}>
+            <h2>{say("Verwaltung: Anmeldung", "Admin sign-in")}</h2>
+            <p className="muted">{say("Diese Verwaltung ist mit einem gemeinsamen Passwort geschützt.", "This admin area is protected by a shared password.")}</p>
+            <label className="dz-field"><span>{say("Passwort", "Password")}</span>
+              <input type="password" autoComplete="current-password" value={password} onChange={e => setPassword(e.target.value)} required /></label>
+            {loginError ? <p className="status-line" data-tone="bad" role="alert">{loginError}</p> : null}
+            <div className="row"><button type="submit" className="btn btn--primary" disabled={!password}>{say("Anmelden", "Sign in")}</button></div>
+          </form>
+        ) : adminMissing ? (
           <div className="panel org__missing">
             <h2>{t("org.missingTitle")}</h2>
             <p className="muted">{t("org.missingBodyPre")}<code>INTEREST_ATLAS_LOCAL_DESK=1</code>{t("org.missingBodyPost")}</p>
@@ -322,6 +353,7 @@ export function OrganizerDesk({ enabled }: { enabled: boolean }) {
         ) : (
           <SourcesPanel taxonomy={taxonomy} locale={locale} t={t} statuses={statuses} scrape={scrape} watching={watchRunId !== null}
             disabled={adminMissing || busy !== null || watchRunId !== null}
+            refreshUnavailable={deskSession?.sourceRefresh === false}
             onCheckRun={() => scrape && setWatchRunId(scrape.runId)}
             onReview={pid => run("source-review", async () => {
               adoptSession(await importFromSource(pid, taxonomy ?? undefined), false); setTab("review");
@@ -387,8 +419,8 @@ function RowEditor({ row, locale, t, disabled, busy, onSave }: {
   );
 }
 
-function SourcesPanel({ taxonomy, locale, t, disabled, onScrape, onReview, statuses, scrape, watching, onCheckRun, onTaxonomy, notice, error, onError, onNotice }: {
-  taxonomy: Taxonomy | null; locale: Locale; t: Translate; disabled: boolean;
+function SourcesPanel({ taxonomy, locale, t, disabled, refreshUnavailable = false, onScrape, onReview, statuses, scrape, watching, onCheckRun, onTaxonomy, notice, error, onError, onNotice }: {
+  taxonomy: Taxonomy | null; locale: Locale; t: Translate; disabled: boolean; refreshUnavailable?: boolean;
   statuses: SourceStatus[]; scrape: ScrapeRun | null; watching: boolean; onCheckRun: () => void;
   onReview: (providerId: string) => void;
   onScrape: (providerId: string | "all") => void;
@@ -433,7 +465,7 @@ function SourcesPanel({ taxonomy, locale, t, disabled, onScrape, onReview, statu
     <section className="org__sources" aria-labelledby="org-sources-title">
       <div className="org__session-head">
         <h2 id="org-sources-title">{t("org.sourcesTitle")}</h2>
-        <button type="button" className="btn" disabled={disabled} onClick={() => onScrape("all")}>{t("org.refreshAll")}</button>
+        <button type="button" className="btn" disabled={disabled || refreshUnavailable} onClick={() => onScrape("all")}>{t("org.refreshAll")}</button>
         <button type="button" className="btn" disabled={disabled} onClick={() => { setAdding(a => (a === "source" ? null : "source")); setEditing(null); }}>
           {t("org.addSource")}
         </button>
@@ -443,7 +475,10 @@ function SourcesPanel({ taxonomy, locale, t, disabled, onScrape, onReview, statu
       {scrape ? <div className="panel" role="status"><p>{t("org.runLine", { id: scrape.runId, state: t(scrape.status === "done" ? "org.runDone" : "org.runRunning") })}</p>
         {scrape.results.map(result => <p key={result.providerId}>{result.providerId}: {result.message}</p>)}
         {!watching && scrape.status !== "done" ? <button className="btn" onClick={onCheckRun}>{t("org.checkStatus")}</button> : null}</div> : null}
-      {disabled ? <p className="muted">{t("org.sourcesNeedServerPre")}<code>INTEREST_ATLAS_LOCAL_DESK=1</code>.</p> : null}
+      {refreshUnavailable ? <p className="muted">{locale === "de"
+        ? "In der gehosteten Demo können Quellen nicht neu abgerufen werden. Der zuletzt geprüfte Quellenlauf kann weiterhin geprüft werden; neue Abrufe laufen lokal."
+        : "Sources cannot be re-fetched in the hosted demo. The last reviewed source run can still be reviewed; new fetches run locally."}</p> : null}
+      {disabled && !refreshUnavailable ? <p className="muted">{t("org.sourcesNeedServerPre")}<code>INTEREST_ATLAS_LOCAL_DESK=1</code>.</p> : null}
 
       {adding === "source" ? (
         <SourceForm t={t} busy={busy === "src:"} disabled={disabled}
@@ -480,7 +515,7 @@ function SourcesPanel({ taxonomy, locale, t, disabled, onScrape, onReview, statu
                   onClick={() => saveSource({ id: p.id, enabled: !p.enabled })}>
                   {t(p.enabled ? "org.deactivate" : "org.activate")}
                 </button>
-                <button type="button" className="btn" disabled={disabled || p.adapter !== "implemented"} onClick={() => onScrape(p.id)}
+                <button type="button" className="btn" disabled={disabled || refreshUnavailable || p.adapter !== "implemented"} onClick={() => onScrape(p.id)}
                   title={p.adapter === "implemented" ? undefined : t("org.noAdapterTitle")}>
                   {t("org.refresh")}
                 </button>

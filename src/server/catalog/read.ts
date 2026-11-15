@@ -22,13 +22,15 @@ import {
 import { getScheduleStatus } from "../../shared/schedule.ts";
 import { validateTaxonomy } from "../../shared/taxonomy.ts";
 import type { ProviderRunResult } from "../scraping/types.ts";
+import { dataRoot } from "../data-root.ts";
+import { deskGate } from "../admin-auth.ts";
 
 /**
  * Data directory: <project root>/data, resolved from the working directory (npm scripts and
  * `next start` run there). Bundlers rewrite `new URL(…, import.meta.url)` as an asset, and a
  * statically scoped path keeps Next from tracing the whole project. Tests pass explicit files.
  */
-const dataDir = () => pathToFileURL(`${join(process.cwd(), "data")}/`);
+const dataDir = () => pathToFileURL(`${join(/*turbopackIgnore: true*/ dataRoot())}/`);
 
 export interface CatalogFiles {
   demo: URL;
@@ -231,8 +233,9 @@ export function getProviders(_request?: Request, files = defaultFiles()): Respon
 export const localDeskEnabled = () => process.env.INTEREST_ATLAS_LOCAL_DESK === "1";
 
 /** Staged run for the review desk: selected fields, issues, notes and field evidence (no raw HTML). */
-export function getLatestSourceRun(providerId: string, files = defaultFiles()): Response {
-  if (!localDeskEnabled()) return failure(404, "NOT_FOUND", "Not available.");
+export function getLatestSourceRun(providerId: string, files = defaultFiles(), request?: Request): Response {
+  const blocked = deskGate(request, false);
+  if (blocked) return blocked;
   if (!/^[a-z0-9-]{1,40}$/.test(providerId)) return failure(404, "NOT_FOUND", "Not available.");
   const run = readJson<ProviderRunResult | null>(new URL(`${providerId}-latest.json`, files.runs), null);
   if (!run) return json({ schemaVersion: 1, providerId, status: "not-run", candidates: [] });

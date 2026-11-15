@@ -5,6 +5,7 @@
 import { mkdirSync, renameSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { pathToFileURL } from "node:url";
+import { dataRoot } from "../data-root.ts";
 import { normalizeRecord } from "../normalize/to-offer.ts";
 import { PageCapReached, ProviderFetcher, type FetcherOptions } from "./fetcher.ts";
 import { getProvider, loadProviders, type ProviderConfig } from "./providers.ts";
@@ -126,7 +127,7 @@ export async function runProvider(adapter: ProviderAdapter, options: RunOptions 
   };
 }
 
-export const runsDir = () => pathToFileURL(`${join(process.cwd(), "data", "source-runs")}/`);
+export const runsDir = () => pathToFileURL(`${join(/*turbopackIgnore: true*/ dataRoot(), "source-runs")}/`);
 
 function writeAtomic(target: URL, body: unknown) {
   const tmp = new URL(`${target.pathname.split("/").pop()}.tmp`, target);

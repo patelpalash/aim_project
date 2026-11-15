@@ -80,3 +80,12 @@ npm run start
 Keep direct overview/search, the four institutions and AI/coding/gaming scope. Use German copy first, simple labels, keyboard/touch access and reduced motion. Child preferences remain in memory and can be reset. No child account or runtime AI API is needed.
 
 Keep fictional fixtures separate from reviewed source records and cached snapshots. Unknown price/date/age/access is not a confirmed fact. Registration stays with the institution through the adult/practical flow. The maintenance desk should make refresh, review and expansion understandable to a nontechnical person.
+
+### Hosted demo admin (password-protected)
+
+To use `/organizer` on a hosted deployment (e.g. Vercel), set `INTEREST_ATLAS_ADMIN_PASSWORD` (at least 8 characters) in the hosting project's environment variables and redeploy. Never commit the password or share it in chat.
+
+- Organizers sign in at `/organizer` with that shared password; the browser gets a signed, HttpOnly, SameSite=Strict cookie valid for 8 hours. "Sign out" clears it. Wrong passwords are slowed down; writes must come from the same site.
+- On Vercel (`VERCEL=1`) the file system is read-only, so the desk works on a temporary copy of `data/` in `/tmp`. Uploads, publications and theme/source edits are **temporary**: they reset on the next deployment or instance restart and are not shared between server instances. The desk shows this notice.
+- Source refresh (scraping) is local-only in the hosted demo (`409 REFRESH_LOCAL_ONLY`); stored source runs can still be reviewed.
+- This is a demo safeguard with one shared password, not individual accounts or production authentication. Without the variable (and without `INTEREST_ATLAS_LOCAL_DESK=1`) every maintenance route stays 404.
